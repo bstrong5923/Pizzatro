@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://h2xk4fexdx8d"]
+
+[ext_resource type="Texture2D" uid="uid://0dnvrs6hosd0" path="res://Assets/Sprites/ingredient_minis/0.png" id="1_3vt43"]
+[ext_resource type="Script" uid="uid://fvnsfoxogs2o" path="res://Scripts/mini.gd" id="1_xg7sj"]
+
+[node name="mini" type="Sprite2D"]
+scale = Vector2(6, 6)
+texture = ExtResource("1_3vt43")
+region_enabled = true
+region_rect = Rect2(0, 0, 5, 5)
+script = ExtResource("1_xg7sj")
