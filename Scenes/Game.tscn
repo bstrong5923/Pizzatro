@@ -7,7 +7,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
-position = Vector2(0, -110)
+position = Vector2(0, -111)
 
 [node name="card" parent="." instance=ExtResource("2_j5yw3")]
 position = Vector2(-191, 220)
