@@ -5,16 +5,17 @@ func dont_clone():
 	original = false
 
 func scatter(ingredient):
-	texture = load("res://Assets/Sprites/ingredient_minis/" + str(ingredient) + ".png") # get the correct spritesheet
 	for m in range(0, randi_range(4,7)): # create between 4 and 6 minis
 		# clone it
-		var mynode = preload("res://Scenes/mini.tscn")
+		var mynode = preload("res://Scenes/minis.tscn")
 		var instance = mynode.instantiate()
+		# get the correct spritesheet
+		instance.texture = load("res://Assets/Sprites/ingredient_minis/" + str(ingredient) + ".png")
 		# random position in the pizza
 		var x = 200
 		var y = 200
-		while pow(x, 2) + pow(y, 2) >= pow(108, 2): # while it is not in the pizza, try again
-			x = randi_range(-17, 18) * -6 - 3
+		while pow(x, 2) + pow(y, 2) >= pow(102, 2): # while it is not in the pizza, try again
+			x = randi_range(-17, 18) * -6 - 3 # position is relative to current position
 			y = randi_range(-17, 18) * -6
 		instance.position = Vector2(x, y)
 		# random mini of the ingredient
@@ -26,7 +27,4 @@ func scatter(ingredient):
 		instance.dont_clone()
 		add_child(instance)
 
-func _ready() -> void:
-	if original:
-		scatter(4)
 	

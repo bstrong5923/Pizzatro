@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var ingredient
+var ingredient = 0
 
 func _ready():
 	# random ingredient logo
@@ -13,7 +13,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if is_pixel_opaque(get_local_mouse_position()): # was I the thing that was clicked?
 			# scatter the mini ingredients
-			print("clicked!")
+			var minis = get_node("/root/Game/minis")
+			minis.scatter(ingredient)
 
 func set_ingredient(i):
 	ingredient = i;

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1haclruh7ag6"]
+
+[ext_resource type="Script" uid="uid://fvnsfoxogs2o" path="res://minis.gd" id="1_iuijf"]
+
+[node name="minis" type="Sprite2D"]
+region_enabled = true
+region_rect = Rect2(0, 0, 5, 5)
+script = ExtResource("1_iuijf")

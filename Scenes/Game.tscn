@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
 [ext_resource type="PackedScene" uid="uid://dbn4mtu14qcej" path="res://Scenes/card.tscn" id="2_j5yw3"]
-[ext_resource type="PackedScene" uid="uid://h2xk4fexdx8d" path="res://Scenes/mini.tscn" id="3_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://c1haclruh7ag6" path="res://Scenes/minis.tscn" id="3_j5yw3"]
 
 [node name="Game" type="Node2D"]
 
@@ -20,5 +20,5 @@ position = Vector2(191, 220)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="mini" parent="." instance=ExtResource("3_j5yw3")]
-position = Vector2(0, -105)
+[node name="minis" parent="." instance=ExtResource("3_j5yw3")]
+position = Vector2(0, -110)
