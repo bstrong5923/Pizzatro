@@ -1,20 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbn4mtu14qcej"]
+[gd_scene load_steps=3 format=3 uid="uid://dbn4mtu14qcej"]
 
-[ext_resource type="Texture2D" uid="uid://dngfv605pv37u" path="res://Assets/Sprites/card.png" id="1_wf8id"]
+[ext_resource type="Texture2D" uid="uid://flu7jwjjbn4n" path="res://Assets/Sprites/basecardspritesheet.png" id="1_brehn"]
 [ext_resource type="Script" uid="uid://cvee7xrh0qx0y" path="res://Scenes/card.gd" id="2_eumee"]
-[ext_resource type="Script" uid="uid://bn6ne0dgltx8" path="res://Scenes/ingredient_logo.gd" id="4_eumee"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_brehn"]
-load_path = "res://.godot/imported/ingredient_logos.png-7bf68efff150f34dc496a331c73bdc17.ctex"
 
 [node name="card" type="Sprite2D"]
 scale = Vector2(6, 6)
-texture = ExtResource("1_wf8id")
-script = ExtResource("2_eumee")
-
-[node name="ingredient_logo" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
-texture = SubResource("CompressedTexture2D_brehn")
+texture = ExtResource("1_brehn")
 region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
-script = ExtResource("4_eumee")
+region_rect = Rect2(0, 0, 30, 47)
+script = ExtResource("2_eumee")

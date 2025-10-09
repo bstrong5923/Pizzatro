@@ -6,10 +6,9 @@ var play_timer
 
 func _ready():
 	# random ingredient logo
-	var logo = $ingredient_logo
-	var frames = logo.texture.get_width() / logo.region_rect.size.x
-	var random_index = randi_range(0, frames - 1)
-	set_ingredient(random_index)
+	var frames = texture.get_width() / region_rect.size.x + texture.get_height() / region_rect.size.y
+	ingredient = randi_range(0, frames - 1)
+	set_ingredient(ingredient)
 	play_timer = get_node("/root/Game/card_timer")
 
 func _input(event: InputEvent) -> void:
@@ -21,8 +20,9 @@ func _input(event: InputEvent) -> void:
 			play_timer.cooldown()
 
 func set_ingredient(i):
-	ingredient = i;
-	
-	# make the ingredient logo show the right ingredient
-	var logo = $ingredient_logo
-	logo.show_ingredient(ingredient)
+	region_rect.position.x = i * region_rect.size.x
+	while region_rect.position.x >= texture.get_width():
+		region_rect.position.x -= texture.get_width()
+		region_rect.position.y += region_rect.size.y
+	print(region_rect.position.x)
+	print(region_rect.position.y)

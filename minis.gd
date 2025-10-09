@@ -6,8 +6,8 @@ func dont_clone():
 
 func scatter(ingredient):
 	var init_angle = randi_range(0,359)
-	var num_of_minis = randi_range(5,7)
-	for m in range(0, num_of_minis): # create between 5 and 7 minis
+	var num_of_minis = randi_range(7, 10)
+	for m in range(0, num_of_minis): # create between 7 and 10 minis
 		
 		# clone it
 		var mynode = preload("res://Scenes/minis.tscn")
