@@ -20,7 +20,7 @@ func scatter(ingredient):
 		
 		# random position in the pizza
 		var angle = init_angle + (360 / num_of_minis) * m + randi_range(-5,5) # each one has an evenly spaced angle (0, 90, 180, 270 if there were four minis)
-		var radius = pow(randi_range(36, 10404), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
+		var radius = pow(randi_range(36, pow(120,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
 		var x = int(radius * cos(deg_to_rad(angle))) # get the x and y
 		x -= x % 6
 		var y = int(radius * sin(deg_to_rad(angle)))
