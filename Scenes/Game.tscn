@@ -1,34 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=7 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
 [ext_resource type="PackedScene" uid="uid://dbn4mtu14qcej" path="res://Scenes/card.tscn" id="2_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://c1haclruh7ag6" path="res://Scenes/minis.tscn" id="3_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://cytuknnllyne4" path="res://Scenes/hand_animation.tscn" id="4_kldst"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scenes/card_timer.gd" id="5_b2bpf"]
+[ext_resource type="PackedScene" uid="uid://cu3awgnfcjhbe" path="res://Scenes/deck.tscn" id="6_7lihs"]
 
 [node name="Game" type="Node2D"]
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
-position = Vector2(0, -114)
+position = Vector2(0, -27)
+scale = Vector2(1, 1)
 
 [node name="card" parent="." instance=ExtResource("2_j5yw3")]
-position = Vector2(-191, 220)
+position = Vector2(-32, 41)
+scale = Vector2(1, 1)
 
 [node name="card2" parent="." instance=ExtResource("2_j5yw3")]
-position = Vector2(0, 220)
+position = Vector2(0, 41)
+scale = Vector2(1, 1)
 
 [node name="card3" parent="." instance=ExtResource("2_j5yw3")]
-position = Vector2(191, 220)
+position = Vector2(32, 41)
+scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
 
 [node name="minis" parent="." instance=ExtResource("3_j5yw3")]
-position = Vector2(0, -110)
+position = Vector2(0, -27)
 
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
-position = Vector2(36, -336)
+position = Vector2(6, -67)
 rotation = 3.1415927
-scale = Vector2(12, 12)
+scale = Vector2(2, 2)
 
 [node name="card_timer" type="Timer" parent="."]
 script = ExtResource("5_b2bpf")
+
+[node name="upsidedown" parent="." instance=ExtResource("6_7lihs")]
+position = Vector2(99, 41)
+scale = Vector2(1, 1)

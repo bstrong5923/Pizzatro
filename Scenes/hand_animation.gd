@@ -6,14 +6,14 @@ var ingredient
 func go(ing):
 	ingredient = ing
 	region_rect.position.x = 0
-	position.x = 36
-	position.y = -336
+	position.x = 6
+	position.y = -67
 	step = 1
 
 func _process(delta: float) -> void:
 	if step == 1:
-		position.y += 12
-		if position.y >= -74:
+		position.y += scale.x
+		if position.y >= -17:
 			step = 2
 	elif step == 2:
 		region_rect.position.x += 50
@@ -23,6 +23,6 @@ func _process(delta: float) -> void:
 			minis.scatter(ingredient)
 			step = 3
 	elif step == 3:
-		position.y -= 12
-		if position.y <= -666:
+		position.y -= scale.x
+		if position.y <= -111:
 			step = 0

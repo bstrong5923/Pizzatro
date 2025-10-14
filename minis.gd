@@ -20,17 +20,13 @@ func scatter(ingredient):
 		
 		# random position in the pizza
 		var angle = init_angle + (360 / num_of_minis) * m + randi_range(-5,5) # each one has an evenly spaced angle (0, 90, 180, 270 if there were four minis)
-		var radius = pow(randi_range(36, pow(120,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
+		var radius = pow(randi_range(1, pow(20,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
 		var x = int(radius * cos(deg_to_rad(angle))) # get the x and y
-		x -= x % 6
 		var y = int(radius * sin(deg_to_rad(angle)))
-		y -= 1 + y % 6
 		instance.position = Vector2(x, y)
 		 
 		# random rotation, then scale it and tell it it isn't the original
 		instance.rotation_degrees = randi_range(0,3) * 90
-		instance.scale.x = 6
-		instance.scale.y = 6
 		instance.dont_clone()
 		add_child(instance)
 
