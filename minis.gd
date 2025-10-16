@@ -16,6 +16,7 @@ func scatter(ingredient):
 		# get the correct spritesheet
 		instance.texture = load("res://Assets/Sprites/ingredient_minis/" + str(ingredient) + ".png")
 		# random mini of the ingredient
+		instance.region_rect.size.x = 5
 		instance.region_rect.position.x = randi_range(0,4) * 5
 		
 		# random position in the pizza
@@ -23,6 +24,7 @@ func scatter(ingredient):
 		var radius = pow(randi_range(1, pow(20,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
 		var x = int(radius * cos(deg_to_rad(angle))) # get the x and y
 		var y = int(radius * sin(deg_to_rad(angle)))
+		print("x: " + str(x) + ", y: " + str(y))
 		instance.position = Vector2(x, y)
 		 
 		# random rotation, then scale it and tell it it isn't the original
