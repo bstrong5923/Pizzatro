@@ -16,6 +16,7 @@ func scatter(ingredient):
 		# get the correct spritesheet
 		instance.texture = load("res://Assets/Sprites/ingredient_minis/" + str(ingredient) + ".png")
 		# random mini of the ingredient
+		instance.region_rect.size.x = 5
 		instance.region_rect.position.x = randi_range(0,4) * 5
 		
 		# random position in the pizza

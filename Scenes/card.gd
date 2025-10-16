@@ -8,6 +8,7 @@ func _ready():
 	# random ingredient logo
 	var frames = texture.get_width() / region_rect.size.x * texture.get_height() / region_rect.size.y
 	ingredient = randi_range(0, frames -1)
+	ingredient = randi_range(0, frames - 1)
 	set_ingredient(ingredient)
 	play_timer = get_node("/root/Game/card_timer")
 
