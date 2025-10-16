@@ -14,6 +14,6 @@ func fill_initial_deck():
 	deck_remaining = deck
 
 func draw_card():
-	var card_drawn = deck[randi_range(0, deck.size())]
+	var card_drawn = deck_remaining[randi_range(0, deck.size())]
 	deck_remaining.erase(card_drawn)
 	return card_drawn
