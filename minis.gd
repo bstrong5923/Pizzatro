@@ -4,13 +4,15 @@ var original = true
 func dont_clone():
 	original = false
 
+var mynode = preload("res://Scenes/minis.tscn")
+
+
 func scatter(ingredient):
 	var init_angle = randi_range(0,359)
 	var num_of_minis = randi_range(7, 10)
 	for m in range(0, num_of_minis): # create between 7 and 10 minis
 		
 		# clone it
-		var mynode = preload("res://Scenes/minis.tscn")
 		var instance = mynode.instantiate()
 		
 		# get the correct spritesheet

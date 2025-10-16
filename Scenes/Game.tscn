@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=8 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
-[ext_resource type="PackedScene" uid="uid://dbn4mtu14qcej" path="res://Scenes/card.tscn" id="2_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://c1haclruh7ag6" path="res://Scenes/minis.tscn" id="3_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://cytuknnllyne4" path="res://Scenes/hand_animation.tscn" id="4_kldst"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scenes/card_timer.gd" id="5_b2bpf"]
@@ -15,18 +14,6 @@ size = Vector2(30, 48)
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
 position = Vector2(0, -27)
-scale = Vector2(1, 1)
-
-[node name="card" parent="." instance=ExtResource("2_j5yw3")]
-position = Vector2(-32, 41)
-scale = Vector2(1, 1)
-
-[node name="card2" parent="." instance=ExtResource("2_j5yw3")]
-position = Vector2(0, 41)
-scale = Vector2(1, 1)
-
-[node name="card3" parent="." instance=ExtResource("2_j5yw3")]
-position = Vector2(32, 41)
 scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
