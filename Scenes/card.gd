@@ -4,13 +4,6 @@ var ingredient = 0
 
 var play_timer
 
-#func _ready():
-	## random ingredient logo
-	#var frames = texture.get_width() / region_rect.size.x * texture.get_height() / region_rect.size.y
-	#ingredient = Deck.draw_card()
-	#set_ingredient(ingredient)
-	#play_timer = get_node("/root/Game/card_timer")
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card: # on click
 		if is_pixel_opaque(get_local_mouse_position()): # was I the thing that was clicked?

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ckuhuheqo5ixf" path="res://Assets/Sprites/basecardspritesheet.png" id="1_0qqmn"]
 [ext_resource type="Script" uid="uid://cvee7xrh0qx0y" path="res://Scenes/card.gd" id="2_wf8id"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="card" type="Sprite2D"]
 texture = ExtResource("1_0qqmn")
 region_enabled = true
 region_rect = Rect2(0, 0, 30, 47)
