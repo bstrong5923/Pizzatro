@@ -1,5 +1,7 @@
 extends Node2D
 
+var card = preload("res://Scenes/card.tscn")
+
 var deck = []
 var deck_remaining = []
 
@@ -15,7 +17,8 @@ func fill_initial_deck():
 	deck_remaining = deck
 
 func add_card():
-	var instance = get_node($card)
+	var instance = card.instantiate()
+	
 	instance.set_ingredient(pick_card())
 	instance.position.x = 32
 	instance.position.y = 0

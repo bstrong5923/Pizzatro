@@ -1,15 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu3awgnfcjhbe"]
+[gd_scene load_steps=3 format=3 uid="uid://cu3awgnfcjhbe"]
 
 [ext_resource type="Texture2D" uid="uid://cr1oj7cts6m8v" path="res://Assets/Sprites/card_upsidedown.png" id="1_ukesx"]
-[ext_resource type="Texture2D" uid="uid://ckuhuheqo5ixf" path="res://Assets/Sprites/basecardspritesheet.png" id="2_nlncs"]
-[ext_resource type="Script" uid="uid://cvee7xrh0qx0y" path="res://Scenes/card.gd" id="3_xvpt4"]
+[ext_resource type="Script" uid="uid://784qyvn53dsg" path="res://Scenes/deck.gd" id="2_xvpt4"]
 
 [node name="upsidedown" type="Sprite2D"]
 scale = Vector2(6, 6)
 texture = ExtResource("1_ukesx")
-
-[node name="card" type="Sprite2D" parent="."]
-texture = ExtResource("2_nlncs")
-region_enabled = true
-region_rect = Rect2(0, 0, 30, 47)
-script = ExtResource("3_xvpt4")
+script = ExtResource("2_xvpt4")
