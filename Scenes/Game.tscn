@@ -29,4 +29,5 @@ scale = Vector2(2, 2)
 script = ExtResource("5_b2bpf")
 
 [node name="upsidedown" parent="." instance=ExtResource("5_7lihs")]
+position = Vector2(98, 39)
 scale = Vector2(1, 1)

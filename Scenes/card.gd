@@ -2,10 +2,10 @@ extends Sprite2D
 
 var ingredient = 0
 
-var play_timer
+var play_timer = preload("res://Scenes/card_timer.gd")
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card: # on click
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_card_query(): # on click
 		if is_pixel_opaque(get_local_mouse_position()): # was I the thing that was clicked?
 			# animation to add the ingredients
 			var hand = get_node("/root/Game/hand_animation")
