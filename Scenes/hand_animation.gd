@@ -9,7 +9,6 @@ func go(ing):
 	position.x = 6
 	position.y = -67
 	step = 1
-	print(Deck.deck)
 
 func _process(delta: float) -> void:
 	if step == 1:
