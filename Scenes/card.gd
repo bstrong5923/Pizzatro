@@ -22,3 +22,18 @@ func discard_self():
 	Deck.remove_card(Deck.hand.find(self))
 	Deck.fix_hand()
 	queue_free()
+	
+func on_hovered_card():
+	print("hi")
+	
+func off_hovered_card():
+	print("bye")
+	
+func _on_area_2d_mouse_entered() -> void:
+	self.scale = Vector2(1.05,1.05)
+	pass # Replace with function body.
+ 
+
+func _on_area_2d_mouse_exited() -> void:
+	self.scale = Vector2(1,1)
+	pass # Replace with function body.
