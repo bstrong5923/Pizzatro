@@ -4,12 +4,12 @@ var card = preload("res://Scenes/card.tscn")
 
 var deck = []
 var deck_remaining = []
-
 var hand = []
+var discard_pile = [] #not usin this rn
 
 func go():
 	fill_initial_deck()
-	for x in range(0,7):
+	for x in range(0,4):
 		add_card()
 	fix_hand()
 
@@ -33,10 +33,9 @@ func pick_card():
 	return card_drawn
 	
 func fix_hand():
-	print("fixing!")
 	for c in range(0, hand.size()):
 		hand[c].position.x = 30 * (hand.size() / (-2) + 0.5 * ((hand.size() + 1) % 2) + c)
+		
 func remove_card(index):
-	hand.pop_at(index)
-	print(str(hand))
+	discard_pile.push_back(hand.pop_at(index))
 	

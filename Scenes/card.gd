@@ -15,10 +15,8 @@ func _input(event: InputEvent) -> void:
 
 func set_ingredient(i):
 	ingredient = i
-	region_rect.position.x = i * region_rect.size.x
-	while region_rect.position.x >= texture.get_width():
-		region_rect.position.x -= texture.get_width()
-		region_rect.position.y += region_rect.size.y
+	var logo = $ingredient_logo
+	logo.set_ingredient(i)
 
 func discard_self():
 	Deck.remove_card(Deck.hand.find(self))
