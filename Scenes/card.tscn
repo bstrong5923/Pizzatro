@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbn4mtu14qcej"]
+[gd_scene load_steps=6 format=3 uid="uid://dbn4mtu14qcej"]
 
 [ext_resource type="Texture2D" uid="uid://dngfv605pv37u" path="res://Assets/Sprites/card_comps/card.png" id="1_brehn"]
 [ext_resource type="Script" uid="uid://cvee7xrh0qx0y" path="res://Scenes/card.gd" id="2_wf8id"]
@@ -16,3 +16,11 @@ texture = ExtResource("3_eumee")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 script = ExtResource("4_eumee")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_eumee")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
