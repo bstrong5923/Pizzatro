@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=8 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scenes/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cytuknnllyne4" path="res://Scenes/hand_animation.tscn" id="4_kldst"]
 [ext_resource type="PackedScene" uid="uid://cu3awgnfcjhbe" path="res://Scenes/deck.tscn" id="5_7lihs"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scenes/card_timer.gd" id="5_b2bpf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
+size = Vector2(29, 47)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7lihs")
@@ -28,6 +31,13 @@ scale = Vector2(2, 2)
 [node name="card_timer" type="Timer" parent="."]
 script = ExtResource("5_b2bpf")
 
-[node name="upsidedown" parent="." instance=ExtResource("5_7lihs")]
+[node name="deck" parent="." instance=ExtResource("5_7lihs")]
 position = Vector2(98, 39)
 scale = Vector2(1, 1)
+
+[node name="Area2D" type="Area2D" parent="deck"]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deck/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_7lihs")
