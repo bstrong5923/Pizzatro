@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://47vmngv3hwa4"]
 
-[ext_resource type="Texture2D" uid="uid://dvjfxlh47i1ge" path="res://Assets/Sprites/pie.png" id="1_6jn70"]
+[ext_resource type="Texture2D" uid="uid://dm80t44qgd1dr" path="res://Assets/Sprites/pie.png" id="1_6jn70"]
 
 [node name="pie" type="Sprite2D"]
 scale = Vector2(6, 6)

@@ -9,10 +9,8 @@ func _input(event: InputEvent) -> void:
 		if is_pixel_opaque(get_local_mouse_position()): # was I the thing that was clicked?
 			# animation to add the ingredients
 			var hand = get_node("/root/Game/hand_animation")
-			print(ingredient)
+			discard_self()
 			hand.go(ingredient)
-			queue_free()
-			Deck.fix_hand()
 			play_timer.cooldown()
 
 func set_ingredient(i):
@@ -21,3 +19,8 @@ func set_ingredient(i):
 	while region_rect.position.x >= texture.get_width():
 		region_rect.position.x -= texture.get_width()
 		region_rect.position.y += region_rect.size.y
+
+func discard_self():
+	Deck.remove_card(Deck.hand.find(self))
+	Deck.fix_hand()
+	queue_free()

@@ -9,7 +9,7 @@ var hand = []
 
 func go():
 	fill_initial_deck()
-	for x in range(0,3):
+	for x in range(0,7):
 		add_card()
 	fix_hand()
 
@@ -27,14 +27,16 @@ func add_card():
 	add_child(instance)
 	hand.push_back(instance)
 	
-func fix_hand():
-	print("fixing!")
-	add_card()
-	for c in range(0, hand.size()):
-		hand[c].position.x = 30 * (hand.size() / (-2) + 0.5 * ((hand.size() + 1) % 2) + c)
-		
-
 func pick_card():
 	var card_drawn = deck_remaining[randi_range(0, deck.size() - 1)]
 	deck_remaining.erase(card_drawn)
 	return card_drawn
+	
+func fix_hand():
+	print("fixing!")
+	for c in range(0, hand.size()):
+		hand[c].position.x = 30 * (hand.size() / (-2) + 0.5 * ((hand.size() + 1) % 2) + c)
+func remove_card(index):
+	hand.pop_at(index)
+	print(str(hand))
+	
