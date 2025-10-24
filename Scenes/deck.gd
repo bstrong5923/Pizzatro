@@ -28,7 +28,6 @@ func add_card():
 	hand.push_back(instance)
 	
 func pick_card():
-	print(deck_remaining)
 	var card_drawn = deck_remaining[randi_range(0, deck_remaining.size() - 1)]
 	deck_remaining.erase(card_drawn)
 	return card_drawn
@@ -41,10 +40,8 @@ func fix_hand():
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
 	
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#generate_card()
 
-func generate_card():
-	add_card()
-	fix_hand()
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		Deck.add_card()
+		Deck.fix_hand()
