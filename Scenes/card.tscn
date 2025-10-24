@@ -3,18 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://dngfv605pv37u" path="res://Assets/Sprites/card_comps/card.png" id="1_brehn"]
 [ext_resource type="Script" uid="uid://cvee7xrh0qx0y" path="res://Scenes/card.gd" id="2_wf8id"]
 [ext_resource type="Texture2D" uid="uid://ccp3n4a2qtcg6" path="res://Assets/Sprites/card_comps/ingredient_logos.png" id="3_eumee"]
-[ext_resource type="Script" uid="uid://bn6ne0dgltx8" path="res://Scenes/ingredient_logo.gd" id="4_eumee"]
+[ext_resource type="Script" path="res://Scenes/ingredient_logo.gd" id="4_eumee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eumee"]
+size = Vector2(30, 48)
 
 [node name="card" type="Sprite2D"]
 texture = ExtResource("1_brehn")
-region_rect = Rect2(0, 0, 30, 47)
 script = ExtResource("2_wf8id")
 
 [node name="ingredient_logo" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
 texture = ExtResource("3_eumee")
 region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
+region_rect = Rect2(16, 0, 16, 16)
 script = ExtResource("4_eumee")
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -48,4 +48,3 @@ func remove_card(index):
 func generate_card():
 	add_card()
 	fix_hand()
-	

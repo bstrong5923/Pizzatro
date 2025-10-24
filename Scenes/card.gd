@@ -22,7 +22,6 @@ func discard_self():
 	Deck.remove_card(Deck.hand.find(self))
 	Deck.fix_hand()
 	queue_free()
-<<<<<<< Updated upstream
 	
 func on_hovered_card():
 	print("hi")
@@ -38,6 +37,3 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	self.scale = Vector2(1,1)
 	pass # Replace with function body.
-=======
-	Deck.generate_card()
->>>>>>> Stashed changes
