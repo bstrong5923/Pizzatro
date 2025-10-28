@@ -9,6 +9,6 @@ func set_price(p):
 func display_price():
 	var label = Label.new()
 	label.text = "$" + str(price)
-	print(label.get_theme_font_size(label.text))
+	label.add_theme_font_size_override("font_size", 6)
 	add_child(label)
-	label.position = position
+	label.position = Vector2(-3,-5)
