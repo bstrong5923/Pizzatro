@@ -9,7 +9,7 @@ var discard_pile = [] #not usin this rn
 
 func go():
 	fill_initial_deck()
-	for x in range(0,4):
+	for x in range(0, 1):
 		add_card()
 	fix_hand()
 

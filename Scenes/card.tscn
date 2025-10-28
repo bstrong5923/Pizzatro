@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbn4mtu14qcej"]
+[gd_scene load_steps=8 format=3 uid="uid://dbn4mtu14qcej"]
 
 [ext_resource type="Texture2D" uid="uid://dngfv605pv37u" path="res://Assets/Sprites/card_comps/card.png" id="1_brehn"]
 [ext_resource type="Script" uid="uid://cvee7xrh0qx0y" path="res://Scenes/card.gd" id="2_wf8id"]
 [ext_resource type="Texture2D" uid="uid://ccp3n4a2qtcg6" path="res://Assets/Sprites/card_comps/ingredient_logos.png" id="3_eumee"]
-[ext_resource type="Script" path="res://Scenes/ingredient_logo.gd" id="4_eumee"]
+[ext_resource type="Script" uid="uid://bn6ne0dgltx8" path="res://Scenes/ingredient_logo.gd" id="4_eumee"]
+[ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="5_bnspj"]
+[ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scenes/price_circle.gd" id="6_xnv4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eumee"]
 size = Vector2(30, 48)
@@ -18,6 +20,11 @@ texture = ExtResource("3_eumee")
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 16)
 script = ExtResource("4_eumee")
+
+[node name="PriceCircle" type="Sprite2D" parent="."]
+position = Vector2(11, -20)
+texture = ExtResource("5_bnspj")
+script = ExtResource("6_xnv4g")
 
 [node name="Area2D" type="Area2D" parent="."]
 
