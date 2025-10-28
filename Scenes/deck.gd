@@ -9,7 +9,7 @@ var discard_pile = [] #not usin this rn
 
 func go():
 	fill_initial_deck()
-	for x in range(0,4):
+	for x in range(0,8):
 		add_card()
 	fix_hand()
 
@@ -28,23 +28,24 @@ func add_card():
 	hand.push_back(instance)
 	
 func pick_card():
-	print(deck_remaining)
 	var card_drawn = deck_remaining[randi_range(0, deck_remaining.size() - 1)]
 	deck_remaining.erase(card_drawn)
 	return card_drawn
 	
 func fix_hand():
+	var center_index = (hand.size()-1)/2.0
+	var max_rotate = .5
 	for c in range(0, hand.size()):
 		@warning_ignore("integer_division")
-		hand[c].position.x = 30 * (hand.size() / (-2) + 0.5 * ((hand.size() + 1) % 2) + c)
+		hand[c].position.x = (30 * clamp(1.0 - (hand.size() -1) * .05 , .3 ,1.0)) * (hand.size() / (-2.0) + 0.5 * ((hand.size() + 1) % 2) + c)if center_index != 0 else 0
+		hand[c].position.y = 37+ (2*abs((- 1* hand.size() /2.0) + c))
+		hand[c].rotation = max_rotate * (c - center_index) / center_index if center_index != 0 else 0
 		
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
 	
-#func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#generate_card()
 
-func generate_card():
-	add_card()
-	fix_hand()
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		Deck.add_card()
+		Deck.fix_hand()
