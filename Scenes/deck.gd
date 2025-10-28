@@ -26,6 +26,13 @@ func add_card():
 	instance.position = Vector2(0, 39)
 	add_child(instance)
 	hand.push_back(instance)
+#adds specfic card with region value i
+func add_spec_card(i):
+	var instance = card.instantiate()
+	instance.set_ingredient(i)
+	instance.position = Vector2(0, 39)
+	add_child(instance)
+	hand.push_back(instance)
 	
 func pick_card():
 	var card_drawn = deck_remaining[randi_range(0, deck_remaining.size() - 1)]
@@ -53,5 +60,6 @@ func remove_card(index):
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		
 		Deck.add_card()
 		Deck.fix_hand()
