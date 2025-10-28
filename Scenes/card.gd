@@ -11,6 +11,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		discard_self()
 		hand.go(ingredient)
 		play_timer.cooldown()
+		var checker = get_node("card_function")
+		checker.set_card(ingredient)
+		checker.check_function()
 
 func set_ingredient(i):
 	ingredient = i
@@ -20,7 +23,10 @@ func set_ingredient(i):
 	# get the price
 	var pricetag = $price_circle
 	pricetag.set_price(3)
-
+	
+func get_ingredient():
+	return ingredient
+	
 func discard_self():
 	Deck.remove_card(Deck.hand.find(self))
 	Deck.fix_hand()
