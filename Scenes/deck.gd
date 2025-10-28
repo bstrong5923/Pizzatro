@@ -18,12 +18,15 @@ func fill_initial_deck():
 	for ingredient in range(0,6):
 		for x in range(0,4):
 			deck.push_back(ingredient)
-	deck_remaining = deck
+	deck_remaining = []
+	for x in range(0, deck.size()):
+		deck_remaining.push_back(deck[x])
 
 func add_card():
 	var instance = card.instantiate()
 	instance.set_ingredient(pick_card())
 	instance.position = Vector2(0, 39)
+	instance.change_scale(1)
 	add_child(instance)
 	hand.push_back(instance)
 	
@@ -40,11 +43,11 @@ func fix_hand():
 	for c in range(0, hand.size()):
 		@warning_ignore("integer_division")
 		if (hand.size()-1) % 2 == 0 :
-			hand[c].position.x = (30 * clamp(1.0 - (hand.size() -1) * .05 , .3 ,1.0)) * (hand.size() / (-2.0) + 0.5 * ((hand.size() + 1) % 2) + c) + (15 - clamp(c, 0, 15))
+			hand[c].position.x = 6 * ((30 * clamp(1.0 - (hand.size() -1) * .05 , .3 ,1.0)) * (hand.size() / (-2.0) + 0.5 * ((hand.size() + 1) % 2) + c) + (15 - clamp(c, 0, 15)))
 		else:
-			hand[c].position.x = (30 * clamp(1.0 - (hand.size() -1) * .05 , .3 ,1.0)) * (hand.size() / (-2.0) + 0.5 * ((hand.size() + 1) % 2) + c) 
+			hand[c].position.x = 6 * ((30 * clamp(1.0 - (hand.size() -1) * .05 , .3 ,1.0)) * (hand.size() / (-2.0) + 0.5 * ((hand.size() + 1) % 2) + c))
 		
-		hand[c].position.y = 37+ (2*abs((- 1* hand.size() /2.0) + c))
+		hand[c].position.y = 6 * (37+ (2*abs((- 1* hand.size() /2.0) + c)))
 		hand[c].rotation = max_rotate * (c - center_index) / center_index if center_index != 0 else 0
 	
 func remove_card(index):

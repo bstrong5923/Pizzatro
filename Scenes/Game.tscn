@@ -11,6 +11,7 @@
 size = Vector2(29, 47)
 
 [node name="Game" type="Node2D"]
+scale = Vector2(5, 5)
 script = ExtResource("1_7lihs")
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
@@ -18,7 +19,6 @@ position = Vector2(0, -27)
 scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
 
 [node name="minis" parent="." instance=ExtResource("3_j5yw3")]
 position = Vector2(0, -27)
