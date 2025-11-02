@@ -5,13 +5,12 @@ var ingredient = 0
 var play_timer = preload("res://Scenes/card_timer.gd")
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		# animation to add the ingredients
-		var hand = get_node("/root/Game/hand_animation")
-		discard_self()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
+		var hand = get_node("/root/Game/hand_animation") # animation to add the ingredients
 		hand.go(ingredient)
 		play_timer.cooldown()
-		var checker = get_node("card_function")
+		discard_self() # discard this one
+		var checker = get_node("card_function") # do the function
 		checker.set_card(ingredient)
 		checker.check_function()
 
@@ -33,7 +32,7 @@ func discard_self():
 	queue_free()
 	
 func _on_area_2d_mouse_entered() -> void:
-	change_scale(1.1)
+	change_scale(1.5)
  
 func _on_area_2d_mouse_exited() -> void:
 	change_scale(1)

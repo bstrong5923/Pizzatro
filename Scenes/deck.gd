@@ -9,7 +9,7 @@ var discard_pile = [] #not usin this rn
 
 func go():
 	fill_initial_deck()
-	for x in range(0, 1):
+	for x in range(0, 2):
 		add_card()
 	fix_hand()
 
@@ -34,6 +34,7 @@ func add_spec_card(i):
 	var instance = card.instantiate()
 	instance.set_ingredient(i)
 	instance.position = Vector2(0, 39)
+	instance.change_scale(1)
 	add_child(instance)
 	hand.push_back(instance)
 	
@@ -43,20 +44,19 @@ func pick_card():
 	return card_drawn
 	
 func fix_hand():
-	var center_index = (hand.size()-1)/2.0
-	var max_rotate = hand.size() * .07
-	if (hand.size() > 6):
-		max_rotate = .5
-	for c in range(0, hand.size()):
+	var h = hand.size()
+	print(h)
+	var max_rotate = 0.5 - 0.5 / h
+	for x in range(0, h):
 		@warning_ignore("integer_division")
-		if (hand.size()-1) % 2 == 0 :
-			hand[c].position.x = 6 * ((30 * clamp(1.0 - (hand.size() -1) * .05 , .3 ,1.0)) * (hand.size() / (-2.0) + 0.5 * ((hand.size() + 1) % 2) + c) + (15 - clamp(c, 0, 15)))
+		if (h-1) % 2 == 0 :
+			hand[x].position.x = 6 * ((30 * clamp(1.0 - (h -1) * .05 , .3 ,1.0)) * (h / (-2.0) + 0.5 * ((h + 1) % 2) + x) + (15 - clamp(x, 0, 15)))
 		else:
-			hand[c].position.x = 6 * ((30 * clamp(1.0 - (hand.size() -1) * .05 , .3 ,1.0)) * (hand.size() / (-2.0) + 0.5 * ((hand.size() + 1) % 2) + c))
+			hand[x].position.x = 6 * ((30 * clamp(1.0 - (h -1) * .05 , .3 ,1.0)) * (h / (-2.0) + 0.5 * ((h + 1) % 2) + x))
 		
-		hand[c].position.y = 6 * (37+ (2*abs((- 1* hand.size() /2.0) + c)))
-		hand[c].rotation = max_rotate * (c - center_index) / center_index if center_index != 0 else 0
-	
+		hand[x].position.y = 6 * (37 + (2 * abs(x + 0.5 - h / 2.0)))
+		hand[x].rotation = 2 * max_rotate * (x + 0.5 - h / 2.0) / (h - 1) if h != 1 else 0
+		
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
 	
