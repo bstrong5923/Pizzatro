@@ -1,0 +1,163 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq38bliobtet3"]
+
+[ext_resource type="FontFile" uid="uid://drry22lxnkvtr" path="res://Assets/fonts/pixelated_elegance.ttf" id="1_534sb"]
+[ext_resource type="Script" uid="uid://bt1xfxd2qw5ok" path="res://Scenes/points.gd" id="2_27lq0"]
+
+[node name="Labels" type="Node2D"]
+
+[node name="Money" type="Label" parent="."]
+offset_left = -112.0
+offset_top = 196.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(1, 0.8509804, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "$15"
+horizontal_alignment = 2
+
+[node name="Points" type="Node2D" parent="."]
+script = ExtResource("2_27lq0")
+
+[node name="Sweet" type="Node2D" parent="Points"]
+position = Vector2(0, -32)
+
+[node name="Label" type="Label" parent="Points/Sweet"]
+offset_left = -320.0
+offset_top = 36.0
+offset_right = -168.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.8509804, 0, 0.8509804, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "Sweet"
+metadata/_edit_use_anchors_ = true
+
+[node name="Count" type="Label" parent="Points/Sweet"]
+offset_left = -144.0
+offset_top = 36.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.8509804, 0, 0.8509804, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "408.3M"
+horizontal_alignment = 2
+
+[node name="Spicy" type="Node2D" parent="Points"]
+position = Vector2(0, -32)
+
+[node name="Label" type="Label" parent="Points/Spicy"]
+offset_left = -320.0
+offset_top = 68.0
+offset_right = -168.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0.8509804, 0.28235295, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "Spicy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Count" type="Label" parent="Points/Spicy"]
+offset_left = -144.0
+offset_top = 68.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0.8509804, 0.28235295, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "18"
+horizontal_alignment = 2
+
+[node name="Salty" type="Node2D" parent="Points"]
+position = Vector2(0, -32)
+
+[node name="Label" type="Label" parent="Points/Salty"]
+offset_left = -320.0
+offset_top = 100.0
+offset_right = -168.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.98039216, 0.88235295, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "Salty"
+metadata/_edit_use_anchors_ = true
+
+[node name="Count" type="Label" parent="Points/Salty"]
+offset_left = -144.0
+offset_top = 100.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.98039216, 0.88235295, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "306"
+horizontal_alignment = 2
+
+[node name="Sour" type="Node2D" parent="Points"]
+position = Vector2(0, -32)
+
+[node name="Label" type="Label" parent="Points/Sour"]
+offset_left = -320.0
+offset_top = 132.0
+offset_right = -168.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0.101960786, 0.7607843, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "Sour"
+metadata/_edit_use_anchors_ = true
+
+[node name="Count" type="Label" parent="Points/Sour"]
+offset_left = -144.0
+offset_top = 132.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0.101960786, 0.7607843, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 2
+
+[node name="Savory" type="Node2D" parent="Points"]
+position = Vector2(0, -32)
+
+[node name="Label" type="Label" parent="Points/Savory"]
+offset_left = -320.0
+offset_top = 164.0
+offset_right = -148.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0, 0.023529412, 0.6509804, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "Savory"
+metadata/_edit_use_anchors_ = true
+
+[node name="Count" type="Label" parent="Points/Savory"]
+offset_left = -144.0
+offset_top = 164.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(0, 0.023529412, 0.6509804, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "416K"
+horizontal_alignment = 2
+
+[node name="Total" type="Node2D" parent="Points"]
+position = Vector2(0, -32)
+
+[node name="Label" type="Label" parent="Points/Total"]
+offset_left = -320.0
+offset_top = 195.0
+offset_right = -148.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0, 0.023529412, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "Total"
+metadata/_edit_use_anchors_ = true
+
+[node name="Count" type="Label" parent="Points/Total"]
+offset_left = -144.0
+offset_top = 195.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0, 0.023529412, 0, 1)
+theme_override_fonts/font = ExtResource("1_534sb")
+theme_override_font_sizes/font_size = 36
+text = "408.7M"
+horizontal_alignment = 2

@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=9 format=3 uid="uid://b1wv8w4eqxgld"]
 
-[ext_resource type="Script" path="res://Scenes/game.gd" id="1_7lihs"]
+[ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scenes/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
 [ext_resource type="PackedScene" uid="uid://c1haclruh7ag6" path="res://Scenes/minis.tscn" id="3_j5yw3"]
-[ext_resource type="PackedScene" path="res://Scenes/hand_animation.tscn" id="4_kldst"]
-[ext_resource type="PackedScene" path="res://Scenes/deck.tscn" id="5_7lihs"]
+[ext_resource type="PackedScene" uid="uid://cytuknnllyne4" path="res://Scenes/hand_animation.tscn" id="4_kldst"]
+[ext_resource type="PackedScene" uid="uid://cu3awgnfcjhbe" path="res://Scenes/deck.tscn" id="5_7lihs"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scenes/card_timer.gd" id="5_b2bpf"]
+[ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(29, 47)
@@ -41,5 +42,9 @@ position = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deck/Area2D"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_7lihs")
+
+[node name="Labels" parent="." instance=ExtResource("7_fgofq")]
+position = Vector2(115.2, -64.799995)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
