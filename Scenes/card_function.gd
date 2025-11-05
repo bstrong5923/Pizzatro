@@ -4,7 +4,7 @@ var this_card = 0
 var card = preload("res://Scenes/card.tscn")
 ## add functions for different cards
 # i value legend:
-# 0 = pep
+# 0 = pepperoni
 # 1 = pineapple
 # 2 = mushroom
 # 3 = tomato
