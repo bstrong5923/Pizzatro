@@ -6,6 +6,7 @@ var deck = []
 var deck_remaining = []
 var hand = []
 var discard_pile = [] #not usin this rn
+var card_highlighted = 0
 
 func go():
 	fill_initial_deck()
@@ -51,6 +52,7 @@ func fix_hand():
 		@warning_ignore("integer_division")
 		if (h-1) % 2 == 0 :
 			hand[x].position.x = 6 * ((30 * clamp(1.0 - (h -1) * .05 , .3 ,1.0)) * (h / (-2.0) + 0.5 * ((h + 1) % 2) + x) + (15 - clamp(x, 0, 15)))
+			hand[x].z_index = x
 		else:
 			hand[x].position.x = 6 * ((30 * clamp(1.0 - (h -1) * .05 , .3 ,1.0)) * (h / (-2.0) + 0.5 * ((h + 1) % 2) + x))
 		

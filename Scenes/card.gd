@@ -3,6 +3,9 @@ extends Node2D
 var ingredient = 0
 
 var play_timer = preload("res://Scenes/card_timer.gd")
+func _ready() -> void:
+	get_viewport().set_physics_object_picking_sort(true)
+	get_viewport().set_physics_object_picking_first_only(true)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
@@ -32,10 +35,13 @@ func discard_self():
 	queue_free()
 	
 func _on_area_2d_mouse_entered() -> void:
-	change_scale(1.5)
+	change_scale(1.05)
+
+
+	
  
 func _on_area_2d_mouse_exited() -> void:
-	change_scale(1)
+		change_scale(1)
 	
 func change_scale(n):
 	$price_circle.set_size(n)
