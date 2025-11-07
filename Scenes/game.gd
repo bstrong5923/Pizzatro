@@ -3,3 +3,4 @@ extends Node2D
 
 func _ready() -> void:
 	Deck.go()
+	Balance.set_balance(15)
