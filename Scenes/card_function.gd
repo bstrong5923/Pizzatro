@@ -28,12 +28,27 @@ func set_card(i):
 func check_function():
 	# pepperoni
 	if ingredient == 0:
-		scor.add_points(3, 1)
+		scor.add_points(5, 2)
 		scor.add_points(2, 4)
 
 	# pineapple
 	elif ingredient == 1:
-		Deck.fix_hand()
+		scor.add_points(5, 0)
+		
 	# mushroom
 	elif ingredient == 2:
+		scor.add_points(4, 4)
+	# tomater
+	elif ingredient == 3:
+		scor.add_points(2, 3)
+		scor.add_points(1, 0)
+	#jalapeno
+	elif ingredient == 4:
+		scor.add_points(6, 1)
+	#basil
+	elif ingredient == 5:
+		for x in range(2):
+			var a = randi_range(0, 5)
+			Deck.add_spec_card(a)
 		Deck.fix_hand()
+		

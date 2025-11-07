@@ -30,4 +30,4 @@ func add_points(i, f):
 	elif (f == 4):
 		scoreType = "Savory"
 	label_node = get_node_or_null(str(scoreType) + "/Count")
-	label_node.text = str(score)
+	label_node.text = str(flavor_value[f])
