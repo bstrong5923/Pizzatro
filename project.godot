@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Deck="*res://Scenes/deck.gd"
+Score="*res://Scenes/score.gd"
 
 [rendering]
 

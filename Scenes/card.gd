@@ -36,9 +36,6 @@ func discard_self():
 	
 func _on_area_2d_mouse_entered() -> void:
 	change_scale(1.05)
-
-
-	
  
 func _on_area_2d_mouse_exited() -> void:
 		change_scale(1)

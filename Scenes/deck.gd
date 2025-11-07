@@ -9,6 +9,7 @@ var discard_pile = [] #not usin this rn
 var card_highlighted = 0
 
 func go():
+	z_index = -999
 	fill_initial_deck()
 	for x in range(0, 2):
 		add_card()
@@ -17,7 +18,7 @@ func go():
 func fill_initial_deck():
 	deck = []
 	for ingredient in range(0,6):
-		for x in range(0,4):
+		for x in range(0,2):
 			deck.push_back(ingredient)
 	deck_remaining = []
 	for x in range(0, deck.size()):
@@ -46,7 +47,6 @@ func pick_card():
 	
 func fix_hand():
 	var h = hand.size()
-	print(h)
 	var max_rotate = 0.5 - 0.5 / h
 	for x in range(0, h):
 		@warning_ignore("integer_division")
@@ -55,8 +55,11 @@ func fix_hand():
 			hand[x].z_index = x
 		else:
 			hand[x].position.x = 6 * ((30 * clamp(1.0 - (h -1) * .05 , .3 ,1.0)) * (h / (-2.0) + 0.5 * ((h + 1) % 2) + x))
-		
-		hand[x].position.y = 6 * (37 + (2 * abs(x + 0.5 - h / 2.0)))
+			hand[x].z_index = x
+		if x!= 0 and x!= h-1:
+			hand[x].position.y = 6 * (37 + (2 * abs(x + 0.5 - h / 2.0))) 
+		else:
+			hand[x].position.y = (6 * (37 + (2 * abs(x + 0.5 - h / 2.0)))) + 25
 		hand[x].rotation = 2 * max_rotate * (x + 0.5 - h / 2.0) / (h - 1) if h != 1 else 0
 		
 func remove_card(index):
@@ -68,3 +71,5 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		
 		Deck.add_card()
 		Deck.fix_hand()
+		if Deck.deck_remaining.size() <= 0:
+			visible = false

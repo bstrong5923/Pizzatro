@@ -1,4 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=10 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scenes/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -7,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cu3awgnfcjhbe" path="res://Scenes/deck.tscn" id="5_7lihs"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scenes/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
+[ext_resource type="Script" uid="uid://duia8uj4nooam" path="res://Scenes/score.gd" id="7_2irst"]
+[ext_resource type="Script" uid="uid://dgasvvy8h7dvu" path="res://Scenes/score_visual.gd" id="8_bf53h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(29, 47)
@@ -46,5 +49,10 @@ shape = SubResource("RectangleShape2D_7lihs")
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
 position = Vector2(115.2, -64.799995)
 scale = Vector2(0.2, 0.2)
+[node name="score" type="Node2D" parent="."]
+script = ExtResource("7_2irst")
+
+[node name="score_visual" type="Sprite2D" parent="score"]
+script = ExtResource("8_bf53h")
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
