@@ -2,7 +2,8 @@ extends Node2D
 
 var this_card = 0
 var card = preload("res://Scenes/card.tscn")
-
+@onready
+var scor = get_node("/root/Game/Labels/Score")
 ## add functions for different cards
 # i value legend:
 # 0 = pepperoni
@@ -28,8 +29,8 @@ func check_function():
 	
 	# pepperoni
 	if this_card == 0:
-		Score.add_points(3, 1)
-		Score.add_points(2, 4)
+		scor.add_points(3, 1)
+		#Score.add_points(2, 4)
 		
 	# pineapple
 	if this_card == 1:
