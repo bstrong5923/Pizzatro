@@ -13,6 +13,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		hand.go(ingredient)
 		play_timer.cooldown() # wait for animation to finish before you can click another
 		discard_self() # discard this one
+		Balance.change_balance(-3)
 		var checker = get_node("card_function") # do the function
 		checker.set_card(ingredient)
 		checker.check_function()
