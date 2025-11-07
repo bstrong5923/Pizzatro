@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq38bliobtet3"]
+[gd_scene load_steps=4 format=3 uid="uid://cq38bliobtet3"]
 
 [ext_resource type="FontFile" uid="uid://drry22lxnkvtr" path="res://Assets/fonts/pixelated_elegance.ttf" id="1_534sb"]
 [ext_resource type="Script" uid="uid://duia8uj4nooam" path="res://Scenes/score.gd" id="2_27lq0"]
+[ext_resource type="Script" uid="uid://2l0cfardyn42" path="res://Scenes/balance.gd" id="2_aeoro"]
 
 [node name="Labels" type="Node2D"]
 
-[node name="Money" type="Label" parent="."]
+[node name="Balance" type="Label" parent="."]
 offset_left = -112.0
 offset_top = 196.0
 offset_bottom = 229.0
@@ -14,6 +15,7 @@ theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
 text = "$15"
 horizontal_alignment = 2
+script = ExtResource("2_aeoro")
 
 [node name="Score" type="Node2D" parent="."]
 script = ExtResource("2_27lq0")
@@ -39,7 +41,7 @@ offset_bottom = 69.0
 theme_override_colors/font_color = Color(0.8509804, 0, 0.8509804, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "408.3M"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Spicy" type="Node2D" parent="Score"]
@@ -63,7 +65,7 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0.8509804, 0.28235295, 0, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "18"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Salty" type="Node2D" parent="Score"]
@@ -87,7 +89,7 @@ offset_bottom = 133.0
 theme_override_colors/font_color = Color(0.98039216, 0.88235295, 0, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "306"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Sour" type="Node2D" parent="Score"]
@@ -135,7 +137,7 @@ offset_bottom = 197.0
 theme_override_colors/font_color = Color(0, 0.023529412, 0.6509804, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "416K"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Total" type="Node2D" parent="Score"]
@@ -159,5 +161,5 @@ offset_bottom = 228.0
 theme_override_colors/font_color = Color(0, 0.023529412, 0, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "408.7M"
+text = "0"
 horizontal_alignment = 2
