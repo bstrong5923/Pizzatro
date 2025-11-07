@@ -4,10 +4,10 @@ var score
 var flavor_value = [0, 0, 0, 0, 0]
 # index of different flavors
 # 0 = sweet
-# 1 = savory
-# 2 = sour
-# 3 = spicy
-# 4 = salty
+# 1 = spicy
+# 2 = salty
+# 3 = sour
+# 4 = savory
 # flavor_value[2] += 5
 func get_score():
 	return score
