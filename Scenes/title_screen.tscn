@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://pmtdc5lwg4ng"]
+
+[ext_resource type="Script" uid="uid://c3f5svwhm42im" path="res://Scenes/title_screen.gd" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://dhyrbs6aaa68j" path="res://Assets/Sprites/titlescreen.png" id="2_p3fck"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_klylv")
+
+[node name="start_button" type="Button" parent="."]
+top_level = true
+offset_left = 461.0
+offset_top = 181.0
+offset_right = 720.0
+offset_bottom = 254.0
+
+[node name="load_button" type="Button" parent="."]
+top_level = true
+offset_left = 472.0
+offset_top = 277.0
+offset_right = 687.0
+offset_bottom = 344.0
+
+[node name="quit_button" type="Button" parent="."]
+top_level = true
+offset_left = 460.0
+offset_top = 363.0
+offset_right = 675.0
+offset_bottom = 435.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.25, 323.99997)
+scale = Vector2(5.7625003, 6.48)
+texture = ExtResource("2_p3fck")
+
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
