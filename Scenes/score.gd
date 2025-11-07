@@ -16,7 +16,7 @@ func get_score():
 
 func add_points(i, f):
 	print("add points called")
-	score = score + i
+	flavor_value[f] += i
 	var scoreType
 	#shitty chain of ifs for now, will find better way to do this in the future
 	if (f == 0):
