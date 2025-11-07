@@ -16,10 +16,10 @@ var scor = get_node("/root/Game/Labels/Score")
 
 # index of different flavors
 # 0 = sweet
-# 1 = savory
-# 2 = sour
-# 3 = spicy
-# 4 = salty
+# 1 = spicy
+# 2 = salty
+# 3 = sour
+# 4 = savory
 
 
 func set_card(i):
@@ -29,8 +29,8 @@ func check_function():
 	
 	# pepperoni
 	if this_card == 0:
-		scor.add_points(3, 1)
-		#Score.add_points(2, 4)
+		scor.add_points(3, 2)
+		scor.add_points(2, 4)
 		
 	# pineapple
 	if this_card == 1:

@@ -17,12 +17,17 @@ func get_score():
 func add_points(i, f):
 	print("add points called")
 	score = score + i
-	label_node = get_node_or_null("Salty/Count")
-	if label_node:
-		print("Hello!")
-	else:
-		print("nah")
-	$Salty/Count.text = "Hello!"
-	if label_node:
-		label_node.text = str(score)
-	#get_node("Salty/Count").text = "Hello!"
+	var scoreType
+	#shitty chain of ifs for now, will find better way to do this in the future
+	if (f == 0):
+		scoreType = "Sweet"
+	elif (f == 1):
+		scoreType = "Spicy"
+	elif (f == 2):
+		scoreType = "Salty"
+	elif (f == 3):
+		scoreType = "Sour"
+	elif (f == 4):
+		scoreType = "Savory"
+	label_node = get_node_or_null(str(scoreType) + "/Count")
+	label_node.text = str(score)

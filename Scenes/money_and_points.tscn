@@ -39,7 +39,7 @@ offset_bottom = 69.0
 theme_override_colors/font_color = Color(0.8509804, 0, 0.8509804, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "408.3M"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Spicy" type="Node2D" parent="Score"]
@@ -63,7 +63,7 @@ offset_bottom = 101.0
 theme_override_colors/font_color = Color(0.8509804, 0.28235295, 0, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "18"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Salty" type="Node2D" parent="Score"]
@@ -87,7 +87,7 @@ offset_bottom = 133.0
 theme_override_colors/font_color = Color(0.98039216, 0.88235295, 0, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "306"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Sour" type="Node2D" parent="Score"]
@@ -135,7 +135,7 @@ offset_bottom = 197.0
 theme_override_colors/font_color = Color(0, 0.023529412, 0.6509804, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
-text = "416K"
+text = "0"
 horizontal_alignment = 2
 
 [node name="Total" type="Node2D" parent="Score"]
