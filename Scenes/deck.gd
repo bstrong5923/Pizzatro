@@ -44,7 +44,7 @@ func pick_card():
 	var card_drawn = deck_remaining[randi_range(0, deck_remaining.size() - 1)]
 	deck_remaining.erase(card_drawn)
 	return card_drawn
-	
+
 func fix_hand():
 	var h = hand.size()
 	var max_rotate = 0.5 - 0.5 / h
