@@ -11,4 +11,4 @@ func change_balance(v):
 	display_balance()
 
 func display_balance():
-	text = str(balance)
+	text = "$" + str(balance)
