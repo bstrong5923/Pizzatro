@@ -3,6 +3,8 @@ extends Node2D
 var ingredient = 0
 
 var play_timer = preload("res://Scenes/card_timer.gd")
+@onready
+var scor = get_node("/root/Game/Labels/Score")
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
@@ -17,6 +19,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		var checker = get_node("card_function") # do the function
 		checker.set_card(ingredient)
 		checker.check_function()
+		if (get_node("/root/Game/Labels/Balance").get_balance() == 0):
+			scor.calc()
 
 func set_ingredient(i):
 	ingredient = i

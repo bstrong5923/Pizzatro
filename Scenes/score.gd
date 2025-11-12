@@ -31,3 +31,10 @@ func add_points(i, f):
 		scoreType = "Savory"
 	label_node = get_node_or_null(str(scoreType) + "/Count")
 	label_node.text = str(flavor_value[f])
+
+func calc():
+	label_node = get_node_or_null("Total/Count")
+	var total = 0
+	for x in range(0, 5):
+		total += flavor_value[x]
+	label_node.text = str(total)
