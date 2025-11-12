@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://pmtdc5lwg4ng"]
+[gd_scene load_steps=3 format=3 uid="uid://pmtdc5lwg4ng"]
 
 [ext_resource type="Script" uid="uid://c3f5svwhm42im" path="res://Scenes/title_screen.gd" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://dhyrbs6aaa68j" path="res://Assets/Sprites/titlescreen.png" id="2_p3fck"]
-
-[sub_resource type="GDScript" id="GDScript_p3fck"]
-script/source = "extends Button
-"
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_klylv")
@@ -18,7 +14,7 @@ offset_left = 461.0
 offset_top = 181.0
 offset_right = 720.0
 offset_bottom = 254.0
-script = SubResource("GDScript_p3fck")
+metadata/_edit_use_anchors_ = true
 
 [node name="load_button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
