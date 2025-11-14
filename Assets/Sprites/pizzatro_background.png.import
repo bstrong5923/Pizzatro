@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b66vnqvk2cr3r"
-path="res://.godot/imported/pizzatrobackground1.png-a099dc3671d3ea1025780ac67985679b.ctex"
+uid="uid://dy7wj71kiq6p4"
+path="res://.godot/imported/pizzatro_background.png-170816611fff2d77ea29baa7bd18ae3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/pizzatrobackground1.png"
-dest_files=["res://.godot/imported/pizzatrobackground1.png-a099dc3671d3ea1025780ac67985679b.ctex"]
+source_file="res://Assets/Sprites/pizzatro_background.png"
+dest_files=["res://.godot/imported/pizzatro_background.png-170816611fff2d77ea29baa7bd18ae3e.ctex"]
 
 [params]
 
