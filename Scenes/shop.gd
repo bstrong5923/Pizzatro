@@ -67,11 +67,3 @@ func fix_hand():
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
 	
-#click on the deck
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		
-		Deck.add_card()
-		Deck.fix_hand()
-		if Deck.deck_remaining.size() <= 0:
-			visible = false
