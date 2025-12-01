@@ -12,7 +12,8 @@ func go():
 	z_index = -2
 	fill_initial_deck()
 	for x in range(0, 2):
-		add_spec_card(5)
+		draw_card()
+		draw_spec_card(5)
 	fix_hand()
 
 func fill_initial_deck():
@@ -24,7 +25,7 @@ func fill_initial_deck():
 	for x in range(0, deck.size()):
 		deck_remaining.push_back(deck[x])
 
-func add_card():
+func draw_card():
 	var instance = card.instantiate()
 	instance.set_ingredient(pick_card())
 	instance.position = Vector2(0, 39)
@@ -32,7 +33,7 @@ func add_card():
 	add_child(instance)
 	hand.push_back(instance)
 #adds specfic card with region value i
-func add_spec_card(i):
+func draw_spec_card(i):
 	var instance = card.instantiate()
 	instance.set_ingredient(i)
 	instance.position = Vector2(0, 39)
