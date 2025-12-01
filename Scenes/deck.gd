@@ -9,15 +9,15 @@ var discard_pile = [] #not usin this rn
 var card_highlighted = 0
 
 func go():
-	z_index = -999
+	z_index = -2
 	fill_initial_deck()
 	for x in range(0, 2):
-		add_card()
+		add_spec_card(5)
 	fix_hand()
 
 func fill_initial_deck():
 	deck = []
-	for ingredient in range(0,6):
+	for ingredient in range(0,5):
 		for x in range(0,2):
 			deck.push_back(ingredient)
 	deck_remaining = []
@@ -74,4 +74,4 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		Deck.fix_hand()
 		if Deck.deck_remaining.size() <= 0:
 			visible = false
-			Deck.scor.calc()
+			

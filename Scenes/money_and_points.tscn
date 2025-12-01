@@ -52,17 +52,16 @@ offset_left = -320.0
 offset_top = 68.0
 offset_right = -168.0
 offset_bottom = 101.0
-theme_override_colors/font_color = Color(0.8509804, 0.28235295, 0, 1)
+theme_override_colors/font_color = Color(0.78613406, 0.36069164, 5.7756904e-07, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
 text = "Spicy"
-metadata/_edit_use_anchors_ = true
 
 [node name="Count" type="Label" parent="Score/Spicy"]
 offset_left = -144.0
 offset_top = 68.0
 offset_bottom = 101.0
-theme_override_colors/font_color = Color(0.8509804, 0.28235295, 0, 1)
+theme_override_colors/font_color = Color(0.78613406, 0.36069164, 5.7756904e-07, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
 text = "0"
@@ -148,17 +147,16 @@ offset_left = -320.0
 offset_top = 195.0
 offset_right = -148.0
 offset_bottom = 228.0
-theme_override_colors/font_color = Color(0, 0.023529412, 0, 1)
+theme_override_colors/font_color = Color(1, 0.023529412, 0, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
 text = "Total"
-metadata/_edit_use_anchors_ = true
 
 [node name="Count" type="Label" parent="Score/Total"]
 offset_left = -144.0
 offset_top = 195.0
 offset_bottom = 228.0
-theme_override_colors/font_color = Color(0, 0.023529412, 0, 1)
+theme_override_colors/font_color = Color(1, 0.023529412, 0, 1)
 theme_override_fonts/font = ExtResource("1_534sb")
 theme_override_font_sizes/font_size = 36
 text = "0"
