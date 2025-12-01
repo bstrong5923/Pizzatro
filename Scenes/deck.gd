@@ -11,7 +11,7 @@ var card_highlighted = 0
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	deck = []
 	for ingredient in range(0,6):
-		for x in range(0,2):
+		for x in range(0,4):
 			deck.push_back(ingredient)
 
 func fill_deck_remaining(): # called at beginning of each round
@@ -25,13 +25,14 @@ func draw_hand():
 	fix_hand()
 
 func draw_card():
-	var instance = card.instantiate()
-	instance.set_ingredient(pick_card())
-	instance.position = Vector2(0, 39)
-	instance.change_scale(1)
-	add_child(instance)
-	hand.push_back(instance)
-	fix_hand()
+	if deck_remaining.size() > 0:
+		var instance = card.instantiate()
+		instance.set_ingredient(pick_card())
+		instance.position = Vector2(0, 39)
+		instance.change_scale(1)
+		add_child(instance)
+		hand.push_back(instance)
+		fix_hand()
 
 func pick_card():
 	var card_drawn = deck_remaining[randi_range(0, deck_remaining.size() - 1)]
