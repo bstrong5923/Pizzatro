@@ -14,7 +14,10 @@ func go():
 	for x in range(0, 2):
 		draw_card()
 		draw_spec_card(5)
-	fix_hand()
+		add_spec_card(5)
+
+
+
 
 func fill_initial_deck():
 	deck = []
