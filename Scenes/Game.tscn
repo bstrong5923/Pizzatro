@@ -16,6 +16,7 @@
 size = Vector2(29, 47)
 
 [node name="Game" type="Node2D"]
+z_index = -2
 scale = Vector2(5, 5)
 script = ExtResource("1_7lihs")
 

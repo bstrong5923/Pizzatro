@@ -45,8 +45,6 @@ func check_function():
 		scor.add_points(6, 1)
 	#basil
 	elif ingredient == 5:
-		for x in range(2):
-			var a = randi_range(0, 5)
-			Deck.add_spec_card(a)
-		Deck.fix_hand()
+		Deck.draw_card()
+		Deck.draw_card()
 		
