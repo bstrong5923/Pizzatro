@@ -9,8 +9,12 @@
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scenes/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="Texture2D" uid="uid://cr1oj7cts6m8v" path="res://Assets/Sprites/card_upsidedown.png" id="9_71axn"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://wo4sx4ej14wu" path="res://Scenes/shop.gd" id="10_dahhg"]
 [ext_resource type="Texture2D" uid="uid://d003u8kankh4l" path="res://Assets/kitchen_background.png" id="11_dahhg"]
+=======
+[ext_resource type="Script" path="res://Scenes/shop.gd" id="10_dahhg"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(29, 47)
