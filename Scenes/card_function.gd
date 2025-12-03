@@ -33,17 +33,10 @@ func check_function():
 	scor.add_points(ingredient.sour, 3)
 	scor.add_points(ingredient.savory, 4)
 	#basil
-<<<<<<< Updated upstream
-	elif ingredient == 5:
-		Deck.draw_card()
-		Deck.draw_card()
-=======
+
 	if ingredient.name == "Basil":
-		for x in range(2):
-			var a = randi_range(0, 5)
-			# turn a into random card
-			
-			Deck.add_card()
+		Deck.draw_card()
+		Deck.draw_card()
 		Deck.fix_hand()
->>>>>>> Stashed changes
+
 		
