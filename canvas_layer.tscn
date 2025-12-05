@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://v18nc484d7y6"]
+
+[ext_resource type="Script" uid="uid://daah4qgf0khit" path="res://canvas_layer.gd" id="1_37rai"]
+[ext_resource type="Texture2D" uid="uid://cplgkdtyqhidf" path="res://Assets/Sprites/handup.png" id="2_0qrqu"]
+[ext_resource type="Texture2D" uid="uid://dtixnaggrlee6" path="res://Assets/Sprites/handdown.png" id="3_mx0kw"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_37rai")
+default_tex = ExtResource("2_0qrqu")
+click_tex = ExtResource("3_mx0kw")
+
+[node name="CursorSprite" type="Sprite2D" parent="."]
