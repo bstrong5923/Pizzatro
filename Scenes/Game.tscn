@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=13 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scenes/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -9,9 +9,8 @@
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scenes/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="Texture2D" uid="uid://cr1oj7cts6m8v" path="res://Assets/Sprites/card_upsidedown.png" id="9_71axn"]
-[ext_resource type="Script" path="res://Scenes/shop.gd" id="10_dahhg"]
-[ext_resource type="Texture2D" uid="uid://d003u8kankh4l" path="res://Assets/kitchen_background.png" id="11_dahhg"]
-[ext_resource type="Texture2D" uid="uid://bkk071j3awtae" path="res://Assets/Sprites/backgroundthingy.png" id="12_3so38"]
+[ext_resource type="Script" uid="uid://wo4sx4ej14wu" path="res://Scenes/shop.gd" id="10_dahhg"]
+[ext_resource type="Texture2D" uid="uid://dqpqgmwna35e4" path="res://Assets/Sprites/kitchen_background.png" id="11_dahhg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(29, 47)
@@ -83,12 +82,6 @@ script = ExtResource("10_dahhg")
 z_index = -20
 texture = ExtResource("11_dahhg")
 metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(83.299995, -42.699997)
-scale = Vector2(2.2062495, 1.5062498)
-texture = ExtResource("12_3so38")
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
