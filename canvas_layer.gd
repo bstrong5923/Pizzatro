@@ -14,7 +14,7 @@ func _ready():
 	click_timer.connect("timeout", Callable(self, "_on_click_timeout"))
 	add_child(click_timer)
 	cursor_sprite.texture = default_tex
-	cursor_sprite.centered = true
+	cursor_sprite.centered = false
 	
 func _notification(what):
 	if what == NOTIFICATION_WM_MOUSE_ENTER:
