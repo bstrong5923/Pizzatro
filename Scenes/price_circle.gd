@@ -18,9 +18,10 @@ func display_price():
 
 func set_size(n):
 	# get the right label font
-	label.add_theme_font_size_override("font_size", 32 * n)
+	label.add_theme_font_size_override("font_size", 20 * n)
+	label.add_theme_color_override("color", Color(10,0,0))
 	var f = FontFile.new()
-	f.font_data = load("res://Assets/fonts/pixelated_elegance.ttf")
+	f.font_data = load("res://Assets/fonts/main.ttf")
 	label.add_theme_font_override("font", f)
 	# scale the circle up
 	$circle.scale = Vector2(5 * n, 5 * n)

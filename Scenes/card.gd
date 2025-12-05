@@ -27,11 +27,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 func set_ingredient(i):
 	ingredient = i
 	# get the price from the JSON
-	var file_path = "res://Assets/ingredient_prices.json"
-	var file = FileAccess.open(file_path, FileAccess.READ)
+	var file = FileAccess.open("res://Assets/ingredient_prices.json", FileAccess.READ)
 	if file:
-		var json_string = file.get_as_text()
-		var parsed_json = JSON.parse_string(json_string)
+		var parsed_json = JSON.parse_string(file.get_as_text())
 		file.close()
 		if parsed_json != null:
 			price = int(parsed_json[ingredient])

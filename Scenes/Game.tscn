@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="Texture2D" uid="uid://cr1oj7cts6m8v" path="res://Assets/Sprites/card_upsidedown.png" id="9_71axn"]
 [ext_resource type="Script" uid="uid://wo4sx4ej14wu" path="res://Scenes/shop.gd" id="10_dahhg"]
-[ext_resource type="Texture2D" uid="uid://d003u8kankh4l" path="res://Assets/kitchen_background.png" id="11_dahhg"]
+[ext_resource type="Texture2D" uid="uid://dqpqgmwna35e4" path="res://Assets/Sprites/kitchen_background.png" id="11_dahhg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(29, 47)
@@ -70,7 +70,7 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_7lihs")
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
-position = Vector2(115.600006, -64.799995)
+position = Vector2(110.00001, -62)
 scale = Vector2(0.2, 0.2)
 
 [node name="shop_deck" type="Sprite2D" parent="."]
