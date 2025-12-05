@@ -1,6 +1,6 @@
 extends Node2D
 
-var ingredient = 0
+var ingredient
 var card = preload("res://Scenes/card.tscn")
 @onready
 var scor = get_node("/root/Game/Labels/Score")
@@ -27,24 +27,16 @@ func set_card(i):
 	
 func check_function():
 	# pepperoni
-	if ingredient == 0:
-		scor.add_points(5, 2)
-		scor.add_points(2, 4)
-	# pineapple
-	elif ingredient == 1:
-		scor.add_points(5, 0)
-	# mushroom
-	elif ingredient == 2:
-		scor.add_points(4, 4)
-	# tomater
-	elif ingredient == 3:
-		scor.add_points(2, 3)
-		scor.add_points(1, 0)
-	#jalapeno
-	elif ingredient == 4:
-		scor.add_points(6, 1)
+	scor.add_points(ingredient.sweet, 0)
+	scor.add_points(ingredient.spicy, 1)
+	scor.add_points(ingredient.salty, 2)
+	scor.add_points(ingredient.sour, 3)
+	scor.add_points(ingredient.savory, 4)
 	#basil
-	elif ingredient == 5:
+
+	if ingredient.name == "Basil":
 		Deck.draw_card()
 		Deck.draw_card()
+		Deck.fix_hand()
+
 		
