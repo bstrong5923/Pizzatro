@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy7wj71kiq6p4"
-path="res://.godot/imported/pizzatro_background.png-170816611fff2d77ea29baa7bd18ae3e.ctex"
+uid="uid://sinkn3ehodah"
+path="res://.godot/imported/jalapeno.png-327a2b6d2e24c6c5936172bd1bf10a13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/pizzatro_background.png"
-dest_files=["res://.godot/imported/pizzatro_background.png-170816611fff2d77ea29baa7bd18ae3e.ctex"]
+source_file="res://Assets/Sprites/card_comps/big_ingredients/jalapeno.png"
+dest_files=["res://.godot/imported/jalapeno.png-327a2b6d2e24c6c5936172bd1bf10a13.ctex"]
 
 [params]
 

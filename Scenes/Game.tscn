@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=13 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scenes/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -10,31 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="Texture2D" uid="uid://cr1oj7cts6m8v" path="res://Assets/Sprites/card_upsidedown.png" id="9_71axn"]
 [ext_resource type="Script" uid="uid://wo4sx4ej14wu" path="res://Scenes/shop.gd" id="10_dahhg"]
-[ext_resource type="PackedScene" uid="uid://dd685g81ml0s" path="res://Scenes/shipments.tscn" id="11_dahhg"]
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://canvas_layer.tscn" id="12_3so38"]
-
-[sub_resource type="GDScript" id="GDScript_dahhg"]
-script/source = "extends Area2D
-
-var cursor = load(\"res://Assets/Sprites/newcursor.png\")
-var hand = load(\"res://Assets/Sprites/newhand.png\")
-
-func _on_mouse_entered():
-	Input.set_custom_mouse_cursor(hand)
- 
-func _on_mouse_exited():
-	Input.set_custom_mouse_cursor(cursor)
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(29, 47)
 
 [node name="Game" type="Node2D"]
+z_index = -2
 scale = Vector2(5, 5)
 script = ExtResource("1_7lihs")
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
-position = Vector2(0, -27)
+position = Vector2(0, -17)
 scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -61,7 +48,7 @@ text = "GO TO THE GAME"
 metadata/_edit_use_anchors_ = true
 
 [node name="minis" parent="." instance=ExtResource("3_j5yw3")]
-position = Vector2(0, -27)
+position = Vector2(0, -17)
 
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
 position = Vector2(6, -67)
@@ -77,14 +64,13 @@ scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="deck"]
 position = Vector2(0, 1)
-script = SubResource("GDScript_dahhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deck/Area2D"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_7lihs")
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
-position = Vector2(115.399994, -65.2)
+position = Vector2(110.00001, -62)
 scale = Vector2(0.2, 0.2)
 
 [node name="shop_deck" type="Sprite2D" parent="."]
@@ -92,21 +78,12 @@ position = Vector2(425.8, -45.2)
 texture = ExtResource("9_71axn")
 script = ExtResource("10_dahhg")
 
-[node name="shipments" parent="." instance=ExtResource("11_dahhg")]
-position = Vector2(234.99997, 35)
-scale = Vector2(0.09724986, 0.063999884)
-
-[node name="Area2D" type="Area2D" parent="shipments"]
-position = Vector2(94.601685, 87.50016)
-script = SubResource("GDScript_dahhg")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="shipments/Area2D"]
-position = Vector2(-2.0563073, 0)
-polygon = PackedVector2Array(123.393555, 31.250061, 123.393555, 31.250061, 183.03394, -287.50052, -67.86621, -378.1257, -396.91553, -306.25055, -351.6714, -6.25, -183.03345, 184.37537, 123.393555, 31.250061)
+[node name="KitchenBackground" type="Sprite2D" parent="."]
+z_index = -20
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
-[connection signal="mouse_shape_entered" from="shipments/Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
