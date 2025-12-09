@@ -1,6 +1,6 @@
 extends Node2D
 
-var level
+var level 
 
 func _ready() -> void:
 	print()
@@ -13,3 +13,4 @@ func new_round():
 	Deck.fill_deck_remaining()
 	Deck.draw_hand()
 	$Labels/Balance.set_balance(45)
+	
