@@ -2,15 +2,36 @@ extends Node2D
 
 var card = preload("res://Scenes/shop_card.tscn")
 
+@export var deck2 : Array[Card] = []
+
+var shop_deck : Array[Card] = [
+	load("res://Assets/cards/Basil.tres"),
+	load("res://Assets/cards/Jalapeno.tres"),
+	load("res://Assets/cards/Mushroom.tres"),
+	load("res://Assets/cards/Pepperoni.tres"),
+	load("res://Assets/cards/Pineapple.tres"),
+	load("res://Assets/cards/Tomato.tres"),
+	load("res://Assets/cards/Basil.tres"),
+	load("res://Assets/cards/Jalapeno.tres"),
+	load("res://Assets/cards/Mushroom.tres"),
+	load("res://Assets/cards/Pepperoni.tres"),
+	load("res://Assets/cards/Pineapple.tres"),
+	load("res://Assets/cards/Tomato.tres"),
+]
+
 var card_highlighted = 0
-var shop_deck = []
-var shop_deck_remaining = []
+var shop_deck_remaining : Array[Card] = []
 var shop_hand = []
+
+
+
+
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
-	shop_deck = []
-	for ingredient in range(0,6):
-		for x in range(0,4):
-			shop_deck.push_back(ingredient)
+	print("smile")
+	#shop_deck = []
+	#for ingredient in range(0,6):
+		#for x in range(0,4):
+			#shop_deck.push_back(ingredient)
 
 func fill_deck_remaining(): # called at beginning of each round
 	shop_deck_remaining = []
@@ -40,7 +61,8 @@ func pick_card():
 #adds specfic card with region value i
 func draw_spec_card(i):
 	var instance = card.instantiate()
-	instance.set_ingredient(i)
+	
+	instance.set_ingredient(load("res://Assets/cards/" + str(i) + ".tres"))
 	instance.position = Vector2(0, 39)
 	instance.change_scale(1)
 	add_child(instance)
@@ -53,10 +75,8 @@ func draw_spec_card(i):
 func fix_hand():
 	
 	var h = shop_hand.size()
-	print(h)
+
 	for i in range(0, h):
 		@warning_ignore("integer_division")
 		shop_hand[i].position.x =  1000+ (30 * i)
 		shop_hand[i].position.y =  (30 * i)
-		print(shop_hand[i].position.x)
-		print(shop_hand[i].position.y)

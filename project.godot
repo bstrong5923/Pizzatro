@@ -13,13 +13,13 @@ config_version=5
 config/name="Pizzatro"
 run/main_scene="uid://pmtdc5lwg4ng"
 config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
 
 [autoload]
 
-
-Shop="*res://Scenes/shop.gd"
 Deck="*res://Scripts/deck.gd"
 Score="*res://Scripts/score.gd"
+Shop="*res://Scripts/shop.gd"
 
 [rendering]
 

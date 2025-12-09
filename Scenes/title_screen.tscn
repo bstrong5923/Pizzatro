@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3f5svwhm42im" path="res://Scripts/title_screen.gd" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://dhyrbs6aaa68j" path="res://Assets/Sprites/titlescreen.png" id="2_p3fck"]
-[ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="3_4gxqj"]
+[ext_resource type="PackedScene" path="res://Scenes/canvas_layer.tscn" id="3_4gxqj"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_klylv")

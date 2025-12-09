@@ -42,6 +42,7 @@ func discard_self():
 	Deck.remove_card(Deck.hand.find(self))
 	Deck.fix_hand()
 	queue_free()
+
 	
 func _on_area_2d_mouse_entered():
 		change_scale(1.05)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cytuknnllyne4"]
 
 [ext_resource type="Texture2D" uid="uid://dw440pcigq13i" path="res://Assets/Sprites/hand_animation.png" id="1_2ovu8"]
-[ext_resource type="Script" uid="uid://cef4nkh84jimk" path="res://Scenes/hand_animation.gd" id="2_uevxy"]
+[ext_resource type="Script" uid="uid://cef4nkh84jimk" path="res://Scripts/hand_animation.gd" id="2_uevxy"]
 
 [node name="hand_animation" type="Sprite2D"]
 texture = ExtResource("1_2ovu8")

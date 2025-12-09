@@ -21,7 +21,6 @@ var deck : Array[Card] = [
 
 # undrawn cards
 var deck_remaining : Array[Card] = []
-
 var hand = []
 var discard_pile = [] #not usin this rn
 var card_highlighted = 0
@@ -33,6 +32,7 @@ func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the 
 	#for ingredient in range(0,6):
 		#for x in range(0,4):
 			#deck.push_back(x)
+
 
 func fill_deck_remaining(): # called at beginning of each round
 	deck_remaining = []
@@ -99,8 +99,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		Deck.draw_card()
 		Deck.fix_hand()
 		
-		if Deck.deck_remaining.size() <= 0:
-			visible = false
+
 		
-func add_card(i):
-	Deck.push_back(i)
+func add_card_from_shop(i):
+	deck_remaining.push_back(i)
+	print("discarding")
+	print(i)
