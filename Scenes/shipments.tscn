@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dd685g81ml0s"]
 
 [ext_resource type="Texture2D" uid="uid://ugijwsp8g23f" path="res://Assets/Sprites/PizzatroBasicBox.png" id="1_vwi50"]
-[ext_resource type="Script" uid="uid://b1fbfibaxelmq" path="res://Scenes/shipments.gd" id="2_i0xqx"]
+[ext_resource type="Script" uid="uid://b1fbfibaxelmq" path="res://Scripts/shipments.gd" id="2_i0xqx"]
 
 [node name="shipments" type="Sprite2D"]
 texture = ExtResource("1_vwi50")
