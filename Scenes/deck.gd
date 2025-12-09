@@ -101,4 +101,4 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			visible = false
 		
 func add_card(i):
-	Deck.push_back(i)
+	deck_remaining.push_back(i)
