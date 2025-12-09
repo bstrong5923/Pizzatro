@@ -8,6 +8,7 @@ var mynode = preload("res://Scenes/minis.tscn")
 
 
 func scatter(ingredient):
+	#
 	var init_angle = randi_range(0,359)
 	var num_of_minis = randi_range(7, 10)
 	for m in range(0, num_of_minis): # create between 7 and 10 minis
@@ -16,7 +17,7 @@ func scatter(ingredient):
 		var instance = mynode.instantiate()
 		
 		# get the correct spritesheet
-		instance.texture = load("res://Assets/Sprites/ingredient_minis/" + str(ingredient) + ".png")
+		instance.texture = ingredient.minis
 		# random mini of the ingredient
 		instance.region_rect.size.x = 5
 		instance.region_rect.position.x = randi_range(0,4) * 5

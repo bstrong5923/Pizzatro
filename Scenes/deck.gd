@@ -1,18 +1,38 @@
 extends Node2D
 
 var card = preload("res://Scenes/card.tscn")
+# starting deck which isn't changed during gameplay
+@export var deck2 : Array[Card] = []
 
-var deck = []
-var deck_remaining = []
+var deck : Array[Card] = [
+	load("res://Assets/cards/Basil.tres"),
+	load("res://Assets/cards/Jalapeno.tres"),
+	load("res://Assets/cards/Mushroom.tres"),
+	load("res://Assets/cards/Pepperoni.tres"),
+	load("res://Assets/cards/Pineapple.tres"),
+	load("res://Assets/cards/Tomato.tres"),
+	load("res://Assets/cards/Basil.tres"),
+	load("res://Assets/cards/Jalapeno.tres"),
+	load("res://Assets/cards/Mushroom.tres"),
+	load("res://Assets/cards/Pepperoni.tres"),
+	load("res://Assets/cards/Pineapple.tres"),
+	load("res://Assets/cards/Tomato.tres"),
+]
+
+# undrawn cards
+var deck_remaining : Array[Card] = []
+
 var hand = []
 var discard_pile = [] #not usin this rn
 var card_highlighted = 0
 
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
-	deck = []
-	for ingredient in range(0,6):
-		for x in range(0,1):
-			deck.push_back(ingredient)
+	print("smile")
+	#deck = []
+	## use parsed json
+	#for ingredient in range(0,6):
+		#for x in range(0,4):
+			#deck.push_back(x)
 
 func fill_deck_remaining(): # called at beginning of each round
 	deck_remaining = []
@@ -42,7 +62,8 @@ func pick_card():
 #adds specfic card with region value i
 func draw_spec_card(i):
 	var instance = card.instantiate()
-	instance.set_ingredient(i)
+	
+	instance.set_ingredient(load("res://Assets/cards/" + str(i) + ".tres"))
 	instance.position = Vector2(0, 39)
 	instance.change_scale(1)
 	add_child(instance)
@@ -77,13 +98,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Deck.draw_card()
 		Deck.fix_hand()
-		if Deck.deck_remaining.size() == 0:
+		
+		if Deck.deck_remaining.size() <= 0:
 			visible = false
 		
-			
-func make_visible():
-	return true
-	
 func add_card(i):
-	print("yo")
-	deck_remaining.push_back(i)
+	Deck.push_back(i)
