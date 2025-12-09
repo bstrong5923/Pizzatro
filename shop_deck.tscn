@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://uch3ulmhe4wi"]
+
+[ext_resource type="Texture2D" uid="uid://cr1oj7cts6m8v" path="res://Assets/Sprites/card_upsidedown.png" id="1_aogfl"]
+[ext_resource type="Script" uid="uid://wo4sx4ej14wu" path="res://Scenes/shop.gd" id="2_ogjq8"]
+
+[node name="shop_deck" type="Sprite2D"]
+texture = ExtResource("1_aogfl")
+script = ExtResource("2_ogjq8")

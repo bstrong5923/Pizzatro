@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Deck="*res://Scenes/deck.gd"
 Score="*res://Scenes/score.gd"
+Shop="*res://Scenes/shop.gd"
 
 [rendering]
 

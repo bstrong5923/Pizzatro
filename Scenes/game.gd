@@ -5,6 +5,7 @@ var level
 func _ready() -> void:
 	level = 0
 	Deck.fill_initial_deck()
+	Shop.fill_initial_deck()
 	new_round()
 
 func new_round():
@@ -13,3 +14,6 @@ func new_round():
 	Deck.fix_hand()
 	Deck.draw_hand()
 	$Labels/Balance.set_balance(45)
+	Shop.fill_deck_remaining()
+	Shop.fix_hand()
+	Shop.draw_hand()
