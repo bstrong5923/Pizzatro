@@ -11,6 +11,6 @@ func _ready() -> void:
 func new_round():
 	level += 1
 	Deck.fill_deck_remaining()
-	Deck.fix_hand()
+	Deck.draw_hand()
 	$Labels/Balance.set_balance(45)
 	
