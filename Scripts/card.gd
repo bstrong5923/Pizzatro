@@ -2,7 +2,7 @@ extends Node2D
 
 var ingredient : Card
 var price
-var play_timer = preload("res://Scenes/card_timer.gd")
+var play_timer = preload("res://Scripts/card_timer.gd")
 @onready
 var scor = get_node("/root/Game/Labels/Score")
 func _ready() -> void:
