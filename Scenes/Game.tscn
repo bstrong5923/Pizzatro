@@ -82,8 +82,6 @@ metadata/_edit_lock_ = true
 position = Vector2(321.19998, -47.4)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
-default_tex = null
-click_tex = null
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
