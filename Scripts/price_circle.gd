@@ -2,21 +2,21 @@ extends Node2D
 
 var price
 var label = Label.new()
-
-func set_price(p):
+#defaultpos should be only be false if you dont want the price circle to be at the top right of the card
+func set_price(p, defaultpos):
 	price = p
-	display_price()
+	display_price(defaultpos)
 
-func display_price():
+func display_price(defaultpos):
 	label.text = "$" + str(price)
 	add_child(label)
 	# wait until the label has been loaded
 	await label.ready
 	await get_tree().process_frame
 	# scale it right
-	set_size(1)
+	set_size(1, defaultpos)
 
-func set_size(n):
+func set_size(n, defaultpos):
 	# get the right label font
 	label.add_theme_font_size_override("font_size", 20 * n)
 	label.add_theme_color_override("color", Color(10,0,0))
@@ -25,7 +25,8 @@ func set_size(n):
 	label.add_theme_font_override("font", f)
 	# scale the circle up
 	$circle.scale = Vector2(5 * n, 5 * n)
-	position = Vector2(11 * 5 * n, -20 * 5 * n) # (11, -20) are the default coordinates
+	if defaultpos == true:
+		position = Vector2(11 * 5 * n, -20 * 5 * n) # (11, -20) are the default coordinates
 	# Resets size to fit text + font
 	label.reset_size()
 	label.queue_redraw()
@@ -34,4 +35,6 @@ func set_size(n):
 	label.position.x += n * 3
 	label.position.y += n * 3
 
-	
+#doesnt work unless you have defaultpos be passed as false
+func change_pos(x, y):
+	position = Vector2(x, y)

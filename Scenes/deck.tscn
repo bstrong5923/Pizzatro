@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu3awgnfcjhbe"]
 
 [ext_resource type="Texture2D" uid="uid://cr1oj7cts6m8v" path="res://Assets/Sprites/card_upsidedown.png" id="1_ukesx"]
-[ext_resource type="Script" path="res://Scripts/deck.gd" id="2_xvpt4"]
+[ext_resource type="Script" uid="uid://784qyvn53dsg" path="res://Scripts/deck.gd" id="2_xvpt4"]
 
 [node name="deck" type="Sprite2D"]
 scale = Vector2(6, 6)
