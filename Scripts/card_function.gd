@@ -26,17 +26,14 @@ func set_card(i):
 	ingredient = i
 	
 func check_function():
-	# pepperoni
+	
 	scor.add_points(ingredient.sweet, 0)
 	scor.add_points(ingredient.spicy, 1)
 	scor.add_points(ingredient.salty, 2)
 	scor.add_points(ingredient.sour, 3)
 	scor.add_points(ingredient.savory, 4)
 	#basil
-
 	if ingredient.name == "Basil":
 		Deck.draw_card()
 		Deck.draw_card()
 		Deck.fix_hand()
-
-		

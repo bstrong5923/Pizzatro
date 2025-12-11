@@ -23,6 +23,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if (get_node("/root/Game/Labels/Balance").get_balance() <= 2) or (Deck.deck.size() <= 0):
 			scor.calc()
 
+
 func set_ingredient(i):
 	ingredient = i
 	price = ingredient.price
