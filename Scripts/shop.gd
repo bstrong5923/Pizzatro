@@ -78,5 +78,6 @@ func fix_hand():
 
 	for i in range(0, h):
 		@warning_ignore("integer_division")
-		shop_hand[i].position.x =  1000+ (30 * i)
-		shop_hand[i].position.y =  (30 * i)
+		shop_hand[i].position.x =  750+ (150 * i)
+		shop_hand[i].position.y =  -190
+		
