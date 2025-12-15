@@ -23,6 +23,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if (get_node("/root/Game/Labels/Balance").get_balance() <= 2) or (Deck.deck.size() <= 0):
 			scor.calc()
 
+
 func set_ingredient(i):
 	ingredient = i
 	price = ingredient.price
@@ -33,7 +34,7 @@ func set_ingredient(i):
 	
 	# get the price
 	var pricetag = $price_circle
-	pricetag.set_price(price)
+	pricetag.set_price(price, true)
 	
 func get_ingredient():
 	return ingredient
@@ -51,7 +52,7 @@ func _on_area_2d_mouse_exited():
 		change_scale(1)
 	
 func change_scale(n):
-	$price_circle.set_size(n)
+	$price_circle.set_size(n, true)
 	$ingredient_logo.scale = Vector2(5 * n, 5 * n)
 	$blank.scale = Vector2(5 * n, 5 * n)
 	$Area2D.scale = Vector2(5 * n, 5 * n)

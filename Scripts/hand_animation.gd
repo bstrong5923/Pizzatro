@@ -26,4 +26,3 @@ func _process(delta: float) -> void:
 		position.y -= scale.x
 		if position.y <= -111:
 			step = 0
-		

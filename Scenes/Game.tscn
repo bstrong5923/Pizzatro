@@ -78,11 +78,9 @@ z_index = -20
 texture = ExtResource("11_dahhg")
 
 [node name="shop_deck" parent="." instance=ExtResource("10_71axn")]
-position = Vector2(321.19998, -47.4)
+position = Vector2(151.00002, 374.8)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
-default_tex = null
-click_tex = null
 
 [node name="shipments" parent="." instance=ExtResource("13_3cx6b")]
 position = Vector2(340.19998, 30.599976)
