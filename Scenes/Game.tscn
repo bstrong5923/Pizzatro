@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=14 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
 [ext_resource type="Script" uid="uid://5djer6cxvnlh" path="res://Scripts/Camera.gd" id="3_2irst"]
 [ext_resource type="PackedScene" uid="uid://c1haclruh7ag6" path="res://Scenes/minis.tscn" id="3_j5yw3"]
-[ext_resource type="PackedScene" path="res://Scenes/hand_animation.tscn" id="4_kldst"]
+[ext_resource type="PackedScene" uid="uid://cytuknnllyne4" path="res://Scenes/hand_animation.tscn" id="4_kldst"]
 [ext_resource type="PackedScene" uid="uid://cu3awgnfcjhbe" path="res://Scenes/deck.tscn" id="5_7lihs"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scripts/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
@@ -87,16 +87,7 @@ position = Vector2(151.00002, 374.8)
 [node name="cutting_board" type="Sprite2D" parent="."]
 position = Vector2(0, 40.6)
 texture = ExtResource("13_3cx6b")
-[node name="shipments" parent="." instance=ExtResource("13_3cx6b")]
-position = Vector2(340.19998, 30.599976)
-scale = Vector2(0.15600002, 0.07666669)
-
-[node name="Area2D" type="Area2D" parent="shipments"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="shipments/Area2D"]
-polygon = PackedVector2Array(-302.56396, -208.6953, -258.97424, 83.478546, -88.461426, 273.9133, 215.38477, 122.60898, 273.0769, -190.43443, 26.923096, -286.95615)
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="shipments/Area2D" to="shipments" method="_on_area_2d_input_event"]
