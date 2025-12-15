@@ -8,7 +8,7 @@ func set_price(p):
 	display_price()
 
 func display_price():
-	label.text = "$" + str(price)
+	label.text = str(price)
 	add_child(label)
 	# wait until the label has been loaded
 	await label.ready
@@ -25,7 +25,7 @@ func set_size(n):
 	label.add_theme_font_override("font", f)
 	# scale the circle up
 	$circle.scale = Vector2(5 * n, 5 * n)
-	position = Vector2(11 * 5 * n, -20 * 5 * n) # (11, -20) are the default coordinates
+	position = Vector2(10 * 5 * n, -15 * 5 * n)
 	# Resets size to fit text + font
 	label.reset_size()
 	label.queue_redraw()
