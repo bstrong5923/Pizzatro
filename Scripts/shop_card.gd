@@ -3,6 +3,7 @@ extends Node2D
 var ingredient : Card
 var price
 var play_timer = preload("res://Scripts/card_timer.gd")
+var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
 @onready
 var scor = get_node("/root/Game/Labels/Score")
 func _ready() -> void:
@@ -27,7 +28,9 @@ func set_ingredient(i):
 	
 	# get the price
 	var pricetag = $price_circle
-	pricetag.set_price(price)
+	pricetag.set_price(price, false)
+	
+	
 	
 func get_ingredient():
 	return ingredient
@@ -36,10 +39,16 @@ func discard_self():
 	Shop.shop_hand.erase(self)
 	# Now fix the layout WITHOUT this card in the list
 	Shop.fix_hand()
-
+	goingtodeck.cooldown()
 	# Now it is safe to free this node
+	
+	#do this little animation
+	var target_x = 98 *5
+	var target_y = 39 * 5
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", Vector2(target_x,target_y), .76)
+	await tween.finished
 	queue_free()
-	print("discarding")
 	# Add ingredient to deck AFTER it is freed
 	Deck.add_card_from_shop(ingredient)
 
@@ -52,7 +61,8 @@ func _on_area_2d_mouse_exited() -> void:
 		change_scale(1)
 	
 func change_scale(n):
-	$price_circle.set_size(n)
+	$price_circle.set_size(n, false)
+	$price_circle.change_pos(0,120)
 	$ingredient_logo.scale = Vector2(5 * n, 5 * n)
 	$blank.scale = Vector2(5 * n, 5 * n)
 	$Area2D.scale = Vector2(5 * n, 5 * n)

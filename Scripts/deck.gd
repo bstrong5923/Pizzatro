@@ -1,24 +1,12 @@
 extends Node2D
 
 var card = preload("res://Scenes/card.tscn")
-# starting deck which isn't changed during gameplay
 @export var deck2 : Array[Card] = []
 
-var deck : Array[Card] = [
-	load("res://Assets/cards/Basil.tres"),
-	load("res://Assets/cards/Jalapeno.tres"),
-	load("res://Assets/cards/Mushroom.tres"),
-	load("res://Assets/cards/Pepperoni.tres"),
-	load("res://Assets/cards/Pineapple.tres"),
-	load("res://Assets/cards/Tomato.tres"),
-	load("res://Assets/cards/Basil.tres"),
-	load("res://Assets/cards/Jalapeno.tres"),
-	load("res://Assets/cards/Mushroom.tres"),
-	load("res://Assets/cards/Pepperoni.tres"),
-	load("res://Assets/cards/Pineapple.tres"),
-	load("res://Assets/cards/Tomato.tres"),
-]
-
+var deck : Array[Card] = []
+var file = FileAccess.open("res://Assets/card_list.json", FileAccess.READ)
+var raw_text = file.get_as_text()
+var data = JSON.parse_string(raw_text)
 # undrawn cards
 var deck_remaining : Array[Card] = []
 var hand = []
@@ -28,10 +16,10 @@ var card_highlighted = 0
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	print("smile")
 	#deck = []
-	## use parsed json
-	#for ingredient in range(0,6):
-		#for x in range(0,4):
-			#deck.push_back(x)
+	for ingredient in range(0,data.size()):
+		for x in range(0,2):
+			deck.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
+			
 
 
 func fill_deck_remaining(): # called at beginning of each round
@@ -47,18 +35,18 @@ func draw_hand():
 func draw_card():
 	if deck_remaining.size() > 0:
 		var instance = card.instantiate()
-		instance.set_ingredient(pick_card())
+		var random_index = randi_range(0, deck_remaining.size() - 1)
+		instance.set_ingredient(deck_remaining[random_index])
 		instance.position = Vector2(0, 39)
 		instance.change_scale(1)
 		add_child(instance)
 		hand.push_back(instance)
 		fix_hand()
-
-func pick_card():
-	var card_drawn = deck_remaining[randi_range(0, deck_remaining.size() - 1)]
-	deck_remaining.erase(card_drawn)
-	return card_drawn
-
+		deck_remaining.remove_at(random_index)
+		
+func generate_random():
+	var a : Card = "res://Assets/cards/" + data[randi_range(0, data.size() - 1)] + ".tres"
+	
 #adds specfic card with region value i
 func draw_spec_card(i):
 	var instance = card.instantiate()

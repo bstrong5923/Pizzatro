@@ -4,21 +4,7 @@ var card = preload("res://Scenes/shop_card.tscn")
 
 @export var deck2 : Array[Card] = []
 
-var shop_deck : Array[Card] = [
-	load("res://Assets/cards/Basil.tres"),
-	load("res://Assets/cards/Jalapeno.tres"),
-	load("res://Assets/cards/Mushroom.tres"),
-	load("res://Assets/cards/Pepperoni.tres"),
-	load("res://Assets/cards/Pineapple.tres"),
-	load("res://Assets/cards/Tomato.tres"),
-	load("res://Assets/cards/Basil.tres"),
-	load("res://Assets/cards/Jalapeno.tres"),
-	load("res://Assets/cards/Mushroom.tres"),
-	load("res://Assets/cards/Pepperoni.tres"),
-	load("res://Assets/cards/Pineapple.tres"),
-	load("res://Assets/cards/Tomato.tres"),
-]
-
+var shop_deck : Array[Card]
 var card_highlighted = 0
 var shop_deck_remaining : Array[Card] = []
 var shop_hand = []
@@ -27,11 +13,12 @@ var shop_hand = []
 
 
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
-	print("smile")
-	#shop_deck = []
-	#for ingredient in range(0,6):
-		#for x in range(0,4):
-			#shop_deck.push_back(ingredient)
+	var file = FileAccess.open("res://Assets/card_list.json", FileAccess.READ)
+	var raw_text = file.get_as_text()
+	var data = JSON.parse_string(raw_text)
+	for ingredient in range(0,data.size()):
+		for x in range(0,2):
+			shop_deck.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 
 func fill_deck_remaining(): # called at beginning of each round
 	shop_deck_remaining = []
