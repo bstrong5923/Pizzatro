@@ -3,7 +3,7 @@ extends Node2D
 var level 
 
 func _ready() -> void:
-	print()
+	print("gerb")
 	level = 0
 	Deck.fill_initial_deck()
 	Shop.fill_initial_deck()
