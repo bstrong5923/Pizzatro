@@ -20,8 +20,6 @@ func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the 
 		for x in range(0,2):
 			deck.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 			
-
-
 func fill_deck_remaining(): # called at beginning of each round
 	deck_remaining = []
 	for x in range(0, deck.size()):
@@ -61,21 +59,13 @@ func draw_spec_card(i):
 #fan out code
 func fix_hand():
 	var h = hand.size()
-	var max_rotate = 0.5 - 0.5 / h
+	var step = 580.0 / h
+	var middle_index = (h - 1) / 2.0
 	
 	for x in range(0, h):
-		@warning_ignore("integer_division")
-		if (h-1) % 2 == 0 :
-			hand[x].position.x = 6 * ((30 * clamp(1.0 - (h -1) * .05 , .3 ,1.0)) * (h / (-2.0) + 0.5 * ((h + 1) % 2) + x) + (15 - clamp(x, 0, 15)))
-			hand[x].z_index = x
-		else:
-			hand[x].position.x = 6 * ((30 * clamp(1.0 - (h -1) * .05 , .3 ,1.0)) * (h / (-2.0) + 0.5 * ((h + 1) % 2) + x))
-			hand[x].z_index = x
-		if x!= 0 and x!= h-1:
-			hand[x].position.y = 6 * (37 + (2 * abs(x + 0.5 - h / 2.0))) 
-		else:
-			hand[x].position.y = (6 * (37 + (2 * abs(x + 0.5 - h / 2.0)))) + 25
-		hand[x].rotation = 2 * max_rotate * (x + 0.5 - h / 2.0) / (h - 1) if h != 1 else 0
+		hand[x].position.x = step * (x - middle_index)
+		hand[x].position.y = 205
+		hand[x].rotation = 0
 		
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
@@ -86,8 +76,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Deck.draw_card()
 		Deck.fix_hand()
-		
-
 		
 func add_card_from_shop(i):
 	deck_remaining.push_back(i)

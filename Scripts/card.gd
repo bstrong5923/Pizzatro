@@ -31,6 +31,7 @@ func set_ingredient(i):
 	# get the right logo
 	var logo = $ingredient_logo
 	logo.set_ingredient(i)
+	$icon.set_ingredient(i)
 	
 	# get the price
 	var pricetag = $price_circle
