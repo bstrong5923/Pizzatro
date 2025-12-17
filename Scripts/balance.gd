@@ -7,7 +7,7 @@ func set_balance(v):
 	display_balance()
 
 func change_balance(v):
-	balance += v
+	balance += v  
 	display_balance()
 
 func display_balance():

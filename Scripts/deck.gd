@@ -91,5 +91,3 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		
 func add_card_from_shop(i):
 	deck_remaining.push_back(i)
-	print("discarding")
-	print(i)
