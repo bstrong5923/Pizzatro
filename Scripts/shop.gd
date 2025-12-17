@@ -48,7 +48,6 @@ func pick_card():
 #adds specfic card with region value i
 func draw_spec_card(i):
 	var instance = card.instantiate()
-	
 	instance.set_ingredient(load("res://Assets/cards/" + str(i) + ".tres"))
 	instance.position = Vector2(0, 39)
 	instance.change_scale(1)
