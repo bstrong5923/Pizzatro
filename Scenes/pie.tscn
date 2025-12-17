@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://47vmngv3hwa4"]
+[gd_scene load_steps=3 format=3 uid="uid://47vmngv3hwa4"]
 
+[ext_resource type="Texture2D" uid="uid://daovcnik0tuqp" path="res://Assets/Sprites/center_table.png" id="1_0v67r"]
 [ext_resource type="Texture2D" uid="uid://dm80t44qgd1dr" path="res://Assets/Sprites/pie.png" id="1_6jn70"]
 
-[node name="pie" type="Sprite2D"]
+[node name="table" type="Sprite2D"]
 scale = Vector2(6, 6)
+texture = ExtResource("1_0v67r")
+
+[node name="pie" type="Sprite2D" parent="."]
 texture = ExtResource("1_6jn70")

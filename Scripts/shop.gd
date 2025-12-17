@@ -16,7 +16,7 @@ func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the 
 	var file = FileAccess.open("res://Assets/card_list.json", FileAccess.READ)
 	var raw_text = file.get_as_text()
 	var data = JSON.parse_string(raw_text)
-	for ingredient in range(0,8):
+	for ingredient in range(0,data.size()):
 		for x in range(0,2):
 			shop_deck.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 
