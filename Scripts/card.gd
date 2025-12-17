@@ -47,14 +47,15 @@ func discard_self():
 
 	
 func _on_area_2d_mouse_entered():
-		change_scale(1.05)
+		position.y -= 35
  
 func _on_area_2d_mouse_exited():
-		change_scale(1)
+		position.y += 35
 	
 func change_scale(n):
 	$price_circle.set_size(n, true)
 	$ingredient_logo.scale = Vector2(5 * n, 5 * n)
 	$blank.scale = Vector2(5 * n, 5 * n)
 	$Area2D.scale = Vector2(5 * n, 5 * n)
+	$icon.change_scale(n)
 	

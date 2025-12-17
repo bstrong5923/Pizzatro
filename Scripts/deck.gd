@@ -60,6 +60,8 @@ func draw_spec_card(i):
 func fix_hand():
 	var h = hand.size()
 	var step = 580.0 / h
+	if step > 150:
+		step = 150
 	var middle_index = (h - 1) / 2.0
 	
 	for x in range(0, h):
