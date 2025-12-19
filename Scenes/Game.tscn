@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=15 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -9,9 +9,10 @@
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scripts/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://uch3ulmhe4wi" path="res://Scenes/shop_deck.tscn" id="10_71axn"]
-[ext_resource type="Texture2D" uid="uid://x3spvqhuevoa" path="res://Assets/Sprites/kitchen_floor.png" id="11_3so38"]
+[ext_resource type="Texture2D" uid="uid://x3spvqhuevoa" path="res://Assets/Sprites/kitchen/kitchen_floor.png" id="11_3so38"]
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
-[ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/cutting_board.png" id="13_3cx6b"]
+[ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
+[ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -60,7 +61,7 @@ scale = Vector2(2, 2)
 script = ExtResource("5_b2bpf")
 
 [node name="deck" parent="." instance=ExtResource("5_7lihs")]
-position = Vector2(96.8, 41)
+position = Vector2(95.200005, 41)
 scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="deck"]
@@ -88,6 +89,12 @@ position = Vector2(151.00002, 374.8)
 [node name="cutting_board" type="Sprite2D" parent="."]
 position = Vector2(0, 40.6)
 texture = ExtResource("13_3cx6b")
+
+[node name="SmallCuttingBoard" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(94.600006, 41.2)
+texture = ExtResource("13_wxwew")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
