@@ -31,20 +31,20 @@ script = ExtResource("3_2irst")
 
 [node name="go_to_shop_button" type="Button" parent="Camera2D"]
 top_level = true
-offset_left = 305.99997
-offset_top = -33.000015
-offset_right = 565.0
-offset_bottom = 39.999985
+offset_left = -568.0
+offset_top = -317.0
+offset_right = -308.99997
+offset_bottom = -244.0
 rotation = -6.2848086
 text = "GO TO THE SHOP"
 metadata/_edit_use_anchors_ = true
 
 [node name="go_to_game_button" type="Button" parent="Camera2D"]
 top_level = true
-offset_left = 1456.0
-offset_top = -33.0
-offset_right = 1715.0
-offset_bottom = 40.0
+offset_left = 615.0
+offset_top = -313.0
+offset_right = 874.0
+offset_bottom = -240.0
 rotation = -6.2848086
 text = "GO TO THE GAME"
 metadata/_edit_use_anchors_ = true
@@ -61,7 +61,7 @@ scale = Vector2(2, 2)
 script = ExtResource("5_b2bpf")
 
 [node name="deck" parent="." instance=ExtResource("5_7lihs")]
-position = Vector2(95.200005, 41)
+position = Vector2(96.4, 41)
 scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="deck"]
@@ -92,7 +92,7 @@ texture = ExtResource("13_3cx6b")
 
 [node name="SmallCuttingBoard" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(94.600006, 41.2)
+position = Vector2(96.4, 41.2)
 texture = ExtResource("13_wxwew")
 metadata/_edit_lock_ = true
 
