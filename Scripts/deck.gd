@@ -1,7 +1,6 @@
 extends Node2D
 
 var card = preload("res://Scenes/card.tscn")
-@export var deck2 : Array[Card] = []
 
 var deck : Array[Card] = []
 var file = FileAccess.open("res://Assets/card_list.json", FileAccess.READ)
@@ -12,6 +11,7 @@ var deck_remaining : Array[Card] = []
 var hand = []
 var discard_pile = [] #not usin this rn
 var card_highlighted = 0
+var shop_hand = []
 
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	print("smile")
@@ -29,12 +29,29 @@ func draw_hand():
 	for x in range(0,2):
 		draw_card()
 	fix_hand()
+	
+func draw_shop_hand():
+	for x in range(0,5):
+		draw_shop_card()
+	fix_shop_hand()
+	
+func draw_shop_card():
+	var instance = card.instantiate()
+	var random_index = randi_range(0, deck_remaining.size() - 1)
+	instance.set_ingredient(deck_remaining[random_index], true)
+	instance.position = Vector2(0, 39)
+	instance.change_scale(1)
+	add_child(instance)
+	shop_hand.push_back(instance)
+	fix_hand()
+	
+	
 
 func draw_card():
 	if deck_remaining.size() > 0:
 		var instance = card.instantiate()
 		var random_index = randi_range(0, deck_remaining.size() - 1)
-		instance.set_ingredient(deck_remaining[random_index])
+		instance.set_ingredient(deck_remaining[random_index], false)
 		instance.position = Vector2(0, 39)
 		instance.change_scale(1)
 		add_child(instance)
@@ -46,10 +63,11 @@ func generate_random():
 	var a : Card = "res://Assets/cards/" + data[randi_range(0, data.size() - 1)] + ".tres"
 	
 #adds specfic card with region value i
+#never used as of right now, prolly needs to be changed with the times
 func draw_spec_card(i):
 	var instance = card.instantiate()
 	
-	instance.set_ingredient(load("res://Assets/cards/" + str(i) + ".tres"))
+	instance.set_ingredient(load("res://Assets/cards/" + str(i) + ".tres"), false)
 	instance.position = Vector2(0, 39)
 	instance.change_scale(1)
 	add_child(instance)
@@ -68,6 +86,14 @@ func fix_hand():
 		hand[x].position.x = step * (x - middle_index)
 		hand[x].position.y = 205
 		hand[x].rotation = 0
+		
+func fix_shop_hand():
+	
+	var h = shop_hand.size()
+
+	for i in range(0, h):
+		shop_hand[i].position.x =  750+ (150 * i)
+		shop_hand[i].position.y =  -190
 		
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
