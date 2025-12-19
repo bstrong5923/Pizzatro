@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://uch3ulmhe4wi" path="res://Scenes/shop_deck.tscn" id="10_71axn"]
 [ext_resource type="Texture2D" uid="uid://x3spvqhuevoa" path="res://Assets/Sprites/kitchen/kitchen_floor.png" id="11_3so38"]
+[ext_resource type="Texture2D" uid="uid://dqpqgmwna35e4" path="res://Assets/Sprites/kitchen_floor.png" id="11_dahhg"]
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
@@ -61,7 +62,7 @@ scale = Vector2(2, 2)
 script = ExtResource("5_b2bpf")
 
 [node name="deck" parent="." instance=ExtResource("5_7lihs")]
-position = Vector2(96.4, 41)
+position = Vector2(95.200005, 41)
 scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="deck"]
@@ -76,13 +77,8 @@ metadata/_edit_lock_ = true
 position = Vector2(113.4, -62.8)
 scale = Vector2(0.2, 0.2)
 
-[node name="KitchenBackground" type="Sprite2D" parent="."]
-z_index = -20
-texture = ExtResource("11_3so38")
-metadata/_edit_lock_ = true
-
 [node name="shop_deck" parent="." instance=ExtResource("10_71axn")]
-position = Vector2(151.00002, 374.8)
+position = Vector2(321.19998, -47.4)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
 
@@ -92,10 +88,11 @@ texture = ExtResource("13_3cx6b")
 
 [node name="SmallCuttingBoard" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(96.4, 41.2)
+position = Vector2(94.600006, 41.2)
 texture = ExtResource("13_wxwew")
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="shipments/Area2D" to="shipments" method="_on_area_2d_input_event"]
