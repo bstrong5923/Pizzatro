@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/cutting_board.png" id="13_3cx6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
-size = Vector2(29, 47)
+size = Vector2(25.300007, 35.050003)
 
 [node name="Game" type="Node2D"]
 z_index = -2
@@ -59,15 +59,16 @@ scale = Vector2(2, 2)
 script = ExtResource("5_b2bpf")
 
 [node name="deck" parent="." instance=ExtResource("5_7lihs")]
-position = Vector2(98, 39)
+position = Vector2(96.8, 41)
 scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="deck"]
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deck/Area2D"]
-position = Vector2(-0.5, -0.5)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_7lihs")
+metadata/_edit_lock_ = true
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
 position = Vector2(113.4, -62.8)

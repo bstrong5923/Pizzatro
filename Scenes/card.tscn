@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbn4mtu14qcej"]
+[gd_scene load_steps=10 format=3 uid="uid://dbn4mtu14qcej"]
 
 [ext_resource type="Texture2D" uid="uid://dfsu8hxtmjj2x" path="res://Assets/Sprites/card_comps/card.png" id="1_brehn"]
 [ext_resource type="Script" uid="uid://dbgib3rgf417" path="res://Scripts/card.gd" id="2_wf8id"]
 [ext_resource type="Script" uid="uid://bn6ne0dgltx8" path="res://Scripts/ingredient_logo.gd" id="4_eumee"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="5_bnspj"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="6_xnv4g"]
+[ext_resource type="Texture2D" uid="uid://0dnvrs6hosd0" path="res://Assets/Sprites/ingredient_minis/0.png" id="7_u5wvb"]
 [ext_resource type="Script" uid="uid://ypm5t2efunjy" path="res://Scripts/card_function.gd" id="7_xnv4g"]
+[ext_resource type="Script" uid="uid://4twjx6lppoco" path="res://Scenes/icon.gd" id="8_mm04k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnspj"]
 size = Vector2(25.5, 35)
@@ -23,7 +25,7 @@ shape = SubResource("RectangleShape2D_bnspj")
 texture = ExtResource("1_brehn")
 
 [node name="ingredient_logo" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(2, -8)
 region_rect = Rect2(0, 0, 16, 16)
 script = ExtResource("4_eumee")
 
@@ -36,6 +38,13 @@ texture = ExtResource("5_bnspj")
 
 [node name="card_function" type="Node2D" parent="."]
 script = ExtResource("7_xnv4g")
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(-8, -13)
+texture = ExtResource("7_u5wvb")
+region_enabled = true
+region_rect = Rect2(0, 0, 5, 5)
+script = ExtResource("8_mm04k")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

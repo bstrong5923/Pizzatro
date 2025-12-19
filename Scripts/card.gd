@@ -38,6 +38,7 @@ func set_ingredient(i, t):
 	# get the right logo
 	var logo = $ingredient_logo
 	logo.set_ingredient(i)
+	$icon.set_ingredient(i)
 	
 	# get the price
 	var pricetag = $price_circle
@@ -70,10 +71,10 @@ func discard_self():
 		Deck.add_card_from_shop(ingredient)
 	
 func _on_area_2d_mouse_entered():
-		change_scale(1.05)
+		position.y -= 35
  
 func _on_area_2d_mouse_exited():
-		change_scale(1)
+		position.y += 35
 	
 func change_scale(n):
 	$price_circle.set_size(n, true)
@@ -82,4 +83,5 @@ func change_scale(n):
 	$ingredient_logo.scale = Vector2(5 * n, 5 * n)
 	$blank.scale = Vector2(5 * n, 5 * n)
 	$Area2D.scale = Vector2(5 * n, 5 * n)
+	$icon.change_scale(n)
 	
