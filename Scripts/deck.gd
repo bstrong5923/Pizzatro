@@ -13,6 +13,11 @@ var discard_pile = [] #not usin this rn
 var card_highlighted = 0
 var shop_hand = []
 
+var minimum = 0
+
+func set_minimum(v):
+	minimum = v
+
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	#deck = []
 	for ingredient in range(0,data.size()):
@@ -25,8 +30,13 @@ func fill_deck_remaining(): # called at beginning of each round
 		deck_remaining.push_back(deck[x])
 		
 func draw_hand():
-	for x in range(0,2):
+	clear_hand()
+	for x in range(0,7): # <---- starting hand size
 		draw_card()
+
+func clear_hand():
+	for card of hand:
+		card.discard_self()
 	
 func draw_card():
 	if deck_remaining.size() > 0:
@@ -93,7 +103,7 @@ func remove_card(index):
 	
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if get_node("/root/Game").is_playing() and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Deck.draw_card()
 		
 func add_card_from_shop(i):
