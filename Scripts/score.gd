@@ -9,18 +9,22 @@ var done_calculating = true
 #variable for calculating total
 var i = 0
 var total = 0
+var label_nodes_created = false
 
 func _ready() -> void:
 	fill_label_nodes()
 
 func fill_label_nodes():
 	for x in range (0,5):
-		label_nodes.push_back(get_node_or_null(flavor_names[x] + "/Count"))
+		var node = get_node_or_null(flavor_names[x] + "/Count")
+		if node:
+			label_nodes.push_back(node)
 
 func add_points(points, f):
 	flavor_vals_for_adding[f] += points
 	
 func calc():
+	i = 0
 	calculating = true
 	
 func clear_score():
@@ -35,9 +39,9 @@ func _process(delta: float) -> void:
 	var total_label_node = get_node_or_null("Total/Count")
 	if calculating == true:
 		done_calculating = false
-		if i < 5 and flavor_vals_for_adding[i] >0:
+		if i < 5 and flavor_value[i] >0:
 			total += 1
-			add_points(-1, i)
+			flavor_value[i] -= 1
 		elif i < 5:
 			i += 1
 		else:
@@ -46,8 +50,10 @@ func _process(delta: float) -> void:
 	elif !done_calculating:
 		done_calculating = true
 		get_node("/root/Game/Round_buttons").next_mode() # when I finish calculating, tell "submit" button to become "shop" button
-	for n in 5:
-		if flavor_value[n] < flavor_vals_for_adding[n]:
-
-			flavor_value[n] += 1
-			label_nodes[n].text = str(flavor_value[n])
+	if label_nodes:
+		for n in 5:
+			if flavor_value[n] < flavor_vals_for_adding[n]:
+				flavor_value[n] += 1
+				flavor_vals_for_adding[n] -= 1
+			if label_nodes[n].text != str(flavor_value[n]):
+				label_nodes[n].text = str(flavor_value[n])
