@@ -7,6 +7,7 @@ var play_timer = preload("res://Scripts/card_timer.gd")
 var scor = get_node("/root/Game/Labels/Score")
 var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
 var shop = false
+
 var highlighted = false
 
 @onready var cardsprite = $blank
@@ -74,11 +75,14 @@ func discard_self():
 		Deck.add_card_from_shop(ingredient)
 	
 func _on_area_2d_mouse_entered():
+
 	if get_node("/root/Game").is_playing() or shop == true:
+
 		cardsprite.position.y -= 35
 		ingredientsprite.position.y -= 35
 		iconsprite.position.y -= 35
 		pricecirclesprite.position.y -= 35
+
 		highlighted = true
  
 func _on_area_2d_mouse_exited():
@@ -88,7 +92,6 @@ func _on_area_2d_mouse_exited():
 		ingredientsprite.position.y += 35
 		iconsprite.position.y += 35
 		pricecirclesprite.position.y += 35
- 
 
 	
 func change_scale(n):

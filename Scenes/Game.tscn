@@ -105,7 +105,7 @@ position = Vector2(-94.6, 25)
 scale = Vector2(0.2, 0.2)
 
 [node name="Shopbackground" type="Sprite2D" parent="."]
-position = Vector2(253, 123.399994)
+position = Vector2(235.6, 1)
 texture = ExtResource("15_acvyw")
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
