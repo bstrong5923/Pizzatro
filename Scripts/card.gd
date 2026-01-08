@@ -7,15 +7,12 @@ var play_timer = preload("res://Scripts/card_timer.gd")
 var scor = get_node("/root/Game/Labels/Score")
 var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
 var shop = false
-<<<<<<< Updated upstream
 var highlighted = false
 
-=======
 @onready var cardsprite = $blank
 @onready var ingredientsprite = $ingredient_logo
 @onready var iconsprite = $icon
 @onready var pricecirclesprite = $price_circle
->>>>>>> Stashed changes
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
@@ -77,27 +74,22 @@ func discard_self():
 		Deck.add_card_from_shop(ingredient)
 	
 func _on_area_2d_mouse_entered():
-<<<<<<< Updated upstream
 	if get_node("/root/Game").is_playing() or shop == true:
-		position.y -= 35
-		highlighted = true
- 
-func _on_area_2d_mouse_exited():
-	if highlighted:
-		position.y += 35
-		highlighted = false
-=======
 		cardsprite.position.y -= 35
 		ingredientsprite.position.y -= 35
 		iconsprite.position.y -= 35
 		pricecirclesprite.position.y -= 35
+		highlighted = true
  
 func _on_area_2d_mouse_exited():
+	if highlighted:
+		highlighted = false
 		cardsprite.position.y += 35
 		ingredientsprite.position.y += 35
 		iconsprite.position.y += 35
 		pricecirclesprite.position.y += 35
->>>>>>> Stashed changes
+ 
+
 	
 func change_scale(n):
 	$price_circle.set_size(n, true)
