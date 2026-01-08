@@ -16,8 +16,9 @@ func new_round():
 	Deck.draw_hand()
 	$Labels/Energy.set_energy(20)
 	$Labels/Score.clear_score()
-	Deck.draw_shop_hand()
 	playing = true
+	await get_tree().create_timer(0.45).timeout # wait for shop to be offscreen
+	Deck.draw_shop_hand()
 
 func playing_off():
 	playing = false

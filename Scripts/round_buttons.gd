@@ -34,6 +34,3 @@ func next_mode():
 	$button.region_rect.position.y = mode * 10
 	$Label.text = labels[mode]
 	clickable = true
-
-func _process(delta: float) -> void:
-	print(cooldown)

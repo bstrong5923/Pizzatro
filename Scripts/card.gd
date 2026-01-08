@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
-		if shop == false and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
+		if !shop and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
 			var hand = get_node("/root/Game/hand_animation") # animation to add the ingredients
 			hand.go(ingredient)
 			play_timer.cooldown() # wait for animation to finish before you can click another
@@ -25,9 +25,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 			var checker = get_node("card_function") # do the function
 			checker.set_card(ingredient)
 			checker.run_card_function()
-		else: 
+		elif shop: 
 			play_timer.cooldown() # wait for animation to finish before you can click another
-			discard_self() # discard this one
+			add_to_deck() # discard this one
 
 
 func set_ingredient(i, t):
@@ -48,11 +48,15 @@ func get_ingredient():
 	return ingredient
 	
 func discard_self():
-	if shop == false:
-		Deck.remove_card(Deck.hand.find(self))
+	if !shop:
+		Deck.hand.erase(self)
 		Deck.fix_hand()
 		queue_free()
 	else:
+		Deck.shop_hand.erase(self)
+		queue_free()
+		
+func add_to_deck():
 		Deck.shop_hand.erase(self)
 		# Now fix the layout WITHOUT this card in the list
 		Deck.fix_shop_hand()

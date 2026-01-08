@@ -35,9 +35,10 @@ func draw_hand():
 		draw_card()
 
 func clear_hand():
-	var i = hand.size() - 1
-	while hand.size() < 0:
-		hand[i].discard_self
+	var c = hand.size() - 1
+	while hand.size() > 0:
+		hand[c].discard_self()
+		c -= 1
 	
 func draw_card():
 	if deck_remaining.size() > 0:
@@ -52,9 +53,16 @@ func draw_card():
 		deck_remaining.remove_at(random_index)
 	
 func draw_shop_hand():
+	clear_shop_hand()
 	for x in range(0,5):
 		draw_shop_card()
 	fix_shop_hand()
+
+func clear_shop_hand():
+	var s = shop_hand.size() - 1
+	while shop_hand.size() > 0:
+		shop_hand[s].discard_self()
+		s -= 1
 	
 func draw_shop_card():
 	var instance = card.instantiate()
@@ -108,4 +116,4 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		Deck.draw_card()
 		
 func add_card_from_shop(i):
-	deck_remaining.push_back(i)
+	deck.push_back(i)
