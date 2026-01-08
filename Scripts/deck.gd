@@ -13,8 +13,12 @@ var discard_pile = [] #not usin this rn
 var card_highlighted = 0
 var shop_hand = []
 
+var minimum = 0
+
+func set_minimum(v):
+	minimum = v
+
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
-	print("smile")
 	#deck = []
 	for ingredient in range(0,data.size()):
 		for x in range(0,2):
@@ -26,9 +30,26 @@ func fill_deck_remaining(): # called at beginning of each round
 		deck_remaining.push_back(deck[x])
 		
 func draw_hand():
-	for x in range(0,2):
+	clear_hand()
+	for x in range(0,7): # <---- starting hand size
 		draw_card()
-	fix_hand()
+
+func clear_hand():
+	var i = hand.size() - 1
+	while hand.size() < 0:
+		hand[i].discard_self
+	
+func draw_card():
+	if deck_remaining.size() > 0:
+		var instance = card.instantiate()
+		var random_index = randi_range(0, deck_remaining.size() - 1)
+		instance.set_ingredient(deck_remaining[random_index], false)
+		instance.position = Vector2(0, 39)
+		instance.change_scale(1)
+		add_child(instance)
+		hand.push_back(instance)
+		fix_hand()
+		deck_remaining.remove_at(random_index)
 	
 func draw_shop_hand():
 	for x in range(0,5):
@@ -43,24 +64,6 @@ func draw_shop_card():
 	instance.change_scale(1)
 	add_child(instance)
 	shop_hand.push_back(instance)
-	fix_hand()
-	
-	
-
-func draw_card():
-	if deck_remaining.size() > 0:
-		var instance = card.instantiate()
-		var random_index = randi_range(0, deck_remaining.size() - 1)
-		instance.set_ingredient(deck_remaining[random_index], false)
-		instance.position = Vector2(0, 39)
-		instance.change_scale(1)
-		add_child(instance)
-		hand.push_back(instance)
-		fix_hand()
-		deck_remaining.remove_at(random_index)
-		
-func generate_random():
-	var a : Card = "res://Assets/cards/" + data[randi_range(0, data.size() - 1)] + ".tres"
 	
 #adds specfic card with region value i
 #never used as of right now, prolly needs to be changed with the times
@@ -100,10 +103,9 @@ func remove_card(index):
 	#click on the deck
 	
 	
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if get_node("/root/Game").is_playing() and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Deck.draw_card()
-		Deck.fix_hand()
 		
 func add_card_from_shop(i):
 	deck_remaining.push_back(i)

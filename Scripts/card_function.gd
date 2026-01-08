@@ -13,7 +13,6 @@ var scor = get_node("/root/Game/Labels/Score")
 # 4 = jalapeno
 # 5 = basil
 
-
 # index of different flavors
 # 0 = sweet
 # 1 = spicy
@@ -25,7 +24,7 @@ var scor = get_node("/root/Game/Labels/Score")
 func set_card(i):
 	ingredient = i
 	
-func check_function():
+func run_card_function():
 	
 	scor.add_points(ingredient.sweet, 0)
 	scor.add_points(ingredient.spicy, 1)

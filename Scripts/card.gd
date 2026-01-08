@@ -7,26 +7,25 @@ var play_timer = preload("res://Scripts/card_timer.gd")
 var scor = get_node("/root/Game/Labels/Score")
 var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
 var shop = false
+var highlighted = false
+
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card and get_node("/root/Game/Labels/Balance").get_balance() >= ingredient.price:
-		if shop == false:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
+		if shop == false and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
 			var hand = get_node("/root/Game/hand_animation") # animation to add the ingredients
-			print("yo!")
 			hand.go(ingredient)
 			play_timer.cooldown() # wait for animation to finish before you can click another
 			discard_self() # discard this one
 			### call to card function to subtract money
-			get_node_or_null("/root/Game/Labels/Balance").change_balance(-price)
+			get_node_or_null("/root/Game/Labels/Energy").change_energy(-price)
 			var checker = get_node("card_function") # do the function
 			checker.set_card(ingredient)
-			checker.check_function()
-			if (get_node("/root/Game/Labels/Balance").get_balance() <= 2) or (Deck.deck.size() <= 0):
-				scor.calc()
-		else:
+			checker.run_card_function()
+		else: 
 			play_timer.cooldown() # wait for animation to finish before you can click another
 			discard_self() # discard this one
 
@@ -71,10 +70,14 @@ func discard_self():
 		Deck.add_card_from_shop(ingredient)
 	
 func _on_area_2d_mouse_entered():
+	if get_node("/root/Game").is_playing() or shop == true:
 		position.y -= 35
+		highlighted = true
  
 func _on_area_2d_mouse_exited():
+	if highlighted:
 		position.y += 35
+		highlighted = false
 	
 func change_scale(n):
 	$price_circle.set_size(n, true)

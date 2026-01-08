@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=16 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://uch3ulmhe4wi" path="res://Scenes/shop_deck.tscn" id="10_71axn"]
 [ext_resource type="Texture2D" uid="uid://x3spvqhuevoa" path="res://Assets/Sprites/kitchen/kitchen_floor.png" id="11_3so38"]
-[ext_resource type="Texture2D" uid="uid://dqpqgmwna35e4" path="res://Assets/Sprites/kitchen_floor.png" id="11_dahhg"]
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
+[ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -32,20 +32,20 @@ script = ExtResource("3_2irst")
 
 [node name="go_to_shop_button" type="Button" parent="Camera2D"]
 top_level = true
-offset_left = 305.99997
-offset_top = -33.000015
-offset_right = 565.0
-offset_bottom = 39.999985
+offset_left = -568.0
+offset_top = -317.0
+offset_right = -308.99997
+offset_bottom = -244.0
 rotation = -6.2848086
 text = "GO TO THE SHOP"
 metadata/_edit_use_anchors_ = true
 
 [node name="go_to_game_button" type="Button" parent="Camera2D"]
 top_level = true
-offset_left = 1456.0
-offset_top = -33.0
-offset_right = 1715.0
-offset_bottom = 40.0
+offset_left = 615.0
+offset_top = -313.0
+offset_right = 874.0
+offset_bottom = -240.0
 rotation = -6.2848086
 text = "GO TO THE GAME"
 metadata/_edit_use_anchors_ = true
@@ -74,11 +74,12 @@ shape = SubResource("RectangleShape2D_7lihs")
 metadata/_edit_lock_ = true
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
-position = Vector2(113.4, -62.8)
+position = Vector2(-40.799995, -36.4)
 scale = Vector2(0.2, 0.2)
 
 [node name="shop_deck" parent="." instance=ExtResource("10_71axn")]
 position = Vector2(321.19998, -47.4)
+script = null
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
 
@@ -92,7 +93,16 @@ position = Vector2(94.600006, 41.2)
 texture = ExtResource("13_wxwew")
 metadata/_edit_lock_ = true
 
+[node name="KitchenFloor" type="Sprite2D" parent="."]
+z_index = -20
+position = Vector2(-3.8146973e-06, -1.4901161e-08)
+texture = ExtResource("11_3so38")
+metadata/_edit_lock_ = true
+
+[node name="Round_buttons" parent="." instance=ExtResource("14_wxwew")]
+position = Vector2(-94.6, 25)
+scale = Vector2(0.2, 0.2)
+
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="shipments/Area2D" to="shipments" method="_on_area_2d_input_event"]
