@@ -35,8 +35,9 @@ func draw_hand():
 		draw_card()
 
 func clear_hand():
-	for card of hand:
-		card.discard_self()
+	var i = hand.size() - 1
+	while hand.size() < 0:
+		hand[i].discard_self
 	
 func draw_card():
 	if deck_remaining.size() > 0:
