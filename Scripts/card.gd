@@ -92,7 +92,6 @@ func _on_area_2d_mouse_exited():
 		ingredientsprite.position.y += 35
 		iconsprite.position.y += 35
 		pricecirclesprite.position.y += 35
-
 	
 func change_scale(n):
 	$price_circle.set_size(n, true)
