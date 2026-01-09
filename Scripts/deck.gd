@@ -17,6 +17,7 @@ var minimum = 0
 
 func set_minimum(v):
 	minimum = v
+	get_node("/root/Game/Labels/minimum/Count").text = str(minimum)
 
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	#deck = []
