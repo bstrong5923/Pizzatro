@@ -28,6 +28,9 @@ script = ExtResource("1_7lihs")
 position = Vector2(0, -19.600002)
 scale = Vector2(1, 1)
 
+[node name="minis" parent="pie" instance=ExtResource("3_j5yw3")]
+scale = Vector2(0.9999998, 0.9999998)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_2irst")
 
@@ -50,9 +53,6 @@ offset_bottom = -240.0
 rotation = -6.2848086
 text = "GO TO THE GAME"
 metadata/_edit_use_anchors_ = true
-
-[node name="minis" parent="." instance=ExtResource("3_j5yw3")]
-position = Vector2(0, -17)
 
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
 position = Vector2(6, -67)
