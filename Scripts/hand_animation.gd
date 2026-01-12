@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		region_rect.position.x += 50
 		if region_rect.position.x >= 100:
 			# scatter the mini ingredients
-			var minis = get_node("/root/Game/minis")
+			var minis = get_node("/root/Game/pie/minis")
 			minis.scatter(ingredient)
 			step = 3
 	elif step == 3:

@@ -17,6 +17,7 @@ var minimum = 0
 
 func set_minimum(v):
 	minimum = v
+	get_node("/root/Game/Labels/minimum/Count").text = str(minimum)
 
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	#deck = []
@@ -35,9 +36,10 @@ func draw_hand():
 		draw_card()
 
 func clear_hand():
-	var i = hand.size() - 1
-	while hand.size() < 0:
-		hand[i].discard_self
+	var c = hand.size() - 1
+	while hand.size() > 0:
+		hand[c].discard_self()
+		c -= 1
 	
 func draw_card():
 	if deck_remaining.size() > 0:
@@ -52,9 +54,16 @@ func draw_card():
 		deck_remaining.remove_at(random_index)
 	
 func draw_shop_hand():
+	clear_shop_hand()
 	for x in range(0,5):
 		draw_shop_card()
 	fix_shop_hand()
+
+func clear_shop_hand():
+	var s = shop_hand.size() - 1
+	while shop_hand.size() > 0:
+		shop_hand[s].discard_self()
+		s -= 1
 	
 func draw_shop_card():
 	var instance = card.instantiate()
@@ -95,8 +104,8 @@ func fix_shop_hand():
 	var h = shop_hand.size()
 
 	for i in range(0, h):
-		shop_hand[i].position.x =  750+ (150 * i)
-		shop_hand[i].position.y =  -190
+		shop_hand[i].position.x =  900+ ( 150 * i)
+		shop_hand[i].position.y =  -50
 		
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
@@ -108,4 +117,4 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		Deck.draw_card()
 		
 func add_card_from_shop(i):
-	deck_remaining.push_back(i)
+	deck.push_back(i)

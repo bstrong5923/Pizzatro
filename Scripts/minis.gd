@@ -6,6 +6,7 @@ func dont_clone():
 
 var mynode = preload("res://Scenes/minis.tscn")
 
+var mini_instances = []
 
 func scatter(ingredient):
 	#
@@ -33,5 +34,10 @@ func scatter(ingredient):
 		instance.rotation_degrees = randi_range(0,3) * 90
 		instance.dont_clone()
 		add_child(instance)
+		mini_instances.append(instance)
 
+func clear_minis():
+	for i in mini_instances:
+		mini_instances.erase(self)
+		i.queue_free()
 	
