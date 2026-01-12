@@ -14,6 +14,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			cooldown = true
 			await get_tree().create_timer(0.25).timeout
 			cooldown = false
+			print(get_node("/root/Game").get_level())
+			#money stuff
+			var money_calc = get_node("/root/Game").get_level()
+			Score.add_money(money_calc)
+			get_node("/root/Game/Labels/money/Count").text = str(money_calc)
+			
 		elif !get_node("/root/Game/Camera2D").camera_locked:
 			if mode == 1:
 				get_node("/root/Game/Camera2D").go_to_shop()
