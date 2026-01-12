@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://dhkbpd5hd8qus"]
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://dhkbpd5hd8qus"]
 
 [ext_resource type="Texture2D" uid="uid://5cvk5s6j548j" path="res://Assets/Sprites/ingredient_minis/5.png" id="1_l5sgn"]
-[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scenes/card_resource.gd" id="1_nebht"]
-[ext_resource type="Texture2D" uid="uid://bgwccouxo1ul" path="res://Assets/Sprites/card_comps/big_ingredients/basil.png" id="2_sfupm"]
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_nebht"]
+[ext_resource type="Texture2D" uid="uid://ciumqv4wbhtpp" path="res://Assets/Sprites/card_comps/big_ingredients/basil.png" id="2_sfupm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l5sgn"]
+load_path = "res://.godot/imported/pixil-frame-5.png-1940f00326855f36ebed91dcbcafa3c7.ctex"
 
 [resource]
 script = ExtResource("1_nebht")
 name = "Basil"
 texture = ExtResource("2_sfupm")
+texture_retro = SubResource("CompressedTexture2D_l5sgn")
 minis = ExtResource("1_l5sgn")
 price = 2
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

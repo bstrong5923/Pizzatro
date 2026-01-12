@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=16 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
-[ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -25,7 +24,7 @@ scale = Vector2(5, 5)
 script = ExtResource("1_7lihs")
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
-position = Vector2(0, -19.600002)
+position = Vector2(0, -19)
 scale = Vector2(1, 1)
 
 [node name="minis" parent="pie" instance=ExtResource("3_j5yw3")]
@@ -75,10 +74,15 @@ shape = SubResource("RectangleShape2D_7lihs")
 metadata/_edit_lock_ = true
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
-position = Vector2(-40.799995, -36.4)
+position = Vector2(-41, -35.8)
 scale = Vector2(0.2, 0.2)
 
+[node name="KitchenBackground" type="Sprite2D" parent="."]
+z_index = -20
+metadata/_edit_lock_ = true
+
 [node name="shop_deck" parent="." instance=ExtResource("10_71axn")]
+visible = true
 position = Vector2(321.19998, -47.4)
 script = null
 
@@ -103,12 +107,6 @@ metadata/_edit_lock_ = true
 [node name="Round_buttons" parent="." instance=ExtResource("14_wxwew")]
 position = Vector2(-94.6, 25)
 scale = Vector2(0.2, 0.2)
-
-[node name="Shopbackground" type="Sprite2D" parent="."]
-z_index = -20
-position = Vector2(235.6, 1)
-texture = ExtResource("15_acvyw")
-metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]

@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://c177x0ci8y5x4"]
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://c177x0ci8y5x4"]
 
-[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scenes/card_resource.gd" id="1_d03d8"]
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_d03d8"]
 [ext_resource type="Texture2D" uid="uid://bloja85r8t4a0" path="res://Assets/Sprites/ingredient_minis/1.png" id="1_g4ld4"]
-[ext_resource type="Texture2D" uid="uid://cenjeweay8awd" path="res://Assets/Sprites/card_comps/big_ingredients/pineapple.png" id="2_xk48m"]
+[ext_resource type="Texture2D" uid="uid://bp671ut7v58kx" path="res://Assets/Sprites/card_comps/big_ingredients/pineapple.png" id="2_xk48m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g4ld4"]
+load_path = "res://.godot/imported/pixil-frame-1.png-5932c2626007b7d1d503ff6c560b00c3.ctex"
 
 [resource]
 script = ExtResource("1_d03d8")
 name = "Pineapple"
 texture = ExtResource("2_xk48m")
+texture_retro = SubResource("CompressedTexture2D_g4ld4")
 minis = ExtResource("1_g4ld4")
 sweet = 5
 price = 3
