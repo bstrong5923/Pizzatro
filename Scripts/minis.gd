@@ -37,7 +37,11 @@ func scatter(ingredient):
 		mini_instances.append(instance)
 
 func clear_minis():
-	for i in mini_instances:
-		mini_instances.erase(self)
-		i.queue_free()
+	print(mini_instances)
+	var i = mini_instances.size()
+	while i > 0:
+		i -= 1
+		mini_instances[i].queue_free()
+		mini_instances.remove_at(i)
+	print(mini_instances)
 	
