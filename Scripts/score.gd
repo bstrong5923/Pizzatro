@@ -11,6 +11,9 @@ var i = 0
 var total = 0
 var label_nodes_created = false
 
+#MONEY
+var money = 0
+
 func _ready() -> void:
 	fill_label_nodes()
 
@@ -26,6 +29,9 @@ func add_points(points, f):
 func calc():
 	i = 0
 	calculating = true
+
+func add_money(i):
+	money += i
 	
 func clear_score():
 	flavor_value = [0, 0, 0, 0, 0]
