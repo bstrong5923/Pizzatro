@@ -1,7 +1,7 @@
 extends Node2D
 
-var flavor_vals_display = [0, 0, 0, 0, 0]
-var flavor_vals = [0, 0, 0, 0, 0]
+var flavor_values = [0, 0, 0, 0, 0]
+var flavor_vals_to_add = [0, 0, 0, 0, 0]
 var flavor_names = ["Sweet", "Spicy", "Salty", "Sour", "Savory"]
 var label_nodes = []
 var calculating = false
@@ -21,15 +21,15 @@ func fill_label_nodes():
 			label_nodes.push_back(node)
 
 func add_points(points, f):
-	flavor_vals[f] += points
+	flavor_vals_to_add[f] += points
 	
 func calc():
 	i = 0
 	calculating = true
 	
 func clear_score():
-	flavor_vals_display = [0, 0, 0, 0, 0]
-	flavor_vals = [0, 0, 0, 0, 0]
+	flavor_values = [0, 0, 0, 0, 0]
+	flavor_vals_to_add = [0, 0, 0, 0, 0]
 	for label_node in label_nodes:
 		label_node.text = "0"
 	total = 0
@@ -39,9 +39,9 @@ func _process(delta: float) -> void:
 	var total_label_node = get_node_or_null("Total/Count")
 	if calculating == true:
 		done_calculating = false
-		if i < 5 and flavor_vals_display[i] >0:
+		if i < 5 and flavor_values[i] >0:
 			total += 1
-			flavor_vals_display[i] -= 1
+			flavor_values[i] -= 1
 		elif i < 5:
 			i += 1
 		else:
@@ -52,7 +52,8 @@ func _process(delta: float) -> void:
 		get_node("/root/Game/Round_buttons").next_mode() # when I finish calculating, tell "submit" button to become "shop" button
 	if label_nodes:
 		for n in 5:
-			if flavor_vals_display[n] < flavor_vals[n]:
-				flavor_vals_display[n] += 1
-			if label_nodes[n].text != str(flavor_vals_display[n]):
-				label_nodes[n].text = str(flavor_vals_display[n])
+			if flavor_vals_to_add[n] > 0:
+				flavor_values[n] += 1
+				flavor_vals_to_add[n] -= 1
+			if label_nodes[n].text != str(flavor_values[n]):
+				label_nodes[n].text = str(flavor_values[n])
