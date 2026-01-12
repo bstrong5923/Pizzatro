@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4dtkh2ffgerw"]
+[gd_scene load_steps=6 format=3 uid="uid://f7sy7lcba8wv"]
 
-[ext_resource type="Script" uid="uid://cndjhw50haeyr" path="res://Scripts/shop_card.gd" id="1_yligq"]
-[ext_resource type="Texture2D" uid="uid://k5d5dxnjywrd" path="res://Assets/Sprites/card_comps/card.png" id="2_kuaw8"]
+[ext_resource type="Texture2D" uid="uid://dfsu8hxtmjj2x" path="res://Assets/Sprites/card_comps/card.png" id="2_kuaw8"]
 [ext_resource type="Script" uid="uid://bn6ne0dgltx8" path="res://Scripts/ingredient_logo.gd" id="4_btjuf"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="5_btjuf"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="6_5b513"]
@@ -10,7 +9,6 @@
 size = Vector2(30, 47)
 
 [node name="shop_card" type="Node2D"]
-script = ExtResource("1_yligq")
 
 [node name="Area2D" type="Area2D" parent="."]
 
