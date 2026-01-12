@@ -53,7 +53,8 @@ func draw_shop_card():
 	instance.change_scale(1)
 	add_child(instance)
 	shop_hand.push_back(instance)
-	
+
+
 #adds specfic card with region value i
 #never used as of right now, prolly needs to be changed with the times
 func draw_spec_card(i):
