@@ -9,10 +9,7 @@
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scripts/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
 [ext_resource type="PackedScene" uid="uid://uch3ulmhe4wi" path="res://Scenes/shop_deck.tscn" id="10_71axn"]
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://x3spvqhuevoa" path="res://Assets/Sprites/kitchen/kitchen_floor.png" id="11_3so38"]
-=======
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
@@ -21,20 +18,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_alh3a"]
-size = Vector2(25.200005, 35.4)
-
 [node name="Game" type="Node2D"]
 z_index = -2
 scale = Vector2(5, 5)
 script = ExtResource("1_7lihs")
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
-<<<<<<< Updated upstream
-position = Vector2(0, -19.600002)
-=======
 position = Vector2(0, -19)
->>>>>>> Stashed changes
 scale = Vector2(1, 1)
 
 [node name="minis" parent="pie" instance=ExtResource("3_j5yw3")]
@@ -84,15 +74,7 @@ shape = SubResource("RectangleShape2D_7lihs")
 metadata/_edit_lock_ = true
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
-<<<<<<< Updated upstream
-position = Vector2(-40.799995, -36.4)
-scale = Vector2(0.2, 0.2)
-
-[node name="shop_deck" parent="." instance=ExtResource("10_71axn")]
-position = Vector2(321.19998, -47.4)
-script = null
-=======
-position = Vector2(113.4, -62.8)
+position = Vector2(-41, -35.8)
 scale = Vector2(0.2, 0.2)
 
 [node name="KitchenBackground" type="Sprite2D" parent="."]
@@ -102,13 +84,12 @@ metadata/_edit_lock_ = true
 [node name="shop_deck" parent="." instance=ExtResource("10_71axn")]
 visible = true
 position = Vector2(321.19998, -47.4)
->>>>>>> Stashed changes
+script = null
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
 
 [node name="cutting_board" type="Sprite2D" parent="."]
 position = Vector2(0, 40.6)
-<<<<<<< Updated upstream
 texture = ExtResource("13_3cx6b")
 
 [node name="SmallCuttingBoard" type="Sprite2D" parent="."]
@@ -130,7 +111,3 @@ scale = Vector2(0.2, 0.2)
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
-<<<<<<< Updated upstream
-[connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
-=======
->>>>>>> Stashed changes

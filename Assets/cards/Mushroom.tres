@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://bvxa13xn2ttjr"]
 
-[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scenes/card_resource.gd" id="1_cxdsa"]
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_cxdsa"]
 [ext_resource type="Texture2D" uid="uid://dvekkscw8pjkn" path="res://Assets/Sprites/ingredient_minis/2.png" id="1_ora6k"]
 [ext_resource type="Texture2D" uid="uid://bbxkvwg306si1" path="res://Assets/Sprites/card_comps/big_ingredients/mushroom.png" id="2_nmtbk"]
 
@@ -8,6 +8,7 @@
 script = ExtResource("1_cxdsa")
 name = "Mushroom"
 texture = ExtResource("2_nmtbk")
+texture_retro = ExtResource("2_nmtbk")
 minis = ExtResource("1_ora6k")
 savory = 4
 price = 3
