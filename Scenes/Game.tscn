@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=19 format=3 uid="uid://b1wv8w4eqxgld"]
-=======
-[gd_scene load_steps=12 format=3 uid="uid://b1wv8w4eqxgld"]
->>>>>>> Stashed changes
+[gd_scene load_steps=16 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -21,8 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
-[ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="15_acvyw"]
-[ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scenes/pack.gd" id="16_alh3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -43,14 +37,17 @@ position = Vector2(0, -19)
 >>>>>>> Stashed changes
 scale = Vector2(1, 1)
 
+[node name="minis" parent="pie" instance=ExtResource("3_j5yw3")]
+scale = Vector2(0.9999998, 0.9999998)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_2irst")
 
 [node name="go_to_shop_button" type="Button" parent="Camera2D"]
 top_level = true
-offset_left = -568.0
+offset_left = -567.00006
 offset_top = -317.0
-offset_right = -308.99997
+offset_right = -308.00003
 offset_bottom = -244.0
 rotation = -6.2848086
 text = "GO TO THE SHOP"
@@ -65,9 +62,6 @@ offset_bottom = -240.0
 rotation = -6.2848086
 text = "GO TO THE GAME"
 metadata/_edit_use_anchors_ = true
-
-[node name="minis" parent="." instance=ExtResource("3_j5yw3")]
-position = Vector2(0, -17)
 
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
 position = Vector2(6, -67)
@@ -132,20 +126,6 @@ metadata/_edit_lock_ = true
 [node name="Round_buttons" parent="." instance=ExtResource("14_wxwew")]
 position = Vector2(-94.6, 25)
 scale = Vector2(0.2, 0.2)
-
-[node name="Pack" type="Sprite2D" parent="."]
-position = Vector2(231.79999, 29.400002)
-texture = ExtResource("15_acvyw")
-script = ExtResource("16_alh3a")
-
-[node name="Area2D" type="Area2D" parent="Pack"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pack/Area2D"]
-position = Vector2(-0.19999695, -0.29999924)
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_alh3a")
-=======
->>>>>>> Stashed changes
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]

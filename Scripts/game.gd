@@ -1,6 +1,8 @@
 extends Node2D
 
 var level 
+var minimums = [25, 42, 66, 91, 120, 180]
+var playing = false
 
 func _ready() -> void:
 	level = 0
@@ -9,7 +11,21 @@ func _ready() -> void:
 
 func new_round():
 	level += 1
+	if level <= minimums.size():
+		Deck.set_minimum(minimums[level - 1])
+	else:
+		Deck.set_minimums(250)
 	Deck.fill_deck_remaining()
 	Deck.draw_hand()
-	$Labels/Energy.set_energy(45)
+	$Labels/Energy.set_energy(20)
+	$Labels/Score.clear_score()
+	$pie/minis.clear_minis()
+	playing = true
+	await get_tree().create_timer(0.45).timeout # wait for shop to be offscreen
+	Deck.draw_shop_hand()
+
+func playing_off():
+	playing = false
 	
+func is_playing():
+	return playing
