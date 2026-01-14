@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=19 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
-[ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
+[ext_resource type="PackedScene" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
 [ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="16_4q8tf"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
@@ -86,7 +86,6 @@ scale = Vector2(0.2, 0.2)
 z_index = -20
 metadata/_edit_lock_ = true
 
-
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
 
 [node name="cutting_board" type="Sprite2D" parent="."]
@@ -114,15 +113,16 @@ z_index = -20
 position = Vector2(237.20001, 0)
 texture = ExtResource("15_acvyw")
 metadata/_edit_lock_ = true
+
 [node name="Pack" type="Sprite2D" parent="."]
-position = Vector2(249.19998, 28.399998)
+position = Vector2(332.40002, 27.400002)
 texture = ExtResource("16_4q8tf")
 script = ExtResource("17_x3xnh")
 
 [node name="Area2D" type="Area2D" parent="Pack"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pack/Area2D"]
-position = Vector2(-0.49998474, 1.9073486e-06)
+position = Vector2(-0.20003277, 0.19999886)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
