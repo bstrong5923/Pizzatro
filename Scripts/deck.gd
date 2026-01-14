@@ -15,6 +15,14 @@ var shop_hand = []
 var card_list = []
 var minimum = 0
 
+var texture_mode = 'default'
+
+func toggle_texture_mode():
+	if texture_mode == 'default':
+		texture_mode = 'retro'
+	else:
+		texture_mode = 'default'
+
 func set_minimum(v):
 	minimum = v
 	get_node("/root/Game/Labels/minimum/Count").text = str(minimum)

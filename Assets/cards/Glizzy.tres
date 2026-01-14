@@ -3,15 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://r3s7qa8ulki1" path="res://Assets/Sprites/ingredient_minis/6.png" id="1_7pc18"]
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_ramih"]
 [ext_resource type="Texture2D" uid="uid://ckxlpynmd21n8" path="res://Assets/Sprites/card_comps/big_ingredients/glizzy.png" id="3_x080k"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7pc18"]
-load_path = "res://.godot/imported/sausage_retro.png-e914cc0eb84518aabf77dacd8ee75ee2.ctex"
+[ext_resource type="Texture2D" uid="uid://bjymv3jc0xben" path="res://Assets/Sprites/card_comps/big_ingredients_retro/sausage.png" id="4_x080k"]
 
 [resource]
 script = ExtResource("1_ramih")
 name = "Glizzy"
 texture = ExtResource("3_x080k")
-texture_retro = SubResource("CompressedTexture2D_7pc18")
+texture_retro = ExtResource("4_x080k")
 minis = ExtResource("1_7pc18")
 spicy = 3
 salty = 3

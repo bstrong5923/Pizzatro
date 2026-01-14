@@ -1,5 +1,7 @@
 extends Sprite2D
 
 func set_ingredient(i):
-	
-	texture = i.texture
+	if Deck.texture_mode == 'default':
+		texture = i.texture
+	else:
+		texture = i.texture_retro
