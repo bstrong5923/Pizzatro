@@ -3,15 +3,13 @@
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_3s5xn"]
 [ext_resource type="Texture2D" uid="uid://8lvgrrhxv8xv" path="res://Assets/Sprites/ingredient_minis/3.png" id="1_6p3ml"]
 [ext_resource type="Texture2D" uid="uid://c0g3i014qmloo" path="res://Assets/Sprites/card_comps/big_ingredients/tomato.png" id="2_fo2kq"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6p3ml"]
-load_path = "res://.godot/imported/pixil-frame-3.png-c1e973ba7c552123a88731b731d9a0aa.ctex"
+[ext_resource type="Texture2D" uid="uid://c4ugoor0c5jg1" path="res://Assets/Sprites/card_comps/big_ingredients_retro/tomato.png" id="4_81jrn"]
 
 [resource]
 script = ExtResource("1_3s5xn")
 name = "Tomato"
 texture = ExtResource("2_fo2kq")
-texture_retro = SubResource("CompressedTexture2D_6p3ml")
+texture_retro = ExtResource("4_81jrn")
 minis = ExtResource("1_6p3ml")
 sweet = 1
 sour = 2

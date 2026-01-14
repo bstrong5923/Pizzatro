@@ -3,15 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://5cvk5s6j548j" path="res://Assets/Sprites/ingredient_minis/5.png" id="1_l5sgn"]
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_nebht"]
 [ext_resource type="Texture2D" uid="uid://ciumqv4wbhtpp" path="res://Assets/Sprites/card_comps/big_ingredients/basil.png" id="2_sfupm"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l5sgn"]
-load_path = "res://.godot/imported/pixil-frame-5.png-1940f00326855f36ebed91dcbcafa3c7.ctex"
+[ext_resource type="Texture2D" uid="uid://bn8ibdbp1cqg6" path="res://Assets/Sprites/card_comps/big_ingredients_retro/basil.png" id="4_c2dfd"]
 
 [resource]
 script = ExtResource("1_nebht")
 name = "Basil"
 texture = ExtResource("2_sfupm")
-texture_retro = SubResource("CompressedTexture2D_l5sgn")
+texture_retro = ExtResource("4_c2dfd")
 minis = ExtResource("1_l5sgn")
 price = 2
 metadata/_custom_type_script = "uid://ci4asu2oe813i"
