@@ -1,7 +1,8 @@
 extends Node2D
 
 
-
+func _on_ready() -> void:
+	preload("res://Scenes/Game.tscn")
 
 func _on_start_button_pressed() -> void:
 	print("playing")
