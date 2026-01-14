@@ -29,6 +29,10 @@ func add_points(points, f):
 func calc():
 	i = 0
 	calculating = true
+	var totalscore = 0
+	for val in flavor_values:
+		totalscore += val
+	return totalscore
 
 func add_money(i):
 	money += i
