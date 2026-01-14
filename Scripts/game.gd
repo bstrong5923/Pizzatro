@@ -30,3 +30,6 @@ func playing_off():
 	
 func is_playing():
 	return playing
+
+func get_level():
+	return level

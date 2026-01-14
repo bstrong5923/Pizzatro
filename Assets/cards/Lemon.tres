@@ -2,12 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://djkuk86vdyxvj" path="res://Assets/Sprites/ingredient_minis/7.png" id="1_7jom7"]
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_h86gk"]
-[ext_resource type="Texture2D" uid="uid://cy4j1cvlidyyd" path="res://Assets/Sprites/card_comps/big_ingredients/lemon.png" id="3_0uh1l"]
+[ext_resource type="Texture2D" uid="uid://cifdmvyy0gk1l" path="res://Assets/Sprites/card_comps/big_ingredients/lemon.png" id="3_0uh1l"]
 
 [resource]
 script = ExtResource("1_h86gk")
 name = "Lemon"
 texture = ExtResource("3_0uh1l")
+texture_retro = ExtResource("3_0uh1l")
 minis = ExtResource("1_7jom7")
 sweet = 2
 sour = 10

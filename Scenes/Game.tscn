@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cu3awgnfcjhbe" path="res://Scenes/deck.tscn" id="5_7lihs"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scripts/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
-[ext_resource type="PackedScene" path="res://Scenes/shop_deck.tscn" id="10_71axn"]
 [ext_resource type="Texture2D" uid="uid://x3spvqhuevoa" path="res://Assets/Sprites/kitchen/kitchen_floor.png" id="11_3so38"]
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
@@ -80,10 +79,15 @@ shape = SubResource("RectangleShape2D_7lihs")
 metadata/_edit_lock_ = true
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
-position = Vector2(-40.799995, -36.4)
+position = Vector2(-41, -35.8)
 scale = Vector2(0.2, 0.2)
 
+[node name="KitchenBackground" type="Sprite2D" parent="."]
+z_index = -20
+metadata/_edit_lock_ = true
+
 [node name="shop_deck" parent="." instance=ExtResource("10_71axn")]
+visible = true
 position = Vector2(321.19998, -47.4)
 script = null
 
