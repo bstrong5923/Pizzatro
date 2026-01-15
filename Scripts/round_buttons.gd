@@ -14,11 +14,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if (get_node("/root/Game/Labels/Score").calc() > Deck.minimum):
 				Score.money += get_node("/root/Game/Labels/Score").calc() - Deck.minimum
 				get_node("/root/Game/Labels/money/Count").text = str(Score.money)
+				
+				cooldown = true
+				await get_tree().create_timer(0.25).timeout
+				cooldown = false
 			else:
-				pass # game over
-			cooldown = true
-			await get_tree().create_timer(0.25).timeout
-			cooldown = false
+				get_node("/root/Game").game_over()
 
 			
 		elif !get_node("/root/Game/Camera2D").camera_locked:
