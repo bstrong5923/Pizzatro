@@ -35,7 +35,8 @@ func check_equipment():
 				my_equipment[x].effect(scor, ingredient)
 	
 func run_card_function():
-	
+	##
+	##
 	scor.add_points(ingredient.sweet, 0)
 	scor.add_points(ingredient.spicy, 1)
 	scor.add_points(ingredient.salty, 2)

@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://bpfu26yn4mqj1"]
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://bpfu26yn4mqj1"]
 
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_slk41"]
 [ext_resource type="Texture2D" uid="uid://brtwxnkkjy1bk" path="res://Assets/Sprites/ingredient_minis/4.png" id="1_yfle3"]
-[ext_resource type="Texture2D" uid="uid://sinkn3ehodah" path="res://Assets/Sprites/card_comps/big_ingredients/jalapeno.png" id="2_7pg52"]
+[ext_resource type="Texture2D" uid="uid://dro3sxygyeoy6" path="res://Assets/Sprites/card_comps/big_ingredients/jalapeno.png" id="2_7pg52"]
+[ext_resource type="Texture2D" uid="uid://dyewsofx3njmq" path="res://Assets/Sprites/card_comps/big_ingredients_retro/jalapeno.png" id="4_wt5vw"]
 
 [resource]
 script = ExtResource("1_slk41")
 name = "Jalapeno"
 texture = ExtResource("2_7pg52")
+texture_retro = ExtResource("4_wt5vw")
 minis = ExtResource("1_yfle3")
 spicy = 6
 price = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbn4mtu14qcej"]
+[gd_scene load_steps=11 format=3 uid="uid://dbn4mtu14qcej"]
 
 [ext_resource type="Texture2D" uid="uid://dfsu8hxtmjj2x" path="res://Assets/Sprites/card_comps/card.png" id="1_brehn"]
 [ext_resource type="Script" uid="uid://dbgib3rgf417" path="res://Scripts/card.gd" id="2_wf8id"]
@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="6_xnv4g"]
 [ext_resource type="Texture2D" uid="uid://0dnvrs6hosd0" path="res://Assets/Sprites/ingredient_minis/0.png" id="7_u5wvb"]
 [ext_resource type="Script" uid="uid://ypm5t2efunjy" path="res://Scripts/card_function.gd" id="7_xnv4g"]
-[ext_resource type="Script" uid="uid://4twjx6lppoco" path="res://Scripts/icon.gd" id="8_mm04k"]
+[ext_resource type="Script" path="res://Scripts/icon.gd" id="8_mm04k"]
+[ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="9_mm04k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnspj"]
 size = Vector2(25.5, 35)
@@ -45,6 +46,19 @@ texture = ExtResource("7_u5wvb")
 region_enabled = true
 region_rect = Rect2(0, 0, 5, 5)
 script = ExtResource("8_mm04k")
+
+[node name="info_sprite" type="Sprite2D" parent="."]
+
+[node name="info" type="Label" parent="info_sprite"]
+offset_left = -61.0
+offset_top = -255.0
+offset_right = 78.0
+offset_bottom = -165.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_mm04k")
+theme_override_font_sizes/font_size = 24
+text = "This is a tomato"
+autowrap_mode = 3
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

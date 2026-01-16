@@ -12,8 +12,16 @@ var hand = []
 var discard_pile = [] #not usin this rn
 var card_highlighted = 0
 var shop_hand = []
-
+var card_list = []
 var minimum = 0
+
+var texture_mode = 'default'
+
+func toggle_texture_mode():
+	if texture_mode == 'default':
+		texture_mode = 'retro'
+	else:
+		texture_mode = 'default'
 
 func set_minimum(v):
 	minimum = v
@@ -22,6 +30,7 @@ func set_minimum(v):
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	#deck = []
 	for ingredient in range(0,data.size()):
+		card_list.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 		for x in range(0,2):
 			deck.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 			
@@ -67,13 +76,14 @@ func clear_shop_hand():
 	
 func draw_shop_card():
 	var instance = card.instantiate()
-	var random_index = randi_range(0, deck_remaining.size() - 1)
-	instance.set_ingredient(deck_remaining[random_index], true)
+	var random_index = randi_range(0, card_list.size() - 1)
+	instance.set_ingredient(card_list[random_index], true)
 	instance.position = Vector2(0, 39)
 	instance.change_scale(1)
 	add_child(instance)
 	shop_hand.push_back(instance)
-	
+
+
 #adds specfic card with region value i
 #never used as of right now, prolly needs to be changed with the times
 func draw_spec_card(i):

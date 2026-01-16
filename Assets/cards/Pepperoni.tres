@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://dhcp6o3hmu4hd"]
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://dhcp6o3hmu4hd"]
 
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_0g771"]
 [ext_resource type="Texture2D" uid="uid://0dnvrs6hosd0" path="res://Assets/Sprites/ingredient_minis/0.png" id="1_a2ovg"]
 [ext_resource type="Texture2D" uid="uid://beeuc6c12c6qi" path="res://Assets/Sprites/card_comps/big_ingredients/pepperoni.png" id="2_ro12f"]
+[ext_resource type="Texture2D" uid="uid://drwexnkt6o33o" path="res://Assets/Sprites/card_comps/big_ingredients_retro/pepperoni.png" id="4_mrhf5"]
 
 [resource]
 script = ExtResource("1_0g771")
 name = "Pepperoni"
 texture = ExtResource("2_ro12f")
+texture_retro = ExtResource("4_mrhf5")
 minis = ExtResource("1_a2ovg")
 salty = 5
 savory = 2

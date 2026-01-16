@@ -10,10 +10,18 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		clickable = false
 		if mode == 0 and get_node("/root/Game").is_playing():
 			get_node("/root/Game").playing_off()
-			get_node("/root/Game/Labels/Score").calc()
-			cooldown = true
-			await get_tree().create_timer(0.25).timeout
-			cooldown = false
+			#money shit
+			if (get_node("/root/Game/Labels/Score").calc() > Deck.minimum):
+				Score.money += get_node("/root/Game/Labels/Score").calc() - Deck.minimum
+				get_node("/root/Game/Labels/money/Count").text = str(Score.money)
+				
+				cooldown = true
+				await get_tree().create_timer(0.25).timeout
+				cooldown = false
+			else:
+				get_node("/root/Game").game_over()
+
+			
 		elif !get_node("/root/Game/Camera2D").camera_locked:
 			if mode == 1:
 				get_node("/root/Game/Camera2D").go_to_shop()
