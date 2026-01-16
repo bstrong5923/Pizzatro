@@ -23,6 +23,16 @@ var scor = get_node("/root/Game/Labels/Score")
 
 func set_card(i):
 	ingredient = i
+
+func check_equipment():
+	var my_equipment
+	my_equipment = Equip.get_my_equipment() 
+	print("Size: " + str(my_equipment.size()))
+	print("ingredient type" + str(ingredient.type[0]))
+	for x in range(my_equipment.size()):
+		for y in range(ingredient.type.size()):
+			if my_equipment[x].type[0] == ingredient.type[y]:
+				my_equipment[x].effect(scor, ingredient)
 	
 func run_card_function():
 	

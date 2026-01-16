@@ -3,7 +3,11 @@ class_name Equipment
 
 @export var name : String
 @export var texture : Texture2D
+@export var rarity : String
+@export var cost : int
+@export var description : String
 
-@export var sweet_mult : int
-func effect():
+@export var type : Array[String]
+
+func effect(context, moreContext):
 	pass

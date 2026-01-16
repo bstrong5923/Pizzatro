@@ -114,7 +114,7 @@ func remove_card(index):
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if get_node("/root/Game").is_playing() and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		Deck.draw_card()
-		
+		#Deck.draw_card()
+		pass
 func add_card_from_shop(i):
 	deck.push_back(i)

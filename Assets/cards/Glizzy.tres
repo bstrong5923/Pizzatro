@@ -13,4 +13,5 @@ spicy = 3
 salty = 3
 savory = 7
 price = 5
+type = Array[String](["Spicy", "Salty", "Savory", "Meat", "Red"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

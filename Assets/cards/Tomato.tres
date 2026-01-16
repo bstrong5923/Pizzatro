@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://shnc5b3mrc7e"]
 
-[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scenes/card_resource.gd" id="1_3s5xn"]
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_3s5xn"]
 [ext_resource type="Texture2D" uid="uid://8lvgrrhxv8xv" path="res://Assets/Sprites/ingredient_minis/3.png" id="1_6p3ml"]
 [ext_resource type="Texture2D" uid="uid://bckha5e5wlldt" path="res://Assets/Sprites/card_comps/big_ingredients/tomato.png" id="2_fo2kq"]
 
@@ -12,4 +12,5 @@ minis = ExtResource("1_6p3ml")
 sweet = 1
 sour = 2
 price = 3
+type = Array[String](["Sweet", "Sour", "Fruit", "Red"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

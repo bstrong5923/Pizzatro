@@ -29,6 +29,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 			get_node_or_null("/root/Game/Labels/Energy").change_energy(-price)
 			var checker = get_node("card_function") # do the function
 			checker.set_card(ingredient)
+			checker.check_equipment()
 			checker.run_card_function()
 		elif shop: 
 			play_timer.cooldown() # wait for animation to finish before you can click another
