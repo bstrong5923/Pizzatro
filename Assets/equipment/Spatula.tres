@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://chh1k2ubhi1ub"]
+
+[ext_resource type="Script" uid="uid://coiv0oac408lk" path="res://Scripts/equipment_resource.gd" id="1_3t8ga"]
+[ext_resource type="Texture2D" uid="uid://dbp072mv4qkro" path="res://Assets/Sprites/Equipment/Spatula.png" id="2_nufpf"]
+
+[resource]
+script = ExtResource("1_3t8ga")
+name = "Spatula"
+texture = ExtResource("2_nufpf")
+rarity = "Common"
+cost = 8
+description = "Whenever you play a Sweet type card, multiply the sweet value by 1.5x!"
+type = Array[String](["Sweet"])

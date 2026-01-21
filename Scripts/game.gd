@@ -33,3 +33,7 @@ func is_playing():
 
 func get_level():
 	return level
+	
+func game_over():
+	print("GAME OVER")
+	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")

@@ -45,6 +45,9 @@ func clear_score():
 	total = 0
 	get_node_or_null("Total/Count").text = "0"
 
+func equipment_multiplication(f, amt):
+	flavor_values[f] *= amt
+
 func _process(delta: float) -> void:
 	var total_label_node = get_node_or_null("Total/Count")
 	if calculating == true:

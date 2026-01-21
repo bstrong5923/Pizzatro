@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=21 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -14,11 +14,15 @@
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
 [ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
+[ext_resource type="Texture2D" uid="uid://dbp072mv4qkro" path="res://Assets/Sprites/Equipment/Spatula.png" id="15_alh3a"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="16_4q8tf"]
-[ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
+[ext_resource type="Script" path="res://Scripts/pack.gd" id="17_x3xnh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8tf"]
+size = Vector2(44.40001, 39.800003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alh3a"]
 size = Vector2(25.800026, 36)
@@ -110,23 +114,41 @@ scale = Vector2(0.2, 0.2)
 
 [node name="Shopbackground" type="Sprite2D" parent="."]
 z_index = -20
-position = Vector2(237.20001, 0)
+position = Vector2(235.6, 1)
 texture = ExtResource("15_acvyw")
 metadata/_edit_lock_ = true
 
+[node name="equipment" type="Node2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="shop_equipment" type="Sprite2D" parent="equipment"]
+visible = false
+position = Vector2(141.20001, 35.800003)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("15_alh3a")
+
+[node name="Area2D" type="Area2D" parent="equipment/shop_equipment"]
+position = Vector2(0.8000002, -1.1999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="equipment/shop_equipment/Area2D"]
+position = Vector2(2.600006, 1.0999985)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_4q8tf")
+
 [node name="Pack" type="Sprite2D" parent="."]
-position = Vector2(332.40002, 27.400002)
+position = Vector2(273.4, 31)
 texture = ExtResource("16_4q8tf")
 script = ExtResource("17_x3xnh")
 
 [node name="Area2D" type="Area2D" parent="Pack"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pack/Area2D"]
-position = Vector2(-0.20003277, 0.19999886)
+position = Vector2(0.2000122, 0.39999962)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
 [connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
 [connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="equipment/shop_equipment/Area2D" to="equipment" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
