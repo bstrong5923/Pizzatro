@@ -32,7 +32,8 @@ func check_equipment():
 	for x in range(my_equipment.size()):
 		for y in range(ingredient.type.size()):
 			if my_equipment[x].type[0] == ingredient.type[y]:
-				my_equipment[x].effect(scor, ingredient)
+				print(my_equipment[x])
+				my_equipment[x].effect(null, null)
 	
 func run_card_function():
 	##
