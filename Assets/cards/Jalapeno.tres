@@ -13,4 +13,5 @@ texture_retro = ExtResource("4_wt5vw")
 minis = ExtResource("1_yfle3")
 spicy = 6
 price = 3
+description = "This is a jalapeno"
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

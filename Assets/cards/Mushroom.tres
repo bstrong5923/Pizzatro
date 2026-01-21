@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_cxdsa"]
 [ext_resource type="Texture2D" uid="uid://dvekkscw8pjkn" path="res://Assets/Sprites/ingredient_minis/2.png" id="1_ora6k"]
-[ext_resource type="Texture2D" uid="uid://bbxkvwg306si1" path="res://Assets/Sprites/card_comps/big_ingredients/mushroom.png" id="2_nmtbk"]
+[ext_resource type="Texture2D" uid="uid://d0boci1fuvrna" path="res://Assets/Sprites/card_comps/big_ingredients/mushroom.png" id="2_nmtbk"]
 [ext_resource type="Texture2D" uid="uid://5arajo80ub30" path="res://Assets/Sprites/card_comps/big_ingredients_retro/mushroom.png" id="4_rv0pn"]
 
 [resource]
@@ -13,4 +13,5 @@ texture_retro = ExtResource("4_rv0pn")
 minis = ExtResource("1_ora6k")
 savory = 4
 price = 3
+description = "This is a mushroom"
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

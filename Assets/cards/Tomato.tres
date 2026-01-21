@@ -14,4 +14,5 @@ minis = ExtResource("1_6p3ml")
 sweet = 1
 sour = 2
 price = 3
+description = "This is a Tomato"
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

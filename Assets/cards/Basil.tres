@@ -12,4 +12,5 @@ texture = ExtResource("2_sfupm")
 texture_retro = ExtResource("4_c2dfd")
 minis = ExtResource("1_l5sgn")
 price = 2
+description = "This is a Basil"
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

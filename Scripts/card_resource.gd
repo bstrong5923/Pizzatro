@@ -15,3 +15,4 @@ class_name Card
 
 
 @export var price : int
+@export var description: String
