@@ -14,4 +14,5 @@ minis = ExtResource("1_ora6k")
 savory = 4
 price = 3
 description = "This is a mushroom"
+type = Array[String](["Vegetable"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

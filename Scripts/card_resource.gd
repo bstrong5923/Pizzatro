@@ -16,3 +16,4 @@ class_name Card
 
 @export var price : int
 @export var description: String
+@export var type: Array[String]

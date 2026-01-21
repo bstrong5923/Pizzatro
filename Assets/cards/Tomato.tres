@@ -15,4 +15,5 @@ sweet = 1
 sour = 2
 price = 3
 description = "This is a Tomato"
+type = ["Vegetable", "Red", "Sweet"]
 metadata/_custom_type_script = "uid://ci4asu2oe813i"
