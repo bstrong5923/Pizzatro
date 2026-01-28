@@ -6,5 +6,6 @@ class_name Spatula
 func effect(context, moreContext):
 	var point = moreContext.sweet 
 	print(point)
+	context.add_points(0 - point, 0)
 	context.add_points(point * multiplier, 0)
 	return

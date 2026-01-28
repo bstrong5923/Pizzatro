@@ -14,7 +14,7 @@ func new_round():
 	if level <= minimums.size():
 		Deck.set_minimum(minimums[level - 1])
 	else:
-		Deck.set_minimums(250)
+		Deck.set_minimum(250)
 	Deck.fill_deck_remaining()
 	Deck.draw_hand()
 	$Labels/Energy.set_energy(20)
