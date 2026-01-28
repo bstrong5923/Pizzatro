@@ -15,6 +15,6 @@ spicy = 3
 salty = 3
 savory = 7
 price = 5
-description = "This is a glizzy"
+description = "This is a glizzy. It adds 3 spicy, 3 salty, 7 savory, and costs 5 dolla."
 type = Array[String](["Meat", "Red"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

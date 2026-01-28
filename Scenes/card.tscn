@@ -8,10 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://0dnvrs6hosd0" path="res://Assets/Sprites/ingredient_minis/0.png" id="7_u5wvb"]
 [ext_resource type="Script" uid="uid://ypm5t2efunjy" path="res://Scripts/card_function.gd" id="7_xnv4g"]
 [ext_resource type="Script" path="res://Scripts/icon.gd" id="8_mm04k"]
-[ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="9_mm04k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnspj"]
 size = Vector2(25.5, 35)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5wvb"]
+bg_color = Color(0.27, 0.27, 0.27, 0.87058824)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+shadow_size = 6
 
 [node name="card" type="Node2D"]
 script = ExtResource("2_wf8id")
@@ -47,18 +54,19 @@ region_enabled = true
 region_rect = Rect2(0, 0, 5, 5)
 script = ExtResource("8_mm04k")
 
-[node name="info_sprite" type="Sprite2D" parent="."]
+[node name="info_sprite" type="PanelContainer" parent="."]
+offset_left = -100.0
+offset_top = -136.0
+offset_right = 102.0
+offset_bottom = -136.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5wvb")
 
-[node name="info" type="Label" parent="info_sprite"]
-offset_left = -61.0
-offset_top = -255.0
-offset_right = 78.0
-offset_bottom = -165.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("9_mm04k")
-theme_override_font_sizes/font_size = 24
-text = "This is a tomato"
-autowrap_mode = 3
+[node name="info" type="RichTextLabel" parent="info_sprite"]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
