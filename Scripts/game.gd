@@ -1,7 +1,7 @@
 extends Node2D
 
 var level 
-var minimums = [25, 42, 66, 91, 120, 180]
+var minimums = [12, 20, 66, 91, 120, 180]
 var playing = false
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func new_round():
 	if level <= minimums.size():
 		Deck.set_minimum(minimums[level - 1])
 	else:
-		Deck.set_minimums(250)
+		Deck.set_minimum(250)
 	Deck.fill_deck_remaining()
 	Deck.draw_hand()
 	$Labels/Energy.set_energy(20)

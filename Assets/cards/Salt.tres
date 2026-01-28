@@ -1,7 +1,19 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bmtbdc10but4k"]
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://bmtbdc10but4k"]
 
+[ext_resource type="Texture2D" uid="uid://dglr6xog63qse" path="res://Assets/Sprites/ingredient_minis/spices/salt.png" id="1_bvlns"]
 [ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_y3njp"]
+[ext_resource type="Texture2D" uid="uid://df3dwaggoshdl" path="res://Assets/Sprites/card_comps/big_ingredients/salt.png" id="2_crmnb"]
 
 [resource]
 script = ExtResource("1_y3njp")
+name = "Salt"
+texture = ExtResource("2_crmnb")
+texture_retro = ExtResource("2_crmnb")
+minis = ExtResource("1_bvlns")
+salty = 5
+price = 1
+description = "just some salt."
+type = Array[String](["salty", "spice"])
+min_minis = 16
+max_minis = 20
 metadata/_custom_type_script = "uid://ci4asu2oe813i"
