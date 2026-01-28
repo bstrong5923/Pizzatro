@@ -1,7 +1,7 @@
 extends Node2D
 
 var level 
-var minimums = [25, 42, 66, 91, 120, 180]
+var minimums = [12, 20, 66, 91, 120, 180]
 var playing = false
 
 func _ready() -> void:
@@ -36,4 +36,5 @@ func get_level():
 	
 func game_over():
 	print("GAME OVER")
+	#change to game over screen eventually
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")

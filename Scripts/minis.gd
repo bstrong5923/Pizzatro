@@ -11,7 +11,7 @@ var mini_instances = []
 func scatter(ingredient):
 	#
 	var init_angle = randi_range(0,359)
-	var num_of_minis = randi_range(7, 10)
+	var num_of_minis = randi_range(ingredient.min_minis, ingredient.max_minis)
 	for m in range(0, num_of_minis): # create between 7 and 10 minis
 		
 		# clone it

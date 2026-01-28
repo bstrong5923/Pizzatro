@@ -15,4 +15,6 @@ savory = 4
 price = 3
 description = "This is a mushroom"
 type = Array[String](["Vegetable"])
+min_minis = 7
+max_minis = 10
 metadata/_custom_type_script = "uid://ci4asu2oe813i"
