@@ -11,6 +11,7 @@ name = "Basil"
 texture = ExtResource("2_sfupm")
 texture_retro = ExtResource("4_c2dfd")
 minis = ExtResource("1_l5sgn")
+flavors = Array[int]([0, 0, 0, 0, 0])
 price = 2
 description = "This is a Basil"
 type = Array[String](["Vegetable"])
