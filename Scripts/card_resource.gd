@@ -7,12 +7,7 @@ class_name Card
 @export var minis : Texture2D
 
 
-@export var sweet : int
-@export var spicy : int
-@export var salty : int
-@export var sour : int
-@export var savory : int
-
+@export var flavors : Array[int]
 
 @export var price : int
 @export var description: String

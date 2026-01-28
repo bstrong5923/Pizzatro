@@ -17,7 +17,7 @@ func get_my_equipment():
 	return my_equipment
 
 func generate_random_equipment():
-	pass
+	$shop_equipment.texture
 	
 
 

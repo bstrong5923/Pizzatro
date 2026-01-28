@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Grinder" load_steps=2 format=3 uid="uid://dgvr6b2dy6mxv"]
+
+[ext_resource type="Script" uid="uid://bv0w31l5x2l8b" path="res://Scripts/grinder.gd" id="1_pclmh"]
+
+[resource]
+script = ExtResource("1_pclmh")
+type = Array[String](["Spice"])
+metadata/_custom_type_script = "uid://bv0w31l5x2l8b"

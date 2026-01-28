@@ -36,13 +36,8 @@ func check_equipment():
 				my_equipment[x].effect(scor, ingredient)
 	
 func run_card_function():
-	##
-	##
-	scor.add_points(ingredient.sweet, 0)
-	scor.add_points(ingredient.spicy, 1)
-	scor.add_points(ingredient.salty, 2)
-	scor.add_points(ingredient.sour, 3)
-	scor.add_points(ingredient.savory, 4)
+	for f in ingredient.flavors.size():
+		scor.add_points(ingredient.flavors[f], f)
 	#basil
 	if ingredient.name == "Basil":
 		Deck.draw_card()
