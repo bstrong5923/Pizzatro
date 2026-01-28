@@ -14,12 +14,16 @@ var highlighted = false
 @onready var ingredientsprite = $ingredient_logo
 @onready var iconsprite = $icon
 @onready var pricecirclesprite = $price_circle
+@onready var tooltip = $info_sprite
+@onready var tooltiptext = $info_sprite/info
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
-	get_node("info_sprite").visible = false
-	get_node("info_sprite/info").text = ingredient.description
-
+	tooltip.visible = false
+	tooltiptext.text = ingredient.description
+	tooltiptext.text += "\n Sweet: " + str(ingredient.sweet) + "\n Spicy: " + str(ingredient.spicy) + "\n Salty: " + str(ingredient.salty) + "\n Sour: " + str(ingredient.sour) + "\n Savory: " + str(ingredient.savory) + "\n Price: " + str(ingredient.price)
+	#holy aura
+	#😭✌️
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
@@ -91,16 +95,12 @@ func _on_area_2d_mouse_entered():
 		iconsprite.position.y -= 35
 		pricecirclesprite.position.y -= 35
 		
-		var tooltip = get_node("info_sprite")
+
 		tooltip.visible = true
-		
 		await get_tree().process_frame
-		print( tooltip.size.y)
 		tooltip.position.y -= tooltip.size.y
 		
-		
-		
- 
+
 func _on_area_2d_mouse_exited():
 	if highlighted:
 		highlighted = false
@@ -109,16 +109,11 @@ func _on_area_2d_mouse_exited():
 		iconsprite.position.y += 35
 		pricecirclesprite.position.y += 35
 		
-		var tooltip = get_node("info_sprite")
-		tooltip.visible = false
-		
-		await get_tree().process_frame
-		print( tooltip.size.y)
-		tooltip.position.y += tooltip.size.y
-		
 
-		
-	
+		tooltip.visible = false
+		await get_tree().process_frame
+		tooltip.position.y += tooltip.size.y
+
 func change_scale(n):
 	$price_circle.set_size(n, true)
 	if shop == true:
