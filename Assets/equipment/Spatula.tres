@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="Equipment" load_steps=3 format=3 uid="uid://chh1k2ubhi1ub"]
+[gd_resource type="Resource" script_class="Spatula" load_steps=3 format=3 uid="uid://xxw11etw4kd0"]
 
-[ext_resource type="Script" uid="uid://coiv0oac408lk" path="res://Scripts/equipment_resource.gd" id="1_3t8ga"]
+[ext_resource type="Script" uid="uid://cksirkshfea6h" path="res://Scripts/spatula.gd" id="1_nufpf"]
 [ext_resource type="Texture2D" uid="uid://dbp072mv4qkro" path="res://Assets/Sprites/Equipment/Spatula.png" id="2_nufpf"]
 
 [resource]
-script = ExtResource("1_3t8ga")
+script = ExtResource("1_nufpf")
+multiplier = 2
 name = "Spatula"
 texture = ExtResource("2_nufpf")
 rarity = "Common"
 cost = 8
 description = "Whenever you play a Sweet type card, multiply the sweet value by 1.5x!"
 type = Array[String](["Sweet"])
+metadata/_custom_type_script = "uid://cksirkshfea6h"
