@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmluqelbw4q4k"
-path="res://.godot/imported/Spatula.png-58230b1003fbf3fedcb73ca62c60160c.ctex"
+uid="uid://ytuksnlrks24"
+path="res://.godot/imported/red_pepper_flakes.png-62ce0e336dfe2b27b9e577f5ceb9427a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/Spatula.png"
-dest_files=["res://.godot/imported/Spatula.png-58230b1003fbf3fedcb73ca62c60160c.ctex"]
+source_file="res://Assets/Sprites/ingredient_minis/spices/red_pepper_flakes.png"
+dest_files=["res://.godot/imported/red_pepper_flakes.png-62ce0e336dfe2b27b9e577f5ceb9427a.ctex"]
 
 [params]
 

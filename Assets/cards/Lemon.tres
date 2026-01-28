@@ -16,4 +16,6 @@ sour = 10
 price = 4
 description = "This is a lemon"
 type = Array[String](["Sweet", "Fruit"])
+min_minis = 7
+max_minis = 10
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

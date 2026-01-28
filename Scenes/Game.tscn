@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
 [ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
-[ext_resource type="Texture2D" uid="uid://dbp072mv4qkro" path="res://Assets/Sprites/Equipment/Spatula.png" id="15_alh3a"]
+[ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/equipment.gd" id="15_x3xnh"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="16_4q8tf"]
-[ext_resource type="Script" path="res://Scripts/pack.gd" id="17_x3xnh"]
+[ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -120,12 +120,11 @@ metadata/_edit_lock_ = true
 
 [node name="equipment" type="Node2D" parent="."]
 scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("15_x3xnh")
 
 [node name="shop_equipment" type="Sprite2D" parent="equipment"]
-visible = false
 position = Vector2(141.20001, 35.800003)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("15_alh3a")
 
 [node name="Area2D" type="Area2D" parent="equipment/shop_equipment"]
 position = Vector2(0.8000002, -1.1999998)

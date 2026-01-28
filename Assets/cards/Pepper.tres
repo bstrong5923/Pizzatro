@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://btqc0sqbedm0w"]
+
+[ext_resource type="Texture2D" uid="uid://blaexhohf4ol3" path="res://Assets/Sprites/ingredient_minis/spices/pepper.png" id="1_sl6i2"]
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="2_kmlh0"]
+[ext_resource type="Texture2D" uid="uid://7rsqfvsap4cq" path="res://Assets/Sprites/card_comps/big_ingredients/pepper.png" id="3_dnel7"]
+
+[resource]
+script = ExtResource("2_kmlh0")
+name = "Pepper"
+texture = ExtResource("3_dnel7")
+texture_retro = ExtResource("3_dnel7")
+minis = ExtResource("1_sl6i2")
+spicy = 3
+savory = 2
+price = 1
+description = "a pinch of pepper"
+type = Array[String](["Spice"])
+min_minis = 16
+max_minis = 20
+metadata/_custom_type_script = "uid://ci4asu2oe813i"

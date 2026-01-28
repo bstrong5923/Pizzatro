@@ -15,4 +15,6 @@ sweet = 5
 price = 3
 description = "This is a Pineapple This is a Pineapple d  This is a Pineapple d This is a Pineapple d This is a Pineapple d This is a Pineapple d"
 type = Array[String](["Sweet"])
+min_minis = 7
+max_minis = 10
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

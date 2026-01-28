@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="6_xnv4g"]
 [ext_resource type="Texture2D" uid="uid://0dnvrs6hosd0" path="res://Assets/Sprites/ingredient_minis/0.png" id="7_u5wvb"]
 [ext_resource type="Script" uid="uid://ypm5t2efunjy" path="res://Scripts/card_function.gd" id="7_xnv4g"]
-[ext_resource type="Script" path="res://Scripts/icon.gd" id="8_mm04k"]
+[ext_resource type="Script" uid="uid://4twjx6lppoco" path="res://Scripts/icon.gd" id="8_mm04k"]
+[ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="9_mm04k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnspj"]
 size = Vector2(25.5, 35)

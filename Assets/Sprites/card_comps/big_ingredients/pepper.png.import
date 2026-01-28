@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmluqelbw4q4k"
-path="res://.godot/imported/Spatula.png-58230b1003fbf3fedcb73ca62c60160c.ctex"
+uid="uid://7rsqfvsap4cq"
+path="res://.godot/imported/pepper.png-b2d76125d050a893d61df96945956f49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/Spatula.png"
-dest_files=["res://.godot/imported/Spatula.png-58230b1003fbf3fedcb73ca62c60160c.ctex"]
+source_file="res://Assets/Sprites/card_comps/big_ingredients/pepper.png"
+dest_files=["res://.godot/imported/pepper.png-b2d76125d050a893d61df96945956f49.ctex"]
 
 [params]
 

@@ -26,6 +26,7 @@ func fill_label_nodes():
 func add_points(points, f):
 	flavor_vals_to_add[f] += points
 	
+
 func calc():
 	i = 0
 	calculating = true
