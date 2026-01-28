@@ -18,7 +18,8 @@ func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
 	get_node("info_sprite").visible = false
-#LUCIAN ADD THE INGREDIANT ADD THE DESCRIPTION
+	get_node("info_sprite/info").text = ingredient.description
+
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
@@ -84,22 +85,39 @@ func add_to_deck():
 func _on_area_2d_mouse_entered():
 
 	if get_node("/root/Game").is_playing() or shop == true:
-		get_node("info_sprite").visible = true
+		highlighted = true
 		cardsprite.position.y -= 35
 		ingredientsprite.position.y -= 35
 		iconsprite.position.y -= 35
 		pricecirclesprite.position.y -= 35
-
-		highlighted = true
+		
+		var tooltip = get_node("info_sprite")
+		tooltip.visible = true
+		
+		await get_tree().process_frame
+		print( tooltip.size.y)
+		tooltip.position.y -= tooltip.size.y
+		
+		
+		
  
 func _on_area_2d_mouse_exited():
 	if highlighted:
-		get_node("info_sprite").visible = false
 		highlighted = false
 		cardsprite.position.y += 35
 		ingredientsprite.position.y += 35
 		iconsprite.position.y += 35
 		pricecirclesprite.position.y += 35
+		
+		var tooltip = get_node("info_sprite")
+		tooltip.visible = false
+		
+		await get_tree().process_frame
+		print( tooltip.size.y)
+		tooltip.position.y += tooltip.size.y
+		
+
+		
 	
 func change_scale(n):
 	$price_circle.set_size(n, true)
