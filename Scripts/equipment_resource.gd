@@ -10,5 +10,4 @@ class_name Equipment
 @export var type : Array[String]
 
 func effect(context, moreContext):
-	print("bruh")
 	pass

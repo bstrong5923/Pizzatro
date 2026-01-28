@@ -1,5 +1,5 @@
 extends Equipment
-class_name Machette
+class_name Butcher_Knife
 
 @export var multiplier : int
 

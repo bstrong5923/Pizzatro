@@ -6,10 +6,10 @@ var deck : Array[Card] = []
 var file = FileAccess.open("res://Assets/card_list.json", FileAccess.READ)
 var raw_text = file.get_as_text()
 var data = JSON.parse_string(raw_text)
-# undrawn cards
+# undrawn cards😩😩
 var deck_remaining : Array[Card] = []
 var hand = []
-var discard_pile = [] #not usin this rn
+var discard_pile = [] #not usin this rn 🥀
 var card_highlighted = 0
 var shop_hand = []
 var card_list = []

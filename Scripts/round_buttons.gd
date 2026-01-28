@@ -4,6 +4,8 @@ var mode = 0
 var labels = ["Submit", "Shop", "Done"]
 var clickable = true
 var cooldown = false
+@onready
+var equipment = get_node("/root/Game/equipment")
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and clickable and !cooldown:
@@ -26,12 +28,14 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if mode == 1:
 				get_node("/root/Game/Camera2D").go_to_shop()
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
+				equipment.generate_random_equipment()
 				position = Vector2(235.6,30)
 			else:
 				get_node("/root/Game").new_round()
 				get_node("/root/Game/Camera2D").go_to_game()
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to game
 				position = Vector2(-94.6,25)
+			
 			next_mode()
 		
 		
