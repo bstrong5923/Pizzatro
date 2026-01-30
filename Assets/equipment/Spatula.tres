@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Spatula" load_steps=3 format=3 uid="uid://xxw11etw4kd0"]
 
-[ext_resource type="Script" uid="uid://cksirkshfea6h" path="res://Scripts/spatula.gd" id="1_nufpf"]
-[ext_resource type="Texture2D" uid="uid://bmluqelbw4q4k" path="res://Assets/Sprites/Equipment/Spatula.png" id="2_nufpf"]
+[ext_resource type="Script" uid="uid://cksirkshfea6h" path="res://Scripts/Equipment_Specific/spatula.gd" id="1_nufpf"]
+[ext_resource type="Texture2D" uid="uid://bmluqelbw4q4k" path="res://Assets/Sprites/equipment/Spatula.png" id="2_nufpf"]
 
 [resource]
 script = ExtResource("1_nufpf")

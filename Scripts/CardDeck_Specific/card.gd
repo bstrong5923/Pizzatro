@@ -2,7 +2,7 @@ extends Node2D
 
 var ingredient : Card
 var price
-var play_timer = preload("res://Scripts/card_timer.gd")
+var play_timer = preload("res://Scripts/CardDeck_Specific/card_timer.gd")
 @onready
 var scor = get_node("/root/Game/Labels/Score")
 var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
@@ -21,7 +21,7 @@ func _ready() -> void:
 	get_viewport().set_physics_object_picking_first_only(true)
 	tooltip.visible = false
 	tooltiptext.text = ingredient.description
-	tooltiptext.text += "\n Sweet: " + str(ingredient.sweet) + "\n Spicy: " + str(ingredient.spicy) + "\n Salty: " + str(ingredient.salty) + "\n Sour: " + str(ingredient.sour) + "\n Savory: " + str(ingredient.savory) + "\n Price: " + str(ingredient.price)
+	tooltiptext.text += "\n Sweet: " + str(ingredient.flavors[0])+ "\n Spicy: " + str(ingredient.flavors[1]) + "\n Salty: " + str(ingredient.flavors[2]) + "\n Sour: " + str(ingredient.flavors[3]) + "\n Savory: " + str(ingredient.flavors[4]) + "\n Price: " + str(ingredient.price)
 	#holy aura
 	#😭✌️
 
@@ -77,7 +77,7 @@ func add_to_deck():
 		# Now it is safe to free this node
 
 		#do this little animation
-		var target_x = 98 *5
+		var target_x = 98 * 5
 		var target_y = 39 * 5
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", Vector2(target_x,target_y), .76)

@@ -17,10 +17,16 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Deck="*res://Scripts/deck.gd"
+Deck="*res://Scripts/CardDeck_Specific/deck.gd"
 Score="*res://Scripts/score.gd"
-Shop="*res://Scripts/shop.gd"
-Equip="*res://Scripts/equipment.gd"
+Equip="*res://Scripts/Equipment_Specific/equipment.gd"
+
+[file_customization]
+
+folder_colors={
+"res://Scripts/CardDeck_Specific/": "green",
+"res://Scripts/Equipment_Specific/": "orange"
+}
 
 [rendering]
 
