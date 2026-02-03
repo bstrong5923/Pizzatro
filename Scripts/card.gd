@@ -21,7 +21,7 @@ func _ready() -> void:
 	get_viewport().set_physics_object_picking_first_only(true)
 	tooltip.visible = false
 	tooltiptext.text = ingredient.description
-	tooltiptext.text += "\n Sweet: " + str(ingredient.sweet) + "\n Spicy: " + str(ingredient.spicy) + "\n Salty: " + str(ingredient.salty) + "\n Sour: " + str(ingredient.sour) + "\n Savory: " + str(ingredient.savory) + "\n Price: " + str(ingredient.price)
+	tooltiptext.text += "\n Sweet: " + str(ingredient.sweet) + "\n Spicy: " + str(ingredient.spicy) + "\n Salty: " + str(ingredient.salty) + "\n Sour: " + str(ingredient.sour) + "\n Savory: " + str(ingredient.savory)
 	#holy aura
 	#😭✌️
 
