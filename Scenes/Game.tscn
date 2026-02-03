@@ -12,12 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
-[ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
+[ext_resource type="PackedScene" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
 [ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
 [ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/Equipment_Specific/equipment.gd" id="15_x3xnh"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="16_4q8tf"]
-[ext_resource type="Texture2D" uid="uid://bm04lgkms4xqy" path="res://Assets/Sprites/equipment/open_close_button.png" id="16_8r6kd"]
-[ext_resource type="Script" uid="uid://bvi7he8v8afhd" path="res://Scripts/equipment_background.gd" id="17_8r6kd"]
+[ext_resource type="Texture2D" uid="uid://bm04lgkms4xqy" path="res://Assets/Sprites/Equipment/open_close_button.png" id="16_8r6kd"]
+[ext_resource type="Script" path="res://Scripts/equipment_background.gd" id="17_8r6kd"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
@@ -46,26 +46,6 @@ scale = Vector2(0.9999998, 0.9999998)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_2irst")
-
-[node name="go_to_shop_button" type="Button" parent="Camera2D"]
-top_level = true
-offset_left = -567.00006
-offset_top = -317.0
-offset_right = -308.00003
-offset_bottom = -244.0
-rotation = -6.2848086
-text = "GO TO THE SHOP"
-metadata/_edit_use_anchors_ = true
-
-[node name="go_to_game_button" type="Button" parent="Camera2D"]
-top_level = true
-offset_left = 615.0
-offset_top = -313.0
-offset_right = 874.0
-offset_bottom = -240.0
-rotation = -6.2848086
-text = "GO TO THE GAME"
-metadata/_edit_use_anchors_ = true
 
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
 position = Vector2(6, -67)
@@ -168,8 +148,6 @@ position = Vector2(0.2000122, 0.39999962)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
-[connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
-[connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="equipment/shop_equipment/Area2D" to="equipment" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="equipment/equipment_button/equipment_button/Area2D" to="equipment/equipment_button" method="_on_area_2d_input_event"]

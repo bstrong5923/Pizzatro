@@ -20,7 +20,7 @@ func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
 	tooltip.visible = false
-	tooltiptext.text = ingredient.description
+	tooltiptext.text = "[color=000000]" + ingredient.description + "[/color]"
 	
 	var howmanyloops = 0
 	var tempcolor = ""
