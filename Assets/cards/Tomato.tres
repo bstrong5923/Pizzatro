@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://shnc5b3mrc7e"]
 
-[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_3s5xn"]
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/CardDeck_Specific/card_resource.gd" id="1_3s5xn"]
 [ext_resource type="Texture2D" uid="uid://8lvgrrhxv8xv" path="res://Assets/Sprites/ingredient_minis/3.png" id="1_6p3ml"]
 [ext_resource type="Texture2D" uid="uid://c0g3i014qmloo" path="res://Assets/Sprites/card_comps/big_ingredients/tomato.png" id="2_fo2kq"]
 [ext_resource type="Texture2D" uid="uid://c4ugoor0c5jg1" path="res://Assets/Sprites/card_comps/big_ingredients_retro/tomato.png" id="4_81jrn"]
@@ -14,7 +14,7 @@ minis = ExtResource("1_6p3ml")
 flavors = Array[int]([1, 0, 0, 3, 0])
 price = 3
 description = "Nerf Tomato."
-type = Array[String](["Vegetable", "Red"])
+type = Array[String](["Vegetable", "Red", "Sweet"])
 min_minis = 7
 max_minis = 10
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

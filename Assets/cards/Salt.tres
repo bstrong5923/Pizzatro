@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://bmtbdc10but4k"]
 
 [ext_resource type="Texture2D" uid="uid://dglr6xog63qse" path="res://Assets/Sprites/ingredient_minis/spices/salt.png" id="1_bvlns"]
-[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/card_resource.gd" id="1_y3njp"]
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/CardDeck_Specific/card_resource.gd" id="1_y3njp"]
 [ext_resource type="Texture2D" uid="uid://df3dwaggoshdl" path="res://Assets/Sprites/card_comps/big_ingredients/salt.png" id="2_crmnb"]
 
 [resource]

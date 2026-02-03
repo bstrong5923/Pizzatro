@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Butcher_Knife" load_steps=3 format=3 uid="uid://u2gnafva7b30"]
+
+[ext_resource type="Script" uid="uid://tp6nmrt772ft" path="res://Scripts/Equipment_Specific/butcher_knife.gd" id="1_1djqh"]
+[ext_resource type="Texture2D" uid="uid://c2lr8ldoix0v8" path="res://Assets/Sprites/equipment/ButcherKnife.png" id="2_2dyfs"]
+
+[resource]
+script = ExtResource("1_1djqh")
+multiplier = 2
+name = "Machette"
+texture = ExtResource("2_2dyfs")
+rarity = "Common"
+cost = 12
+description = "Applies a 2x boost to Meat!"
+type = Array[String](["Meat"])
+metadata/_custom_type_script = "uid://tp6nmrt772ft"

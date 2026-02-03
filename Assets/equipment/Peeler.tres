@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Peeler" load_steps=3 format=3 uid="uid://d2tpsj1avu8k6"]
+
+[ext_resource type="Script" uid="uid://ddbfocwr7kr0r" path="res://Scripts/Equipment_Specific/peeler.gd" id="1_vp02w"]
+[ext_resource type="Texture2D" uid="uid://gp8tf35ei1o7" path="res://Assets/Sprites/equipment/Peeler.png" id="2_pw6go"]
+
+[resource]
+script = ExtResource("1_vp02w")
+multiplier = 2
+name = "Peeler"
+texture = ExtResource("2_pw6go")
+rarity = "Common"
+cost = 8
+description = "Peels away the vegetable & fruit skin to enhance the flavor!"
+type = Array[String](["Fruit", "Vegetable"])
+metadata/_custom_type_script = "uid://ddbfocwr7kr0r"

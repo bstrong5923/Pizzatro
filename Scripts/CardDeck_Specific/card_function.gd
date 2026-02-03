@@ -27,12 +27,9 @@ func set_card(i):
 func check_equipment():
 	var my_equipment
 	my_equipment = Equip.get_my_equipment() 
-	print("Size: " + str(my_equipment.size()))
-	print("ingredient type" + str(ingredient.type[0]))
 	for x in range(my_equipment.size()):
 		for y in range(ingredient.type.size()):
 			if my_equipment[x].type[0] == ingredient.type[y]:
-				print(my_equipment[x])
 				my_equipment[x].effect(scor, ingredient)
 	
 func run_card_function():
