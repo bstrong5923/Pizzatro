@@ -23,20 +23,26 @@ func _ready() -> void:
 	tooltiptext.text = ingredient.description
 	
 	var howmanyloops = 0
+	var tempcolor = ""
 	for flavor in ingredient.flavors:
 		if flavor > 0:
 			tooltiptext.text += "\n "
 			if howmanyloops == 0:
-				tooltiptext.text += "Sweet: "
+				tempcolor = "d900d9"
+				tooltiptext.text += "[color=" + tempcolor + "]"+ "Sweet:[/color] "
 			if howmanyloops == 1:
-				tooltiptext.text += "Spicy: "
+				tempcolor = "c85c00"
+				tooltiptext.text += "[color=" + tempcolor + "]"+ "Spicy:[/color] "
 			if howmanyloops == 2:
-				tooltiptext.text += "Salty: "
+				tempcolor = "fae100"
+				tooltiptext.text += "[color=" + tempcolor + "]"+ "Salty:[/color] "
 			if howmanyloops == 3:
-				tooltiptext.text += "Sour: "
+				tempcolor = "1ac200"
+				tooltiptext.text += "[color=" + tempcolor + "]"+ "Sour:[/color] "
 			if howmanyloops == 4:
-				tooltiptext.text += "Savory: "
-			tooltiptext.text += str(flavor)	
+				tempcolor = "0006a6"
+				tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
+			tooltiptext.text += "[color=" + tempcolor + "]" + str(flavor) + "[/color]"
 		howmanyloops += 1
 		
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
