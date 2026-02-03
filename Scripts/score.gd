@@ -37,7 +37,8 @@ func calc():
 
 func add_money(i):
 	money += i
-	
+	get_node("/root/Game/Labels/money/Count").text = str(money)
+
 func clear_score():
 	flavor_values = [0, 0, 0, 0, 0]
 	flavor_vals_to_add = [0, 0, 0, 0, 0]

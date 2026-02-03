@@ -8,7 +8,7 @@ var raw_text = file.get_as_text()
 var data = JSON.parse_string(raw_text)
 var common_equip_list = []
 static var this_equip
-static var index = 0
+var index = 0
 
 func _ready() -> void:
 	# fill common_equip_list
@@ -29,12 +29,8 @@ func generate_random_equipment():
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		equipment_bought(this_equip)
-		this_equip.index = index
-		index += 1
-
-func _on_area_2d_mouse_entered() -> void:
-	$equipment_background.texture = load("res://Assets/Sprites/equipment/open_close_pressed.png")
-	
-func _on_area_2d_mouse_exited() -> void:
-	$equipment_background.texture = load("res://Assets/Sprites/equipment/open_close_button.png")
+		if (Score.money >= this_equip.cost):
+			this_equip.index = index
+			index += 1
+			equipment_bought(this_equip)
+			Score.add_money(this_equip.cost * -1)
