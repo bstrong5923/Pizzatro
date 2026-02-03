@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Grinder" load_steps=3 format=3 uid="uid://dgvr6b2dy6mxv"]
 
 [ext_resource type="Script" uid="uid://bv0w31l5x2l8b" path="res://Scripts/Equipment_Specific/grinder.gd" id="1_pclmh"]
-[ext_resource type="Texture2D" uid="uid://du7y8nlb85lqa" path="res://Assets/Sprites/equipment/Shaker.png" id="2_knlmh"]
+[ext_resource type="Texture2D" uid="uid://du7y8nlb85lqa" path="res://Assets/Sprites/Equipment/Shaker.png" id="2_knlmh"]
 
 [resource]
 script = ExtResource("1_pclmh")
@@ -10,3 +10,4 @@ name = "Grinder"
 texture = ExtResource("2_knlmh")
 description = "Make all "
 type = Array[String](["Spice"])
+card_of_type = true

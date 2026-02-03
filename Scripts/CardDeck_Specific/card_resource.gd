@@ -11,7 +11,7 @@ class_name Card
 
 @export var price : int
 @export var description: String
-@export var type: Array[String]
+@export var types: Array[String]
 
 @export var min_minis : int
 @export var max_minis : int

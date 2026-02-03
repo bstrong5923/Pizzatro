@@ -1,10 +1,9 @@
 extends Equipment
 class_name Butcher_Knife
 
-@export var multiplier : int
+var multiplier = 4
 
-func effect(context, moreContext):
-	print("butcher trig")
-	for x in moreContext.flavors.size():
-		context.add_points(moreContext.flavors[x] * multiplier, x)
-	return
+func effect(scor, ingredient):
+	if ingredient.types.find("meat") > -1:
+		for x in ingredient.flavors.size():
+			scor.add_points(ingredient.flavors[x] * (multiplier - 1), x)
