@@ -21,10 +21,24 @@ func _ready() -> void:
 	get_viewport().set_physics_object_picking_first_only(true)
 	tooltip.visible = false
 	tooltiptext.text = ingredient.description
-	tooltiptext.text += "\n Sweet: " + str(ingredient.flavors[0])+ "\n Spicy: " + str(ingredient.flavors[1]) + "\n Salty: " + str(ingredient.flavors[2]) + "\n Sour: " + str(ingredient.flavors[3]) + "\n Savory: " + str(ingredient.flavors[4]) + "\n Price: " + str(ingredient.price)
-	#holy aura
-	#😭✌️
-
+	
+	var howmanyloops = 0
+	for flavor in ingredient.flavors:
+		if flavor > 0:
+			tooltiptext.text += "\n "
+			if howmanyloops == 0:
+				tooltiptext.text += "Sweet: "
+			if howmanyloops == 1:
+				tooltiptext.text += "Spicy: "
+			if howmanyloops == 2:
+				tooltiptext.text += "Salty: "
+			if howmanyloops == 3:
+				tooltiptext.text += "Sour: "
+			if howmanyloops == 4:
+				tooltiptext.text += "Savory: "
+			tooltiptext.text += str(flavor)	
+		howmanyloops += 1
+		
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
 		if !shop and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
