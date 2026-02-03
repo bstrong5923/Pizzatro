@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmluqelbw4q4k"
-path="res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"
+uid="uid://v8lixvlkp3cu"
+path="res://.godot/imported/slicer.png-0d61debdf8148acaccdbc90c76417a47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/equipment/Spatula.png"
-dest_files=["res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"]
+source_file="res://Assets/equipment/slicer.png"
+dest_files=["res://.godot/imported/slicer.png-0d61debdf8148acaccdbc90c76417a47.ctex"]
 
 [params]
 

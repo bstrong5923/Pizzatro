@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmluqelbw4q4k"
-path="res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"
+uid="uid://b7834pw3wgyrq"
+path="res://.godot/imported/breadbull.png-c9b6f0c5b93fd6b87b82e92261fe8135.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/equipment/Spatula.png"
-dest_files=["res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"]
+source_file="res://Assets/equipment/breadbull.png"
+dest_files=["res://.godot/imported/breadbull.png-c9b6f0c5b93fd6b87b82e92261fe8135.ctex"]
 
 [params]
 
