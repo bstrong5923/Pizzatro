@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("1_pclmh")
-multiplier = 2
 name = "Grinder"
 texture = ExtResource("2_knlmh")
 rarity = "Common"
