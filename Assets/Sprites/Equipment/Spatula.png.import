@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmluqelbw4q4k"
-path="res://.godot/imported/Spatula.png-58230b1003fbf3fedcb73ca62c60160c.ctex"
+path="res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/Spatula.png"
-dest_files=["res://.godot/imported/Spatula.png-58230b1003fbf3fedcb73ca62c60160c.ctex"]
+source_file="res://Assets/Sprites/equipment/Spatula.png"
+dest_files=["res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"]
 
 [params]
 
