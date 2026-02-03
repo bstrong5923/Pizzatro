@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bblk0j3qb6ttu"
-path="res://.godot/imported/open_close_pressed.png-bf9fda2b11d0cb01bf7a2113d4b65f37.ctex"
+uid="uid://v8lixvlkp3cu"
+path="res://.godot/imported/slicer.png-0d61debdf8148acaccdbc90c76417a47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/open_close_pressed.png"
-dest_files=["res://.godot/imported/open_close_pressed.png-bf9fda2b11d0cb01bf7a2113d4b65f37.ctex"]
+source_file="res://Assets/equipment/slicer.png"
+dest_files=["res://.godot/imported/slicer.png-0d61debdf8148acaccdbc90c76417a47.ctex"]
 
 [params]
 
