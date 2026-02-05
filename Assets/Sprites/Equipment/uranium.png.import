@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dttjpefqvewqu"
-path="res://.godot/imported/Chef Hat.png-97a0dd777c1b65d462ec0da35c906efe.ctex"
+uid="uid://co73galehc360"
+path="res://.godot/imported/uranium.png-4b2acc25824cf3207cc83086ddf84bd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/equipment/Chef Hat.png"
-dest_files=["res://.godot/imported/Chef Hat.png-97a0dd777c1b65d462ec0da35c906efe.ctex"]
+source_file="res://Assets/Sprites/Equipment/uranium.png"
+dest_files=["res://.godot/imported/uranium.png-4b2acc25824cf3207cc83086ddf84bd0.ctex"]
 
 [params]
 

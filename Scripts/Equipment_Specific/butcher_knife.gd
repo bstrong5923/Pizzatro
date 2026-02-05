@@ -5,5 +5,5 @@ var multiplier = 4
 
 func effect(scor, ingredient):
 	if ingredient.types.find("meat") > -1:
-		for x in ingredient.flavors.size():
-			scor.add_points(ingredient.flavors[x] * (multiplier - 1), x)
+		for f in CardFunction.flavors_to_add.size():
+			CardFunction.flavors_to_add[f] *= multiplier

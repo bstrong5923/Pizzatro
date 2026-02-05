@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck618vcycxkti"
-path="res://.godot/imported/italyian flag.png-c58bb4356ab9684ebc1127c30855e72e.ctex"
+uid="uid://v8lixvlkp3cu"
+path="res://.godot/imported/slicer.png-effb97de24540bad3176884343f28f82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/equipment/italyian flag.png"
-dest_files=["res://.godot/imported/italyian flag.png-c58bb4356ab9684ebc1127c30855e72e.ctex"]
+source_file="res://Assets/Sprites/Equipment/slicer.png"
+dest_files=["res://.godot/imported/slicer.png-effb97de24540bad3176884343f28f82.ctex"]
 
 [params]
 
