@@ -23,6 +23,8 @@ var scor = get_node("/root/Game/Labels/Score")
 
 func set_card(i):
 	ingredient = i
+	run_card_function()
+	
 
 func check_equipment():
 	var my_equipment
@@ -32,7 +34,9 @@ func check_equipment():
 			if my_equipment[x].type[0] == ingredient.type[y]:
 				my_equipment[x].effect(scor, ingredient)
 	
+	
 func run_card_function():
+	check_equipment()
 	for f in ingredient.flavors.size():
 		scor.add_points(ingredient.flavors[f], f)
 	#basil

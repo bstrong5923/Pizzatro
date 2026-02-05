@@ -16,8 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
 [ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/Equipment_Specific/equipment.gd" id="15_x3xnh"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="16_4q8tf"]
-[ext_resource type="Texture2D" uid="uid://bm04lgkms4xqy" path="res://Assets/Sprites/equipment/open_close_button.png" id="16_8r6kd"]
 [ext_resource type="Script" uid="uid://bvi7he8v8afhd" path="res://Scripts/equipment_background.gd" id="17_8r6kd"]
+[ext_resource type="Texture2D" uid="uid://cb3eqfnac306x" path="res://Assets/Sprites/equipment/Drawer.png" id="17_tfod6"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
@@ -27,7 +27,7 @@ size = Vector2(25.300007, 35.050003)
 size = Vector2(44.40001, 39.800003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rajel"]
-size = Vector2(38.000008, 17.800001)
+size = Vector2(30.60001, 7.899999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alh3a"]
 size = Vector2(25.800026, 36)
@@ -143,18 +143,14 @@ shape = SubResource("RectangleShape2D_4q8tf")
 script = ExtResource("17_8r6kd")
 
 [node name="equipment_button" type="Sprite2D" parent="equipment/equipment_button"]
-position = Vector2(75.40001, -57.200005)
-texture = ExtResource("16_8r6kd")
-region_enabled = true
-region_rect = Rect2(0, 0, 40, 20)
+position = Vector2(74.40001, -95.60001)
+texture = ExtResource("17_tfod6")
 
 [node name="Area2D" type="Area2D" parent="equipment/equipment_button/equipment_button"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="equipment/equipment_button/equipment_button/Area2D"]
-position = Vector2(0.19998169, -1.1000023)
+position = Vector2(0.2999878, 39.05)
 shape = SubResource("RectangleShape2D_rajel")
-
-[node name="equipment_box" type="Sprite2D" parent="equipment/equipment_button"]
 
 [node name="Pack" type="Sprite2D" parent="."]
 position = Vector2(273.4, 31)

@@ -31,3 +31,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			index += 1
 			equipment_bought(this_equip)
 			Score.add_money(this_equip.cost * -1)
+
+func set_text(textu):
+	$equipment_sprite.texture = textu
+	
+func change_scale(n):
+	$equipment_sprite.scale = Vector2(n, n)
