@@ -53,3 +53,8 @@ func _on_area_2d_mouse_exited() -> void:
 		highlighted = false
 		tooltip.visible = false
 		
+func set_text(textu):
+	$equipment_sprite.texture = textu
+	
+func change_scale(n):
+	$equipment_sprite.scale = Vector2(n, n)
