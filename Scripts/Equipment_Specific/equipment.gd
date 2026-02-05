@@ -20,7 +20,7 @@ func _ready() -> void:
 	# fill common_equip_list
 	for e in range(0,data.size()): 
 		common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
-	tooltiptext.text = "HI"
+
 
 func equipment_bought(e):
 	print(e)
