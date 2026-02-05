@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=25 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cu3awgnfcjhbe" path="res://Scenes/deck.tscn" id="5_7lihs"]
 [ext_resource type="Script" uid="uid://c83sk57qf2yam" path="res://Scripts/CardDeck_Specific/card_timer.gd" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://cq38bliobtet3" path="res://Scenes/money_and_points.tscn" id="7_fgofq"]
+[ext_resource type="Script" uid="uid://xwxf3chd1wwk" path="res://Scripts/CardDeck_Specific/deck.gd" id="8_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://x3spvqhuevoa" path="res://Assets/Sprites/kitchen/kitchen_floor.png" id="11_3so38"]
 [ext_resource type="PackedScene" uid="uid://v18nc484d7y6" path="res://Scenes/canvas_layer.tscn" id="12_3so38"]
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
@@ -47,26 +48,6 @@ scale = Vector2(0.9999998, 0.9999998)
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_2irst")
 
-[node name="go_to_shop_button" type="Button" parent="Camera2D"]
-top_level = true
-offset_left = -567.00006
-offset_top = -317.0
-offset_right = -308.00003
-offset_bottom = -244.0
-rotation = -6.2848086
-text = "GO TO THE SHOP"
-metadata/_edit_use_anchors_ = true
-
-[node name="go_to_game_button" type="Button" parent="Camera2D"]
-top_level = true
-offset_left = 615.0
-offset_top = -313.0
-offset_right = 874.0
-offset_bottom = -240.0
-rotation = -6.2848086
-text = "GO TO THE GAME"
-metadata/_edit_use_anchors_ = true
-
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
 position = Vector2(6, -67)
 rotation = 3.1415927
@@ -78,6 +59,7 @@ script = ExtResource("5_b2bpf")
 [node name="deck" parent="." instance=ExtResource("5_7lihs")]
 position = Vector2(95.200005, 41)
 scale = Vector2(1, 1)
+script = ExtResource("8_8r6kd")
 
 [node name="Area2D" type="Area2D" parent="deck"]
 position = Vector2(0, 1)
@@ -164,8 +146,6 @@ position = Vector2(0.2000122, 0.39999962)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
-[connection signal="pressed" from="Camera2D/go_to_shop_button" to="Camera2D" method="_on_go_to_shop_button_pressed"]
-[connection signal="pressed" from="Camera2D/go_to_game_button" to="Camera2D" method="_on_go_to_game_button_pressed"]
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="equipment/shop_equipment/Area2D" to="equipment" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="equipment/equipment_button/equipment_button/Area2D" to="equipment/equipment_button" method="_on_area_2d_input_event"]

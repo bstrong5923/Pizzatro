@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bblk0j3qb6ttu"
-path="res://.godot/imported/open_close_pressed.png-bf9fda2b11d0cb01bf7a2113d4b65f37.ctex"
+uid="uid://dttjpefqvewqu"
+path="res://.godot/imported/Chef Hat.png-97a0dd777c1b65d462ec0da35c906efe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/open_close_pressed.png"
-dest_files=["res://.godot/imported/open_close_pressed.png-bf9fda2b11d0cb01bf7a2113d4b65f37.ctex"]
+source_file="res://Assets/equipment/Chef Hat.png"
+dest_files=["res://.godot/imported/Chef Hat.png-97a0dd777c1b65d462ec0da35c906efe.ctex"]
 
 [params]
 

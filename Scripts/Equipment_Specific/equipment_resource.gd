@@ -10,5 +10,8 @@ class_name Equipment
 @export var type : Array[String]
 @export var index : int
 
+@export_group("triggers") 
+@export var card_of_type : bool
+
 func effect(context, moreContext):
 	pass

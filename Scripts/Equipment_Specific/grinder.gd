@@ -1,11 +1,9 @@
 extends Equipment
 class_name Grinder
 
-@export var multiplier : int
-#context is the score node
-#moreContext is the ingredient object that triggered the equipment
-func effect(context, moreContext):
-	print("grinder trig")
-	for x in moreContext.flavors.size():
-		context.add_points(moreContext.flavors[x], x)
-	return
+var multiplier = 4
+
+func effect(scor, ingredient):
+	if ingredient.types.find("spice") > -1:
+		for x in ingredient.flavors.size():
+			scor.add_points(ingredient.flavors[x] * (multiplier - 1), x)

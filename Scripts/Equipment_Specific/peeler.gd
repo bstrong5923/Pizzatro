@@ -1,11 +1,9 @@
 extends Equipment
 class_name Peeler
 
-@export var multiplier : int
-#context is the score node
-#moreContext is the ingredient object that triggered the equipment
-func effect(context, moreContext):
-	print("peeler trig")
-	for x in moreContext.flavors.size():
-		context.add_points(moreContext.flavors[x] * multiplier, x)
-	return
+var multiplier = 3
+
+func effect(scor, ingredient):
+	if ingredient.types.find("fruit") + ingredient.types.find("vegetable") > -2:
+		for x in ingredient.flavors.size():
+			scor.add_points(ingredient.flavors[x] * (multiplier - 1), x)

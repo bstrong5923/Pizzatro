@@ -10,6 +10,11 @@ var common_equip_list = []
 static var this_equip
 var index = 0
 
+func _ready() -> void:
+	# fill common_equip_list
+	for e in range(0,data.size()): 
+		common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
+
 func equipment_bought(e):
 	print(e)
 	print("index is: " + str(e.index))
@@ -19,8 +24,6 @@ func get_my_equipment():
 	return my_equipment
 
 func generate_random_equipment():
-	for equipment in range(0,data.size()):
-		common_equip_list.push_back(load("res://Assets/equipment/" + data[equipment] + ".tres"))
 	this_equip = common_equip_list[randi_range(0, common_equip_list.size() - 1)]
 	$shop_equipment.texture = this_equip.texture
 
