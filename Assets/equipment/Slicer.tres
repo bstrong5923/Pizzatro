@@ -10,5 +10,6 @@ texture = ExtResource("2_dsenx")
 rarity = "Common"
 cost = 6
 description = "Makes basil cheaper and stronger"
-card_of_type = true
+card_played = true
+bought = true
 metadata/_custom_type_script = "uid://c4c817knlg18k"

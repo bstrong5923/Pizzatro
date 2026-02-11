@@ -20,6 +20,7 @@ func check_equipment():
 	
 	
 func run_card_function():
+	get_node_or_null("/root/Game/Labels/Energy").change_energy(-ingredient.price)
 	flavors_to_add = ingredient.flavors.duplicate(true)
 	await check_equipment()
 	for f in ingredient.flavors.size():

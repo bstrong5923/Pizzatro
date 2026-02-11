@@ -12,6 +12,10 @@ class_name Equipment
 
 @export_group("triggers") 
 @export var card_played : bool
+@export var bought : bool
 
 func on_card_played(input):
+	pass
+
+func on_bought():
 	pass
