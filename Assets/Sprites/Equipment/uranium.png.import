@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbp46vydenat"
-path="res://.godot/imported/pixil-frame-14.png-d18b68ebfda3f41b56ca16e042017c38.ctex"
+uid="uid://co73galehc360"
+path="res://.godot/imported/uranium.png-4b2acc25824cf3207cc83086ddf84bd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/equipment/pixil-frame-14.png"
-dest_files=["res://.godot/imported/pixil-frame-14.png-d18b68ebfda3f41b56ca16e042017c38.ctex"]
+source_file="res://Assets/Sprites/Equipment/uranium.png"
+dest_files=["res://.godot/imported/uranium.png-4b2acc25824cf3207cc83086ddf84bd0.ctex"]
 
 [params]
 
