@@ -15,8 +15,8 @@ func set_card(i):
 func check_equipment():
 	var my_equipment = Equip.get_my_equipment() 
 	for e in my_equipment:
-		if e.card_of_type:
-			await e.effect(scor, ingredient)
+		if e.card_played:
+			await e.on_card_played(ingredient)
 	
 	
 func run_card_function():

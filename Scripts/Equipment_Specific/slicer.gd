@@ -1,7 +1,7 @@
 extends Equipment
 class_name Slicer
 
-func effect(scor, ingredient):
-	if ingredient.name == "basil":
-		print("Sliced!")
+func on_card_played(ingredient):
+	if ingredient.name == "Basil":
+		Deck.draw_card()
 	
