@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7834pw3wgyrq"
-path="res://.godot/imported/breadbull.png-c9b6f0c5b93fd6b87b82e92261fe8135.ctex"
+path="res://.godot/imported/breadbull.png-c95f9827d7e8ca75493579c360d38505.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/equipment/breadbull.png"
-dest_files=["res://.godot/imported/breadbull.png-c9b6f0c5b93fd6b87b82e92261fe8135.ctex"]
+source_file="res://Assets/Sprites/equipment/breadbull.png"
+dest_files=["res://.godot/imported/breadbull.png-c95f9827d7e8ca75493579c360d38505.ctex"]
 
 [params]
 

@@ -13,26 +13,35 @@ var minis_container = $minis_container
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if (pressed == true):
-			var target_y = 0
-			var tween = get_tree().create_tween()
-			tween.tween_property(self, "position:y", target_y , .2)
-			pressed = false
+			open_drawer()
 			
 		elif (pressed == false):
-			var target_y = 67
-			var tween = get_tree().create_tween()
-			tween.tween_property(self, "position:y", target_y , .2)
-			generate_equipment_minis()
-			pressed = true
+			close_drawer()
 			
 var d
+func kill_children():
+	for child in minis_container.get_children():
+		child.queue_free()
+func open_drawer():
+	var target_y = 0
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position:y", target_y , .2)
+	pressed = false
+func close_drawer():
+	var target_y = 67
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position:y", target_y , .2)
+	if (pressed == false):
+		generate_equipment_minis()
+		pressed = true	
+	
+		
 func generate_equipment_minis():
 	var my_equipment
 	print("test?")
 	my_equipment = Equip.get_my_equipment()
 	if (d == 1):
-		for child in minis_container.get_children():
-			child.queue_free()
+		kill_children()
 		
 	for x in range(my_equipment.size()):
 		var e = Equipm.instantiate()
@@ -51,7 +60,7 @@ func generate_equipment_minis():
 			e.position = Vector2(xpos, ypos)
 			e.change_scale(.4)
 			minis_container.add_child(e)
-			var d = 1
+			d = 1
 		else:
 			if (x < 5):
 				xpos = 54
@@ -63,5 +72,5 @@ func generate_equipment_minis():
 			e.position = Vector2(xpos, ypos)
 			e.change_scale(.2)
 			minis_container.add_child(e)
-			var d = 1
+			d = 1
 		
