@@ -149,6 +149,7 @@ shape = SubResource("RectangleShape2D_rajel")
 [node name="equipment_box" type="Sprite2D" parent="equipment/equipment_button"]
 
 [node name="info_sprite" type="PanelContainer" parent="equipment"]
+visible = false
 z_index = 2424
 offset_left = 122.8
 offset_top = 5.5999985
