@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dttjpefqvewqu"
-path="res://.godot/imported/Chef Hat.png-97a0dd777c1b65d462ec0da35c906efe.ctex"
+uid="uid://b7834pw3wgyrq"
+path="res://.godot/imported/breadbull.png-fc477027c8cf9a55cddaf850c49b7fd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/equipment/Chef Hat.png"
-dest_files=["res://.godot/imported/Chef Hat.png-97a0dd777c1b65d462ec0da35c906efe.ctex"]
+source_file="res://Assets/Sprites/Equipment/breadbull.png"
+dest_files=["res://.godot/imported/breadbull.png-fc477027c8cf9a55cddaf850c49b7fd3.ctex"]
 
 [params]
 
