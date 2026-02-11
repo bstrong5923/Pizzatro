@@ -1,8 +1,92 @@
-[gd_scene load_steps=2 format=3 uid="uid://viymnqxbigv7"]
+[gd_scene load_steps=8 format=3 uid="uid://viymnqxbigv7"]
 
 [ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/Equipment_Specific/equipment.gd" id="1_roj3i"]
+[ext_resource type="Script" uid="uid://bvi7he8v8afhd" path="res://Scripts/equipment_background.gd" id="2_85gve"]
+[ext_resource type="Texture2D" uid="uid://cb3eqfnac306x" path="res://Assets/Sprites/Equipment/Drawer.png" id="3_vdpvh"]
+[ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="4_n1fjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8tf"]
+size = Vector2(44.40001, 39.800003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rajel"]
+size = Vector2(30.60001, 7.899999)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfod6"]
+bg_color = Color(0.5634866, 0.6097516, 0.62631965, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.59641397, 0.568948, 0.60965747, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
 
 [node name="equipment" type="Node2D"]
+scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("1_roj3i")
 
+[node name="shop_equipment" type="Sprite2D" parent="."]
+position = Vector2(141.20001, 35.800003)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Area2D" type="Area2D" parent="shop_equipment"]
+position = Vector2(0.8000002, -1.1999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shop_equipment/Area2D"]
+position = Vector2(2.600006, 1.0999985)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_4q8tf")
+
+[node name="equipment_button" type="Node2D" parent="."]
+script = ExtResource("2_85gve")
+
+[node name="equipment_button" type="Sprite2D" parent="equipment_button"]
+position = Vector2(74.40001, -95.60001)
+texture = ExtResource("3_vdpvh")
+
+[node name="Area2D" type="Area2D" parent="equipment_button/equipment_button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="equipment_button/equipment_button/Area2D"]
+position = Vector2(0.2999878, 39.05)
+shape = SubResource("RectangleShape2D_rajel")
+
+[node name="equipment_box" type="Sprite2D" parent="equipment_button"]
+
+[node name="minis_container" type="Container" parent="equipment_button"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="info_sprite" type="PanelContainer" parent="."]
+visible = false
+z_index = 2424
+offset_left = 122.8
+offset_top = 5.5999985
+offset_right = 343.8
+offset_bottom = 32.6
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tfod6")
+
+[node name="info" type="RichTextLabel" parent="info_sprite"]
+layout_mode = 2
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_n1fjl")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Sweet"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+
 [node name="equipment_sprite" type="Sprite2D" parent="."]
+
+[connection signal="input_event" from="shop_equipment/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="equipment_button/equipment_button/Area2D" to="equipment_button" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="equipment_button/equipment_button/Area2D" to="equipment_button" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="equipment_button/equipment_button/Area2D" to="equipment_button" method="_on_area_2d_mouse_exited"]

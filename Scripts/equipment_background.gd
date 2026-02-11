@@ -28,7 +28,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 var d
 func generate_equipment_minis():
 	var my_equipment
-	print("test?")
 	my_equipment = Equip.get_my_equipment()
 	if (d == 1):
 		for child in minis_container.get_children():
@@ -62,6 +61,7 @@ func generate_equipment_minis():
 			ypos = -120 + ((x % 5) * 10)
 			e.position = Vector2(xpos, ypos)
 			e.change_scale(.2)
+			
 			minis_container.add_child(e)
 			var d = 1
 		
