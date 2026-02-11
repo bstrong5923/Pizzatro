@@ -8,7 +8,13 @@ func set_price(p, defaultpos):
 	display_price(defaultpos)
 
 func display_price(defaultpos):
+	# format the text
+	if float(int(price)) == price:
+		price = int(price)
+	else:
+		price = snapped(price, .01) # round to two decimal places
 	label.text = str(price)
+	
 	add_child(label)
 	# wait until the label has been loaded
 	await label.ready
@@ -18,7 +24,10 @@ func display_price(defaultpos):
 
 func set_size(n, defaultpos):
 	# get the right label font
-	label.add_theme_font_size_override("font_size", 20 * n)
+	var fontsize = 20
+	if label.text.length() > 3:
+		fontsize = 20 * pow(0.8, label.text.length() - 3)
+	label.add_theme_font_size_override("font_size", fontsize * n)
 	label.add_theme_color_override("color", Color(10,0,0))
 	var f = FontFile.new()
 	f.font_data = load("res://Assets/fonts/main.ttf")
