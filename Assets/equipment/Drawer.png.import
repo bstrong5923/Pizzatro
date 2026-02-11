@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmluqelbw4q4k"
-path="res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"
+uid="uid://b7hft2imv1kmf"
+path="res://.godot/imported/Drawer.png-8acd93805b46d7294d582b92a2f6e9ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/equipment/Spatula.png"
-dest_files=["res://.godot/imported/Spatula.png-7421de7a0d149d87b3d5ca26e6ceb801.ctex"]
+source_file="res://Assets/equipment/Drawer.png"
+dest_files=["res://.godot/imported/Drawer.png-8acd93805b46d7294d582b92a2f6e9ad.ctex"]
 
 [params]
 
