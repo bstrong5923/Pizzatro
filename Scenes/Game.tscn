@@ -28,6 +28,8 @@ size = Vector2(25.800026, 36)
 z_index = -2
 scale = Vector2(5, 5)
 script = ExtResource("1_7lihs")
+metadata/_edit_horizontal_guides_ = [-324.0]
+metadata/_edit_vertical_guides_ = [90.0]
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
 position = Vector2(0, -19)

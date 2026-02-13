@@ -1,6 +1,6 @@
 extends Node2D
 var pressed = false
-var Equipm = preload("res://Scenes/equipment.tscn")
+var Equipm = preload("res://Scenes/eqiupment_mini.tscn")
 @onready
 var minis_container = $minis_container
 #func _on_area_2d_mouse_entered() -> void:
@@ -36,6 +36,7 @@ func generate_equipment_minis():
 	for x in range(my_equipment.size()):
 		var e = Equipm.instantiate()
 		e.set_text(my_equipment[x].texture)
+		e.set_description(my_equipment[x].description)
 		var xpos
 		var ypos
 		## formatting if there is less than 9

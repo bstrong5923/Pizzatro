@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://1wtxyj0dc35"]
+
+[ext_resource type="Script" uid="uid://dpx26nb3r7qut" path="res://Scenes/eqiupment_mini.gd" id="1_n4ot1"]
+[ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="2_t08f3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj0lo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_econ8"]
+bg_color = Color(0.5634866, 0.6097516, 0.62631965, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.59641397, 0.568948, 0.60965747, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+
+[node name="eqiupment_mini" type="Area2D"]
+script = ExtResource("1_n4ot1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bj0lo")
+
+[node name="equipment_mini" type="Sprite2D" parent="."]
+
+[node name="info_sprite" type="PanelContainer" parent="."]
+visible = false
+z_index = 2424
+offset_left = -38.0
+offset_top = 1.9999962
+offset_right = 76.99999
+offset_bottom = 31.999996
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_econ8")
+
+[node name="info" type="RichTextLabel" parent="info_sprite"]
+layout_mode = 2
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_t08f3")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Sweet"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

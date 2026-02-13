@@ -36,6 +36,8 @@ func generate_random_equipment():
 	
 	#get position for description
 	tooltippos = tooltip.position
+	#sets text to description
+	tooltiptext.text = this_equip.description
 	
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -50,7 +52,7 @@ func _on_area_2d_mouse_entered() -> void:
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame
-	tooltip.position = tooltippos + Vector2(0, - 8)
+	tooltip.position = tooltippos + Vector2(0, -8)
 	print(tooltip.position)
 
 func _on_area_2d_mouse_exited() -> void:
@@ -60,7 +62,7 @@ func _on_area_2d_mouse_exited() -> void:
 		print("bye")
 
 func set_text(textu):
-	$equipment_sprite.texture = textu
+	$equipment_mini.texture = textu
 
 func change_scale(n):
-	$equipment_sprite.scale = Vector2(n, n)
+	$equipment_mini.scale = Vector2(n, n)

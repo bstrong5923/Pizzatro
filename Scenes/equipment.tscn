@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://viymnqxbigv7"]
+[gd_scene load_steps=9 format=3 uid="uid://viymnqxbigv7"]
 
 [ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/Equipment_Specific/equipment.gd" id="1_roj3i"]
 [ext_resource type="Script" uid="uid://bvi7he8v8afhd" path="res://Scripts/equipment_background.gd" id="2_85gve"]
 [ext_resource type="Texture2D" uid="uid://cb3eqfnac306x" path="res://Assets/Sprites/Equipment/Drawer.png" id="3_vdpvh"]
 [ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="4_n1fjl"]
+[ext_resource type="PackedScene" uid="uid://1wtxyj0dc35" path="res://Scenes/eqiupment_mini.tscn" id="5_vdpvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8tf"]
 size = Vector2(44.40001, 39.800003)
@@ -82,7 +83,7 @@ scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 
-[node name="equipment_sprite" type="Sprite2D" parent="."]
+[node name="eqiupment_mini" parent="." instance=ExtResource("5_vdpvh")]
 
 [connection signal="input_event" from="shop_equipment/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_entered"]
