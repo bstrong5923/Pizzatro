@@ -84,6 +84,7 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 
 [node name="eqiupment_mini" parent="." instance=ExtResource("5_vdpvh")]
+position = Vector2(839, 262)
 
 [connection signal="input_event" from="shop_equipment/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_entered"]

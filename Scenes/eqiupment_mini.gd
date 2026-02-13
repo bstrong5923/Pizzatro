@@ -5,8 +5,12 @@ extends Area2D
 var highlighted = false
 
 func _ready() -> void:
-	tooltip.set_global_position(Vector2(-200,-50),false) 
+	set_pos_twin()
 
+#this just sets stuff for description dont even fuck with me twin✌️
+func set_pos_twin():
+	tooltip.set_global_position(Vector2(-25,-315),false)
+	tooltip.size= Vector2(215,tooltiptext.size.y)
 
 func set_text(textu):
 	$equipment_mini.texture = textu
@@ -21,13 +25,13 @@ func _on_mouse_entered() -> void:
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame
-	tooltip.set_global_position(Vector2(-40,-10),false) 
+	set_pos_twin()
 	print(tooltip.global_position)
 	print("MINI HI")
 
 
 func _on_mouse_exited() -> void:
-	tooltip.set_global_position(Vector2(-40,-10),false) 
+	set_pos_twin()
 	if highlighted:
 		highlighted = false
 		tooltip.visible = false
