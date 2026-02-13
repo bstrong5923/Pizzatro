@@ -16,6 +16,11 @@ var highlighted = false
 @onready var pricecirclesprite = $price_circle
 @onready var tooltip = $info_sprite
 @onready var tooltiptext = $info_sprite/info
+
+var logo
+var icon
+var pricetag
+
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
@@ -53,7 +58,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 			play_timer.cooldown() # wait for animation to finish before you can click another
 			discard_self() # discard this one
 			### call to card function to subtract money
-			get_node_or_null("/root/Game/Labels/Energy").change_energy(-price)
 			var checker = get_node("card_function") # do the function
 			checker.set_card(ingredient)
 		elif shop: 
@@ -66,12 +70,13 @@ func set_ingredient(i, t):
 	price = ingredient.price
 			
 	# get the right logo
-	var logo = $ingredient_logo
+	logo = $ingredient_logo
 	logo.set_ingredient(i)
-	$icon.set_ingredient(i)
+	icon = $icon
+	icon.set_ingredient(i)
 	
 	# get the price
-	var pricetag = $price_circle
+	pricetag = $price_circle
 	pricetag.set_price(price, !t)
 	shop = t
 	

@@ -9,7 +9,7 @@ class_name Card
 
 @export var flavors : Array[int]
 
-@export var price : int
+@export var price : float
 @export var description: String
 @export var types: Array[String]
 

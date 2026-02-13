@@ -31,7 +31,7 @@ func get_my_equipment():
 	return my_equipment
 
 func generate_random_equipment():
-	this_equip = common_equip_list[randi_range(0, common_equip_list.size() - 1)]
+	this_equip = common_equip_list[common_equip_list.size() - 1] #randi_range(0, common_equip_list.size() - 1)
 	$shop_equipment.texture = this_equip.texture
 	
 	#get position for description
@@ -46,6 +46,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			this_equip.index = index
 			index += 1
 			equipment_bought(this_equip)
+			if this_equip.bought:
+				this_equip.on_bought()
 			Score.add_money(this_equip.cost * -1)
 
 func _on_area_2d_mouse_entered() -> void:

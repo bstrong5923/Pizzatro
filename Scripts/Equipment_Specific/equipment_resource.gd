@@ -11,7 +11,11 @@ class_name Equipment
 @export var index : int
 
 @export_group("triggers") 
-@export var card_of_type : bool
+@export var card_played : bool
+@export var bought : bool
 
-func effect(context, moreContext):
+func on_card_played(input):
+	pass
+
+func on_bought():
 	pass
