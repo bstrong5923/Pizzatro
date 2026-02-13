@@ -11,4 +11,4 @@ rarity = "Common"
 cost = 12
 description = "Make all our spices extra yummy!"
 type = Array[String](["Spice"])
-card_of_type = true
+card_played = true

@@ -10,5 +10,5 @@ texture = ExtResource("2_pw6go")
 rarity = "Common"
 cost = 8
 description = "Peels away the vegetable & fruit skin to enhance the flavor!"
-card_of_type = true
+card_played = true
 metadata/_custom_type_script = "uid://ddbfocwr7kr0r"
