@@ -33,7 +33,10 @@ func get_my_equipment():
 func generate_random_equipment():
 	this_equip = common_equip_list[common_equip_list.size() - 1] #randi_range(0, common_equip_list.size() - 1)
 	$shop_equipment.texture = this_equip.texture
+	
+	#get position for description
 	tooltippos = tooltip.position
+	
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -49,7 +52,7 @@ func _on_area_2d_mouse_entered() -> void:
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame
-	tooltip.position = position + tooltippos
+	tooltip.position = tooltippos + Vector2(0, - 8)
 	print(tooltip.position)
 
 func _on_area_2d_mouse_exited() -> void:

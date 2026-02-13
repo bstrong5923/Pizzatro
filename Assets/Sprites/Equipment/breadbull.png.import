@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hft2imv1kmf"
-path="res://.godot/imported/Drawer.png-8acd93805b46d7294d582b92a2f6e9ad.ctex"
+uid="uid://swebbbl47rtu"
+path="res://.godot/imported/breadbull.png-fc477027c8cf9a55cddaf850c49b7fd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/equipment/Drawer.png"
-dest_files=["res://.godot/imported/Drawer.png-8acd93805b46d7294d582b92a2f6e9ad.ctex"]
+source_file="res://Assets/Sprites/Equipment/breadbull.png"
+dest_files=["res://.godot/imported/breadbull.png-fc477027c8cf9a55cddaf850c49b7fd3.ctex"]
 
 [params]
 
