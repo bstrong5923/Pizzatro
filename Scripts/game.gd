@@ -9,15 +9,26 @@ func _ready() -> void:
 	Deck.fill_initial_deck()
 	new_round()
 
+
+var starting_energy
+
 func new_round():
 	level += 1
+	
+	starting_energy = 20
+
+	# check equipments
+	for e in Equip.get_my_equipment():
+		if e.round_start:
+			await e.on_round_start(get_node("/root/Game"))
+			
 	if level <= minimums.size():
 		Deck.set_minimum(minimums[level - 1])
 	else:
 		Deck.set_minimum(100)
 	Deck.fill_deck_remaining()
 	Deck.draw_hand()
-	$Labels/Energy.set_energy(20)
+	$Labels/Energy.set_energy(starting_energy)
 	$Labels/Score.clear_score()
 	$pie/minis.clear_minis()
 	Deck.clear_shop_hand()

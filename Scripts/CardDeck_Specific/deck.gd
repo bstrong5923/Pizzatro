@@ -32,7 +32,7 @@ func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the 
 	for ingredient in data.size():
 		card_list.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 	for ingredient in range(0,6):
-		for x in range(0,2):
+		for x in range(0,4): # num of copies of each card
 			deck.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 	
 func fill_deck_remaining(): # called at beginning of each round
