@@ -1,7 +1,7 @@
 extends Equipment
 class_name Peeler
 
-var multiplier = 3
+var multiplier = 1.5
 
 func on_card_played(ingredient):
 	if ingredient.types.find("fruit") + ingredient.types.find("vegetable") > -2:
