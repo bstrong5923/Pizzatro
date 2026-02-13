@@ -9,6 +9,6 @@ name = "Grinder"
 texture = ExtResource("2_knlmh")
 rarity = "Common"
 cost = 12
-description = "Make all our spices extra yummy! "
+description = "+5 each Flavor for Spices"
 type = Array[String](["Spice"])
 card_played = true

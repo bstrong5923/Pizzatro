@@ -9,6 +9,6 @@ name = "Slicer"
 texture = ExtResource("2_dsenx")
 rarity = "Common"
 cost = 6
-description = "Makes basil cheaper and stronger!"
+description = "Basil costs 50% less and gives one more card"
 card_played = true
 bought = true

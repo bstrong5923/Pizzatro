@@ -1,7 +1,7 @@
 extends Equipment
 class_name Butcher_Knife
 
-var multiplier = 4
+var multiplier = 2.5
 
 func on_card_played(ingredient):
 	if ingredient.types.find("meat") > -1:
