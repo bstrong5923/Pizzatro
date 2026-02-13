@@ -20,7 +20,17 @@ func change_scale(n):
 	$equipment_mini.scale = Vector2(n, n)
 
 func set_description(n):
-	get_node("info_sprite/info").text = "[color=000000]" + n + "[/color]"
+	var label = get_node("info_sprite/info")
+	var text = n
+
+	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color] ")
+	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color] ")
+	text = text.replacen("Salty", "[color=fae100]Salty[/color] ")
+	text = text.replacen("Sour", "[color=1ac200]Sour[/color] ")
+	text = text.replacen("Savory", "[color=0006a6]Savory[/color] ")
+	text = text.replacen("Energy", "[color=ffd900]Energy[/color] ")
+	label.text = text
+	#spicy c85c00 salty fae100 sour 1ac200 savory 0006a6 energy ffd900 sweet d900d9
 
 func _on_mouse_entered() -> void:
 	highlighted = true
