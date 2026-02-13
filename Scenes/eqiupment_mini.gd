@@ -21,6 +21,12 @@ func change_scale(n):
 
 func set_description(n):
 	get_node("info_sprite/info").text = "[color=000000]" + n + "[/color]"
+	get_node("info_sprite/info").text .replacen("sweet", "[color=" + "d900d9" + "]" + "sweet")
+	get_node("info_sprite/info").text .replacen("spicy", "[color=" + "c85c00" + "]" + "sweet")
+	get_node("info_sprite/info").text .replacen("salty", "[color=" + "fae100" + "]" + "sweet")
+	get_node("info_sprite/info").text .replacen("sour", "[color=" + "1ac200" + "]" + "sweet")
+	get_node("info_sprite/info").text .replacen("savory", "[color=" + "0006a6" + "]" + "sweet")
+	#spicy c85c00 salty fae100 sour 1ac200 savory 0006a6
 
 func _on_mouse_entered() -> void:
 	highlighted = true
