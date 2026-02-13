@@ -38,12 +38,12 @@ func generate_random_equipment():
 	tooltippos = tooltip.position
 	#sets text to description
 	var text = this_equip.description
-	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color] ")
-	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color] ")
-	text = text.replacen("Salty", "[color=fae100]Salty[/color] ")
-	text = text.replacen("Sour", "[color=1ac200]Sour[/color] ")
-	text = text.replacen("Savory", "[color=0006a6]Savory[/color] ")
-	text = text.replacen("Energy", "[color=ffd900]Energy[/color] ")
+	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color]")
+	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color]")
+	text = text.replacen("Salty", "[color=fae100]Salty[/color]")
+	text = text.replacen("Sour", "[color=1ac200]Sour[/color]")
+	text = text.replacen("Savory", "[color=0006a6]Savory[/color]")
+	text = text.replacen("Energy", "[color=ffd900]Energy[/color]")
 	tooltiptext.text = text 
 	
 
@@ -61,7 +61,7 @@ func _on_area_2d_mouse_entered() -> void:
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame
-	tooltip.position = tooltippos + Vector2(0, -8)
+	tooltip.position = tooltippos + Vector2(-2, -8)
 	print(tooltip.position)
 
 func _on_area_2d_mouse_exited() -> void:

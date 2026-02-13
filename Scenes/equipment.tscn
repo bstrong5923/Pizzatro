@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://viymnqxbigv7"]
+[gd_scene load_steps=11 format=3 uid="uid://viymnqxbigv7"]
 
 [ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/Equipment_Specific/equipment.gd" id="1_roj3i"]
 [ext_resource type="Script" uid="uid://bvi7he8v8afhd" path="res://Scripts/equipment_background.gd" id="2_85gve"]
 [ext_resource type="Texture2D" uid="uid://cb3eqfnac306x" path="res://Assets/Sprites/Equipment/Drawer.png" id="3_vdpvh"]
 [ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="4_n1fjl"]
 [ext_resource type="PackedScene" uid="uid://1wtxyj0dc35" path="res://Scenes/eqiupment_mini.tscn" id="5_vdpvh"]
+[ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="6_dqsxb"]
+[ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="7_22i42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8tf"]
 size = Vector2(44.40001, 39.800003)
@@ -86,6 +88,13 @@ horizontal_alignment = 1
 
 [node name="eqiupment_mini" parent="." instance=ExtResource("5_vdpvh")]
 position = Vector2(839, 262)
+
+[node name="price_circle" type="Node2D" parent="."]
+position = Vector2(189, 88)
+script = ExtResource("6_dqsxb")
+
+[node name="circle" type="Sprite2D" parent="price_circle"]
+texture = ExtResource("7_22i42")
 
 [connection signal="input_event" from="shop_equipment/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_entered"]
