@@ -12,6 +12,7 @@ func set_pos_twin():
 	tooltip.set_global_position(Vector2(-25,-315),false)
 	tooltip.size= Vector2(215,tooltiptext.size.y)
 
+
 func set_text(textu):
 	$equipment_mini.texture = textu
 
@@ -19,7 +20,7 @@ func change_scale(n):
 	$equipment_mini.scale = Vector2(n, n)
 
 func set_description(n):
-	get_node("info_sprite/info").text = n
+	get_node("info_sprite/info").text = "[color=000000]" + n + "[/color]"
 
 func _on_mouse_entered() -> void:
 	highlighted = true
