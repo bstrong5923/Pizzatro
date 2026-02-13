@@ -37,7 +37,14 @@ func generate_random_equipment():
 	#get position for description
 	tooltippos = tooltip.position
 	#sets text to description
-	tooltiptext.text = this_equip.description
+	var text = this_equip.description
+	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color] ")
+	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color] ")
+	text = text.replacen("Salty", "[color=fae100]Salty[/color] ")
+	text = text.replacen("Sour", "[color=1ac200]Sour[/color] ")
+	text = text.replacen("Savory", "[color=0006a6]Savory[/color] ")
+	text = text.replacen("Energy", "[color=ffd900]Energy[/color] ")
+	tooltiptext.text = text 
 	
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
