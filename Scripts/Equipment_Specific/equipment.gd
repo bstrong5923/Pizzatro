@@ -21,7 +21,6 @@ func _ready():
 	for e in range(0,data.size()): 
 		common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 
-
 func equipment_bought(e):
 	print(e)
 	print("index is: " + str(e.index))
@@ -46,7 +45,7 @@ func generate_random_equipment():
 	text = text.replacen("Savory", "[color=0006a6]Savory[/color]")
 	text = text.replacen("Energy", "[color=ffd900]Energy[/color]")
 	tooltiptext.text = text 
-	
+	change_pricetag_scale(1)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -76,3 +75,8 @@ func set_text(textu):
 
 func change_scale(n):
 	$equipment_mini.scale = Vector2(n, n)
+	
+func change_pricetag_scale(n):
+	var pricetag = $price_circle
+	pricetag.set_price(this_equip.cost,false)
+	print(this_equip.cost)

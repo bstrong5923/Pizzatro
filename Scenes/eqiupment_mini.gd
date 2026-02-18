@@ -37,8 +37,6 @@ func _on_mouse_entered() -> void:
 	tooltip.visible = true
 	await get_tree().process_frame
 	set_pos_twin()
-	print(tooltip.global_position)
-	print("MINI HI")
 
 
 func _on_mouse_exited() -> void:

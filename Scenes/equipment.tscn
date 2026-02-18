@@ -90,11 +90,16 @@ horizontal_alignment = 1
 position = Vector2(839, 262)
 
 [node name="price_circle" type="Node2D" parent="."]
-position = Vector2(189, 88)
+position = Vector2(165.00002, 16.000008)
 script = ExtResource("6_dqsxb")
 
 [node name="circle" type="Sprite2D" parent="price_circle"]
+scale = Vector2(5, 5)
 texture = ExtResource("7_22i42")
+
+[node name="Label" type="Label" parent="price_circle"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="input_event" from="shop_equipment/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_entered"]
