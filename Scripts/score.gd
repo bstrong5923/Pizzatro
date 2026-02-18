@@ -31,6 +31,9 @@ func calc():
 	i = 0
 	calculating = true
 	var totalscore = 0
+	for e in Equip.get_my_equipment():
+				if e.round_end:
+					await e.on_round_end(Score)
 	for val in flavor_values:
 		totalscore += val
 	return totalscore
