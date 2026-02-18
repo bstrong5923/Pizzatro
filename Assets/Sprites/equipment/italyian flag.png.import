@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gblakj18cux4"
-path="res://.godot/imported/uranium.png-4b2acc25824cf3207cc83086ddf84bd0.ctex"
+uid="uid://bafykx5o0uxye"
+path="res://.godot/imported/italyian flag.png-cc6a1ba9ce7053231050b274a3f95b4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/uranium.png"
-dest_files=["res://.godot/imported/uranium.png-4b2acc25824cf3207cc83086ddf84bd0.ctex"]
+source_file="res://Assets/Sprites/Equipment/italyian flag.png"
+dest_files=["res://.godot/imported/italyian flag.png-cc6a1ba9ce7053231050b274a3f95b4d.ctex"]
 
 [params]
 
