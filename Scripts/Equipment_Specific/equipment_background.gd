@@ -8,7 +8,11 @@ var minis_container = $minis_container
 	#
 #func _on_area_2d_mouse_exited() -> void:
 	#$equipment_button.texture = load("res://Assets/Sprites/equipment/open_close_button.png")
-
+func _ready():
+	if minis_container == null:
+		print("minis_container is null! Check the scene tree")
+	else:
+		print("minis_container found: ", minis_container)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

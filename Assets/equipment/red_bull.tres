@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Red_Bull" load_steps=3 format=3 uid="uid://cc6mlgq5dfxy0"]
 
 [ext_resource type="Script" uid="uid://bbwtp6m2b7byj" path="res://Scripts/Equipment_Specific/red_bull.gd" id="1_fb8s0"]
-[ext_resource type="Texture2D" uid="uid://swebbbl47rtu" path="res://Assets/Sprites/Equipment/Redbull.png" id="2_fhrkh"]
+[ext_resource type="Texture2D" uid="uid://dtdey4y75o742" path="res://Assets/Sprites/Equipment/Redbull.png" id="2_fhrkh"]
 
 [resource]
 script = ExtResource("1_fb8s0")

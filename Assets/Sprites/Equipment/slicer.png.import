@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v8lixvlkp3cu"
-<<<<<<<< HEAD:Assets/Sprites/slicer.png.import
-path="res://.godot/imported/slicer.png-ddf68b2420b22a2a572beb6ac854486e.ctex"
-========
+uid="uid://cm1830w0hpoh7"
 path="res://.godot/imported/slicer.png-effb97de24540bad3176884343f28f82.ctex"
->>>>>>>> e9a06b9a9657bee6b06766a22b8f0337b19e3fb6:Assets/Sprites/Equipment/slicer.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/slicer.png.import
-source_file="res://Assets/Sprites/slicer.png"
-dest_files=["res://.godot/imported/slicer.png-ddf68b2420b22a2a572beb6ac854486e.ctex"]
-========
 source_file="res://Assets/Sprites/Equipment/slicer.png"
 dest_files=["res://.godot/imported/slicer.png-effb97de24540bad3176884343f28f82.ctex"]
->>>>>>>> e9a06b9a9657bee6b06766a22b8f0337b19e3fb6:Assets/Sprites/Equipment/slicer.png.import
 
 [params]
 

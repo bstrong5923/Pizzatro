@@ -5,7 +5,7 @@ var card = preload("res://Scenes/card.tscn")
 @onready
 var scor = get_node("/root/Game/Labels/Score")
 
-static var flavors_to_add = [0,0,0,0,0]
+static var flavors_to_add: Array[float] = [0.0, 0.0, 0.0, 0.0, 0.0]
 
 func set_card(i):
 	ingredient = i
@@ -21,7 +21,8 @@ func check_equipment():
 	
 func run_card_function():
 	get_node_or_null("/root/Game/Labels/Energy").change_energy(-ingredient.price)
-	flavors_to_add = ingredient.flavors.duplicate(true)
+	for f in range(ingredient.flavors.size()):
+		flavors_to_add[f] = float(ingredient.flavors[f])
 	await check_equipment()
 	for f in ingredient.flavors.size():
 		scor.add_points(flavors_to_add[f], f)

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Slicer" load_steps=3 format=3 uid="uid://87jqc4rpbbf7"]
 
-[ext_resource type="Script" path="res://Scripts/Equipment_Specific/slicer.gd" id="1_lcgef"]
-[ext_resource type="Texture2D" uid="uid://v8lixvlkp3cu" path="res://Assets/Sprites/Equipment/slicer.png" id="2_dsenx"]
+[ext_resource type="Script" uid="uid://c4c817knlg18k" path="res://Scripts/Equipment_Specific/slicer.gd" id="1_lcgef"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Equipment/slicer.png" id="2_dsenx"]
 
 [resource]
 script = ExtResource("1_lcgef")

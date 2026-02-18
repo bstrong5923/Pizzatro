@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/Sprites/equipment/breadbull.png.import
-uid="uid://b7834pw3wgyrq"
-path="res://.godot/imported/breadbull.png-c95f9827d7e8ca75493579c360d38505.ctex"
-========
-uid="uid://swebbbl47rtu"
+uid="uid://dtdey4y75o742"
 path="res://.godot/imported/Redbull.png-9e76d1b628fee2dbb4aa3571c8be91e5.ctex"
->>>>>>>> e9a06b9a9657bee6b06766a22b8f0337b19e3fb6:Assets/Sprites/Equipment/Redbull.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/equipment/breadbull.png.import
-source_file="res://Assets/Sprites/equipment/breadbull.png"
-dest_files=["res://.godot/imported/breadbull.png-c95f9827d7e8ca75493579c360d38505.ctex"]
-========
 source_file="res://Assets/Sprites/Equipment/Redbull.png"
 dest_files=["res://.godot/imported/Redbull.png-9e76d1b628fee2dbb4aa3571c8be91e5.ctex"]
->>>>>>>> e9a06b9a9657bee6b06766a22b8f0337b19e3fb6:Assets/Sprites/Equipment/Redbull.png.import
 
 [params]
 

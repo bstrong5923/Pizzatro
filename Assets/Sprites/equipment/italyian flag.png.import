@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Assets/Sprites/equipment/italyian flag.png.import
-uid="uid://ck618vcycxkti"
-path="res://.godot/imported/italyian flag.png-622706a8aacc029dfd3f24cee721e136.ctex"
-========
 uid="uid://bafykx5o0uxye"
 path="res://.godot/imported/italyian flag.png-cc6a1ba9ce7053231050b274a3f95b4d.ctex"
->>>>>>>> e9a06b9a9657bee6b06766a22b8f0337b19e3fb6:Assets/Sprites/Equipment/italyian flag.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Assets/Sprites/equipment/italyian flag.png.import
-source_file="res://Assets/Sprites/equipment/italyian flag.png"
-dest_files=["res://.godot/imported/italyian flag.png-622706a8aacc029dfd3f24cee721e136.ctex"]
-========
 source_file="res://Assets/Sprites/Equipment/italyian flag.png"
 dest_files=["res://.godot/imported/italyian flag.png-cc6a1ba9ce7053231050b274a3f95b4d.ctex"]
->>>>>>>> e9a06b9a9657bee6b06766a22b8f0337b19e3fb6:Assets/Sprites/Equipment/italyian flag.png.import
 
 [params]
 
