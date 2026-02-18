@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gp8tf35ei1o7"
-path="res://.godot/imported/Peeler.png-e001690bdb3bede7061b8e155cd265ad.ctex"
+uid="uid://bm04lgkms4xqy"
+path="res://.godot/imported/open_close_button.png-bf858cf4cc02117494565249c1d95e10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/Peeler.png"
-dest_files=["res://.godot/imported/Peeler.png-e001690bdb3bede7061b8e155cd265ad.ctex"]
+source_file="res://Assets/Sprites/Equipment/open_close_button.png"
+dest_files=["res://.godot/imported/open_close_button.png-bf858cf4cc02117494565249c1d95e10.ctex"]
 
 [params]
 

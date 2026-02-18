@@ -13,13 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
+[ext_resource type="PackedScene" uid="uid://viymnqxbigv7" path="res://Scenes/equipment.tscn" id="15_4q8tf"]
 [ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
-[ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/Equipment_Specific/equipment.gd" id="15_x3xnh"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="16_4q8tf"]
 [ext_resource type="Script" uid="uid://bvi7he8v8afhd" path="res://Scripts/Equipment_Specific/equipment_background.gd" id="17_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://b7hft2imv1kmf" path="res://Assets/Sprites/equipment/Drawer.png" id="17_tfod6"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
-[ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="18_tfod6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -50,6 +49,8 @@ size = Vector2(25.800026, 36)
 z_index = -2
 scale = Vector2(5, 5)
 script = ExtResource("1_7lihs")
+metadata/_edit_horizontal_guides_ = [-324.0, -301.0, -299.0]
+metadata/_edit_vertical_guides_ = [90.0, 102.0]
 
 [node name="pie" parent="." instance=ExtResource("1_gl6un")]
 position = Vector2(0, -19)
@@ -187,10 +188,4 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="equipment/shop_equipment/Area2D" to="equipment" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="equipment/shop_equipment/Area2D" to="equipment" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="equipment/shop_equipment/Area2D" to="equipment" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="equipment/equipment_button/equipment_button/Area2D" to="equipment/equipment_button" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="equipment/equipment_button/equipment_button/Area2D" to="equipment/equipment_button" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="equipment/equipment_button/equipment_button/Area2D" to="equipment/equipment_button" method="_on_area_2d_mouse_exited"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]

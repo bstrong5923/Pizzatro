@@ -1,6 +1,6 @@
 extends Node2D
 var pressed = false
-var Equipm = preload("res://Scenes/equipment.tscn")
+var Equipm = preload("res://Scenes/eqiupment_mini.tscn")
 @onready
 var minis_container = $minis_container
 #func _on_area_2d_mouse_entered() -> void:
@@ -38,7 +38,6 @@ func close_drawer():
 		
 func generate_equipment_minis():
 	var my_equipment
-	print("test?")
 	my_equipment = Equip.get_my_equipment()
 	if (d == 1):
 		kill_children()
@@ -46,6 +45,7 @@ func generate_equipment_minis():
 	for x in range(my_equipment.size()):
 		var e = Equipm.instantiate()
 		e.set_text(my_equipment[x].texture)
+		e.set_description(my_equipment[x].description)
 		var xpos
 		var ypos
 		## formatting if there is less than 9
@@ -71,6 +71,7 @@ func generate_equipment_minis():
 			ypos = -120 + ((x % 5) * 10)
 			e.position = Vector2(xpos, ypos)
 			e.change_scale(.2)
+			
 			minis_container.add_child(e)
 			d = 1
 		

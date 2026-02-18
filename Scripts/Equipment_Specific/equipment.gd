@@ -31,9 +31,22 @@ func get_my_equipment():
 	return my_equipment
 
 func generate_random_equipment():
-	this_equip = common_equip_list[randi_range(0, common_equip_list.size() - 1)]
+	this_equip = common_equip_list[randi_range(0, common_equip_list.size() - 1)] # random equipment
+	#this_equip = common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
 	$shop_equipment.texture = this_equip.texture
+	
+	#get position for description
 	tooltippos = tooltip.position
+	#sets text to description
+	var text = this_equip.description
+	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color]")
+	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color]")
+	text = text.replacen("Salty", "[color=fae100]Salty[/color]")
+	text = text.replacen("Sour", "[color=1ac200]Sour[/color]")
+	text = text.replacen("Savory", "[color=0006a6]Savory[/color]")
+	text = text.replacen("Energy", "[color=ffd900]Energy[/color]")
+	tooltiptext.text = text 
+	
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -41,13 +54,15 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			this_equip.index = index
 			index += 1
 			equipment_bought(this_equip)
+			if this_equip.bought:
+				this_equip.on_bought()
 			Score.add_money(this_equip.cost * -1)
 
 func _on_area_2d_mouse_entered() -> void:
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame
-	tooltip.position = position + tooltippos
+	tooltip.position = tooltippos + Vector2(-2, -8)
 	print(tooltip.position)
 
 func _on_area_2d_mouse_exited() -> void:
@@ -57,7 +72,7 @@ func _on_area_2d_mouse_exited() -> void:
 		print("bye")
 
 func set_text(textu):
-	$equipment_sprite.texture = textu
+	$equipment_mini.texture = textu
 
 func change_scale(n):
-	$equipment_sprite.scale = Vector2(n, n)
+	$equipment_mini.scale = Vector2(n, n)

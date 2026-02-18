@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_1djqh")
-name = "Machette"
+name = "Butcher Knife"
 texture = ExtResource("2_2dyfs")
 rarity = "Common"
-cost = 12
-description = "Applies a 2x boost to Meat!"
+cost = 9
+description = "2.5X Meats"
 type = Array[String](["Meat"])
-card_of_type = true
+card_played = true
 metadata/_custom_type_script = "uid://tp6nmrt772ft"

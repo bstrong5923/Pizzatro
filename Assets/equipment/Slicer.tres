@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Slicer" load_steps=3 format=3 uid="uid://87jqc4rpbbf7"]
+
+[ext_resource type="Script" path="res://Scripts/Equipment_Specific/slicer.gd" id="1_lcgef"]
+[ext_resource type="Texture2D" uid="uid://v8lixvlkp3cu" path="res://Assets/Sprites/Equipment/slicer.png" id="2_dsenx"]
+
+[resource]
+script = ExtResource("1_lcgef")
+name = "Slicer"
+texture = ExtResource("2_dsenx")
+rarity = "Common"
+cost = 6
+description = "Basil costs 50% less and gives one more card"
+card_played = true
+bought = true

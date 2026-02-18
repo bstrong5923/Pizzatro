@@ -21,6 +21,11 @@ Deck="*res://Scripts/CardDeck_Specific/deck.gd"
 Score="*res://Scripts/score.gd"
 Equip="*res://Scripts/Equipment_Specific/equipment.gd"
 EquipmentBackground="*res://Scripts/Equipment_Specific/equipment_background.gd"
+CardFunction="*res://Scripts/CardDeck_Specific/card_function.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [file_customization]
 

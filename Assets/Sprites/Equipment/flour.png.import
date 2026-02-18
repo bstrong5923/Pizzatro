@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gp8tf35ei1o7"
-path="res://.godot/imported/Peeler.png-e001690bdb3bede7061b8e155cd265ad.ctex"
+uid="uid://bbp46vydenat"
+path="res://.godot/imported/flour.png-ef62b6ca08f17fbdd97c122288c7b8ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/Peeler.png"
-dest_files=["res://.godot/imported/Peeler.png-e001690bdb3bede7061b8e155cd265ad.ctex"]
+source_file="res://Assets/Sprites/Equipment/flour.png"
+dest_files=["res://.godot/imported/flour.png-ef62b6ca08f17fbdd97c122288c7b8ad.ctex"]
 
 [params]
 
