@@ -47,6 +47,6 @@ func get_level():
 	
 func game_over():
 	print("GAME OVER")
-	EquipmentBackground.kill_children()
+	
 	#change to game over screen eventually
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")

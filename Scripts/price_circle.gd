@@ -65,4 +65,4 @@ func equipment_set_size(n):
 	label.size.x = 24
 	label.queue_redraw()
 	# move the label to the right spot
-	label.position = Vector2(-2.5,-2)
+	label.position = Vector2(-3,-2)

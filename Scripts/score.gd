@@ -52,11 +52,17 @@ func equipment_multiplication(f, amt):
 
 func _process(delta: float) -> void:
 	var total_label_node = get_node_or_null("Total/Count")
+
 	if calculating == true:
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
-			total += 1
-			flavor_values[i] -= 1
+			var minusminuser = pow(2,5)
+			var minuser = floor(flavor_values[i]/minusminuser)
+			while minuser <= 0:
+				minusminuser /=2
+				minuser = floor(flavor_values[i]/minusminuser)
+			total += minuser
+			flavor_values[i] -= minuser
 		elif i < 5:
 			i += 1
 		else:
@@ -68,7 +74,11 @@ func _process(delta: float) -> void:
 	if label_nodes:
 		for n in 5:
 			if flavor_vals_to_add[n] > 0:
-				flavor_values[n] += 1
-				flavor_vals_to_add[n] -= 1
+				var adder = 1
+				var speedofadd = 4
+				while adder * 2 <= flavor_vals_to_add[n] / (adder/speedofadd):
+					adder *= 2
+				flavor_values[n] += adder
+				flavor_vals_to_add[n] -= adder
 			if label_nodes[n].text != str(flavor_values[n]):
 				label_nodes[n].text = str(flavor_values[n])
