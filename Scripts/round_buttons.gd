@@ -13,10 +13,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if mode == 0 and get_node("/root/Game").is_playing():
 			get_node("/root/Game").playing_off()
 			#money shit
-			#for e in Equip.get_my_equipment():
-				#if e.round_end:
-					#await e.on_round_end(Score)
 			if (get_node("/root/Game/Labels/Score").calc() > Deck.minimum):
+				CardFunction.check_equipment()
 				Score.money += get_node("/root/Game/Labels/Score").calc() - Deck.minimum
 				get_node("/root/Game/Labels/money/Count").text = str(Score.money)
 				
