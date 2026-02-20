@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=22 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -14,9 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
 [ext_resource type="PackedScene" uid="uid://viymnqxbigv7" path="res://Scenes/equipment.tscn" id="15_4q8tf"]
-[ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/shopbackground.png" id="15_acvyw"]
-[ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/pack.png" id="16_4q8tf"]
+[ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/game scene items/shopbackground.png" id="15_acvyw"]
+[ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/game scene items/pack.png" id="16_4q8tf"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
+[ext_resource type="PackedScene" uid="uid://l5t0on5hhor8" path="res://Scenes/remove_card.tscn" id="18_8r6kd"]
+[ext_resource type="Script" uid="uid://dhrplwf43qqtk" path="res://Scripts/remove_card.gd" id="19_tfod6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -110,6 +112,9 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
 [node name="equipment" parent="." instance=ExtResource("15_4q8tf")]
+
+[node name="RemoveCard" parent="." instance=ExtResource("18_8r6kd")]
+script = ExtResource("19_tfod6")
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
