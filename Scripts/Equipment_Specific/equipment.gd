@@ -15,7 +15,7 @@ var highlighted = false
 
 @onready var tooltip = $info_sprite 
 @onready var tooltiptext = $info_sprite/info
-var tooltippos = 0
+
 func _ready():
 	# fill common_equip_list
 	for e in range(0,data.size()): 
@@ -35,7 +35,6 @@ func generate_random_equipment():
 	$shop_equipment.texture = this_equip.texture
 	
 	#get position for description
-	tooltippos = tooltip.position
 	#sets text to description
 	var text = this_equip.description
 	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color]")
@@ -61,8 +60,7 @@ func _on_area_2d_mouse_entered() -> void:
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame
-	tooltip.position = tooltippos + Vector2(-2, -8)
-	print(tooltip.position)
+	tooltip.position = Vector2(121.0,0)
 
 func _on_area_2d_mouse_exited() -> void:
 	if highlighted:
@@ -79,4 +77,5 @@ func change_scale(n):
 func change_pricetag_scale(n):
 	var pricetag = $price_circle
 	pricetag.set_price(this_equip.cost,false)
+	pricetag.equipment_set_size(n)
 	print(this_equip.cost)

@@ -47,3 +47,22 @@ func set_size(n, defaultpos):
 #doesnt work unless you have defaultpos be passed as false
 func change_pos(x, y):
 	position = Vector2(x, y)
+
+#yes i made this it works if you want to clean up the code dont even talk with me twin 👀
+func equipment_set_size(n):
+	# get the right label font
+	var fontsize = 4
+	label.add_theme_font_size_override("font_size", fontsize)
+	label.add_theme_color_override("color", Color(10,0,0))
+	label.autowrap_mode = true
+	var f = FontFile.new()
+	f.font_data = load("res://Assets/fonts/main.ttf")
+	label.add_theme_font_override("font", f)
+	# scale the circle up
+	$circle.scale = Vector2(n, n)
+	# Resets size to fit text + font
+	label.reset_size()
+	label.size.x = 24
+	label.queue_redraw()
+	# move the label to the right spot
+	label.position = Vector2(-2.5,-2)
