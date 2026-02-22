@@ -75,8 +75,10 @@ func _process(delta: float) -> void:
 		for n in 5:
 			if flavor_vals_to_add[n] > 0:
 				var adder = 1
-				var speedofadd = 4
-				while adder * 2 <= flavor_vals_to_add[n] / (adder/speedofadd):
+				#bigger speedofadd = slower
+				var speedofadd = 64
+				var step = max(1, flavor_vals_to_add[n]/speedofadd)
+				while adder * 2 <= step:
 					adder *= 2
 				flavor_values[n] += adder
 				flavor_vals_to_add[n] -= adder
