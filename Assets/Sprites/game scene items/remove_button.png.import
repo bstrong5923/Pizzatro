@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvy8age7mp28"
-path="res://.godot/imported/removebutton.png-7a3f88fb831e2fef99c34d84ac17da4f.ctex"
+uid="uid://p5oul2jmnoy0"
+path="res://.godot/imported/remove_button.png-33581c0ad021a303e0f347e42dcf919e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/game scene items/removebutton.png"
-dest_files=["res://.godot/imported/removebutton.png-7a3f88fb831e2fef99c34d84ac17da4f.ctex"]
+source_file="res://Assets/Sprites/game scene items/remove_button.png"
+dest_files=["res://.godot/imported/remove_button.png-33581c0ad021a303e0f347e42dcf919e.ctex"]
 
 [params]
 

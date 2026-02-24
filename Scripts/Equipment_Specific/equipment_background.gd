@@ -3,11 +3,8 @@ var pressed = false
 var Equipm = preload("res://Scenes/eqiupment_mini.tscn")
 @onready
 var minis_container = $minis_container
-#func _on_area_2d_mouse_entered() -> void:
-	#$equipment_button.texture = load("res://Assets/Sprites/equipment/open_close_pressed.png")
-	#
-#func _on_area_2d_mouse_exited() -> void:
-	#$equipment_button.texture = load("res://Assets/Sprites/equipment/open_close_button.png")
+
+
 func _ready():
 	if minis_container == null:
 		print("minis_container is null! Check the scene tree")

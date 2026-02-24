@@ -78,7 +78,8 @@ func _process(delta: float) -> void:
 		for n in 5:
 			if flavor_vals_to_add[n] > 0:
 				var adder = 1
-				#bigger speedofadd = slower. i think 32 is pretty good😮😘😁☆*: ｡ o≧▽≦)o ｡:*☆*/ω┬┬﹏┬┬)ಥ_ಥ〃￣︶￣)人￣︶￣〃)￣y▽￣)╭ Ohohoho○ ＾皿＾)っ Hehehe…（*＾＾*）`*>﹏<*)′´▽`ʃ♡ƪ)o゜▽゜)o☆p≧w≦q)ƪ˘⌣˘)ʃ~~~///^v^)\\\~~~づ￣ 3￣)づ￣o￣)  z Z（づ￣3￣）づ╭❤️～\@^0^@)/☆⌒*＾゜)vヾ^▽^*)))d=====￣▽￣*)b＜（＾－＾）＞ﾉ◕ヮ◕)ﾉ*:･ﾟ✧￣y▽,￣)╭ o|o) ❤️ ω ❤️)༼ つ ◕_◕ ༽つ⊙_⊙)？⊙ˍ⊙)⊙_⊙_⊙)_⊙)⊙o⊙)●__●)•ˋ _ ˊ•)⚆_⚆＼*)●◡●)❁´◡`❁)╰*°▽°*)╯^///^)£©²°¥•€é→—–←
+				#bigger speedofadd = slower. i think 32 is pretty good
+				#😮😘😁☆*: ｡ o≧▽≦)o ｡:*☆*/ω┬┬﹏┬┬)ಥ_ಥ〃￣︶￣)人￣︶￣〃)￣y▽￣)╭ Ohohoho○ ＾皿＾)っ Hehehe…（*＾＾*）`*>﹏<*)′´▽`ʃ♡ƪ)o゜▽゜)o☆p≧w≦q)ƪ˘⌣˘)ʃ~~~///^v^)\\\~~~づ￣ 3￣)づ￣o￣)  z Z（づ￣3￣）づ╭❤️～\@^0^@)/☆⌒*＾゜)vヾ^▽^*)))d=====￣▽￣*)b＜（＾－＾）＞ﾉ◕ヮ◕)ﾉ*:･ﾟ✧￣y▽,￣)╭ o|o) ❤️ ω ❤️)༼ つ ◕_◕ ༽つ⊙_⊙)？⊙ˍ⊙)⊙_⊙_⊙)_⊙)⊙o⊙)●__●)•ˋ _ ˊ•)⚆_⚆＼*)●◡●)❁´◡`❁)╰*°▽°*)╯^///^)£©²°¥•€é→—–←
 				var speedofadd = 32
 				var step = max(1, flavor_vals_to_add[n]/speedofadd)
 				while adder * 2 <= step:
