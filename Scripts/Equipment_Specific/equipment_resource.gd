@@ -14,7 +14,7 @@ class_name Equipment
 @export var card_played : bool
 @export var bought : bool
 @export var round_start : bool
-@export var round_end : bool
+@export var points_add : bool
 
 func on_card_played(input):
 	pass
@@ -25,5 +25,5 @@ func on_bought():
 func on_round_start(input):
 	pass
 
-func on_round_end(input):
+func on_points_add():
 	pass

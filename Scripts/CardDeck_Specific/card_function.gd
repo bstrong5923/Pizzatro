@@ -17,8 +17,6 @@ func check_equipment():
 	for e in my_equipment:
 		if e.card_played:
 			await e.on_card_played(ingredient)
-		if e.on_round_end:
-			await e.on_round_end(Score)
 	
 func run_card_function():
 	get_node_or_null("/root/Game/Labels/Energy").change_energy(-ingredient.price)

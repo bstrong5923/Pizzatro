@@ -26,7 +26,6 @@ func fill_label_nodes():
 func add_points(points, f):
 	flavor_vals_to_add[f] += points
 	
-
 func calc():
 	i = 0
 	calculating = true
@@ -53,6 +52,7 @@ func equipment_multiplication(f, amt):
 func _process(delta: float) -> void:
 	var total_label_node = get_node_or_null("Total/Count")
 	if calculating == true:
+		print(Score.flavor_values)
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
 			total += 1

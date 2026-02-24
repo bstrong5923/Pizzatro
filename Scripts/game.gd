@@ -20,7 +20,7 @@ func new_round():
 	# check equipments
 	for e in Equip.get_my_equipment():
 		if e.round_start:
-			await e.on_round_start(get_node("/root/Game"))
+			await e.on_round_start()
 			
 	if level <= minimums.size():
 		Deck.set_minimum(minimums[level - 1])
