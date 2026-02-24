@@ -16,7 +16,7 @@ var card_list = []
 var minimum = 0
 
 var texture_mode = 'default'
-
+ 
 func toggle_texture_mode():
 	if texture_mode == 'default':
 		texture_mode = 'retro'
