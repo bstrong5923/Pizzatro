@@ -1,7 +1,7 @@
 extends Node2D
 
-var flavor_values = [0, 0, 0, 0, 0]
-var flavor_vals_to_add = [0, 0, 0, 0, 0]
+var flavor_values = [0.0, 0.0, 0.0, 0.0, 0.0]
+var flavor_vals_to_add = [0.0, 0.0, 0.0, 0.0, 0.0]
 var flavor_names = ["Sweet", "Spicy", "Salty", "Sour", "Savory"]
 var label_nodes = []
 var calculating = false
@@ -25,6 +25,7 @@ func fill_label_nodes():
 
 func add_points(points, f):
 	flavor_vals_to_add[f] += points
+	print(flavor_values)
 	
 
 func calc():
@@ -57,13 +58,21 @@ func _process(delta: float) -> void:
 	if calculating == true:
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
-			var minusminuser = pow(2,5)
-			var minuser = floor(flavor_values[i]/minusminuser)
-			while minuser <= 0:
-				minusminuser /=2
-				minuser = floor(flavor_values[i]/minusminuser)
+			var min_step = 0.01
+			if flavor_values[i] < min_step:
+				total += flavor_values[i]
+				flavor_values[i] = 0.0
+				return
+			var minuser = pow(2.0, 5) * min_step   # 32 → 0.32 if min_step = 0.01
+			# find largest valid chunk
+			while minuser > flavor_values[i]:
+				minuser /= 2.0
 			total += minuser
 			flavor_values[i] -= minuser
+			# snap to precision grid
+			total = snapped(total, min_step)
+			flavor_values[i] = snapped(flavor_values[i], min_step)
+			print(flavor_values)
 		elif i < 5:
 			i += 1
 		else:
@@ -77,13 +86,17 @@ func _process(delta: float) -> void:
 	if label_nodes:
 		for n in 5:
 			if flavor_vals_to_add[n] > 0:
-				var adder = 1
 				#bigger speedofadd = slower. i think 32 is pretty good😮😘😁☆*: ｡ o≧▽≦)o ｡:*☆*/ω┬┬﹏┬┬)ಥ_ಥ〃￣︶￣)人￣︶￣〃)￣y▽￣)╭ Ohohoho○ ＾皿＾)っ Hehehe…（*＾＾*）`*>﹏<*)′´▽`ʃ♡ƪ)o゜▽゜)o☆p≧w≦q)ƪ˘⌣˘)ʃ~~~///^v^)\\\~~~づ￣ 3￣)づ￣o￣)  z Z（づ￣3￣）づ╭❤️～\@^0^@)/☆⌒*＾゜)vヾ^▽^*)))d=====￣▽￣*)b＜（＾－＾）＞ﾉ◕ヮ◕)ﾉ*:･ﾟ✧￣y▽,￣)╭ o|o) ❤️ ω ❤️)༼ つ ◕_◕ ༽つ⊙_⊙)？⊙ˍ⊙)⊙_⊙_⊙)_⊙)⊙o⊙)●__●)•ˋ _ ˊ•)⚆_⚆＼*)●◡●)❁´◡`❁)╰*°▽°*)╯^///^)£©²°¥•€é→—–←
 				var speedofadd = 32
-				var step = max(1, flavor_vals_to_add[n]/speedofadd)
-				while adder * 2 <= step:
-					adder *= 2
+				var step = flavor_vals_to_add[n]/speedofadd
+				var min_step = .01
+				step= max(step,min_step)
+				var adder= min_step
+				while adder * 2.0 <= step:
+					adder *= 2.0
 				flavor_values[n] += adder
 				flavor_vals_to_add[n] -= adder
+				flavor_values[n] = snapped(flavor_values[n], min_step)
+				flavor_vals_to_add[n] = snapped(flavor_vals_to_add[n], min_step)
 			if label_nodes[n].text != str(flavor_values[n]):
 				label_nodes[n].text = str(flavor_values[n])
