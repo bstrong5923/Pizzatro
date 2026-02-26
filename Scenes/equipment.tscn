@@ -46,6 +46,11 @@ shape = SubResource("RectangleShape2D_4q8tf")
 [node name="equipment_button" type="Node2D" parent="."]
 script = ExtResource("2_85gve")
 
+[node name="minis_container" type="Container" parent="equipment_button"]
+offset_right = 40.000008
+offset_bottom = 39.999992
+metadata/_edit_use_anchors_ = true
+
 [node name="equipment_button" type="Sprite2D" parent="equipment_button"]
 position = Vector2(74.40001, -95.60001)
 texture = ExtResource("3_vdpvh")
@@ -84,11 +89,6 @@ horizontal_alignment = 1
 
 [node name="eqiupment_mini" parent="." instance=ExtResource("5_vdpvh")]
 position = Vector2(839, 262)
-
-[node name="minis_container" type="Container" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
 
 [node name="price_circle" type="Node2D" parent="."]
 position = Vector2(152.00002, 16.000002)

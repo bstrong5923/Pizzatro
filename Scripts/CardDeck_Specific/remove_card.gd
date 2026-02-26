@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var list_container = $Panel/MarginContainer/ScrollContainer/CardList
+@onready var list_container = $CenterContainer/Panel/MarginContainer/ScrollContainer/CardList
 var card_preview_scene = preload("res://Scenes/card.tscn")
 
 # Called automatically when the scene loads (for debugging if you want)
@@ -11,13 +11,16 @@ func _ready():
 # Opens the menu
 func open():
 	visible = true
-	get_tree().paused = true
+	#$CenterContainer/Panel.position = get_viewport().get_visible_rect().size / 2
 	populate_list()
+	print("OPEN CALLED")
+	visible = true
+	
+
 
 # Closes the menu
 func close():
 	visible = false
-	get_tree().paused = false
 
 # Populate the scroll list with all cards in the deck
 func populate_list():
@@ -27,18 +30,24 @@ func populate_list():
 		list_container.add_child(preview)
 
 # Creates a single card preview for the remove menu
-func create_preview(card_data : Card) -> Node2D:
+func create_preview(card_data : Card) -> Control:
+	var wrapper = Control.new()
+	wrapper.custom_minimum_size = Vector2(165, 150)
+	wrapper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 	var instance = card_preview_scene.instantiate()
 
-	# Setup visuals
 	instance.set_ingredient(card_data, false)
 	instance.change_scale(0.6)
-
-	# Disable gameplay clicking logic
 	instance.shop = true
 	instance.highlighted = false
 
-	# Connect click on this card to remove it from deck
+	# Center the Node2D inside the wrapper
+	instance.position = wrapper.custom_minimum_size / 2
+
+	wrapper.add_child(instance)
+
+	# Connect click
 	var area = instance.get_node("Area2D")
 	area.input_event.connect(
 		func(_viewport, event, _shape):
@@ -48,7 +57,7 @@ func create_preview(card_data : Card) -> Node2D:
 				remove_card(card_data)
 	)
 
-	return instance
+	return wrapper
 
 # Remove a card from the deck
 func remove_card(card_data : Card):
