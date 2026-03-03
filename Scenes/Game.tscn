@@ -76,6 +76,7 @@ z_index = -20
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
+process_mode = 3
 layer = 11
 
 [node name="cutting_board" type="Sprite2D" parent="."]
@@ -131,6 +132,7 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_vvhu1")
 
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
+visible = false
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]

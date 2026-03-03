@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var list_container = $CenterContainer/Panel/MarginContainer/ScrollContainer/CardList
 var card_preview_scene = preload("res://Scenes/card.tscn")
 
+
 # Called automatically when the scene loads (for debugging if you want)
 func _ready():
 	visible = false  # start hidden
@@ -10,16 +11,18 @@ func _ready():
 
 # Opens the menu
 func open():
-	visible = true
+	$ColorRect.modulate.a = 0
+	create_tween().tween_property($ColorRect, "modulate:a", 0.8, 0.6)
 	#$CenterContainer/Panel.position = get_viewport().get_visible_rect().size / 2
 	populate_list()
+	get_tree().paused = true
 	print("OPEN CALLED")
 	visible = true
-	
-
+	list_container.custom_minimum_size = Vector2(0, 800)
 
 # Closes the menu
 func close():
+	get_tree().paused = false
 	visible = false
 
 # Populate the scroll list with all cards in the deck
@@ -63,7 +66,7 @@ func create_preview(card_data : Card) -> Control:
 func remove_card(card_data : Card):
 	Deck.deck.erase(card_data)
 	populate_list()  # refresh list so it immediately disappears
-
+	close()
 # Clears all previous card previews
 func refresh_list():
 	for child in list_container.get_children():

@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 	if calculating == true:
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
-			var min_step = 0.1
+			var min_step = 0.01
 			if flavor_values[i] < min_step:
 				total += flavor_values[i]
 				flavor_values[i] = 0.0
