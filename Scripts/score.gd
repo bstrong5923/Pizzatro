@@ -25,12 +25,8 @@ func fill_label_nodes():
 
 func add_points(points, f):
 	flavor_vals_to_add[f] += points
-<<<<<<< Updated upstream
-	print(flavor_values)
 
-=======
-	
->>>>>>> Stashed changes
+	print(flavor_values)
 
 func calc():
 	i = 0
