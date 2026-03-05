@@ -64,7 +64,8 @@ func _process(delta: float) -> void:
 				total += flavor_values[i]
 				flavor_values[i] = 0.0
 				return
-			var minuser = pow(2.0, 35) * min_step #you can change with the pow to mess around with how fast it sells.
+			var minusspeed = 3.0/5.0 #you can change with the pow to mess around with how fast it sells
+			var minuser = pow(flavor_values[i],minusspeed) * pow(2.0, 8) * min_step 
 			while minuser > flavor_values[i]:
 				minuser /= 2.0
 			total += minuser
