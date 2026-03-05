@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=24 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -19,12 +19,17 @@
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 [ext_resource type="PackedScene" uid="uid://l5t0on5hhor8" path="res://Scenes/remove_card.tscn" id="18_8r6kd"]
 [ext_resource type="Script" path="res://Scripts/remove_card.gd" id="19_tfod6"]
+[ext_resource type="Texture2D" uid="uid://p5oul2jmnoy0" path="res://Assets/Sprites/game scene items/remove_button.png" id="18_tfod6"]
+[ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scenes/remove_card_prompter.gd" id="19_rajel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alh3a"]
 size = Vector2(25.800026, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhu1"]
+size = Vector2(27.59999, 34)
 
 [node name="Game" type="Node2D"]
 z_index = -2
@@ -72,6 +77,8 @@ z_index = -20
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_3so38")]
+process_mode = 3
+layer = 11
 
 [node name="cutting_board" type="Sprite2D" parent="."]
 position = Vector2(0, 40.6)
@@ -100,21 +107,34 @@ texture = ExtResource("15_acvyw")
 metadata/_edit_lock_ = true
 
 [node name="Pack" type="Sprite2D" parent="."]
-position = Vector2(273.4, 31)
+position = Vector2(274, 31)
 texture = ExtResource("16_4q8tf")
 script = ExtResource("17_x3xnh")
 
 [node name="Area2D" type="Area2D" parent="Pack"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pack/Area2D"]
-position = Vector2(0.2000122, 0.39999962)
+position = Vector2(-0.20000005, 0.39999998)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
 [node name="equipment" parent="." instance=ExtResource("15_4q8tf")]
 
-[node name="RemoveCard" parent="." instance=ExtResource("18_8r6kd")]
-script = ExtResource("19_tfod6")
+[node name="RemoveCardPrompter" type="Sprite2D" parent="."]
+position = Vector2(189.19998, 33.999996)
+texture = ExtResource("18_tfod6")
+script = ExtResource("19_rajel")
+
+[node name="Area2D" type="Area2D" parent="RemoveCardPrompter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveCardPrompter/Area2D"]
+position = Vector2(0.20002747, 1.4000053)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_vvhu1")
+
+[node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
+visible = false
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="RemoveCardPrompter/Area2D" to="RemoveCardPrompter" method="_on_area_2d_input_event"]

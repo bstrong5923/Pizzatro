@@ -46,6 +46,11 @@ shape = SubResource("RectangleShape2D_4q8tf")
 [node name="equipment_button" type="Node2D" parent="."]
 script = ExtResource("2_85gve")
 
+[node name="minis_container" type="Container" parent="equipment_button"]
+offset_right = 40.000008
+offset_bottom = 39.999992
+metadata/_edit_use_anchors_ = true
+
 [node name="equipment_button" type="Sprite2D" parent="equipment_button"]
 position = Vector2(74.40001, -95.60001)
 texture = ExtResource("3_vdpvh")
@@ -57,11 +62,6 @@ position = Vector2(0.2999878, 39.05)
 shape = SubResource("RectangleShape2D_rajel")
 
 [node name="equipment_box" type="Sprite2D" parent="equipment_button"]
-
-[node name="minis_container" type="Container" parent="equipment_button"]
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
 
 [node name="info_sprite" type="PanelContainer" parent="."]
 visible = false

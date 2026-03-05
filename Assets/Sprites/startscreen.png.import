@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxfc0pm6slgsq"
-path="res://.godot/imported/removebutton.png-dfeaa944c2d8a51ae514447a596e9da9.ctex"
+uid="uid://cev3xx61xm6k6"
+path="res://.godot/imported/startscreen.png-ce72dbdd872764b0303e0c0a95561284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/CardDeck_Specific/removebutton.png"
-dest_files=["res://.godot/imported/removebutton.png-dfeaa944c2d8a51ae514447a596e9da9.ctex"]
+source_file="res://Assets/Sprites/startscreen.png"
+dest_files=["res://.godot/imported/startscreen.png-ce72dbdd872764b0303e0c0a95561284.ctex"]
 
 [params]
 
