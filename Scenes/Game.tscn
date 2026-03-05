@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/game scene items/pack.png" id="16_4q8tf"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 [ext_resource type="PackedScene" uid="uid://l5t0on5hhor8" path="res://Scenes/remove_card.tscn" id="18_8r6kd"]
-[ext_resource type="Script" uid="uid://dhrplwf43qqtk" path="res://Scripts/remove_card.gd" id="19_tfod6"]
+[ext_resource type="Script" path="res://Scripts/remove_card.gd" id="19_tfod6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)

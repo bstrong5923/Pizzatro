@@ -76,6 +76,7 @@ func change_scale(n):
 	
 func change_pricetag_scale(n):
 	var pricetag = $price_circle
+	print(pricetag)
 	pricetag.set_price(this_equip.cost,false)
 	pricetag.equipment_set_size(n)
 	print(this_equip.cost)
