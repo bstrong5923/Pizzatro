@@ -25,8 +25,8 @@ func fill_label_nodes():
 
 func add_points(points, f):
 	flavor_vals_to_add[f] += points
-	print(flavor_values)
 
+	print(flavor_values)
 
 func calc():
 	i = 0
@@ -64,16 +64,14 @@ func _process(delta: float) -> void:
 				total += flavor_values[i]
 				flavor_values[i] = 0.0
 				return
-			var minuser = pow(2.0, 5) * min_step   # 32 → 0.32 if min_step = 0.01
-			# find largest valid chunk
+			var minusspeed = 3.0/5.0 #you can change with the pow to mess around with how fast it sells
+			var minuser = pow(flavor_values[i],minusspeed) * pow(2.0, 8) * min_step 
 			while minuser > flavor_values[i]:
 				minuser /= 2.0
 			total += minuser
 			flavor_values[i] -= minuser
-			# snap to precision grid
 			total = snapped(total, min_step)
 			flavor_values[i] = snapped(flavor_values[i], min_step)
-			print(flavor_values)
 		elif i < 5:
 			i += 1
 		else:
