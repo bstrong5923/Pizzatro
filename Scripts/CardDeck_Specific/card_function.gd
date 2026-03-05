@@ -18,7 +18,6 @@ func check_equipment():
 		if e.card_played:
 			await e.on_card_played(ingredient)
 	
-	
 func run_card_function():
 	get_node_or_null("/root/Game/Labels/Energy").change_energy(-ingredient.price)
 	for f in range(ingredient.flavors.size()):

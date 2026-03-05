@@ -13,7 +13,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if mode == 0 and get_node("/root/Game").is_playing():
 			get_node("/root/Game").playing_off()
 			#money shit
-			if (get_node("/root/Game/Labels/Score").calc() > Deck.minimum):
+			if (get_node("/root/Game/Labels/Score").calc() >= Deck.minimum):
 				Score.money += get_node("/root/Game/Labels/Score").calc() - Deck.minimum
 				get_node("/root/Game/Labels/money/Count").text = str(Score.money)
 				
@@ -22,7 +22,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				cooldown = false
 			else:
 				get_node("/root/Game").game_over()
-
 			
 		elif !get_node("/root/Game/Camera2D").camera_locked:
 			if mode == 1:

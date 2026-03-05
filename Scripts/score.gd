@@ -60,6 +60,7 @@ func _process(delta: float) -> void:
 	
 	#calculate total
 	if calculating == true:
+		print(Score.flavor_values)
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
 			var min_step = 0.01
