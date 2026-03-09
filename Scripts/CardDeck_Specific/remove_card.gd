@@ -12,7 +12,6 @@ func _ready():
 # Opens the menu
 func open():
 	$ColorRect.modulate.a = 0
-	create_tween().tween_property($ColorRect, "modulate:a", 0.8, 0.6)
 	#$CenterContainer/Panel.position = get_viewport().get_visible_rect().size / 2
 	populate_list()
 	get_tree().paused = true
@@ -35,13 +34,13 @@ func populate_list():
 # Creates a single card preview for the remove menu
 func create_preview(card_data : Card) -> Control:
 	var wrapper = Control.new()
-	wrapper.custom_minimum_size = Vector2(165, 150)
+	wrapper.custom_minimum_size = Vector2(130, 100)
 	wrapper.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	var instance = card_preview_scene.instantiate()
-
+	
 	instance.set_ingredient(card_data, false)
-	instance.change_scale(0.6)
+	instance.change_scale(0.5)
 	instance.shop = true
 	instance.highlighted = false
 
@@ -65,6 +64,12 @@ func create_preview(card_data : Card) -> Control:
 # Remove a card from the deck
 func remove_card(card_data : Card):
 	Deck.deck.erase(card_data)
+	# Create Animation Here
+	#var target_x = 98 * 5
+	#var target_y = 39 * 5
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(card_data, "position", Vector2(target_x,target_y), .76)
+	#await tween.finished
 	populate_list()  # refresh list so it immediately disappears
 	close()
 # Clears all previous card previews
