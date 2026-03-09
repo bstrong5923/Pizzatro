@@ -60,18 +60,16 @@ func _process(delta: float) -> void:
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
 			var min_step = 0.01
-			if flavor_values[i] < min_step:
+			if flavor_values[i] <= min_step:
 				total += flavor_values[i]
 				flavor_values[i] = 0.0
-				return
-			var minusspeed = 3.0/5.0 #you can change with the pow to mess around with how fast it sells
-			var minuser = pow(flavor_values[i],minusspeed) * pow(2.0, 8) * min_step 
-			while minuser > flavor_values[i]:
-				minuser /= 2.0
-			total += minuser
-			flavor_values[i] -= minuser
-			total = snapped(total, min_step)
-			flavor_values[i] = snapped(flavor_values[i], min_step)
+			else:
+				var minuser = flavor_values[i]/4.0 #you can change the number here for faster/slower minusing. the larger the number, the slower the minusing
+				minuser = snapped(minuser, min_step)
+				
+				total += minuser
+				flavor_values[i] -= minuser
+				flavor_values[i] = snapped(flavor_values[i], min_step)
 		elif i < 5:
 			i += 1
 		else:
