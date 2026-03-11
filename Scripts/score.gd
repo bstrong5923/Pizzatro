@@ -83,17 +83,18 @@ func _process(delta: float) -> void:
 	if label_nodes:
 		for n in 5:
 			if flavor_vals_to_add[n] > 0:
-				#bigger speedofadd = slower. i think 32 is pretty good
-				#😮😘😁☆*: ｡ o≧▽≦)o ｡:*☆*/ω┬┬﹏┬┬)ಥ_ಥ〃￣︶￣)人￣︶￣〃)￣y▽￣)╭ Ohohoho○ ＾皿＾)っ Hehehe…（*＾＾*）`*>﹏<*)′´▽`ʃ♡ƪ)o゜▽゜)o☆p≧w≦q)ƪ˘⌣˘)ʃ~~~///^v^)\\\~~~づ￣ 3￣)づ￣o￣)  z Z（づ￣3￣）づ╭❤️～\@^0^@)/☆⌒*＾゜)vヾ^▽^*)))d=====￣▽￣*)b＜（＾－＾）＞ﾉ◕ヮ◕)ﾉ*:･ﾟ✧￣y▽,￣)╭ o|o) ❤️ ω ❤️)༼ つ ◕_◕ ༽つ⊙_⊙)？⊙ˍ⊙)⊙_⊙_⊙)_⊙)⊙o⊙)●__●)•ˋ _ ˊ•)⚆_⚆＼*)●◡●)❁´◡`❁)╰*°▽°*)╯^///^)£©²°¥•€é→—–←
-				var speedofadd = 32
-				var step = flavor_vals_to_add[n]/speedofadd
+
 				var min_step = .01
-				step= max(step,min_step)
-				var adder = min_step
-				while adder * 2.0 <= step:
-					adder *= 2.0
-				flavor_values[n] += adder
-				flavor_vals_to_add[n] -= adder
+				var adder = flavor_vals_to_add[n]/2.0
+				adder = snapped(adder, min_step)
+				
+				if flavor_vals_to_add[n] <= min_step:
+					flavor_values[n] += flavor_vals_to_add[n]
+					flavor_vals_to_add[n] = 0.0
+				else:
+					flavor_values[n] += adder
+					flavor_vals_to_add[n] -= adder
+					
 				flavor_values[n] = snapped(flavor_values[n], min_step)
 				flavor_vals_to_add[n] = snapped(flavor_vals_to_add[n], min_step)
 			if label_nodes[n].text != str(flavor_values[n]):
