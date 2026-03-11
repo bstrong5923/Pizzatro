@@ -10,6 +10,7 @@ var done_calculating = true
 var i = 0
 var total = 0
 var label_nodes_created = false
+var steps = [0.0,0.0,0.0,0.0,0.0]
 
 #MONEY
 var money = 0
@@ -25,8 +26,10 @@ func fill_label_nodes():
 
 func add_points(points, f):
 	flavor_vals_to_add[f] += points
-
-	print(flavor_values)
+	var step = int(flavor_vals_to_add[f] / 35)
+	if step == 0:
+		step = 1
+	steps[f] = step
 
 func calc():
 	i = 0
@@ -83,19 +86,11 @@ func _process(delta: float) -> void:
 	if label_nodes:
 		for n in 5:
 			if flavor_vals_to_add[n] > 0:
-
-				var min_step = .01
-				var adder = flavor_vals_to_add[n]/2.0
-				adder = snapped(adder, min_step)
+				flavor_values[n] += steps[n]
+				flavor_vals_to_add[n] -= steps[n]
 				
-				if flavor_vals_to_add[n] <= min_step:
+				if flavor_vals_to_add[n] < 0: # if we take away too much and flavor_vals_to_add goes negative, we fix it here
 					flavor_values[n] += flavor_vals_to_add[n]
-					flavor_vals_to_add[n] = 0.0
-				else:
-					flavor_values[n] += adder
-					flavor_vals_to_add[n] -= adder
-					
-				flavor_values[n] = snapped(flavor_values[n], min_step)
-				flavor_vals_to_add[n] = snapped(flavor_vals_to_add[n], min_step)
-			if label_nodes[n].text != str(flavor_values[n]):
-				label_nodes[n].text = str(flavor_values[n])
+					flavor_vals_to_add[n] = 0
+				
+				label_nodes[n].text = str(MainScript.cleannum(flavor_values[n]))
