@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -33,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
 modulate = Color(0.97655576, 0.97525877, 1, 1)
@@ -41,6 +43,7 @@ custom_minimum_size = Vector2(1150, 650)
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer/Panel"]
 z_index = 1
@@ -62,12 +65,14 @@ offset_right = -65.0
 offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Panel/MarginContainer"]
 process_priority = 20
 z_index = 10
 layout_direction = 2
 layout_mode = 2
+mouse_filter = 2
 follow_focus = true
 draw_focus_border = true
 horizontal_scroll_mode = 0

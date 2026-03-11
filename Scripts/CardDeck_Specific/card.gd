@@ -7,7 +7,7 @@ var play_timer = preload("res://Scripts/CardDeck_Specific/card_timer.gd")
 var scor = get_node("/root/Game/Labels/Score")
 var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
 var shop = false
-
+var removal = false
 var highlighted = false
 
 @onready var cardsprite = $blank
@@ -82,6 +82,9 @@ func set_ingredient(i, t):
 	
 func get_ingredient():
 	return ingredient
+
+func set_removal():
+	removal = true
 	
 func discard_self():
 	if !shop:
@@ -112,25 +115,32 @@ func add_to_deck():
 func _on_area_2d_mouse_entered():
 
 	if get_node("/root/Game").is_playing() or shop == true:
+		
+		
 		highlighted = true
-		cardsprite.position.y -= 35
-		ingredientsprite.position.y -= 35
-		iconsprite.position.y -= 35
-		pricecirclesprite.position.y -= 35
+		if removal:
+			change_scale(.7)
+		else:
+			cardsprite.position.y -= 35
+			ingredientsprite.position.y -= 35
+			iconsprite.position.y -= 35
+			pricecirclesprite.position.y -= 35
 		
 
 		tooltip.visible = true
 		await get_tree().process_frame
 		tooltip.position.y -= tooltip.size.y
-		
 
 func _on_area_2d_mouse_exited():
 	if highlighted:
 		highlighted = false
-		cardsprite.position.y += 35
-		ingredientsprite.position.y += 35
-		iconsprite.position.y += 35
-		pricecirclesprite.position.y += 35
+		if removal:
+			change_scale(.5)
+		else:
+			cardsprite.position.y += 35
+			ingredientsprite.position.y += 35
+			iconsprite.position.y += 35
+			pricecirclesprite.position.y += 35
 		
 
 		tooltip.visible = false

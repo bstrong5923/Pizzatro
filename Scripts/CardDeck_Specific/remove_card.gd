@@ -13,6 +13,7 @@ func _ready():
 func open():
 	$ColorRect.modulate.a = 0
 	#$CenterContainer/Panel.position = get_viewport().get_visible_rect().size / 2
+	Score.add_money(-25)
 	populate_list()
 	get_tree().paused = true
 	print("OPEN CALLED")
@@ -42,6 +43,7 @@ func create_preview(card_data : Card) -> Control:
 	instance.set_ingredient(card_data, false)
 	instance.change_scale(0.5)
 	instance.shop = true
+	instance.set_removal()
 	instance.highlighted = false
 
 	# Center the Node2D inside the wrapper
