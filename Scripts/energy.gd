@@ -11,11 +11,7 @@ func change_energy(v):
 	display_energy()
 
 func display_energy():
-	if float(int(energy)) == energy:
-		energy = int(energy)
-	else:
-		energy = snapped(energy, .01)
-	text = str(energy)
+	text = str(Lib.cleannum(energy))
 
 func get_energy():
 	return energy

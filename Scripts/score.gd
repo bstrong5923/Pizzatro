@@ -10,7 +10,9 @@ var done_calculating = true
 var i = 0
 var total = 0
 var label_nodes_created = false
-var steps = [0.0,0.0,0.0,0.0,0.0]
+var steps = [0, 0, 0, 0, 0]
+var totalstep = 0
+var add_up_time = 35 # higher means slower
 
 #MONEY
 var money = 0
@@ -26,7 +28,7 @@ func fill_label_nodes():
 
 func add_points(points, f):
 	flavor_vals_to_add[f] += points
-	var step = int(flavor_vals_to_add[f] / 35)
+	var step = int(flavor_vals_to_add[f] / add_up_time)
 	if step == 0:
 		step = 1
 	steps[f] = step
@@ -37,11 +39,14 @@ func calc():
 	var totalscore = 0
 	for val in flavor_values:
 		totalscore += val
+	totalstep = int(round(totalscore / add_up_time))
+	if totalstep == 0:
+		totalstep = 1
 	return totalscore
 
 func add_money(i):
 	money += i
-	get_node("/root/Game/Labels/money/Count").text = str(money)
+	get_node("/root/Game/Labels/money/Count").text = str(Lib.cleannum(money))
 
 func clear_score():
 	flavor_values = [0, 0, 0, 0, 0]
@@ -59,25 +64,19 @@ func _process(delta: float) -> void:
 	
 	#calculate total
 	if calculating == true:
-		print(Score.flavor_values)
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
-			var min_step = 0.01
-			if flavor_values[i] <= min_step:
+			flavor_values[i] -= totalstep
+			total += totalstep
+			if flavor_values[i] <= 0:
 				total += flavor_values[i]
-				flavor_values[i] = 0.0
-			else:
-				var minuser = flavor_values[i]/4.0 #you can change the number here for faster/slower minusing. the larger the number, the slower the minusing
-				minuser = snapped(minuser, min_step)
-				
-				total += minuser
-				flavor_values[i] -= minuser
-				flavor_values[i] = snapped(flavor_values[i], min_step)
+				flavor_values[i] = 0
+				#i += 1
 		elif i < 5:
 			i += 1
 		else:
 			calculating = false
-		total_label_node.text = str(total)
+		total_label_node.text = str(Lib.cleannum(total))
 	elif !done_calculating:
 		done_calculating = true
 		get_node("/root/Game/Round_buttons").next_mode() # when I finish calculating, tell "submit" button to become "shop" button
@@ -93,4 +92,4 @@ func _process(delta: float) -> void:
 					flavor_values[n] += flavor_vals_to_add[n]
 					flavor_vals_to_add[n] = 0
 				
-				label_nodes[n].text = str(MainScript.cleannum(flavor_values[n]))
+			label_nodes[n].text = str(Lib.cleannum(flavor_values[n]))
