@@ -11,14 +11,20 @@ func _ready():
 
 # Opens the menu
 func open():
-	$ColorRect.modulate.a = 0
-	#$CenterContainer/Panel.position = get_viewport().get_visible_rect().size / 2
-	Score.add_money(-25)
-	populate_list()
-	get_tree().paused = true
-	print("OPEN CALLED")
-	visible = true
-	list_container.custom_minimum_size = Vector2(0, 800)
+	if Score.money > 25:
+		$ColorRect.modulate.a = 0
+		Score.add_money(-25)
+		populate_list()
+		get_tree().paused = true
+		print("OPEN CALLED")
+		visible = true
+		list_container.custom_minimum_size = Vector2(0, 800)
+	else:
+		var flash = $ColorRect
+		visible = true
+		var tween = create_tween()
+		tween.tween_property(flash, "modulate:a", 0.6, 0.10)
+		tween.tween_property(flash, "modulate:a", 0.0, 0.15)
 
 # Closes the menu
 func close():

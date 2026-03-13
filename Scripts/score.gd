@@ -10,6 +10,7 @@ var done_calculating = true
 var i = 0
 var total = 0
 var label_nodes_created = false
+var equip_list
 
 #MONEY
 var money = 0
@@ -24,6 +25,12 @@ func fill_label_nodes():
 			label_nodes.push_back(node)
 
 func add_points(points, f):
+	equip_list = Equip.get_my_equipment()
+	for eq in equip_list:
+		if eq.points_add:
+			eq.on_points_add()
+			
+		
 	flavor_vals_to_add[f] += points
 
 	print(flavor_values)
