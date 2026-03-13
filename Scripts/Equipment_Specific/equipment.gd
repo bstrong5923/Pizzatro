@@ -21,6 +21,9 @@ func _ready():
 	for e in range(0,data.size()): 
 		common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 
+func wipe_equipment():
+		my_equipment.clear()
+
 func equipment_bought(e):
 	print(e)
 	print("index is: " + str(e.index))

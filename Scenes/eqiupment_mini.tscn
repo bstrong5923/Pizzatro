@@ -19,6 +19,7 @@ corner_radius_bottom_left = 15
 corner_detail = 1
 
 [node name="eqiupment_mini" type="Area2D"]
+z_index = 3
 script = ExtResource("1_n4ot1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

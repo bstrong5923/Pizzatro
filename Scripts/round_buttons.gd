@@ -15,7 +15,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			#money shit
 			if (get_node("/root/Game/Labels/Score").calc() >= Deck.minimum):
 				Score.money += get_node("/root/Game/Labels/Score").calc() - Deck.minimum
-				get_node("/root/Game/Labels/money/Count").text = str(Score.money)
+				get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(Score.money)
 				
 				cooldown = true
 				await get_tree().create_timer(0.25).timeout

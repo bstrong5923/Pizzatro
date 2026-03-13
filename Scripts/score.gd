@@ -10,8 +10,10 @@ var done_calculating = true
 var i = 0
 var total = 0
 var label_nodes_created = false
+var steps = [0, 0, 0, 0, 0]
+var totalstep = 0
+var add_up_time = 35 # higher means slower
 var equip_list
-
 #MONEY
 var money = 0
 
@@ -25,15 +27,14 @@ func fill_label_nodes():
 			label_nodes.push_back(node)
 
 func add_points(points, f):
-	equip_list = Equip.get_my_equipment()
+	flavor_vals_to_add[f] += points	equip_list = Equip.get_my_equipment()
 	for eq in equip_list:
 		if eq.points_add:
 			eq.on_points_add()
-			
-		
-	flavor_vals_to_add[f] += points
-
-	print(flavor_values)
+	var step = int(flavor_vals_to_add[f] / add_up_time)
+	if step == 0:
+		step = 1
+	steps[f] = step
 
 func calc():
 	i = 0
@@ -41,11 +42,14 @@ func calc():
 	var totalscore = 0
 	for val in flavor_values:
 		totalscore += val
+	totalstep = int(round(totalscore / add_up_time))
+	if totalstep == 0:
+		totalstep = 1
 	return totalscore
 
 func add_money(i):
 	money += i
-	get_node("/root/Game/Labels/money/Count").text = str(money)
+	get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(money)
 
 func clear_score():
 	flavor_values = [0, 0, 0, 0, 0]
@@ -63,25 +67,19 @@ func _process(delta: float) -> void:
 	
 	#calculate total
 	if calculating == true:
-		print(Score.flavor_values)
 		done_calculating = false
 		if i < 5 and flavor_values[i] >0:
-			var min_step = 0.01
-			if flavor_values[i] <= min_step:
+			flavor_values[i] -= totalstep
+			total += totalstep
+			if flavor_values[i] <= 0:
 				total += flavor_values[i]
-				flavor_values[i] = 0.0
-			else:
-				var minuser = flavor_values[i]/4.0 #you can change the number here for faster/slower minusing. the larger the number, the slower the minusing
-				minuser = snapped(minuser, min_step)
-				
-				total += minuser
-				flavor_values[i] -= minuser
-				flavor_values[i] = snapped(flavor_values[i], min_step)
+				flavor_values[i] = 0
+				#i += 1
 		elif i < 5:
 			i += 1
 		else:
 			calculating = false
-		total_label_node.text = str(total)
+		total_label_node.text = Lib.num_to_string(total)
 	elif !done_calculating:
 		done_calculating = true
 		get_node("/root/Game/Round_buttons").next_mode() # when I finish calculating, tell "submit" button to become "shop" button
@@ -90,19 +88,14 @@ func _process(delta: float) -> void:
 	if label_nodes:
 		for n in 5:
 			if flavor_vals_to_add[n] > 0:
-
-				var min_step = .01
-				var adder = flavor_vals_to_add[n]/2.0
-				adder = snapped(adder, min_step)
+				flavor_values[n] += steps[n]
+				flavor_vals_to_add[n] -= steps[n]
 				
-				if flavor_vals_to_add[n] <= min_step:
+				if flavor_vals_to_add[n] < 0: # if we take away too much and flavor_vals_to_add goes negative, we fix it here
 					flavor_values[n] += flavor_vals_to_add[n]
-					flavor_vals_to_add[n] = 0.0
-				else:
-					flavor_values[n] += adder
-					flavor_vals_to_add[n] -= adder
-					
-				flavor_values[n] = snapped(flavor_values[n], min_step)
-				flavor_vals_to_add[n] = snapped(flavor_vals_to_add[n], min_step)
-			if label_nodes[n].text != str(flavor_values[n]):
-				label_nodes[n].text = str(flavor_values[n])
+					flavor_vals_to_add[n] = 0
+
+			if n == 1:
+				print("raw num: " + str(flavor_values[n]))
+				print("str num: " + Lib.num_to_string(flavor_values[n]))
+			label_nodes[n].text = Lib.num_to_string(flavor_values[n])
