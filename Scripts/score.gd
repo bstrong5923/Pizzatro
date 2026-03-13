@@ -49,8 +49,8 @@ func add_money(i):
 	get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(money)
 
 func clear_score():
-	flavor_values = [0, 0, 0, 0, 0]
-	flavor_vals_to_add = [0, 0, 0, 0, 0]
+	flavor_values = [0.0,0.0,0.0,0.0,0.0]
+	flavor_vals_to_add = [0.0,0.0,0.0,0.0,0.0]
 	for label_node in label_nodes:
 		label_node.text = "0"
 	total = 0
@@ -65,12 +65,12 @@ func _process(delta: float) -> void:
 	#calculate total
 	if calculating == true:
 		done_calculating = false
-		if i < 5 and flavor_values[i] >0:
+		if i < 5 and flavor_values[i] >0.0:
 			flavor_values[i] -= totalstep
 			total += totalstep
-			if flavor_values[i] <= 0:
+			if flavor_values[i] <= 0.0:
 				total += flavor_values[i]
-				flavor_values[i] = 0
+				flavor_values[i] = 0.0
 				#i += 1
 		elif i < 5:
 			i += 1
@@ -84,15 +84,12 @@ func _process(delta: float) -> void:
 	#add to flavor values 
 	if label_nodes:
 		for n in 5:
-			if flavor_vals_to_add[n] > 0:
+			if flavor_vals_to_add[n] > 0.0:
 				flavor_values[n] += steps[n]
 				flavor_vals_to_add[n] -= steps[n]
 				
-				if flavor_vals_to_add[n] < 0: # if we take away too much and flavor_vals_to_add goes negative, we fix it here
+				if flavor_vals_to_add[n] < 0.0: # if we take away too much and flavor_vals_to_add goes negative, we fix it here
 					flavor_values[n] += flavor_vals_to_add[n]
-					flavor_vals_to_add[n] = 0
+					flavor_vals_to_add[n] = 0.0
 			
-			if n == 1:
-				print("raw num: " + str(flavor_values[n]))
-				print("str num: " + Lib.num_to_string(flavor_values[n]))
 			label_nodes[n].text = Lib.num_to_string(flavor_values[n])
