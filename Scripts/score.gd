@@ -46,7 +46,7 @@ func calc():
 
 func add_money(i):
 	money += i
-	get_node("/root/Game/Labels/money/Count").text = str(Lib.cleannum(money))
+	get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(money)
 
 func clear_score():
 	flavor_values = [0, 0, 0, 0, 0]
@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 			i += 1
 		else:
 			calculating = false
-		total_label_node.text = str(Lib.cleannum(total))
+		total_label_node.text = Lib.num_to_string(total)
 	elif !done_calculating:
 		done_calculating = true
 		get_node("/root/Game/Round_buttons").next_mode() # when I finish calculating, tell "submit" button to become "shop" button
@@ -91,5 +91,8 @@ func _process(delta: float) -> void:
 				if flavor_vals_to_add[n] < 0: # if we take away too much and flavor_vals_to_add goes negative, we fix it here
 					flavor_values[n] += flavor_vals_to_add[n]
 					flavor_vals_to_add[n] = 0
-				
-			label_nodes[n].text = str(Lib.cleannum(flavor_values[n]))
+			
+			if n == 1:
+				print("raw num: " + str(flavor_values[n]))
+				print("str num: " + Lib.num_to_string(flavor_values[n]))
+			label_nodes[n].text = Lib.num_to_string(flavor_values[n])

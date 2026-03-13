@@ -11,7 +11,7 @@ func change_energy(v):
 	display_energy()
 
 func display_energy():
-	text = str(Lib.cleannum(energy))
+	text = Lib.num_to_string(energy)
 
 func get_energy():
 	return energy
