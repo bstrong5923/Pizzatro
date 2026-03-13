@@ -29,14 +29,12 @@ func num_to_string(val):
 	var suffix_index = 0
 	var epower = ""
 	
-	if v >= 1000000000000000000:
+	if v >= 1000000000000000000: # past 1 quintillion we just return like 2.71e+18
 		var power = int(log(v)/log(10))
-		print("-----------")
 		epower = "e+" + str(power)
 		v = cleannum(v / pow(10,power))
-		print(str(cleannum(v)) + epower + suffixes[suffix_index])
 	
-	elif v >= 100000:
+	elif v >= 100000: # 1,000,000 become 1M, 97,345,352,345 becomes 97.34B, etc
 		while v >= 1000.0:
 			suffix_index += 1
 			v /= 1000.0
