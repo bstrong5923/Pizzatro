@@ -4,14 +4,18 @@ class_name Chef_Hat
 var multiplier = 1.2
 
 
-func on_points_add():
-	print(str(Score.flavor_values))
+func on_submit(score):
 	var top_val = 0
-	var top_val_index = 0
-	for f in range(Score.flavor_values.size()):
-		if Score.flavor_values[f] > top_val:
-			top_val = Score.flavor_values[f]
-			top_val_index = f
-
-	Score.equipment_multiplication(top_val_index, 1.2)
+	var top_val_indexes = []
+	for f in range(score.flavor_values.size()): # find hgihest flavor
+		if score.flavor_values[f] > top_val:
+			top_val = score.flavor_values[f]
+			top_val_indexes = [f]
+		elif score.flavor_values[f] == top_val:
+			top_val_indexes.append(f)
+	print(top_val_indexes)
 	
+	for i in top_val_indexes:
+		score.flavor_values[i] *= multiplier
+	
+	print("thing 1")
