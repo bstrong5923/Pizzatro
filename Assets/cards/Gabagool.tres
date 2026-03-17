@@ -11,6 +11,7 @@ minis = ExtResource("1_eof33")
 flavors = Array[int]([0, 0, 6, 0, 12])
 price = 6.0
 description = "When you come to my aunt's house"
+types = Array[String](["meat"])
 min_minis = 4
 max_minis = 8
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

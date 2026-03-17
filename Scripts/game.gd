@@ -3,6 +3,7 @@ extends Node2D
 var level 
 var minimums = [12, 20, 30, 42, 65, 80]
 var playing = false
+var starting_energy
 
 func _ready() -> void:
 	level = 0
@@ -10,7 +11,6 @@ func _ready() -> void:
 	new_round()
 
 
-var starting_energy
 
 func new_round():
 	level += 1
@@ -20,7 +20,7 @@ func new_round():
 	# check equipments
 	for e in Equip.get_my_equipment():
 		if e.round_start:
-			await e.on_round_start()
+			await e.on_round_start(self)
 			
 	if level <= minimums.size():
 		Deck.set_minimum(minimums[level - 1])
@@ -47,6 +47,6 @@ func get_level():
 	
 func game_over():
 	print("GAME OVER")
-	
+	Equip.wipe_equipment()
 	#change to game over screen eventually
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
