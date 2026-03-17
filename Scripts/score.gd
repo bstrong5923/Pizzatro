@@ -7,10 +7,10 @@ var label_nodes = []
 var calculating = false
 var done_calculating = true
 #variable for calculating total
-var i = 0
-var total = 0
+var i = 0.0
+var total = 0.0
 var label_nodes_created = false
-var steps = [0, 0, 0, 0, 0]
+var steps = [0.0, 0.0, 0.0, 0.0, 0.0]
 var totalstep = 0
 var add_up_time = 35 # higher means slower
 var equip_list
@@ -27,7 +27,8 @@ func fill_label_nodes():
 			label_nodes.push_back(node)
 
 func add_points(points, f):
-	flavor_vals_to_add[f] += points	equip_list = Equip.get_my_equipment()
+	flavor_vals_to_add[f] += points
+	equip_list = Equip.get_my_equipment()
 	for eq in equip_list:
 		if eq.points_add:
 			eq.on_points_add()
@@ -56,7 +57,7 @@ func clear_score():
 	flavor_vals_to_add = [0.0,0.0,0.0,0.0,0.0]
 	for label_node in label_nodes:
 		label_node.text = "0"
-	total = 0
+	total = 0.0
 	get_node_or_null("Total/Count").text = "0"
 
 func equipment_multiplication(f, amt):
