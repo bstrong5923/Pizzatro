@@ -56,7 +56,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			index += 1
 			equipment_bought(this_equip)
 			if this_equip.bought:
-				await this_equip.on_bought(get_node("/root/Game/Round_buttons"))
+				var round_buttons = get_node_or_null("/root/Game/Round_buttons")
+				await this_equip.on_bought(round_buttons)
 				print("gerb")
 			Score.add_money(this_equip.cost * -1)
 
