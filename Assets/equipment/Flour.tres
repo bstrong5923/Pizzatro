@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Flour" load_steps=3 format=3 uid="uid://m0euvdbt8jsn"]
+
+[ext_resource type="Script" uid="uid://bmfkw8f22u17a" path="res://Scripts/Equipment_Specific/flour.gd" id="1_n7s2a"]
+[ext_resource type="Texture2D" uid="uid://bbp46vydenat" path="res://Assets/Sprites/Equipment/flour.png" id="2_fwxsk"]
+
+[resource]
+script = ExtResource("1_n7s2a")
+name = "Flour"
+texture = ExtResource("2_fwxsk")
+rarity = "Common"
+cost = 10
+description = "Left Over Ingredients 1.1x all money earned"
+bought = true
+metadata/_custom_type_script = "uid://bmfkw8f22u17a"

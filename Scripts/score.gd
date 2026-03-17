@@ -17,6 +17,7 @@ var equip_list
 #MONEY
 var money = 0
 
+
 func _ready() -> void:
 	fill_label_nodes()
 
