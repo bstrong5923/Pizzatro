@@ -6,6 +6,7 @@ var clickable = true
 var cooldown = false
 @onready
 var equipment = get_node("/root/Game/equipment")
+var flour_count = 1
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and clickable and !cooldown:
@@ -14,7 +15,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			get_node("/root/Game").playing_off()
 			#money shit
 			if (get_node("/root/Game/Labels/Score").calc() >= Deck.minimum):
-				Score.money += get_node("/root/Game/Labels/Score").calc() - Deck.minimum
+				Score.money += get_node("/root/Game/Labels/Score").calc() - Deck.minimum * flour_count
+				
 				get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(Score.money)
 				
 				cooldown = true

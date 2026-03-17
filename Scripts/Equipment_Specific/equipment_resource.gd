@@ -19,7 +19,7 @@ class_name Equipment
 func on_card_played(input):
 	pass
 
-func on_bought():
+func on_bought(input):
 	pass
 
 func on_round_start(input):

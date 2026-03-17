@@ -8,4 +8,5 @@ script = ExtResource("1_n7s2a")
 texture = ExtResource("2_fwxsk")
 cost = 10
 description = "Left Over Ingredients 1.1x all money earned"
+bought = true
 metadata/_custom_type_script = "uid://coiv0oac408lk"
