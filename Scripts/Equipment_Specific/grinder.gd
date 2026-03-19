@@ -8,3 +8,9 @@ func on_card_played(ingredient):
 		for f in CardFunction.flavors_to_add.size():
 			if CardFunction.flavors_to_add[f] != 0:
 				CardFunction.flavors_to_add[f] += bonus
+
+func for_description(ingredient):
+	if ingredient.types.has("spice"):
+		for f in CardFunction.flavors_to_add_desc.size():
+			if CardFunction.flavors_to_add_desc[f] != 0:
+				CardFunction.flavors_to_add_desc[f] += bonus

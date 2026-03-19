@@ -28,7 +28,8 @@ func _ready() -> void:
 	
 	var howmanyloops = 0
 	var tempcolor = ""
-	for flavor in ingredient.flavors:
+	CardFunction.check_equip_for_desc(ingredient)
+	for flavor in CardFunction.flavors_to_add_desc:
 		if flavor > 0:
 			tooltiptext.text += "\n "
 			if howmanyloops == 0:
