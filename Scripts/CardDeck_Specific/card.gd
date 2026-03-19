@@ -4,7 +4,6 @@ var ingredient : Card
 var price
 var play_timer = preload("res://Scripts/CardDeck_Specific/card_timer.gd")
 @onready
-var scor = get_node("/root/Game/Labels/Score")
 var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
 var shop = false
 var removal = false

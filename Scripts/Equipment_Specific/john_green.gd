@@ -1,9 +1,9 @@
 extends Equipment
-class_name Peeler
+class_name John_Green
 
-var multiplier = 1.5
+var multiplier = 2.5
 
 func on_card_played(ingredient):
-	if ingredient.types.has("fruit") or ingredient.types.has("vegetable"):
+	if ingredient.types.has("green"):
 		for i in range(ingredient.flavors.size()):
 			ingredient.flavors[i] *= multiplier
