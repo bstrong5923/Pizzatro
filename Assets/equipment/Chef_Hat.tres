@@ -8,4 +8,4 @@ script = ExtResource("1_h0qb1")
 texture = ExtResource("2_fggv0")
 rarity = "Common"
 description = "1.2X Highest Flavor Score"
-points_add = true
+submit = true
