@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @onready var list_container = $CenterContainer/Panel/MarginContainer/ScrollContainer/CardList
-var card_preview_scene = preload("res://Scenes/card.tscn")
+
+var card_preview_scene = load("res://Scenes/card.tscn")
 
 
 # Called automatically when the scene loads (for debugging if you want)
@@ -11,20 +12,16 @@ func _ready():
 
 # Opens the menu
 func open():
+	print(card_preview_scene)
 	if Score.money > 25:
-		$ColorRect.modulate.a = 0
 		Score.add_money(-25)
 		populate_list()
-		get_tree().paused = true
+		get_tree().paused = false
 		print("OPEN CALLED")
 		visible = true
 		list_container.custom_minimum_size = Vector2(0, 800)
-	else:
-		var flash = $ColorRect
-		visible = true
-		var tween = create_tween()
-		tween.tween_property(flash, "modulate:a", 0.6, 0.10)
-		tween.tween_property(flash, "modulate:a", 0.0, 0.15)
+		
+		
 
 # Closes the menu
 func close():
@@ -36,16 +33,16 @@ func populate_list():
 	refresh_list()  # clear old previews
 	for card_data in Deck.deck:
 		var preview = create_preview(card_data)
-		list_container.add_child(preview)
+		list_container.add_child(preview) 
 
 # Creates a single card preview for the remove menu
 func create_preview(card_data : Card) -> Control:
 	var wrapper = Control.new()
 	wrapper.custom_minimum_size = Vector2(130, 100)
 	wrapper.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-	var instance = card_preview_scene.instantiate()
 	
+	var instance = card_preview_scene.instantiate()
+	print(instance)
 	instance.set_ingredient(card_data, false)
 	instance.change_scale(0.5)
 	instance.shop = true
