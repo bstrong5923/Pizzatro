@@ -1,6 +1,6 @@
 extends Node2D
 
-var flavor_values = [0.0, 0.0, 0.0, 0.0, 0.0]
+static var flavor_values = [0.0, 0.0, 0.0, 0.0, 0.0]
 var flavor_vals_to_add = [0.0, 0.0, 0.0, 0.0, 0.0]
 var flavor_names = ["Sweet", "Spicy", "Salty", "Sour", "Savory"]
 var label_nodes = []
@@ -17,6 +17,11 @@ var equip_list
 #MONEY
 var money = 0
 
+func print_flavor_values():
+	print(flavor_values)
+	
+func get_flavor_values():
+	return flavor_values
 
 func _ready() -> void:
 	fill_label_nodes()
