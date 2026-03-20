@@ -23,7 +23,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				for x in money_threshholds:
 					if score_ratio > money_threshholds[x]:
 						thresh_index = x
-				var base_money = thresh_index * 4
+				var base_money = thresh_index * 8
 				print("Threshold index: " + str(thresh_index))
 				Score.money += base_money * flour_count
 				get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(Score.money)

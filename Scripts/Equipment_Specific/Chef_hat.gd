@@ -13,9 +13,7 @@ func on_submit(score):
 			top_val_indexes = [f]
 		elif score.flavor_values[f] == top_val:
 			top_val_indexes.append(f)
-	print(top_val_indexes)
 	
 	for i in top_val_indexes:
 		score.flavor_values[i] *= multiplier
 	
-	print("thing 1")

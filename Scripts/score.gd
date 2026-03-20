@@ -17,12 +17,6 @@ var equip_list
 #MONEY
 var money = 0
 
-func print_flavor_values():
-	print(flavor_values)
-	
-func get_flavor_values():
-	return flavor_values
-
 func _ready() -> void:
 	fill_label_nodes()
 
@@ -42,13 +36,11 @@ func add_points(points, f):
 func calc():
 	i = 0
 	calculating = true
-	print("flavor_values 1: " + str(flavor_values))
 	# check equipments
 	equip_list = Equip.get_my_equipment()
 	for eq in equip_list:
 		if eq.submit:
 			await eq.on_submit(self)
-	print("thing 2")
 	# combine flavors
 	var totalscore = 0
 	for val in flavor_values:
