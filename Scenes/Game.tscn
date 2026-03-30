@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=23 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -14,12 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
 [ext_resource type="PackedScene" uid="uid://viymnqxbigv7" path="res://Scenes/equipment.tscn" id="15_4q8tf"]
-[ext_resource type="Texture2D" uid="uid://h51wb0nhtby7" path="res://Assets/Sprites/game scene items/shopbackground.png" id="15_acvyw"]
+[ext_resource type="Texture2D" uid="uid://8tywlmfo4dgw" path="res://Assets/Sprites/game scene items/shopbackground.png" id="15_acvyw"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/game scene items/pack.png" id="16_4q8tf"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 [ext_resource type="PackedScene" uid="uid://l5t0on5hhor8" path="res://Scenes/remove_card.tscn" id="18_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://p5oul2jmnoy0" path="res://Assets/Sprites/game scene items/remove_button.png" id="18_tfod6"]
-[ext_resource type="Script" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -102,6 +101,7 @@ scale = Vector2(0.2, 0.2)
 [node name="Shopbackground" type="Sprite2D" parent="."]
 z_index = -20
 position = Vector2(235.6, 1)
+scale = Vector2(1.17, 1.35)
 texture = ExtResource("15_acvyw")
 metadata/_edit_lock_ = true
 
@@ -122,7 +122,6 @@ shape = SubResource("RectangleShape2D_alh3a")
 [node name="RemoveCardPrompter" type="Sprite2D" parent="."]
 position = Vector2(189.19998, 33.999996)
 texture = ExtResource("18_tfod6")
-script = ExtResource("19_rajel")
 
 [node name="Area2D" type="Area2D" parent="RemoveCardPrompter"]
 
