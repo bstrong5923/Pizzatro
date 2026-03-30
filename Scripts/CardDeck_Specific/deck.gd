@@ -80,7 +80,7 @@ func draw_shop_card():
 	var random_index = randi_range(0, card_list.size() - 1)
 	instance.set_ingredient(card_list[random_index], true)
 	instance.position = Vector2(0, 39)
-	instance.change_scale(1)
+	instance.change_scale(.8)
 	add_child(instance)
 	shop_hand.push_back(instance)
 
@@ -115,7 +115,7 @@ func fix_shop_hand():
 	var h = shop_hand.size()
 
 	for i in range(0, h):
-		shop_hand[i].position.x =  900+ ( 150 * i)
+		shop_hand[i].position.x =  690+ ( 110 * i)
 		shop_hand[i].position.y =  -50
 		
 func remove_card(index):

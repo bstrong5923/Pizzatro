@@ -12,12 +12,12 @@ func set_card(i):
 	run_card_function()
 	
 
-func check_equip_for_desc(i):
-	var my_equipment = Equip.get_my_equipment() 
-	for e in my_equipment:
-		if e.card_played:
-			e.for_description(i)
-			print(flavors_to_add_desc)
+#func check_equip_for_desc(i):
+#	var my_equipment = Equip.get_my_equipment() 
+#	for e in my_equipment:
+#		if e.card_played:
+#			e.for_description(i)
+#			print(flavors_to_add_desc)
 
 func check_equipment():
 	var my_equipment = Equip.get_my_equipment() 
