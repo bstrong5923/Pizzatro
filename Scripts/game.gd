@@ -10,13 +10,10 @@ func _ready() -> void:
 	Deck.fill_initial_deck()
 	new_round()
 
-
-
 func new_round():
 	level += 1
 	
 	starting_energy = 20
-
 	# check equipments
 	for e in Equip.get_my_equipment():
 		if e.round_start:
@@ -48,5 +45,6 @@ func get_level():
 func game_over():
 	print("GAME OVER")
 	Equip.wipe_equipment()
+	Score.reset_money()
 	#change to game over screen eventually
 	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
