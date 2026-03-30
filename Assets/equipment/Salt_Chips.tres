@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Salt_Chips" load_steps=3 format=3 uid="uid://b3aws7v5260mp"]
+
+[ext_resource type="Script" uid="uid://dmqfawupysg4b" path="res://Scripts/Equipment_Specific/salt_chips.gd" id="1_xhbjn"]
+[ext_resource type="Texture2D" uid="uid://b7kjov1513m01" path="res://Assets/Sprites/Equipment/salt_chips.png" id="2_o38p1"]
+
+[resource]
+script = ExtResource("1_xhbjn")
+name = "Salt Chips"
+texture = ExtResource("2_o38p1")
+rarity = "common"
+cost = 9
+description = "Salt multiplies Salty score by 1.5x"
+card_played = true
+metadata/_custom_type_script = "uid://dmqfawupysg4b"
