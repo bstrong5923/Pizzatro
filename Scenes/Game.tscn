@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=26 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -19,6 +19,9 @@
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 [ext_resource type="PackedScene" uid="uid://l5t0on5hhor8" path="res://Scenes/remove_card.tscn" id="18_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://p5oul2jmnoy0" path="res://Assets/Sprites/game scene items/remove_button.png" id="18_tfod6"]
+[ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
+[ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
+[ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -118,17 +121,26 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 
 [node name="equipment" parent="." instance=ExtResource("15_4q8tf")]
+position = Vector2(2, -5.2)
 
 [node name="RemoveCardPrompter" type="Sprite2D" parent="."]
-position = Vector2(189.19998, 33.999996)
+position = Vector2(216.4, 42)
 texture = ExtResource("18_tfod6")
+script = ExtResource("19_rajel")
 
 [node name="Area2D" type="Area2D" parent="RemoveCardPrompter"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RemoveCardPrompter/Area2D"]
-position = Vector2(0.20002747, 1.4000053)
+position = Vector2(0.40000153, 0.799999)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_vvhu1")
+
+[node name="price_circle" type="Node2D" parent="RemoveCardPrompter"]
+position = Vector2(454, 16)
+script = ExtResource("20_vvhu1")
+
+[node name="circle" type="Sprite2D" parent="RemoveCardPrompter/price_circle"]
+texture = ExtResource("21_lbihj")
 
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
 visible = false
