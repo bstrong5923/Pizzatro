@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Prescience" load_steps=3 format=3 uid="uid://bgfyid3d56efw"]
+
+[ext_resource type="Script" uid="uid://b746hh50vgr77" path="res://Scripts/Equipment_Specific/prescience.gd" id="1_r48eg"]
+[ext_resource type="Texture2D" uid="uid://mk1i7g20pto2" path="res://Assets/Sprites/Equipment/prescience.png" id="2_qag8n"]
+
+[resource]
+script = ExtResource("1_r48eg")
+name = "Prescience"
+texture = ExtResource("2_qag8n")
+rarity = "Rare"
+cost = 12
+description = "\"He who controls the spice controls the universe.\""
+card_played = true
+metadata/_custom_type_script = "uid://b746hh50vgr77"

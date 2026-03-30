@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="John_Green" load_steps=3 format=3 uid="uid://c8nnmmm8ml8u4"]
+
+[ext_resource type="Script" uid="uid://xyfoe7p7ua53" path="res://Scripts/Equipment_Specific/john_green.gd" id="1_k7nk0"]
+[ext_resource type="Texture2D" uid="uid://dwt8gec3lcpp5" path="res://Assets/Sprites/Equipment/johngreen.png" id="2_l0vsh"]
+
+[resource]
+script = ExtResource("1_k7nk0")
+name = "John Green"
+texture = ExtResource("2_l0vsh")
+rarity = "Common"
+cost = 30
+description = "John REALLY loves Green!"
+type = Array[String](["Green"])
+card_played = true
+metadata/_custom_type_script = "uid://xyfoe7p7ua53"

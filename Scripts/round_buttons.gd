@@ -7,7 +7,7 @@ var cooldown = false
 @onready
 var equipment = get_node("/root/Game/equipment")
 var flour_count: float = 1.0
-
+var money_threshholds = [1.0, 1.6, 2.0, 2.5, 3.0, 5.0]
 func apply_flour_bonus(amount: float = 0.1) -> void:
 	flour_count += amount
 
@@ -18,11 +18,14 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			get_node("/root/Game").playing_off()
 			#money shit
 			if (get_node("/root/Game/Labels/Score").calc() >= Deck.minimum):
-				var base_money = get_node("/root/Game/Labels/Score").calc() - Deck.minimum
-				print(base_money)
+				var score_ratio = get_node("/root/Game/Labels/Score").calc() / Deck.minimum
+				var thresh_index = 0
+				for x in money_threshholds:
+					if score_ratio > money_threshholds[x]:
+						thresh_index = x
+				var base_money = thresh_index * 8
+				print("Threshold index: " + str(thresh_index))
 				Score.money += base_money * flour_count
-				print(Score.money)
-				print(flour_count)
 				get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(Score.money)
 				
 				cooldown = true
