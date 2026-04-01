@@ -110,7 +110,7 @@ texture = ExtResource("15_acvyw")
 metadata/_edit_lock_ = true
 
 [node name="Pack" type="Sprite2D" parent="."]
-position = Vector2(274, 31)
+position = Vector2(180, -4)
 texture = ExtResource("16_4q8tf")
 script = ExtResource("17_x3xnh")
 
@@ -125,7 +125,7 @@ shape = SubResource("RectangleShape2D_alh3a")
 position = Vector2(2, -5.2)
 
 [node name="RemoveCardPrompter" type="Sprite2D" parent="."]
-position = Vector2(216.4, 42)
+position = Vector2(187, 42)
 texture = ExtResource("18_tfod6")
 script = ExtResource("19_rajel")
 
