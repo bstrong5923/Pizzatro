@@ -149,7 +149,7 @@ func _on_area_2d_mouse_exited():
 func change_scale(n):
 	$price_circle.set_size(n, true)
 	if shop == true:
-		$price_circle.change_pos(0,120)
+		$price_circle.change_pos(0,120 * n)
 	$ingredient_logo.scale = Vector2(5 * n, 5 * n)
 	$blank.scale = Vector2(5 * n, 5 * n)
 	$Area2D.scale = Vector2(5 * n, 5 * n)
