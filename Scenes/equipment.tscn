@@ -32,7 +32,7 @@ scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("1_roj3i")
 
 [node name="shop_equipment" type="Sprite2D" parent="."]
-position = Vector2(141.00002, 41.800003)
+position = Vector2(141.00002, 49.800007)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="Area2D" type="Area2D" parent="shop_equipment"]
@@ -91,7 +91,7 @@ horizontal_alignment = 1
 position = Vector2(839, 262)
 
 [node name="price_circle" type="Node2D" parent="."]
-position = Vector2(151.80002, 22.000002)
+position = Vector2(151.80002, 30.000004)
 script = ExtResource("6_dqsxb")
 
 [node name="circle" type="Sprite2D" parent="price_circle"]

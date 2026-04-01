@@ -68,6 +68,7 @@ func draw_shop_hand():
 	for x in range(0,5):
 		draw_shop_card()
 	fix_shop_hand()
+	get_node("/root/Game/Pack").visible = false
 
 func clear_shop_hand():
 	var s = shop_hand.size() - 1
