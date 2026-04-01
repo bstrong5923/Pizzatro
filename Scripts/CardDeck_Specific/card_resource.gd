@@ -7,7 +7,7 @@ class_name Card
 @export var minis : Texture2D
 
 
-@export var flavors : Array[int]
+@export var flavors : Array[float]
 
 @export var price : float
 @export var description: String
