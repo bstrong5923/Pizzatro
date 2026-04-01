@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 [ext_resource type="PackedScene" uid="uid://l5t0on5hhor8" path="res://Scenes/remove_card.tscn" id="18_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://p5oul2jmnoy0" path="res://Assets/Sprites/game scene items/remove_button.png" id="18_tfod6"]
-[ext_resource type="Script" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
+[ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
 
@@ -50,6 +50,7 @@ scale = Vector2(0.9999998, 0.9999998)
 script = ExtResource("3_2irst")
 
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
+visible = false
 position = Vector2(6, -67)
 rotation = 3.1415927
 scale = Vector2(2, 2)
@@ -142,9 +143,14 @@ script = ExtResource("20_vvhu1")
 [node name="circle" type="Sprite2D" parent="RemoveCardPrompter/price_circle"]
 texture = ExtResource("21_lbihj")
 
+[node name="TextureButton" type="TextureButton" parent="RemoveCardPrompter"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
 visible = false
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="RemoveCardPrompter/Area2D" to="RemoveCardPrompter" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="RemoveCardPrompter/TextureButton" to="RemoveCardPrompter" method="_on_texture_button_pressed"]
