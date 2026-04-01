@@ -43,6 +43,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			else:
 				get_node("/root/Game").new_round()
 				get_node("/root/Game/Camera2D").go_to_game()
+				get_node("/root/Game/Pack").visible = true
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to game
 				position = Vector2(-94.6,25)
 			
