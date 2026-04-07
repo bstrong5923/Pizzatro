@@ -12,6 +12,7 @@ texture = ExtResource("2_7pg52")
 texture_retro = ExtResource("4_wt5vw")
 minis = ExtResource("1_yfle3")
 flavors = Array[float]([0.001, 66.666, 123456.78, 9999999999.0, 9.223372e+18])
+price = 3.0
 description = "This is a jalapeno"
 types = Array[String](["vegetable", "green"])
 min_minis = 7
