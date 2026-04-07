@@ -38,13 +38,14 @@ func populate_list():
 # Creates a single card preview for the remove menu
 func create_preview(card_data : Card) -> Control:
 	var wrapper = Control.new()
-	wrapper.custom_minimum_size = Vector2(130, 100)
+	wrapper.custom_minimum_size = Vector2(130, 150)
 	wrapper.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	var instance = card_preview_scene.instantiate()
 	print(instance)
 	instance.set_ingredient(card_data, false)
-	instance.change_scale(0.5)
+	instance.change_scale(0.65)
+	instance.hide_circle()
 	instance.shop = true
 	instance.set_removal()
 	instance.highlighted = false

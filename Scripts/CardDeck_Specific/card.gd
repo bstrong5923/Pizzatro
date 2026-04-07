@@ -118,7 +118,7 @@ func _on_area_2d_mouse_entered():
 		
 		highlighted = true
 		if removal:
-			change_scale(.7)
+			change_scale(.9)
 		else:
 			cardsprite.position.y -= 35
 			ingredientsprite.position.y -= 35
@@ -134,7 +134,7 @@ func _on_area_2d_mouse_exited():
 	if highlighted:
 		highlighted = false
 		if removal:
-			change_scale(.5)
+			change_scale(.65)
 		else:
 			cardsprite.position.y += 35
 			ingredientsprite.position.y += 35
@@ -155,3 +155,5 @@ func change_scale(n):
 	$Area2D.scale = Vector2(5 * n, 5 * n)
 	$icon.change_scale(n)
 	
+func hide_circle():
+	$price_circle.hide_circle()

@@ -66,3 +66,7 @@ func equipment_set_size(n):
 	label.queue_redraw()
 	# move the label to the right spot
 	label.position = Vector2(-2,-2)
+	
+func hide_circle():
+	$circle.visible = false
+	label.visible = false
