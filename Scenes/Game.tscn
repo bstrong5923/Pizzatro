@@ -50,7 +50,6 @@ scale = Vector2(0.9999998, 0.9999998)
 script = ExtResource("3_2irst")
 
 [node name="hand_animation" parent="." instance=ExtResource("4_kldst")]
-visible = false
 position = Vector2(6, -67)
 rotation = 3.1415927
 scale = Vector2(2, 2)
