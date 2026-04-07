@@ -121,6 +121,13 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 metadata/_edit_lock_ = true
 
+[node name="price_circle" type="Node2D" parent="Pack"]
+position = Vector2(10, -15)
+script = ExtResource("20_vvhu1")
+
+[node name="circle" type="Sprite2D" parent="Pack/price_circle"]
+texture = ExtResource("21_lbihj")
+
 [node name="equipment" parent="." instance=ExtResource("15_4q8tf")]
 position = Vector2(2, -5.2)
 
@@ -137,16 +144,16 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_vvhu1")
 metadata/_edit_lock_ = true
 
+[node name="TextureButton" type="TextureButton" parent="RemoveCardPrompter"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="price_circle" type="Node2D" parent="RemoveCardPrompter"]
-position = Vector2(454, 16)
+position = Vector2(10, -15)
 script = ExtResource("20_vvhu1")
 
 [node name="circle" type="Sprite2D" parent="RemoveCardPrompter/price_circle"]
 texture = ExtResource("21_lbihj")
-
-[node name="TextureButton" type="TextureButton" parent="RemoveCardPrompter"]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
 visible = false
