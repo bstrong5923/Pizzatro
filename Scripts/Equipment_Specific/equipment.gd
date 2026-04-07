@@ -6,15 +6,15 @@ static var my_equipment : Array
 var file = FileAccess.open("res://Assets/common_equipment_list.json", FileAccess.READ)
 var raw_text = file.get_as_text()
 var data = JSON.parse_string(raw_text)
-var common_equip_list = []
+static var common_equip_list = []
 static var this_equip
 var index = 0
 var highlighted = false
 
 #description shyte
 
-@onready var tooltip = $info_sprite 
-@onready var tooltiptext = $info_sprite/info
+var tooltip
+var tooltiptext
 
 func _ready():
 	# fill common_equip_list
@@ -30,12 +30,14 @@ func equipment_bought(e):
 func get_my_equipment():
 	return my_equipment
 
-func generate_random_equipment():
-	this_equip = common_equip_list[randi_range(0, common_equip_list.size() - 1)] # random equipment
-	#this_equip = common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
+func set_equipment(equip):
+	this_equip = equip
+	tooltip = $info_sprite 
+	tooltiptext = $info_sprite/info
 	$shop_equipment.texture = this_equip.texture
+	set_description_and_tooltip()
 	
-	#get position for description
+func set_description_and_tooltip():
 	#sets text to description
 	var text = this_equip.description
 	#highlight keywords
@@ -46,7 +48,11 @@ func generate_random_equipment():
 	text = text.replacen("Savory", "[color=0006a6]Savory[/color]")
 	text = text.replacen("Energy", "[color=ffd900]Energy[/color]")
 	tooltiptext.text = text 
-	change_pricetag_scale(1)
+	change_pricetag_scale(0.2)
+
+func generate_random_equipment():
+	return common_equip_list[randi_range(0, common_equip_list.size() - 1)] # random equipment
+	#return common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -78,4 +84,4 @@ func change_scale(n):
 func change_pricetag_scale(n):
 	var pricetag = $price_circle
 	pricetag.set_price(this_equip.cost,false)
-	pricetag.equipment_set_size(n)
+	$price_circle.scale = Vector2(n,n)

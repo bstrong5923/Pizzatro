@@ -5,7 +5,7 @@ var labels = ["Submit", "Shop", "Done"]
 var clickable = true
 var cooldown = false
 @onready
-var equipment = get_node("/root/Game/equipment")
+var equipment = load("res://Scenes/equipment.tscn")
 var flour_count: float = 1.0
 var money_threshholds = [0, 1.0, 1.6, 2.0, 2.5, 3.0, 5.0]
 func apply_flour_bonus(amount: float = 0.1) -> void:
@@ -14,7 +14,8 @@ func apply_flour_bonus(amount: float = 0.1) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and clickable and !cooldown:
 		clickable = false
-		if mode == 0 and get_node("/root/Game").is_playing():
+		
+		if mode == 0 and get_node("/root/Game").is_playing(): # SUBMIT mode
 			get_node("/root/Game").playing_off()
 			#money shit
 			if (get_node("/root/Game/Labels/Score").calc() >= Deck.minimum):
@@ -34,13 +35,22 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			else:
 				get_node("/root/Game").game_over()
 			
-		elif !get_node("/root/Game/Camera2D").camera_locked:
-			if mode == 1:
+		elif !get_node("/root/Game/Camera2D").camera_locked: 
+			if mode == 1:# SHOP mode
 				get_node("/root/Game/Camera2D").go_to_shop()
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
-				equipment.generate_random_equipment()
 				position = Vector2(235.6,30)
-			else:
+				
+				# equipments in shop
+				var equip_instance = equipment.instantiate()
+				equip_instance.position = Vector2(0,0)
+				equip_instance.set_equipment(equip_instance.generate_random_equipment())
+				get_node("/root/Game").add_child(equip_instance)
+				print(get_node("/root/Game").get_children())
+				print(get_node("/root/Game").find_children("equipment"))
+				
+				
+			else: # DONE mode
 				get_node("/root/Game").new_round()
 				get_node("/root/Game/Camera2D").go_to_game()
 				get_node("/root/Game/Pack").visible = true
@@ -48,8 +58,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				position = Vector2(-94.6,25)
 			
 			next_mode()
-		
-		
+
 func next_mode():
 	mode += 1
 	if mode == 3:
@@ -58,6 +67,6 @@ func next_mode():
 	$Label.text = labels[mode]
 	clickable = true
 
-
-func _process(delta: float) -> void:
-	pass
+func clear_shop_equipment():
+	for child in get_node("/root/Game").get_children():
+		pass
