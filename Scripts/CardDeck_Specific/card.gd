@@ -28,27 +28,53 @@ func _ready() -> void:
 	
 	var howmanyloops = 0
 	var tempcolor = ""
-	for flavor in ingredient.flavors:
-		if flavor > 0:
-			tooltiptext.text += "\n "
-			if howmanyloops == 0:
-				tempcolor = "d900d9"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Sweet:[/color] "
-			if howmanyloops == 1:
-				tempcolor = "c85c00"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Spicy:[/color] "
-			if howmanyloops == 2:
-				tempcolor = "fae100"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Salty:[/color] "
-			if howmanyloops == 3:
-				tempcolor = "1ac200"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Sour:[/color] "
-			if howmanyloops == 4:
-				tempcolor = "0006a6"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
-			tooltiptext.text += "[color=" + tempcolor + "]" + str(flavor) + "[/color]"
-		howmanyloops += 1
-		
+	CardFunction.check_equip_for_desc(ingredient)
+	var desc_vals= CardFunction.flavors_to_add_desc
+	if CardFunction.use_equip_desc:
+		for flavor in desc_vals:
+			if flavor > 0:
+				flavor = Lib.num_to_string(flavor)
+				tooltiptext.text += "\n "
+				if howmanyloops == 0:
+					tempcolor = "d900d9"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sweet:[/color] "
+				if howmanyloops == 1:
+					tempcolor = "c85c00"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Spicy:[/color] "
+				if howmanyloops == 2:
+					tempcolor = "fae100"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Salty:[/color] "
+				if howmanyloops == 3:
+					tempcolor = "1ac200"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sour:[/color] "
+				if howmanyloops == 4:
+					tempcolor = "0006a6"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
+				tooltiptext.text += "[color=" + tempcolor + "]" + flavor + "[/color]"
+			howmanyloops += 1
+	else:
+		for flavor in desc_vals:
+			if flavor > 0:
+				flavor = Lib.num_to_string(flavor)
+				tooltiptext.text += "\n "
+				if howmanyloops == 0:
+					tempcolor = "d900d9"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sweet:[/color] "
+				if howmanyloops == 1:
+					tempcolor = "c85c00"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Spicy:[/color] "
+				if howmanyloops == 2:
+					tempcolor = "fae100"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Salty:[/color] "
+				if howmanyloops == 3:
+					tempcolor = "1ac200"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sour:[/color] "
+				if howmanyloops == 4:
+					tempcolor = "0006a6"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
+				tooltiptext.text += "[color=" + tempcolor + "]" + flavor + "[/color]"
+			howmanyloops += 1
+
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
 		if !shop and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
