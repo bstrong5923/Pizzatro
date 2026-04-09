@@ -23,6 +23,23 @@ var pricetag
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
+	description()
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
+		if !shop and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
+			var hand = get_node("/root/Game/hand_animation") # animation to add the ingredients
+			hand.go(ingredient)
+			play_timer.cooldown() # wait for animation to finish before you can click another
+			discard_self() # discard this one
+			### call to card function to subtract money
+			var checker = get_node("card_function") # do the function
+			checker.set_card(ingredient)
+		elif shop: 
+			play_timer.cooldown() # wait for animation to finish before you can click another
+			add_to_deck() # discard this one
+
+func description():
 	tooltip.visible = false
 	tooltiptext.text = "[color=000000]" + ingredient.description + "[/color]"
 	
@@ -74,21 +91,6 @@ func _ready() -> void:
 					tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
 				tooltiptext.text += "[color=" + tempcolor + "]" + flavor + "[/color]"
 			howmanyloops += 1
-
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
-		if !shop and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
-			var hand = get_node("/root/Game/hand_animation") # animation to add the ingredients
-			hand.go(ingredient)
-			play_timer.cooldown() # wait for animation to finish before you can click another
-			discard_self() # discard this one
-			### call to card function to subtract money
-			var checker = get_node("card_function") # do the function
-			checker.set_card(ingredient)
-		elif shop: 
-			play_timer.cooldown() # wait for animation to finish before you can click another
-			add_to_deck() # discard this one
-
 
 func set_ingredient(i, t):
 	ingredient = i
