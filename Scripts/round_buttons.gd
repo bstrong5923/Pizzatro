@@ -45,17 +45,18 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				var equip_instance = equipment.instantiate()
 				equip_instance.position = Vector2(0,0)
 				equip_instance.set_equipment(equip_instance.generate_random_equipment())
+				equip_instance.shop_mode_on()
+				equip_instance.add_to_group("shop_equipments")
 				get_node("/root/Game").add_child(equip_instance)
-				print(get_node("/root/Game").get_children())
-				print(get_node("/root/Game").find_children("equipment"))
 				
 				
 			else: # DONE mode
 				get_node("/root/Game").new_round()
 				get_node("/root/Game/Camera2D").go_to_game()
 				get_node("/root/Game/Pack").visible = true
-				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to game
+				await get_tree().create_timer(0.35).timeout # wait until I am offscreen and then teleport to game
 				position = Vector2(-94.6,25)
+				clear_shop_equipment()
 			
 			next_mode()
 
@@ -68,5 +69,5 @@ func next_mode():
 	clickable = true
 
 func clear_shop_equipment():
-	for child in get_node("/root/Game").get_children():
-		pass
+	for child in get_node("/root/Game").get_tree().get_nodes_in_group("shop_equipments"):
+		child.queue_free()

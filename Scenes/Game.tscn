@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=26 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
+[ext_resource type="PackedScene" uid="uid://deej3kpugef8t" path="res://Scenes/equipment_drawer.tscn" id="22_vvhu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
 size = Vector2(25.300007, 35.050003)
@@ -146,6 +147,9 @@ offset_bottom = 40.0
 
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
 visible = false
+
+[node name="drawer" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(76, -25)
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
