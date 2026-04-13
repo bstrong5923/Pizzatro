@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var container = $Container
 var mode = 0
 var labels = ["Submit", "Shop", "Done"]
 var clickable = true
@@ -46,8 +47,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				equip_instance.position = Vector2(0,0)
 				equip_instance.set_equipment(equip_instance.generate_random_equipment())
 				equip_instance.shop_mode_on()
-				equip_instance.add_to_group("shop_equipments")
-				get_node("/root/Game").add_child(equip_instance)
+				container.add_child(equip_instance)
+				
 				
 				
 			else: # DONE mode
@@ -69,5 +70,5 @@ func next_mode():
 	clickable = true
 
 func clear_shop_equipment():
-	for child in get_node("/root/Game").get_tree().get_nodes_in_group("shop_equipments"):
+	for child in container.get_children():
 		child.queue_free()

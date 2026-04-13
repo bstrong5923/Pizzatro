@@ -26,7 +26,7 @@ func shop_mode_on():
 	shop_mode = true
 
 func wipe_equipment():
-		my_equipment.clear()
+	my_equipment.clear()
 
 func equipment_bought(e):
 	my_equipment.append(e)
