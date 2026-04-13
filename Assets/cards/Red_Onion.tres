@@ -8,8 +8,9 @@
 script = ExtResource("1_jtt7k")
 name = "Red Onion"
 texture = ExtResource("3_2khgl")
+texture_retro = ExtResource("3_2khgl")
 minis = ExtResource("1_o0vl2")
-flavors = Array[int]([0, 2, 0, 0, 4])
+flavors = Array[float]([0.0, 2.0, 0.0, 0.0, 4.0])
 price = 2.0
 description = "This Is a Red Onion"
 min_minis = 7

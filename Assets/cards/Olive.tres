@@ -7,8 +7,9 @@
 [resource]
 script = ExtResource("1_2bhj8")
 texture = ExtResource("3_im686")
+texture_retro = ExtResource("3_im686")
 minis = ExtResource("1_bm8am")
-flavors = Array[int]([0, 0, 10, 0, 0])
+flavors = Array[float]([0.0, 0.0, 10.0, 0.0, 0.0])
 price = 4.0
 description = "I'll give you, Olive my love ;)"
 types = Array[String](["green"])
