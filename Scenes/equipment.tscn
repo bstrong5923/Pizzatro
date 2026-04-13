@@ -52,7 +52,7 @@ offset_bottom = 39.999992
 metadata/_edit_use_anchors_ = true
 
 [node name="equipment_button" type="Sprite2D" parent="equipment_button"]
-position = Vector2(74.40001, -95.60001)
+position = Vector2(74.4, -92)
 texture = ExtResource("3_vdpvh")
 
 [node name="Area2D" type="Area2D" parent="equipment_button/equipment_button"]
