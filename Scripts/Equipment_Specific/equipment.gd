@@ -55,8 +55,10 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
-	return common_equip_list[randi_range(0, common_equip_list.size() - 1)] # random equipment
-	#return common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
+	var result = common_equip_list[randi_range(0, common_equip_list.size() - 1)]
+	#result = common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
+	common_equip_list.erase(result) # remove from list so it can't be bought again
+	return result
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: # when clicked
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -67,6 +69,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if this_equip.bought:
 				await this_equip.on_bought()
 			Score.add_money(this_equip.cost * -1)
+			queue_free()
 
 func _on_area_2d_mouse_entered() -> void:
 	highlighted = true

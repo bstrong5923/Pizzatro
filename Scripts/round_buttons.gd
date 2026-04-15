@@ -42,12 +42,15 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
 				position = Vector2(235.6,30)
 				
+				var locations  = [Vector2(-450, -435), Vector2(-290, -420), Vector2(-440, -220), Vector2(-300, -180)]
 				# equipments in shop
-				var equip_instance = equipment.instantiate()
-				equip_instance.position = Vector2(0,0)
-				equip_instance.set_equipment(equip_instance.generate_random_equipment())
-				equip_instance.shop_mode_on()
-				container.add_child(equip_instance)
+				for i in range(0,4):
+					var equip_instance = equipment.instantiate()
+					equip_instance.scale = Vector2(4,4)
+					equip_instance.position = locations[i]
+					await equip_instance.set_equipment(equip_instance.generate_random_equipment())
+					equip_instance.shop_mode_on()
+					container.add_child(equip_instance)
 				
 				
 				
@@ -71,4 +74,5 @@ func next_mode():
 
 func clear_shop_equipment():
 	for child in container.get_children():
+		Equip.common_equip_list.append(child.this_equip)
 		child.queue_free()
