@@ -2,7 +2,7 @@ extends Node2D
 
 const ROUND_BUTTON_TEXTURE := preload("res://Assets/Sprites/game scene items/round_buttons.png")
 const ROUND_BUTTON_PRESSED_TEXTURE := preload("res://Assets/Sprites/game scene items/round_buttons_pressed.png")
-const BUTTON_PRESS_TIME := 0.30
+const BUTTON_PRESS_TIME := 0.15
 
 var mode = 0
 var labels = ["Submit", "Shop", "Done"]

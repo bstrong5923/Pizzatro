@@ -1,32 +1,37 @@
 extends CanvasLayer
 
 @onready var list_container = $CenterContainer/Panel/MarginContainer/ScrollContainer/CardList
+@onready var remove_panel = $CenterContainer/Panel
+@onready var trash_background = $CenterContainer/Panel/Sprite2D
 
 var card_preview_scene = load("res://Scenes/card.tscn")
+@export var discard_preview_x_range := Vector2(710, 955)
+@export var discard_preview_y_range := Vector2(430, 210)
+@export var discard_preview_scale := Vector2.ONE
+
+var is_removing := false
+var last_removed_card : Card
 
 
 # Called automatically when the scene loads (for debugging if you want)
 func _ready():
-	visible = false  # start hidden
-	# populate_list()  # don’t auto-populate until menu opens
+	$CenterContainer.visible = false
 
 # Opens the menu
 func open():
-	print(card_preview_scene)
 	if Score.money > 25:
 		Score.add_money(-25)
 		populate_list()
 		get_tree().paused = false
-		print("OPEN CALLED")
-		visible = true
+		$CenterContainer.visible = true
 		list_container.custom_minimum_size = Vector2(0, 800)
-		
-		
+		visible = true  # make sure the layer itself is always visible
+		show_saved_discard_preview()
 
 # Closes the menu
 func close():
 	get_tree().paused = false
-	visible = false
+	$CenterContainer.visible = false
 
 # Populate the scroll list with all cards in the deck
 func populate_list():
@@ -42,7 +47,6 @@ func create_preview(card_data : Card) -> Control:
 	wrapper.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	var instance = card_preview_scene.instantiate()
-	print(instance)
 	instance.set_ingredient(card_data, false)
 	instance.change_scale(0.65)
 	instance.hide_circle()
@@ -59,13 +63,59 @@ func create_preview(card_data : Card) -> Control:
 	var area = instance.get_node("Area2D")
 	area.input_event.connect(
 		func(_viewport, event, _shape):
-			if event is InputEventMouseButton \
-			and event.button_index == MOUSE_BUTTON_LEFT \
-			and event.pressed:
-				remove_card(card_data)
+			if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and !is_removing:
+				handle_card_selected(card_data)
+	)
+	return wrapper
+
+func handle_card_selected(card_data : Card) -> void:
+	is_removing = true
+	last_removed_card = card_data
+	remove_card(card_data)
+	close()
+	is_removing = false
+
+func show_saved_discard_preview() -> void:
+	if last_removed_card:
+		show_discard_preview(last_removed_card)
+	else:
+		clear_discard_preview()
+
+func show_discard_preview(card_data : Card) -> void:
+	clear_discard_preview()
+
+	var img = Sprite2D.new()
+	img.name = "DiscardedCard"
+	img.texture = get_preview_texture(card_data)
+	img.position = get_random_discard_position()
+	img.scale = discard_preview_scale
+	img.z_index = 3
+	trash_background.add_child(img)
+
+func clear_discard_preview() -> void:
+	var old = trash_background.get_node_or_null("DiscardedCard")
+	if old:
+		old.queue_free()
+
+func get_preview_texture(card_data : Card) -> Texture2D:
+	if Deck.texture_mode == "default":
+		return card_data.texture
+	return card_data.texture_retro
+
+func get_random_discard_position() -> Vector2:
+	var random_x = randf_range(
+		minf(discard_preview_x_range.x, discard_preview_x_range.y),
+		maxf(discard_preview_x_range.x, discard_preview_x_range.y)
+	)
+	var random_y = randf_range(
+		minf(discard_preview_y_range.x, discard_preview_y_range.y),
+		maxf(discard_preview_y_range.x, discard_preview_y_range.y)
 	)
 
-	return wrapper
+	return Vector2(
+		(random_x - trash_background.position.x) / trash_background.scale.x,
+		(random_y - trash_background.position.y) / trash_background.scale.y
+	)
 
 # Remove a card from the deck
 func remove_card(card_data : Card):
@@ -77,7 +127,7 @@ func remove_card(card_data : Card):
 	#tween.tween_property(card_data, "position", Vector2(target_x,target_y), .76)
 	#await tween.finished
 	populate_list()  # refresh list so it immediately disappears
-	close()
+
 # Clears all previous card previews
 func refresh_list():
 	for child in list_container.get_children():
