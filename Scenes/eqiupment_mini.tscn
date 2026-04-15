@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://1wtxyj0dc35"]
 
-[ext_resource type="Script" uid="uid://dpx26nb3r7qut" path="res://Scenes/eqiupment_mini.gd" id="1_n4ot1"]
+[ext_resource type="Script" uid="uid://dpx26nb3r7qut" path="res://Scripts/Equipment_Specific/eqiupment_mini.gd" id="1_n4ot1"]
 [ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="2_t08f3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj0lo"]

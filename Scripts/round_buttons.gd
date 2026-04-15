@@ -47,8 +47,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		elif !get_node("/root/Game/Camera2D").camera_locked:
 			if clicked_mode == 1:
 				get_node("/root/Game/Camera2D").go_to_shop()
-				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
 				equipment.generate_random_equipment()
+				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
 				position = Vector2(235.6,30)
 			else:
 				get_node("/root/Game").new_round()
