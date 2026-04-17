@@ -12,13 +12,15 @@ static var index = 0
 var highlighted = false
 var shop_mode = false
 
+
 #description shyte
 
 var tooltip
 var tooltiptext
 
-func _ready():
+func fill_common_equip_list():
 	# fill common_equip_list
+	common_equip_list = []
 	for e in range(0,data.size()): 
 		common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 
@@ -55,10 +57,13 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
-	var result = common_equip_list[randi_range(0, common_equip_list.size() - 1)]
-	#result = common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
-	common_equip_list.erase(result) # remove from list so it can't be bought again
-	return result
+	#var x = randi_range(0, common_equip_list.size() - 1)
+	#var result = common_equip_list[x]
+	##result = common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
+	#print("before: " + str(common_equip_list))
+	#common_equip_list.pop_at(x) # remove from list so it can't be bought again
+	#print("after: " + str(common_equip_list))
+	return common_equip_list.pop_at(randi_range(0, common_equip_list.size() - 1))
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: # when clicked
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -92,3 +97,4 @@ func change_pricetag_scale(n):
 	var pricetag = $price_circle
 	pricetag.set_price(this_equip.cost,false)
 	$price_circle.scale = Vector2(n,n)
+	$price_circle.position = Vector2(159,31) # i dont fucking know man

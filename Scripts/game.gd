@@ -8,6 +8,7 @@ var starting_energy
 func _ready() -> void:
 	level = 0
 	Deck.fill_initial_deck()
+	Equip.fill_common_equip_list()
 	new_round()
 
 func new_round():
