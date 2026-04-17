@@ -32,11 +32,30 @@ func set_description(n):
 	label.text = text
 	#spicy c85c00 salty fae100 sour 1ac200 savory 0006a6 energy ffd900 sweet d900d9
 
+func spawn_flake(color: Color = Color.WHITE) -> void:
+	var particle = ColorRect.new()
+	particle.size = Vector2(3, 3)  # pixel size, tweak as you like
+	particle.color = color
+	particle.position = global_position  # spawns at this object's position
+	get_tree().root.add_child(particle)
+
+	var direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	var speed = randf_range(40, 120)
+	var lifetime = randf_range(0.3, 0.8)
+
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(particle, "position", particle.position + direction * speed * lifetime, lifetime)
+	tween.tween_property(particle, "modulate:a", 0.0, lifetime)  # fade out
+	tween.chain().tween_callback(particle.queue_free)
+
 func _on_mouse_entered() -> void:
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame
 	set_pos_twin()
+	for i in range(100):
+		spawn_flake(Color.RED)
 
 
 func _on_mouse_exited() -> void:
