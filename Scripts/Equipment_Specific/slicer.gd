@@ -3,7 +3,7 @@ class_name Slicer
 
 var basil_resource = load("res://Assets/cards/Basil.tres")
 
-func on_bought():
+func on_bought(g):
 	basil_resource.price /= 2.0
 	for c in Deck.deck:
 		if c.name == "Basil":

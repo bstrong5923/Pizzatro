@@ -25,7 +25,6 @@ CardFunction="*res://Scripts/CardDeck_Specific/card_function.gd"
 Lib="*res://Scripts/main.gd"
 RoundButtons="*res://Scripts/round_buttons.gd"
 Flours="*res://Scripts/Equipment_Specific/flour.gd"
-Pack="*res://Scripts/pack.gd"
 
 [display]
 

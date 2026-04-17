@@ -1,9 +1,10 @@
 extends Sprite2D
 
 var price = 10
+var pricetag
 
-func _ready():
-	var pricetag = get_node("price_circle")
+func _ready() -> void:
+	pricetag = get_node("price_circle")
 	pricetag.set_price(price, true)
 	pricetag.equipment_set_size(1)
 

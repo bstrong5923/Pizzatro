@@ -54,8 +54,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			this_equip.index = index
 			index += 1
 			equipment_bought(this_equip)
-			if this_equip.bought:
-				await this_equip.on_bought()
+			if this_equip.bought and (this_equip.name == "Incognito"):
+				await this_equip.on_bought(get_tree().current_scene.get_node("/root/Pack"))
+			elif this_equip.bought:
+				await this_equip.on_bought("hi mom")
 			Score.add_money(this_equip.cost * -1)
 
 func _on_area_2d_mouse_entered() -> void:
