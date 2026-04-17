@@ -57,12 +57,6 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
-	#var x = randi_range(0, common_equip_list.size() - 1)
-	#var result = common_equip_list[x]
-	##result = common_equip_list[common_equip_list.size() - 1] # latest addition (only uncomment for testing)
-	#print("before: " + str(common_equip_list))
-	#common_equip_list.pop_at(x) # remove from list so it can't be bought again
-	#print("after: " + str(common_equip_list))
 	return common_equip_list.pop_at(randi_range(0, common_equip_list.size() - 1))
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: # when clicked
