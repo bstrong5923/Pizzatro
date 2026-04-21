@@ -21,7 +21,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and clickable and !cooldown:
 		clickable = false
 		
-		if mode == 0 and get_node("/root/Game").is_playing(): # SUBMIT mode
+		
 		var clicked_mode = mode
 		await animate_button_press()
 		if clicked_mode != 0:
@@ -50,7 +50,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		elif !get_node("/root/Game/Camera2D").camera_locked:
 			if clicked_mode == 1:
 				get_node("/root/Game/Camera2D").go_to_shop()
-				equipment.generate_random_equipment()
+				Equip.generate_random_equipment()
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
 				position = Vector2(235.6,30)
 				

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Oven_Mitt" load_steps=2 format=3 uid="uid://btmo7jrji0s4y"]
+
+[ext_resource type="Script" uid="uid://cmltb7t4etb1w" path="res://Scripts/Equipment_Specific/oven_mitt.gd" id="1_b8q1x"]
+
+[resource]
+script = ExtResource("1_b8q1x")
+metadata/_custom_type_script = "uid://cmltb7t4etb1w"
