@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlra63y1m54ju"]
+
+[ext_resource type="Texture2D" uid="uid://dk5ujea8ob12x" path="res://Assets/Sprites/game scene items/hangingSign.png" id="1_sniet"]
+[ext_resource type="Script" uid="uid://c2wf6svbijblq" path="res://Scripts/end_round_sign.gd" id="2_6p6x0"]
+
+[node name="EndRoundSign" type="Sprite2D"]
+visible = false
+texture = ExtResource("1_sniet")
+script = ExtResource("2_6p6x0")
+
+[node name="Score" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Threshold" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextBox" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

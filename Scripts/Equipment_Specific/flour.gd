@@ -2,7 +2,7 @@ extends Equipment
 class_name Flour
 
 
-func on_bought():
+func on_bought(g):
 	RoundButtons.apply_flour_bonus(0.1)
 	
 

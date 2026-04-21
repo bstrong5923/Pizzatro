@@ -7,8 +7,9 @@
 [resource]
 script = ExtResource("1_rsl7k")
 texture = ExtResource("3_rdi83")
+texture_retro = ExtResource("3_rdi83")
 minis = ExtResource("1_eof33")
-flavors = Array[int]([0, 0, 6, 0, 12])
+flavors = Array[float]([0.0, 0.0, 6.0, 0.0, 12.0])
 price = 6.0
 description = "When you come to my aunt's house"
 types = Array[String](["meat"])

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Incognito" load_steps=3 format=3 uid="uid://bpf3iw8uuscaq"]
+
+[ext_resource type="Script" uid="uid://8qj23f0do5sr" path="res://Scripts/Equipment_Specific/incognito.gd" id="1_lteij"]
+[ext_resource type="Texture2D" uid="uid://qeau8sed3fh3" path="res://Assets/Sprites/Equipment/glasses.png" id="2_6lfdu"]
+
+[resource]
+script = ExtResource("1_lteij")
+name = "Incognito"
+texture = ExtResource("2_6lfdu")
+rarity = "Rare"
+cost = 17
+description = "When you are wearing these, you are oh so sneaky! no one can tell who you are!"
+bought = true
+metadata/_custom_type_script = "uid://8qj23f0do5sr"

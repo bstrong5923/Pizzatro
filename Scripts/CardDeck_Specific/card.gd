@@ -23,32 +23,8 @@ var pricetag
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
-	tooltip.visible = false
-	tooltiptext.text = "[color=000000]" + ingredient.description + "[/color]"
-	
-	var howmanyloops = 0
-	var tempcolor = ""
-	for flavor in ingredient.flavors:
-		if flavor > 0:
-			tooltiptext.text += "\n "
-			if howmanyloops == 0:
-				tempcolor = "d900d9"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Sweet:[/color] "
-			if howmanyloops == 1:
-				tempcolor = "c85c00"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Spicy:[/color] "
-			if howmanyloops == 2:
-				tempcolor = "fae100"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Salty:[/color] "
-			if howmanyloops == 3:
-				tempcolor = "1ac200"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Sour:[/color] "
-			if howmanyloops == 4:
-				tempcolor = "0006a6"
-				tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
-			tooltiptext.text += "[color=" + tempcolor + "]" + str(flavor) + "[/color]"
-		howmanyloops += 1
-		
+	description()
+
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
 		if !shop and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
@@ -63,6 +39,58 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 			play_timer.cooldown() # wait for animation to finish before you can click another
 			add_to_deck() # discard this one
 
+func description():
+	tooltip.visible = false
+	tooltiptext.text = "[color=000000]" + ingredient.description + "[/color]"
+	
+	var howmanyloops = 0
+	var tempcolor = ""
+	CardFunction.check_equip_for_desc(ingredient)
+	var desc_vals= CardFunction.flavors_to_add_desc
+	if CardFunction.use_equip_desc:
+		for flavor in desc_vals:
+			if flavor > 0:
+				flavor = Lib.num_to_string(flavor)
+				tooltiptext.text += "\n "
+				if howmanyloops == 0:
+					tempcolor = "d900d9"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sweet:[/color] "
+				if howmanyloops == 1:
+					tempcolor = "c85c00"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Spicy:[/color] "
+				if howmanyloops == 2:
+					tempcolor = "fae100"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Salty:[/color] "
+				if howmanyloops == 3:
+					tempcolor = "1ac200"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sour:[/color] "
+				if howmanyloops == 4:
+					tempcolor = "0006a6"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
+				tooltiptext.text += "[color=" + tempcolor + "]" + flavor + "[/color]"
+			howmanyloops += 1
+	else:
+		for flavor in desc_vals:
+			if flavor > 0:
+				flavor = Lib.num_to_string(flavor)
+				tooltiptext.text += "\n "
+				if howmanyloops == 0:
+					tempcolor = "d900d9"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sweet:[/color] "
+				if howmanyloops == 1:
+					tempcolor = "c85c00"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Spicy:[/color] "
+				if howmanyloops == 2:
+					tempcolor = "fae100"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Salty:[/color] "
+				if howmanyloops == 3:
+					tempcolor = "1ac200"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Sour:[/color] "
+				if howmanyloops == 4:
+					tempcolor = "0006a6"
+					tooltiptext.text += "[color=" + tempcolor + "]"+ "Savory:[/color] "
+				tooltiptext.text += "[color=" + tempcolor + "]" + flavor + "[/color]"
+			howmanyloops += 1
 
 func set_ingredient(i, t):
 	ingredient = i
@@ -118,7 +146,7 @@ func _on_area_2d_mouse_entered():
 		
 		highlighted = true
 		if removal:
-			change_scale(.7)
+			change_scale(.9)
 		else:
 			cardsprite.position.y -= 35
 			ingredientsprite.position.y -= 35
@@ -134,7 +162,7 @@ func _on_area_2d_mouse_exited():
 	if highlighted:
 		highlighted = false
 		if removal:
-			change_scale(.5)
+			change_scale(.65)
 		else:
 			cardsprite.position.y += 35
 			ingredientsprite.position.y += 35
@@ -155,3 +183,5 @@ func change_scale(n):
 	$Area2D.scale = Vector2(5 * n, 5 * n)
 	$icon.change_scale(n)
 	
+func hide_circle():
+	$price_circle.hide_circle()
