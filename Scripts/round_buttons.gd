@@ -48,14 +48,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					var equip_instance = equipment.instantiate()
 					equip_instance.scale = Vector2(4,4)
 					equip_instance.position = locations[i]
-					print(Equip.common_equip_list)
-					#equip_instance.set_equipment(await Equip.generate_random_equipment())
-					#equip_instance.shop_mode_on()
-					#if equip_instance.this_equip != null:
-						#container.add_child(equip_instance)
-					#print(Equip.common_equip_list)
 					var e = await Equip.generate_random_equipment()
-					if e != null:
+					if e != null: # if you are out of equipment to buy
 						equip_instance.set_equipment(e)
 						equip_instance.shop_mode_on()
 						container.add_child(equip_instance)
