@@ -62,11 +62,12 @@ func generate_random_equipment():
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: # when clicked
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if shop_mode and Score.money >= this_equip.cost:
+			var s = get_tree().current_scene.get_child(13, true)
 			this_equip.index = index
 			index += 1
 			equipment_bought(this_equip)
 			if this_equip.bought and (this_equip.name == "Incognito"):
-				await this_equip.on_bought(get_tree().current_scene.get_node("/root/Pack"))
+				await this_equip.on_bought(s) #call pack scene which is impossible for some reason bruh i wanna kms
 			elif this_equip.bought:
 				await this_equip.on_bought("hi mom")
 			Score.add_money(this_equip.cost * -1)
