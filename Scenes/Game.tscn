@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://w46h8it60ipg" path="res://Assets/Sprites/kitchen/cutting_board.png" id="13_3cx6b"]
 [ext_resource type="Texture2D" uid="uid://dpoio8q3o8522" path="res://Assets/Sprites/kitchen/small_cutting_board.png" id="13_wxwew"]
 [ext_resource type="PackedScene" uid="uid://mpp5xc1th5j0" path="res://Scenes/round_buttons.tscn" id="14_wxwew"]
-[ext_resource type="PackedScene" uid="uid://viymnqxbigv7" path="res://Scenes/equipment.tscn" id="15_4q8tf"]
 [ext_resource type="Texture2D" uid="uid://8tywlmfo4dgw" path="res://Assets/Sprites/game scene items/shopbackground.png" id="15_acvyw"]
 [ext_resource type="Texture2D" uid="uid://o1iyc50m3hn1" path="res://Assets/Sprites/game scene items/pack.png" id="16_4q8tf"]
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
@@ -22,6 +21,7 @@
 [ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
+[ext_resource type="PackedScene" uid="uid://deej3kpugef8t" path="res://Scenes/equipment_drawer.tscn" id="22_vvhu1"]
 [ext_resource type="PackedScene" uid="uid://dlra63y1m54ju" path="res://Scenes/end_round_sign.tscn" id="23_raj38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
@@ -122,16 +122,6 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_alh3a")
 metadata/_edit_lock_ = true
 
-[node name="price_circle" type="Node2D" parent="Pack"]
-position = Vector2(10, -15)
-script = ExtResource("20_vvhu1")
-
-[node name="circle" type="Sprite2D" parent="Pack/price_circle"]
-texture = ExtResource("21_lbihj")
-
-[node name="equipment" parent="." instance=ExtResource("15_4q8tf")]
-position = Vector2(2, -5.2)
-
 [node name="RemoveCardPrompter" type="Sprite2D" parent="."]
 position = Vector2(190, 42.2)
 texture = ExtResource("18_tfod6")
@@ -159,6 +149,8 @@ texture = ExtResource("21_lbihj")
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
 visible = false
 
+[node name="drawer" parent="." instance=ExtResource("22_vvhu1")]
+position = Vector2(76, -25)
 [node name="EndRoundSign" parent="." instance=ExtResource("23_raj38")]
 
 [connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]

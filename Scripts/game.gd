@@ -8,6 +8,7 @@ var n = 1
 func _ready() -> void:
 	level = 0
 	Deck.fill_initial_deck()
+	Equip.fill_common_equip_list()
 	new_round()
 	n = 1
 
@@ -31,6 +32,7 @@ func new_round():
 	$Labels/Score.clear_score()
 	$pie/minis.clear_minis()
 	Deck.clear_shop_hand()
+	$drawer.sort_equipments()
 	playing = true
 	await get_tree().create_timer(0.45).timeout # wait for shop to be offscreen
 	

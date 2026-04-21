@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var container = $Container
 const ROUND_BUTTON_TEXTURE := preload("res://Assets/Sprites/game scene items/round_buttons.png")
 const ROUND_BUTTON_PRESSED_TEXTURE := preload("res://Assets/Sprites/game scene items/round_buttons_pressed.png")
 const BUTTON_PRESS_TIME := 0.15
@@ -9,7 +10,7 @@ var labels = ["Submit", "Shop", "Done"]
 var clickable = true
 var cooldown = false
 @onready
-var equipment = get_node("/root/Game/equipment")
+var equipment = load("res://Scenes/equipment.tscn")
 var flour_count: float = 1.0
 var money_threshholds = [0, 1.0, 1.6, 2.0, 2.5, 3.0, 5.0]
 
@@ -19,6 +20,8 @@ func apply_flour_bonus(amount: float = 0.1) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and clickable and !cooldown:
 		clickable = false
+		
+		if mode == 0 and get_node("/root/Game").is_playing(): # SUBMIT mode
 		var clicked_mode = mode
 		await animate_button_press()
 		if clicked_mode != 0:
@@ -50,11 +53,26 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				equipment.generate_random_equipment()
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
 				position = Vector2(235.6,30)
-			else:
+				
+				var locations  = [Vector2(-320, -350), Vector2(-146, -350), Vector2(-320, -170), Vector2(-146, -170)]
+				# equipments in shop
+				for i in range(0,4):
+					var equip_instance = equipment.instantiate()
+					equip_instance.scale = Vector2(4,4)
+					equip_instance.position = locations[i]
+					var e = await Equip.generate_random_equipment()
+					if e != null: # if you are out of equipment to buy
+						equip_instance.set_equipment(e)
+						equip_instance.shop_mode_on()
+						container.add_child(equip_instance)
+				
+				
+				
+			else: # DONE mode
 				get_node("/root/Game").new_round()
 				get_node("/root/Game/Camera2D").go_to_game()
 				get_node("/root/Game/Pack").visible = true
-				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to game
+				await get_tree().create_timer(0.35).timeout # wait until I am offscreen and then teleport to game
 				position = Vector2(-94.6,25)
 
 func animate_button_press() -> void:
@@ -71,6 +89,7 @@ func next_mode():
 	$Label.text = labels[mode]
 	clickable = true
 
-
-func _process(delta: float) -> void:
-	pass
+func clear_shop_equipment():
+	for child in container.get_children():
+		Equip.common_equip_list.push_back(child.this_equip) # put equipment back into common_equip_list bc we removed it
+		child.queue_free()

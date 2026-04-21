@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://deej3kpugef8t"]
+
+[ext_resource type="Texture2D" uid="uid://cb3eqfnac306x" path="res://Assets/Sprites/Equipment/Drawer.png" id="1_xvybk"]
+[ext_resource type="Script" uid="uid://bcwegctkyrtq" path="res://equipment_drawer.gd" id="2_0cjap"]
+
+[node name="drawer" type="Sprite2D"]
+texture = ExtResource("1_xvybk")
+script = ExtResource("2_0cjap")

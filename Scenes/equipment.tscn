@@ -1,8 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://viymnqxbigv7"]
+[gd_scene load_steps=8 format=3 uid="uid://viymnqxbigv7"]
 
 [ext_resource type="Script" uid="uid://cf3mvttb20rll" path="res://Scripts/Equipment_Specific/equipment.gd" id="1_roj3i"]
-[ext_resource type="Script" uid="uid://bvi7he8v8afhd" path="res://Scripts/Equipment_Specific/equipment_background.gd" id="2_85gve"]
-[ext_resource type="Texture2D" uid="uid://cb3eqfnac306x" path="res://Assets/Sprites/Equipment/Drawer.png" id="3_vdpvh"]
 [ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="4_n1fjl"]
 [ext_resource type="PackedScene" uid="uid://1wtxyj0dc35" path="res://Scenes/eqiupment_mini.tscn" id="5_vdpvh"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="6_dqsxb"]
@@ -10,9 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8tf"]
 size = Vector2(44.40001, 39.800003)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rajel"]
-size = Vector2(30.60001, 7.899999)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfod6"]
 bg_color = Color(0.5634866, 0.6097516, 0.62631965, 1)
@@ -42,26 +37,6 @@ position = Vector2(0.8000002, -1.1999998)
 position = Vector2(2.600006, 1.0999985)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4q8tf")
-
-[node name="equipment_button" type="Node2D" parent="."]
-script = ExtResource("2_85gve")
-
-[node name="minis_container" type="Container" parent="equipment_button"]
-offset_right = 40.000008
-offset_bottom = 39.999992
-metadata/_edit_use_anchors_ = true
-
-[node name="equipment_button" type="Sprite2D" parent="equipment_button"]
-position = Vector2(74.4, -92)
-texture = ExtResource("3_vdpvh")
-
-[node name="Area2D" type="Area2D" parent="equipment_button/equipment_button"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="equipment_button/equipment_button/Area2D"]
-position = Vector2(0.2999878, 39.05)
-shape = SubResource("RectangleShape2D_rajel")
-
-[node name="equipment_box" type="Sprite2D" parent="equipment_button"]
 
 [node name="info_sprite" type="PanelContainer" parent="."]
 visible = false
@@ -100,6 +75,3 @@ texture = ExtResource("7_22i42")
 [connection signal="input_event" from="shop_equipment/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="shop_equipment/Area2D" to="." method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="equipment_button/equipment_button/Area2D" to="equipment_button" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="equipment_button/equipment_button/Area2D" to="equipment_button" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="equipment_button/equipment_button/Area2D" to="equipment_button" method="_on_area_2d_mouse_exited"]
