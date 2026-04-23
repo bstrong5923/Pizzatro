@@ -29,6 +29,8 @@ func set_minimum(v):
 
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	deck = []
+	for x in range(10): # testing
+		deck.push_back(load("res://Assets/cards/Gurt.tres"))
 	for ingredient in data.size():
 		card_list.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
 	for ingredient in range(0,6):
