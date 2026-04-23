@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://c1fb3sjprgx1e"]
+
+[ext_resource type="Script" uid="uid://ci4asu2oe813i" path="res://Scripts/CardDeck_Specific/card_resource.gd" id="1_7p2lk"]
+[ext_resource type="Texture2D" uid="uid://c5bbjsr6eokn7" path="res://Assets/Sprites/ingredient_minis/gurt_minis.png" id="1_dihys"]
+[ext_resource type="Texture2D" uid="uid://dlrx0ybnexqid" path="res://Assets/Sprites/card_comps/big_ingredients/gurt.png" id="3_h380g"]
+
+[resource]
+script = ExtResource("1_7p2lk")
+name = "Gurt"
+texture = ExtResource("3_h380g")
+texture_retro = ExtResource("3_h380g")
+minis = ExtResource("1_dihys")
+flavors = Array[float]([4.0, 0.0, 0.0, 4.0, 4.0])
+price = 4.0
+description = "yo"
+types = Array[String](["dairy"])
+min_minis = 1
+max_minis = 1
+metadata/_custom_type_script = "uid://ci4asu2oe813i"
