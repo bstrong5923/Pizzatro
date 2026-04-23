@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func new_round():
 	level += 1
-	starting_energy = 200
+	starting_energy = 20
 	# check equipments
 	for e in Equip.get_my_equipment():
 		if e.round_start:
