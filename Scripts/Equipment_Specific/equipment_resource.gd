@@ -27,3 +27,6 @@ func on_round_start(input):
 
 func on_submit(input):
 	pass
+
+func upgrade():
+	pass

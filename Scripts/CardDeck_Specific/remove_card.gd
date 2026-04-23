@@ -76,16 +76,15 @@ func handle_card_selected(card_data : Card) -> void:
 
 func show_saved_discard_previews() -> void:
 	clear_discard_preview()
-
 	for saved_discard in saved_discards:
 		var img = Sprite2D.new()
 		img.name = "DiscardedCard"
 		img.texture = get_preview_texture(saved_discard["card"])
 		img.position = saved_discard["position"]
 		img.scale = discard_preview_scale
+		img.rotation_degrees = randf_range(0, 360)
 		img.z_index = 3
 		trash_background.add_child(img)
-
 func clear_discard_preview() -> void:
 	for old in trash_background.get_children():
 		if old.name == "DiscardedCard":
@@ -113,7 +112,6 @@ func get_random_discard_position() -> Vector2:
 		minf(discard_preview_y_range.x, discard_preview_y_range.y),
 		maxf(discard_preview_y_range.x, discard_preview_y_range.y)
 	)
-
 	return Vector2(
 		(random_x - trash_background.position.x) / trash_background.scale.x,
 		(random_y - trash_background.position.y) / trash_background.scale.y

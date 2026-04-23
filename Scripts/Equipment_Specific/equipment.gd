@@ -31,7 +31,13 @@ func wipe_equipment():
 	my_equipment.clear()
 
 func equipment_bought(e):
-	my_equipment.append(e)
+	var runner = false
+	for x in my_equipment:
+		if x.name == e.name:
+			x.upgrade()
+			runner = true
+	if (!runner):
+		my_equipment.append(e)
 
 func get_my_equipment():
 	return my_equipment

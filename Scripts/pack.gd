@@ -16,6 +16,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			Score.add_money( -1 * price)
 			
 
-func incognito():
-	price -= 2
+func incognito(amt):
+	price = 10 - amt
 	pricetag.set_price(price, true)
