@@ -6,7 +6,9 @@ extends CanvasLayer
 var card_preview_scene = load("res://Scenes/card.tscn")
 @export var discard_preview_x_range := Vector2(710, 955)
 @export var discard_preview_y_range := Vector2(430, 210)
-@export var discard_preview_scale := Vector2.ONE
+@export var discard_preview_scale := Vector2(4,4)
+@export var discard_preview_placement_tries := 6
+@export var discard_preview_avoid_radius := 18.0
 
 var is_removing := false
 var saved_discards : Array[Dictionary] = []
@@ -31,6 +33,9 @@ func open():
 func close():
 	get_tree().paused = false
 	$CenterContainer.visible = false
+
+func is_open() -> bool:
+	return $CenterContainer.visible
 
 # Populate the scroll list with all cards in the deck
 func populate_list():
@@ -82,7 +87,7 @@ func show_saved_discard_previews() -> void:
 		img.name = "DiscardedCard"
 		img.texture = get_preview_texture(saved_discard["card"])
 		img.position = saved_discard["position"]
-		img.scale = discard_preview_scale
+		img.scale = get_discard_preview_scale()
 		img.z_index = 3
 		trash_background.add_child(img)
 
@@ -92,17 +97,25 @@ func clear_discard_preview() -> void:
 			old.queue_free()
 
 func get_preview_texture(card_data : Card) -> Texture2D:
+	if Deck.texture_mode == "default":
+		return card_data.texture
 	return card_data.texture_retro
 
 func save_discard_preview(card_data : Card) -> void:
 	saved_discards.append({
 		"card": card_data,
-		"position": get_random_discard_position()
+		"position": get_smart_discard_position()
 	})
 
 func reset_saved_discards() -> void:
 	saved_discards.clear()
 	clear_discard_preview()
+
+func get_discard_preview_scale() -> Vector2:
+	return Vector2(
+		discard_preview_scale.x / trash_background.scale.x,
+		discard_preview_scale.y / trash_background.scale.y
+	)
 
 func get_random_discard_position() -> Vector2:
 	var random_x = randf_range(
@@ -118,6 +131,33 @@ func get_random_discard_position() -> Vector2:
 		(random_x - trash_background.position.x) / trash_background.scale.x,
 		(random_y - trash_background.position.y) / trash_background.scale.y
 	)
+
+func get_smart_discard_position() -> Vector2:
+	var best_position = get_random_discard_position()
+	var best_score = score_discard_position(best_position)
+
+	for _i in range(discard_preview_placement_tries - 1):
+		var candidate = get_random_discard_position()
+		var score = score_discard_position(candidate)
+		if score > best_score:
+			best_score = score
+			best_position = candidate
+
+	return best_position
+
+func score_discard_position(candidate : Vector2) -> float:
+	if saved_discards.is_empty():
+		return discard_preview_avoid_radius + randf()
+
+	var closest_distance = INF
+	for saved_discard in saved_discards:
+		var distance_to_other = candidate.distance_to(saved_discard["position"])
+		closest_distance = minf(closest_distance, distance_to_other)
+
+	if closest_distance >= discard_preview_avoid_radius:
+		return discard_preview_avoid_radius + randf()
+
+	return closest_distance + randf()
 
 # Remove a card from the deck
 func remove_card(card_data : Card):

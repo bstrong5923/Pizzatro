@@ -9,6 +9,8 @@ func _ready():
 	pricetag.equipment_set_size(1)
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
+	if get_node("/root/Game/RemoveCardMenu").is_open():
+		return
 	if (event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed):
