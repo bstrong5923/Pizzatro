@@ -93,7 +93,6 @@ func next_mode():
 func clear_shop_equipment():
 	print("clearing! shop equipment: " + str(container.get_children()))
 	for child in container.get_children():
-		Equip.common_equip_list.push_back(child.this_equip) # put equipment back into common_equip_list bc we removed it
 		child.queue_free()
 		
 	print("clear! shop equipment: " + str(container.get_children()))
