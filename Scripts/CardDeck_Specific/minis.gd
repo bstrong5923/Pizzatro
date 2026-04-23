@@ -20,12 +20,13 @@ func scatter(ingredient):
 		# get the correct spritesheet
 		instance.texture = ingredient.minis
 		# random mini of the ingredient
-		instance.region_rect.size.x = 5
-		instance.region_rect.position.x = randi_range(0,4) * 5
+		instance.region_rect.size.x = instance.texture.get_size().y
+		instance.region_rect.size.y = instance.texture.get_size().y
+		instance.region_rect.position.x = randi_range(0,4) * instance.texture.get_size().y
 		
 		# random position in the pizza
 		var angle = init_angle + (360 / num_of_minis) * m + randi_range(-5,5) # each one has an evenly spaced angle (0, 90, 180, 270 if there were four minis)
-		var radius = pow(randi_range(1, pow(20.5,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
+		var radius = pow(randi_range(1, pow(23.5 - instance.texture.get_size().y / 2,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
 		var x = int(radius * cos(deg_to_rad(angle))) # get the x and y
 		var y = int(radius * sin(deg_to_rad(angle)))
 		instance.position = Vector2(x, y)
