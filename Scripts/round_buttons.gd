@@ -74,6 +74,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				get_node("/root/Game/Pack").visible = true
 				await get_tree().create_timer(0.35).timeout # wait until I am offscreen and then teleport to game
 				position = Vector2(-94.6,25)
+				clear_shop_equipment()
 
 func animate_button_press() -> void:
 	$button.texture = ROUND_BUTTON_PRESSED_TEXTURE
@@ -90,6 +91,9 @@ func next_mode():
 	clickable = true
 
 func clear_shop_equipment():
+	print("clearing! shop equipment: " + str(container.get_children()))
 	for child in container.get_children():
 		Equip.common_equip_list.push_back(child.this_equip) # put equipment back into common_equip_list bc we removed it
 		child.queue_free()
+		
+	print("clear! shop equipment: " + str(container.get_children()))
