@@ -18,6 +18,8 @@ func apply_flour_bonus(amount: float = 0.1) -> void:
 	flour_count += amount
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if get_node("/root/Game/RemoveCardMenu").is_open():
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and clickable and !cooldown:
 		clickable = false
 		

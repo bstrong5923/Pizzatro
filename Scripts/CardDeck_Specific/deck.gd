@@ -125,6 +125,8 @@ func remove_card(index):
 	
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if get_node("/root/Game/RemoveCardMenu").is_open():
+		return
 	if get_node("/root/Game").is_playing() and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		#Deck.draw_card()
 		pass

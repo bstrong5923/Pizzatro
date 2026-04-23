@@ -12,6 +12,8 @@ func _ready():
 		print("minis_container found: ", minis_container)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if get_node("/root/Game/RemoveCardMenu").is_open():
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if (pressed == true):
 			open_drawer()

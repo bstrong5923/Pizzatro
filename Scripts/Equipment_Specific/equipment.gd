@@ -60,6 +60,8 @@ func generate_random_equipment():
 	return common_equip_list[randi_range(0, common_equip_list.size() - 1)]
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: # when clicked
+	if get_node("/root/Game/RemoveCardMenu").is_open():
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if shop_mode and Score.money >= this_equip.cost:
 			var s = get_tree().current_scene.get_child(13, true)

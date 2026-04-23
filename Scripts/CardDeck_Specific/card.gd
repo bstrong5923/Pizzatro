@@ -26,6 +26,8 @@ func _ready() -> void:
 	description()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
+	if get_node("/root/Game/RemoveCardMenu").is_open() and !removal:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
 		if !shop and get_node("/root/Game").is_playing() and get_node("/root/Game/Labels/Energy").get_energy() >= ingredient.price:
 			var hand = get_node("/root/Game/hand_animation") # animation to add the ingredients
