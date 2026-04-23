@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var list_container = $CenterContainer/Panel/MarginContainer/ScrollContainer/CardList
-@onready var remove_panel = $CenterContainer/Panel
 @onready var trash_background = $CenterContainer/Panel/Sprite2D
 
 var card_preview_scene = load("res://Scenes/card.tscn")
@@ -10,7 +9,7 @@ var card_preview_scene = load("res://Scenes/card.tscn")
 @export var discard_preview_scale := Vector2.ONE
 
 var is_removing := false
-var last_removed_card : Card
+var saved_discards : Array[Dictionary] = []
 
 
 # Called automatically when the scene loads (for debugging if you want)
@@ -26,7 +25,7 @@ func open():
 		$CenterContainer.visible = true
 		list_container.custom_minimum_size = Vector2(0, 800)
 		visible = true  # make sure the layer itself is always visible
-		show_saved_discard_preview()
+		show_saved_discard_previews()
 
 # Closes the menu
 func close():
@@ -70,37 +69,40 @@ func create_preview(card_data : Card) -> Control:
 
 func handle_card_selected(card_data : Card) -> void:
 	is_removing = true
-	last_removed_card = card_data
+	save_discard_preview(card_data)
 	remove_card(card_data)
 	close()
 	is_removing = false
 
-func show_saved_discard_preview() -> void:
-	if last_removed_card:
-		show_discard_preview(last_removed_card)
-	else:
-		clear_discard_preview()
-
-func show_discard_preview(card_data : Card) -> void:
+func show_saved_discard_previews() -> void:
 	clear_discard_preview()
 
-	var img = Sprite2D.new()
-	img.name = "DiscardedCard"
-	img.texture = get_preview_texture(card_data)
-	img.position = get_random_discard_position()
-	img.scale = discard_preview_scale
-	img.z_index = 3
-	trash_background.add_child(img)
+	for saved_discard in saved_discards:
+		var img = Sprite2D.new()
+		img.name = "DiscardedCard"
+		img.texture = get_preview_texture(saved_discard["card"])
+		img.position = saved_discard["position"]
+		img.scale = discard_preview_scale
+		img.z_index = 3
+		trash_background.add_child(img)
 
 func clear_discard_preview() -> void:
-	var old = trash_background.get_node_or_null("DiscardedCard")
-	if old:
-		old.queue_free()
+	for old in trash_background.get_children():
+		if old.name == "DiscardedCard":
+			old.queue_free()
 
 func get_preview_texture(card_data : Card) -> Texture2D:
-	if Deck.texture_mode == "default":
-		return card_data.texture
 	return card_data.texture_retro
+
+func save_discard_preview(card_data : Card) -> void:
+	saved_discards.append({
+		"card": card_data,
+		"position": get_random_discard_position()
+	})
+
+func reset_saved_discards() -> void:
+	saved_discards.clear()
+	clear_discard_preview()
 
 func get_random_discard_position() -> Vector2:
 	var random_x = randf_range(
