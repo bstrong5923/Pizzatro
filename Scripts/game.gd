@@ -48,6 +48,7 @@ func get_level():
 	
 func game_over():
 	print("GAME OVER")
+	$RemoveCardMenu.reset_saved_discards()
 	Equip.wipe_equipment()
 	Score.reset_money()
 	n = 1 
