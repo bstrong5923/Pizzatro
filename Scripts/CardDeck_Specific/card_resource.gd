@@ -16,4 +16,4 @@ class_name Card
 @export var min_minis : int
 @export var max_minis : int
 
-@export var unlocks : Array[String]
+@export var boosts : Array[String]

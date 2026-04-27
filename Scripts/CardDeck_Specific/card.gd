@@ -41,8 +41,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 			play_timer.cooldown() # wait for animation to finish before you can click another
 			add_to_deck() # discard this one
 			var boosts = [ingredient.name, ingredient.name, ingredient.name]
-			for i in ingredient.unlocks:
-				Deck.unlock_ingredient(i)
+			for i in ingredient.boosts:
 				boosts.push_back(i)
 			Deck.boost_ingredients(boosts) # boosts itself and its unlocks until next boost
 

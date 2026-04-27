@@ -16,5 +16,5 @@ description = "a sprinkle of cheese"
 types = Array[String](["dairy"])
 min_minis = 10
 max_minis = 15
-unlocks = Array[String](["Milk", "Gurt"])
+boosts = Array[String](["Milk", "Gurt"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"
