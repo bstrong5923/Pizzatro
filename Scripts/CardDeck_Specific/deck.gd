@@ -36,7 +36,7 @@ func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the 
 	for ingredient in range(0,6):
 		for x in range(0,4): # num of copies of each card
 			deck.push_back(get_ingredient(data[ingredient]))
-	for i in range(11):
+	for i in range(12):
 		unlock_ingredient(data[i])
 
 func get_ingredient(i):
