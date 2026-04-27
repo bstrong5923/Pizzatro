@@ -1,5 +1,7 @@
 extends Node2D
 
+const maxequip := 9
+
 var equipment : Equipment
 static var my_equipment : Array
 
@@ -30,8 +32,18 @@ func shop_mode_on():
 func wipe_equipment():
 	my_equipment.clear()
 
-func equipment_bought(e):
+func can_buy_more_equipment() -> bool:
+	return my_equipment.size() < maxequip
+
+func get_equipment_limit() -> int:
+	return maxequip
+
+func equipment_bought(e) -> bool:
+	print("WORKING")
+	if !can_buy_more_equipment():
+		return false
 	my_equipment.append(e)
+	return true
 
 func get_my_equipment():
 	return my_equipment
@@ -63,11 +75,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if get_node("/root/Game/RemoveCardMenu").is_open():
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if shop_mode and Score.money >= this_equip.cost:
+		if shop_mode and Score.money >= this_equip.cost and can_buy_more_equipment():
 			var s = get_tree().current_scene.get_child(13, true)
 			this_equip.index = index
 			index += 1
-			equipment_bought(this_equip)
+			if !equipment_bought(this_equip):
+				return
 			if this_equip.bought and (this_equip.name == "Incognito"):
 				await this_equip.on_bought(s) #call pack scene which is impossible for some reason bruh i wanna kms
 			elif this_equip.bought:

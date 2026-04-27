@@ -39,7 +39,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					if score_ratio > money_threshholds[x]:
 						thresh_index = x
 				var base_money = thresh_index * 8
-				print("Threshold index: " + str(thresh_index))
 				Score.money += base_money * flour_count
 				get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(Score.money)
 				
@@ -93,8 +92,5 @@ func next_mode():
 	clickable = true
 
 func clear_shop_equipment():
-	print("clearing! shop equipment: " + str(container.get_children()))
 	for child in container.get_children():
 		child.queue_free()
-		
-	print("clear! shop equipment: " + str(container.get_children()))
