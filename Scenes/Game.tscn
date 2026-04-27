@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
-[ext_resource type="PackedScene" path="res://Scenes/equipment_drawer.tscn" id="22_vvhu1"]
+[ext_resource type="PackedScene" uid="uid://deej3kpugef8t" path="res://Scenes/equipment_drawer.tscn" id="22_vvhu1"]
 [ext_resource type="PackedScene" uid="uid://dlra63y1m54ju" path="res://Scenes/end_round_sign.tscn" id="23_raj38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
