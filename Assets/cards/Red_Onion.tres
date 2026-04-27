@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_jtt7k")
-name = "Red Onion"
+name = "Red_Onion"
 texture = ExtResource("3_2khgl")
 texture_retro = ExtResource("3_2khgl")
 minis = ExtResource("1_o0vl2")

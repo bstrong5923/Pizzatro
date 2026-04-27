@@ -14,6 +14,8 @@ var card_highlighted = 0
 var shop_hand = []
 var card_list = []
 var minimum = 0
+static var unlocked_card_list = []
+static var boosted_card_list = []
 
 var texture_mode = 'default'
  
@@ -30,10 +32,25 @@ func set_minimum(v):
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	deck = []
 	for ingredient in data.size():
-		card_list.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
+		card_list.push_back(get_ingredient(data[ingredient]))
 	for ingredient in range(0,6):
 		for x in range(0,4): # num of copies of each card
-			deck.push_back(load("res://Assets/cards/" + data[ingredient] + ".tres"))
+			deck.push_back(get_ingredient(data[ingredient]))
+	for i in range(11):
+		unlock_ingredient(data[i])
+
+func get_ingredient(i):
+	return load("res://Assets/cards/" + i + ".tres")
+	
+func unlock_ingredient(i):
+	var res = get_ingredient(i)
+	if unlocked_card_list.find(res) == -1:
+		unlocked_card_list.push_back(res)
+		
+func boost_ingredients(i_list): # makes it so recently bought stuff will be boosted a tad
+	boosted_card_list = []
+	for i in i_list:
+		boosted_card_list.push_back(get_ingredient(i))
 	
 func fill_deck_remaining(): # called at beginning of each round
 	deck_remaining = []
@@ -78,8 +95,10 @@ func clear_shop_hand():
 	
 func draw_shop_card():
 	var instance = card.instantiate()
-	var random_index = randi_range(0, card_list.size() - 1)
-	instance.set_ingredient(card_list[random_index], true)
+	var avaialable_cards = unlocked_card_list + boosted_card_list
+	print(avaialable_cards)
+	var random_index = randi_range(0, avaialable_cards.size() - 1)
+	instance.set_ingredient(avaialable_cards[random_index], true)
 	instance.position = Vector2(0, 39)
 	instance.change_scale(.8)
 	add_child(instance)
