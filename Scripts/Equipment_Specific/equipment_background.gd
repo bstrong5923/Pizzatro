@@ -5,12 +5,6 @@ var Equipm = preload("res://Scenes/eqiupment_mini.tscn")
 var minis_container = $minis_container
 
 
-func _ready():
-	if minis_container == null:
-		print("minis_container is null! Check the scene tree")
-	else:
-		print("minis_container found: ", minis_container)
-
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if get_node("/root/Game/RemoveCardMenu").is_open():
 		return
@@ -44,7 +38,7 @@ func generate_equipment_minis():
 	my_equipment = Equip.get_my_equipment()
 	if (d == 1):
 		kill_children()
-		
+
 	for x in range(my_equipment.size()):
 		var e = Equipm.instantiate()
 		e.set_text(my_equipment[x].texture)

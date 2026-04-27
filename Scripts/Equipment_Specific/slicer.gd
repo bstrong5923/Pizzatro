@@ -8,7 +8,6 @@ func on_bought(g):
 	for c in Deck.deck:
 		if c.name == "Basil":
 			c.price = basil_resource.price
-	print("Gerb")
 
 func on_card_played(ingredient):
 	if ingredient.name == "Basil":

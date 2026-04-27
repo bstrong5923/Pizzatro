@@ -25,7 +25,6 @@ func new_round():
 	else:
 		n *= 2
 		Deck.set_minimum(100 * n)
-		print(n)
 	Deck.fill_deck_remaining()
 	Deck.draw_hand()
 	$Labels/Energy.set_energy(starting_energy)
@@ -47,7 +46,6 @@ func get_level():
 	return level
 	
 func game_over():
-	print("GAME OVER")
 	$RemoveCardMenu.reset_saved_discards()
 	Equip.wipe_equipment()
 	Score.reset_money()
