@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dniudb6x4htkh"
-path="res://.godot/imported/duplicinator.png-d674c1e723da031464d521d37af9cd53.ctex"
+path="res://.godot/imported/duplicinator.png-5c310731fe871fca2955845eb598bdb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/game scene items/duplicinator.png"
-dest_files=["res://.godot/imported/duplicinator.png-d674c1e723da031464d521d37af9cd53.ctex"]
+source_file="res://Assets/Sprites/Equipment/duplicinator.png"
+dest_files=["res://.godot/imported/duplicinator.png-5c310731fe871fca2955845eb598bdb3.ctex"]
 
 [params]
 
