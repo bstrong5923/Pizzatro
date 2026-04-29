@@ -9,6 +9,6 @@ name = "Peeler"
 texture = ExtResource("2_pw6go")
 rarity = "Common"
 cost = 12
-description = "1.5X Fruits and Vegetables"
+description = "Gets all that gross skin off ya fruits and veggies. 1.5X fruits and vegetables"
 card_played = true
 metadata/_custom_type_script = "uid://ddbfocwr7kr0r"

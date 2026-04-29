@@ -17,4 +17,5 @@ description = "This is a Mushroom. Trippy..."
 types = Array[String](["vegetable"])
 min_minis = 7
 max_minis = 10
+boosts = Array[String](["Olive"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

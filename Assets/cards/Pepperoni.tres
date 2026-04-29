@@ -17,4 +17,5 @@ description = "This is a pepperoni"
 types = Array[String](["meat"])
 min_minis = 7
 max_minis = 10
+boosts = Array[String](["Salt", "Glizzy", "Gabagool", "Cheese"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

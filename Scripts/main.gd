@@ -8,20 +8,24 @@ func _ready() -> void:
 
 func cleannum(v):
 	var result
-	
-	if v == float(int(v)) or v >= 1000: # 3.0 --> 3,   1000.5 --> 1000
+	var negative = false
+	if v < 0:
+		negative = true
+		v = abs(v)
+	if 0 < v and v < 0.01:
+		return 0.01
+	elif v == float(int(v)) or v >= 1000: # 3.0 --> 3,   1000.5 --> 1000
 		result = int(v)
 	
 	elif v < 100: # 33.3333333 --> 33.33
 		result = snapped(v, 0.01)
-		if float(int(result)) == result: # make sure its not like 0.0, or 1.99999 doesnt become 2.0
-			if v < result:
-				result -= .01
-			else:
-				result += .01
+		if float(int(result)) == result and v < result: # make sure 1.99999 doesnt become 2.0
+			result -= .01
 				
 	else:  # 333.3333333 --> 333.3
 		result = snapped(v, 0.1)
+	if negative:
+		result = 0 - result
 	return result
 
 func num_to_string(val):

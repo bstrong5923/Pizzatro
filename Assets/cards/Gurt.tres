@@ -16,4 +16,5 @@ description = ":yo"
 types = Array[String](["dairy"])
 min_minis = 1
 max_minis = 1
+boosts = Array[String](["Milk"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

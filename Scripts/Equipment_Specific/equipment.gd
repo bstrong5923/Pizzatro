@@ -42,7 +42,13 @@ func equipment_bought(e) -> bool:
 	print("WORKING")
 	if !can_buy_more_equipment():
 		return false
-	my_equipment.append(e)
+	var runner = false
+	for x in my_equipment:
+		if x.name == e.name:
+			x.upgrade()
+			runner = true
+	if (!runner):
+		my_equipment.append(e)
 	return true
 
 func get_my_equipment():

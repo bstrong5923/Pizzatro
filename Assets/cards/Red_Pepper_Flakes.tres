@@ -16,5 +16,5 @@ description = "red peppa flakes"
 types = Array[String](["spice"])
 min_minis = 16
 max_minis = 20
-boosts = Array[String](["Sugar", "Pepper", "Salt"])
+boosts = Array[String](["Sugar", "Pepper", "Salt", "Jalopeno"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

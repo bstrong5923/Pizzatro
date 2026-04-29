@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Uranium" load_steps=3 format=3 uid="uid://dseauqo6ufdg8"]
 
 [ext_resource type="Script" uid="uid://c05y2oypb0kl6" path="res://Scripts/Equipment_Specific/uranium.gd" id="1_7dyjl"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Equipment/uranium.png" id="2_efbg7"]
+[ext_resource type="Texture2D" uid="uid://gblakj18cux4" path="res://Assets/Sprites/Equipment/uranium.png" id="2_efbg7"]
 
 [resource]
 script = ExtResource("1_7dyjl")
@@ -9,5 +9,5 @@ name = "Uranium"
 texture = ExtResource("2_efbg7")
 rarity = "Rare"
 cost = 13
-description = "1.5X Energy "
+description = "Need I say more... 1.5X Energy "
 round_start = true

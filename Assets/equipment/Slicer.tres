@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Slicer" load_steps=3 format=3 uid="uid://87jqc4rpbbf7"]
 
 [ext_resource type="Script" uid="uid://c4c817knlg18k" path="res://Scripts/Equipment_Specific/slicer.gd" id="1_lcgef"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Equipment/slicer.png" id="2_dsenx"]
+[ext_resource type="Texture2D" uid="uid://cm1830w0hpoh7" path="res://Assets/Sprites/Equipment/slicer.png" id="2_dsenx"]
 
 [resource]
 script = ExtResource("1_lcgef")
@@ -9,6 +9,6 @@ name = "Slicer"
 texture = ExtResource("2_dsenx")
 rarity = "Common"
 cost = 6
-description = "Basil costs 50% less and gives one more card"
+description = "Fun Fact: some people cut pizza with scissors. Basil costs 50% less and gives one more card"
 card_played = true
 bought = true

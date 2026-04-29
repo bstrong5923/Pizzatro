@@ -9,6 +9,6 @@ name = "Red Bull"
 texture = ExtResource("2_fhrkh")
 rarity = "Common"
 cost = 7
-description = "+6 Energy"
+description = "Gives you wiiings. +6 Energy"
 round_start = true
 metadata/_custom_type_script = "uid://bbwtp6m2b7byj"
