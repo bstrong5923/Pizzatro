@@ -45,7 +45,7 @@ func equipment_bought(e) -> bool:
 	var runner = false
 	for x in my_equipment:
 		if x.name == e.name:
-			x.upgrade()
+			x.apply_upgrade()
 			runner = true
 	if (!runner):
 		my_equipment.append(e)
@@ -63,7 +63,8 @@ func set_equipment(equip):
 	
 func set_description_and_tooltip():
 	#sets text to description
-	var text = this_equip.description
+	var text = "[b]" + this_equip.get_display_name() + "[/b]" + "\n"
+	text += this_equip.description
 	#highlight keywords
 	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color]")
 	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color]")
