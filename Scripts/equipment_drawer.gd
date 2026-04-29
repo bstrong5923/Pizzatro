@@ -14,7 +14,7 @@ func sort_equipments():
 		var equip_instance = equipment_mini.instantiate()
 		var column_index = mini(int(i / 3), COLUMN_X.size() - 1)
 		equip_instance.set_text(equipment_data.texture)
-		equip_instance.set_description(equipment_data.description)
+		equip_instance.set_description(equipment_data.description, equipment_data)
 		equip_instance.change_scale(0.5)
 		equip_instance.position = Vector2(
 			COLUMN_X[column_index],

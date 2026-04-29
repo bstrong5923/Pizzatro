@@ -18,11 +18,17 @@ func set_text(textu):
 
 func change_scale(n):
 	$equipment_mini.scale = Vector2(n, n)
+	
 
-func set_description(n):
+
+func set_description(descrip, name):
 	var label = get_node("info_sprite/info")
-	var text = n
-
+	var display_name = name
+	if name is Equipment:
+		display_name = name.get_display_name()
+	var text = "[b]" + display_name + "[/b]" + "\n"
+	text += descrip
+	
 	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color] ")
 	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color] ")
 	text = text.replacen("Salty", "[color=fae100]Salty[/color] ")

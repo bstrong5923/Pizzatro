@@ -6,6 +6,7 @@ class_name Equipment
 @export var rarity : String
 @export var cost : int
 @export var description : String
+@export var upgrade_count : int = 0
 
 @export var type : Array[String]
 @export var index : int
@@ -27,6 +28,13 @@ func on_round_start(input):
 
 func on_submit(input):
 	pass
+
+func apply_upgrade():
+	upgrade_count += 1
+	upgrade()
+
+func get_display_name() -> String:
+	return name + "+".repeat(upgrade_count)
 
 func upgrade():
 	pass
