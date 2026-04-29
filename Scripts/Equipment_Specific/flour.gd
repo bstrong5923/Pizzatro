@@ -1,9 +1,11 @@
 extends Equipment
 class_name Flour
-
+var multiplier = .1
 
 func on_bought(g):
-	RoundButtons.apply_flour_bonus(0.1)
+	RoundButtons.apply_flour_bonus(multiplier)
 	
 
-#yahoo (adding this to e able to make a commit)😀😀😀
+
+func upgrade():
+	multiplier += .1

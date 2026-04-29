@@ -88,6 +88,7 @@ func show_saved_discard_previews() -> void:
 		img.texture = get_preview_texture(saved_discard["card"])
 		img.position = saved_discard["position"]
 		img.scale = get_discard_preview_scale()
+		img.rotation_degrees = randf_range(0, 360)
 		img.z_index = 3
 		trash_background.add_child(img)
 

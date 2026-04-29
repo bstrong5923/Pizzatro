@@ -9,6 +9,7 @@ func _ready() -> void:
 	level = 0
 	Deck.fill_initial_deck()
 	Equip.fill_common_equip_list()
+	Score.reset_money()
 	new_round()
 	n = 1
 
@@ -46,9 +47,9 @@ func get_level():
 	return level
 	
 func game_over():
-	$RemoveCardMenu.reset_saved_discards()
-	Equip.wipe_equipment()
-	Score.reset_money()
-	n = 1 
-	#change to game over screen eventually
-	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
+	playing_off()
+	for child in get_children():
+		child.queue_free()
+	print(get_tree())
+	print(get_children())
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")

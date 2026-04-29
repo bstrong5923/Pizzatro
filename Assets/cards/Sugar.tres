@@ -16,4 +16,5 @@ description = "just some sugar."
 types = Array[String](["spice"])
 min_minis = 16
 max_minis = 20
+boosts = Array[String](["Salt", "Pineapple"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"
