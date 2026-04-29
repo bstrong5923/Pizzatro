@@ -5,10 +5,10 @@ const maxequip := 9
 var equipment : Equipment
 static var my_equipment : Array
 
-var file = FileAccess.open("res://Assets/common_equipment_list.json", FileAccess.READ)
-var raw_text = file.get_as_text()
-var data = JSON.parse_string(raw_text)
+
 static var common_equip_list = []
+static var rare_equip_list = []
+static var exotic_equip_list = []
 var this_equip
 static var index = 0
 var highlighted = false
@@ -20,11 +20,24 @@ var shop_mode = false
 var tooltip
 var tooltiptext
 
-func fill_common_equip_list():
-	# fill common_equip_list
-	common_equip_list = []
-	for e in range(0,data.size()): 
-		common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
+var level
+
+func fill_equip_lists():
+	# loops through all equip lists and fills them
+	var types = ["common", "rare", "exotic"]
+	var raw_text
+	var data
+	for type in types:
+		var file = FileAccess.open("res://Assets/" + type + "_equipment_list.json", FileAccess.READ)
+		raw_text = file.get_as_text()
+		data = JSON.parse_string(raw_text)
+		for e in range(0,data.size()):
+			if type == "common": 
+				common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
+			if type == "rare":
+				rare_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
+			if type == "exotic":
+				exotic_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 
 func shop_mode_on():
 	shop_mode = true
@@ -42,7 +55,13 @@ func equipment_bought(e) -> bool:
 	print("WORKING")
 	if !can_buy_more_equipment():
 		return false
-	my_equipment.append(e)
+	var runner = false
+	for x in my_equipment:
+		if x.name == e.name:
+			x.apply_upgrade()
+			runner = true
+	if (!runner):
+		my_equipment.append(e)
 	return true
 
 func get_my_equipment():
@@ -57,7 +76,8 @@ func set_equipment(equip):
 	
 func set_description_and_tooltip():
 	#sets text to description
-	var text = this_equip.description
+	var text = "[b]" + this_equip.get_display_name() + "[/b]" + "\n"
+	text += this_equip.description
 	#highlight keywords
 	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color]")
 	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color]")
@@ -69,8 +89,13 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
-	#return common_equip_list[common_equip_list.size() - 1] # for testing most recent equipment
-	return common_equip_list[randi_range(0, common_equip_list.size() - 1)]
+	var rarity = randi_range(0, 100)
+	if (rarity > 95):
+		return exotic_equip_list[randi_range(0, exotic_equip_list.size() - 1)]
+	elif (rarity > 77):
+		return rare_equip_list[randi_range(0, rare_equip_list.size() - 1)]
+	else:
+		return common_equip_list[randi_range(0, common_equip_list.size() - 1)]
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: # when clicked
 	if get_node("/root/Game/RemoveCardMenu").is_open():

@@ -14,3 +14,6 @@ func for_description(ingredient):
 		for f in CardFunction.flavors_to_add_desc.size():
 			if CardFunction.flavors_to_add_desc[f] != 0:
 				CardFunction.flavors_to_add_desc[f] += bonus
+
+func upgrade():
+	bonus += 2

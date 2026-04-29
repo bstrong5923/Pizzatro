@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Red_Bull" load_steps=3 format=3 uid="uid://cc6mlgq5dfxy0"]
+[gd_resource type="Resource" script_class="Red_Bull" load_steps=3 format=3 uid="uid://b6vnv0sn8wwh3"]
 
 [ext_resource type="Script" uid="uid://bbwtp6m2b7byj" path="res://Scripts/Equipment_Specific/red_bull.gd" id="1_fb8s0"]
 [ext_resource type="Texture2D" uid="uid://dtdey4y75o742" path="res://Assets/Sprites/Equipment/Redbull.png" id="2_fhrkh"]
@@ -9,6 +9,6 @@ name = "Red Bull"
 texture = ExtResource("2_fhrkh")
 rarity = "Common"
 cost = 7
-description = "+6 Energy"
+description = "Gives you wiiings. +6 Energy"
 round_start = true
 metadata/_custom_type_script = "uid://bbwtp6m2b7byj"

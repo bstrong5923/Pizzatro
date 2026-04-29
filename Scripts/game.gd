@@ -8,7 +8,7 @@ var n = 1
 func _ready() -> void:
 	level = 0
 	Deck.fill_initial_deck()
-	Equip.fill_common_equip_list()
+	Equip.fill_equip_lists()
 	Score.reset_money()
 	new_round()
 	n = 1

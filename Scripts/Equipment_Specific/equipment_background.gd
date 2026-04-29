@@ -42,7 +42,7 @@ func generate_equipment_minis():
 	for x in range(my_equipment.size()):
 		var e = Equipm.instantiate()
 		e.set_text(my_equipment[x].texture)
-		e.set_description(my_equipment[x].description)
+		e.set_description(my_equipment[x].description, my_equipment[x])
 		var xpos
 		var ypos
 		## formatting if there is less than 9

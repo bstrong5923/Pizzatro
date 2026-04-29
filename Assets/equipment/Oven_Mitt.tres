@@ -1,7 +1,13 @@
-[gd_resource type="Resource" script_class="Oven_Mitt" load_steps=2 format=3 uid="uid://btmo7jrji0s4y"]
+[gd_resource type="Resource" script_class="Oven_Mitt" load_steps=3 format=3 uid="uid://btmo7jrji0s4y"]
 
 [ext_resource type="Script" uid="uid://cmltb7t4etb1w" path="res://Scripts/Equipment_Specific/oven_mitt.gd" id="1_b8q1x"]
+[ext_resource type="Texture2D" uid="uid://da3kxhu484sm0" path="res://Assets/Sprites/Equipment/mitt.png" id="2_p28q0"]
 
 [resource]
 script = ExtResource("1_b8q1x")
+name = "Oven Mitt"
+texture = ExtResource("2_p28q0")
+rarity = "Legendary!"
+cost = 7
+description = "Whats up doe? I love the Pistons. Makes your pizza detroit style."
 metadata/_custom_type_script = "uid://cmltb7t4etb1w"

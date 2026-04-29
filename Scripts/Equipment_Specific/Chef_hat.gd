@@ -17,3 +17,5 @@ func on_submit(score):
 	for i in top_val_indexes:
 		score.flavor_values[i] *= multiplier
 	
+func upgrade():
+	multiplier += .1 
