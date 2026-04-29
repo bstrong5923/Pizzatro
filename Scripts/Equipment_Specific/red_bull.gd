@@ -1,7 +1,10 @@
 extends Equipment
 class_name Red_Bull
 
-var bonus = 1
+var bonus = 6
 
 func on_round_start(game):
 	game.starting_energy += bonus
+
+func upgrade():
+	bonus += 2
