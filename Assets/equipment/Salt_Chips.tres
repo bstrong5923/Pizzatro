@@ -9,6 +9,6 @@ name = "Salt Chips"
 texture = ExtResource("2_o38p1")
 rarity = "common"
 cost = 9
-description = "Salt multiplies Salty score by 1.5x"
+description = "40% full. The salt shaker ingredient multiplies salty score by 1.5x"
 card_played = true
 metadata/_custom_type_script = "uid://dmqfawupysg4b"

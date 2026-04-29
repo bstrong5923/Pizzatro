@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Chef_Hat" load_steps=3 format=3 uid="uid://dkf6bkjlfn5f"]
 
-[ext_resource type="Script" uid="uid://bs55vuwlmbrq8" path="res://Scripts/Equipment_Specific/Chef_hat.gd" id="1_h0qb1"]
+[ext_resource type="Script" uid="uid://d4apsnab8nbhw" path="res://Scripts/Equipment_Specific/Chef_hat.gd" id="1_h0qb1"]
 [ext_resource type="Texture2D" uid="uid://cidekqvsh6whu" path="res://Assets/Sprites/Equipment/Chef Hat.png" id="2_fggv0"]
 
 [resource]
@@ -8,5 +8,5 @@ script = ExtResource("1_h0qb1")
 texture = ExtResource("2_fggv0")
 rarity = "Common"
 cost = 8
-description = "A hat that wears! 1.2X Highest Flavor Score"
+description = "A hat that wears! 1.2X Highest flavor score"
 submit = true

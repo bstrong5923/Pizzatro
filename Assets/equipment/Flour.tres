@@ -9,6 +9,6 @@ name = "Flour"
 texture = ExtResource("2_fwxsk")
 rarity = "Common"
 cost = 10
-description = "This flour is very dough-like. Left Over Ingredients multiply all money earned by 1.1x"
+description = "This flour is very dough-like. Left over ingredients multiply all money earned by 1.1x"
 bought = true
 metadata/_custom_type_script = "uid://bmfkw8f22u17a"

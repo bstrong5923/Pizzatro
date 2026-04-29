@@ -9,6 +9,6 @@ name = "Grinder"
 texture = ExtResource("2_knlmh")
 rarity = "Common"
 cost = 12
-description = "Grinds up powders to sizes never seen before. +5 each Flavor for Spices"
+description = "Grinds up powders to sizes never seen before. +5 each Flavor for spices"
 type = Array[String](["Spice"])
 card_played = true
