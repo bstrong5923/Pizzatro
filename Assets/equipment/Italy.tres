@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Italy" load_steps=3 format=3 uid="uid://dmymehea6d8v7"]
+
+[ext_resource type="Script" uid="uid://bny4expihcsvk" path="res://Scripts/Equipment_Specific/italy.gd" id="1_3le3i"]
+[ext_resource type="Texture2D" uid="uid://bafykx5o0uxye" path="res://Assets/Sprites/Equipment/italyian flag.png" id="2_x01ur"]
+
+[resource]
+script = ExtResource("1_3le3i")
+name = "Italy"
+texture = ExtResource("2_x01ur")
+rarity = "Rare"
+cost = 12
+description = "Mamma Mia! I don'ta wanna run out of za cards! If your hand is empty, draw a card."
+card_played = true
+metadata/_custom_type_script = "uid://bny4expihcsvk"
