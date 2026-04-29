@@ -1,7 +1,7 @@
 extends Equipment
 class_name John_Green
 
-var multiplier = 6.5
+var multiplier = 2
 
 func on_card_played(ingredient):
 	if ingredient.types.has("green"):
