@@ -6,13 +6,13 @@
 
 [resource]
 script = ExtResource("1_jtt7k")
-name = "Red Onion"
+name = "Red_Onion"
 texture = ExtResource("3_2khgl")
 texture_retro = ExtResource("3_2khgl")
 minis = ExtResource("1_o0vl2")
 flavors = Array[float]([0.0, 2.0, 0.0, 0.0, 4.0])
 price = 2.0
-description = "This Is a Red Onion"
+description = "This is a Red Onion"
 min_minis = 7
 max_minis = 10
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

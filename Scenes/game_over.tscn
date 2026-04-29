@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://wij6isc0k7ui"]
+
+[ext_resource type="Texture2D" uid="uid://cpi2o3d80s4bq" path="res://Assets/Sprites/gameover.png" id="1_ojehl"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Gameover" type="Sprite2D" parent="."]
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("1_ojehl")
+centered = false

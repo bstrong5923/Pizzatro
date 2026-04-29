@@ -6,14 +6,15 @@
 
 [resource]
 script = ExtResource("2_xwhg4")
-name = "Red Pepper Flakes"
+name = "Red_Pepper_Flakes"
 texture = ExtResource("3_t40q3")
 texture_retro = ExtResource("3_t40q3")
 minis = ExtResource("1_vxsbv")
-flavors = Array[int]([0, 3, 0, 0, 0])
-price = 1
+flavors = Array[float]([0.0, 3.0, 0.0, 0.0, 0.0])
+price = 1.0
 description = "red peppa flakes"
 types = Array[String](["spice"])
 min_minis = 16
 max_minis = 20
+boosts = Array[String](["Sugar", "Pepper", "Salt", "Jalopeno"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"

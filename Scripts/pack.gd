@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var price = 10
+var price = 8
 var pricetag
 
 func _ready() -> void:

@@ -54,8 +54,8 @@ func add_money(i):
 	money += i
 	get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(money)
 
-func reset_money():
-	money = 0
+func reset_money(): # start with $10
+	money = 10
 
 func clear_score():
 	flavor_values = [0.0,0.0,0.0,0.0,0.0]
