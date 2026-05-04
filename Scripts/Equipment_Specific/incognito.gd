@@ -10,4 +10,6 @@ func on_bought(pack):
 	
 func upgrade():
 	multiplier += 1
+	description.replacen(str(multiplier - 1), str(multiplier))
 	on_bought(pac)
+	

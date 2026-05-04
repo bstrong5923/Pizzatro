@@ -9,3 +9,4 @@ func on_bought(g):
 
 func upgrade():
 	multiplier += .1
+	description.replacen(str(.9 + multiplier), str(1 + multiplier))

@@ -45,7 +45,10 @@ func shop_mode_on():
 func wipe_equipment():
 	my_equipment.clear()
 
-func can_buy_more_equipment() -> bool:
+func can_buy_more_equipment(test) -> bool:
+	for equ in my_equipment:
+		if test.name == equ.name:
+			return true
 	return my_equipment.size() < maxequip
 
 func get_equipment_limit() -> int:
@@ -53,7 +56,7 @@ func get_equipment_limit() -> int:
 
 func equipment_bought(e) -> bool:
 	print("WORKING")
-	if !can_buy_more_equipment():
+	if !can_buy_more_equipment(e):
 		return false
 	var runner = false
 	for x in my_equipment:
@@ -101,14 +104,14 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if get_node("/root/Game/RemoveCardMenu").is_open():
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if shop_mode and Score.money >= this_equip.cost and can_buy_more_equipment():
+		if shop_mode and Score.money >= this_equip.cost and can_buy_more_equipment(this_equip):
 			var s = get_tree().current_scene.get_child(13, true)
 			this_equip.index = index
 			index += 1
 			if !equipment_bought(this_equip):
 				return
 			if this_equip.bought and (this_equip.name == "Incognito"):
-				await this_equip.on_bought(s) #call pack scene which is impossible for some reason bruh i wanna kms
+				await this_equip.on_bought(s) 
 			elif this_equip.bought:
 				await this_equip.on_bought("hi mom")
 			Score.add_money(this_equip.cost * -1)

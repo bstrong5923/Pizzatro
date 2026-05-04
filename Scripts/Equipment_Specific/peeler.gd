@@ -15,3 +15,4 @@ func for_description(ingredient):
 
 func upgrade():
 	multiplier += .3
+	description.replacen(str(multiplier - .3), multiplier)

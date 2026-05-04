@@ -38,7 +38,11 @@ func apply_upgrade():
 	upgrade()
 
 func get_display_name() -> String:
-	return name + "+".repeat(upgrade_count)
+	var t = name + "+".repeat(upgrade_count)
+	#"[color=d900d9]Sweet[/color]"
+	if (upgrade_count >= 1):
+		t = "[color=bf9a33]" + t + "[/color]"
+	return t
 
 func upgrade():
 	pass

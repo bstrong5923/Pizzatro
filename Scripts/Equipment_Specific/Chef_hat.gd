@@ -19,3 +19,4 @@ func on_submit(score):
 	
 func upgrade():
 	multiplier += .1 
+	description.replacen(str(multiplier - .1), str(multiplier))

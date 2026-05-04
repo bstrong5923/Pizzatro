@@ -9,3 +9,4 @@ func on_bought(input):
 func upgrade():
 	#idk wtf imma put here
 	print("nah u dont upgrade dawg")
+	
