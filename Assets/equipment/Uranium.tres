@@ -9,5 +9,7 @@ name = "Uranium"
 texture = ExtResource("2_efbg7")
 rarity = "Rare"
 cost = 13
-description = "Need I say more... 1.5X Energy "
+description = "Need I say more... 
+
+1.5X Energy "
 round_start = true
