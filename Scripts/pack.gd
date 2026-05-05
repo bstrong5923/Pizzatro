@@ -19,5 +19,5 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			
 
 func incognito(amt):
-	price = 10 - amt
+	price = 8 - amt
 	pricetag.set_price(price, true)
