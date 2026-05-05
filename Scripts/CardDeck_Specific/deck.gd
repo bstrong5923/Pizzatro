@@ -3,7 +3,7 @@ extends Node2D
 var card = preload("res://Scenes/card.tscn")
 
 var deck : Array[Card] = []
-var file = FileAccess.open("res://Assets/card_list.json", FileAccess.READ)
+var file = FileAccess.open("res://Assets/initial_card_list.json", FileAccess.READ)
 var raw_text = file.get_as_text()
 var data = JSON.parse_string(raw_text)
 # undrawn cards
@@ -12,7 +12,6 @@ var hand = []
 var discard_pile = [] #not usin this rn 
 var card_highlighted = 0
 var shop_hand = []
-var card_list = []
 var minimum = 0
 static var unlocked_card_list = []
 static var boosted_card_list = []
@@ -32,12 +31,10 @@ func set_minimum(v):
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
 	deck = []
 	for ingredient in data.size():
-		card_list.push_back(get_ingredient(data[ingredient]))
+		unlocked_card_list.push_back(get_ingredient(data[ingredient]))
 	for ingredient in range(0,6):
 		for x in range(0,4): # num of copies of each card
 			deck.push_back(get_ingredient(data[ingredient]))
-	for i in range(12):
-		unlocked_card_list.push_back(get_ingredient(data[i]))
 
 func get_ingredient(i):
 	return load("res://Assets/cards/" + i + ".tres")
