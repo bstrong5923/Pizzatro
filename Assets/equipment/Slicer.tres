@@ -9,6 +9,8 @@ name = "Slicer"
 texture = ExtResource("2_dsenx")
 rarity = "Common"
 cost = 6
-description = "Fun Fact: some people cut pizza with scissors. Basil costs 50% less and gives one more card"
+description = "Fun Fact: some people cut pizza with scissors. 
+
+Basil costs 50% less, draw 1 card."
 card_played = true
 bought = true

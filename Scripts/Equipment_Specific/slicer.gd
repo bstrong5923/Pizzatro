@@ -3,6 +3,7 @@ class_name Slicer
 
 var basil_resource = load("res://Assets/cards/Basil.tres")
 var multiplier = 1
+var plurality = false
 func on_bought(g):
 	basil_resource.price /= 2.0
 	for c in Deck.deck:
@@ -16,3 +17,7 @@ func on_card_played(ingredient):
 	
 func upgrade():
 	multiplier += 1
+	if plurality == false:
+		description = description.replacen("card", "cards")
+		plurality = true
+	description = description.replacen(str(multiplier - 1), str(multiplier))

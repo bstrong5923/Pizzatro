@@ -8,3 +8,7 @@ func on_card_played(ingredient):
 
 func for_description(ingredient):
 	CardFunction.flavors_to_add_desc[0] *= multiplier
+
+func upgrade():
+	multiplier += .3
+	description = description.replacen(str(multiplier - .3), str(multiplier))

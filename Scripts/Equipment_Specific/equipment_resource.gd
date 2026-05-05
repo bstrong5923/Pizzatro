@@ -5,7 +5,7 @@ class_name Equipment
 @export var texture : Texture2D
 @export var rarity : String
 @export var cost : int
-@export var description : String
+@export_multiline var description : String
 @export var upgrade_count : int = 0
 
 @export var type : Array[String]

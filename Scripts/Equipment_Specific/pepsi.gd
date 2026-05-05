@@ -8,7 +8,8 @@ var pilk_minis = preload("res://Assets/Sprites/ingredient_minis/pilk_minis.png")
 var milk_resource = load("res://Assets/cards/Milk.tres")
 
 var milk_desc = milk_resource.description
-var pilk_desc = "PILK! PIIIIIIIIILK!!!! GIVE ME MORE PILK!!!!!!"
+var pilk_desc = "PILK! PIIIIIIIIILK!!!! GIVE ME MORE PILK!!!!!!😩🥀 💁🏿"
+var upgrader = 16.0
 func on_bought(g): # main function
 	change_to("Pilk",[16.0,16.0,16.0,16.0,16.0], pilk_texture, pilk_desc, pilk_minis)
 
@@ -34,3 +35,8 @@ func change_to(n, flavors, t, desc, minis):
 	
 func on_submit(score): # boring milkless function
 	score.flavor_values[0] += 7
+
+func upgrade():
+	upgrader += 4
+	var name = "Pilk" + "+".repeat((upgrader % 4) - 4)
+	change_to(name, [upgrader,upgrader,upgrader,upgrader,upgrader], pilk_texture, pilk_desc, pilk_minis)

@@ -9,7 +9,9 @@ name = "Pepsi"
 texture = ExtResource("2_kj72x")
 rarity = "Common"
 cost = 7
-description = "It needs something... +7 Sweet"
+description = "It needs something... 
+
++7 Sweet"
 bought = true
 submit = true
 sold = true

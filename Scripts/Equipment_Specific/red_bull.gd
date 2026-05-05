@@ -8,3 +8,4 @@ func on_round_start(game):
 
 func upgrade():
 	bonus += 2
+	description = description.replacen(str(bonus - 2), str(bonus))

@@ -17,4 +17,4 @@ func for_description(ingredient):
 
 func upgrade():
 	bonus += 2
-	description.replacen(str(bonus - 2), str(bonus))
+	description = description.replacen(str(bonus - 2), str(bonus))
