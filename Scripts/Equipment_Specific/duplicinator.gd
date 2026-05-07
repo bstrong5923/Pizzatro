@@ -7,8 +7,9 @@ func on_card_played(ingredient):
 	last_played = ingredient
 
 func on_submit():
-  if last_played:
-    Deck.deck.push_back(Deck.get_ingredient(last_played))
+	if last_played:
+		Deck.deck.push_back(last_played)
+	last_played = null
 
 func upgrade():
 	pass
