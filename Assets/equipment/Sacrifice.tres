@@ -10,6 +10,7 @@ texture = ExtResource("2_a8m2c")
 rarity = "Exotic"
 cost = 13
 description = "First card played each turn gets 5X then deleted"
+max_upgrades = 0
 card_played = true
 submit = true
 metadata/_custom_type_script = "uid://wcodkh04wyuj"

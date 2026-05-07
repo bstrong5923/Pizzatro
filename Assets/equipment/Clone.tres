@@ -10,6 +10,7 @@ texture = ExtResource("2_xmmdm")
 rarity = "Rare"
 cost = 10
 description = "Create a copy of the first duplicate card you play each turn and add it to your deck"
+max_upgrades = 0
 card_played = true
 submit = true
 metadata/_custom_type_script = "uid://dvg6xkgga2m5p"

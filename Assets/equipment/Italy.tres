@@ -10,5 +10,6 @@ texture = ExtResource("2_x01ur")
 rarity = "Rare"
 cost = 12
 description = "Mamma Mia! I don'ta wanna run out of za cards! If your hand is empty, draw a card."
+max_upgrades = 0
 card_played = true
 metadata/_custom_type_script = "uid://bny4expihcsvk"

@@ -12,5 +12,6 @@ cost = 9
 description = "40% chips, 60% air, 100% salty. 
 
 Salt Shakers multiplies Salty score by 1.5x."
+max_upgrades = 2
 card_played = true
 metadata/_custom_type_script = "uid://dmqfawupysg4b"

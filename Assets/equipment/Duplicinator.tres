@@ -10,6 +10,7 @@ texture = ExtResource("2_bse5e")
 rarity = "Common"
 cost = 16
 description = "Create a copy of the last card you play each turn and add it to your deck"
+max_upgrades = 0
 card_played = true
 submit = true
 metadata/_custom_type_script = "uid://c016ypb2ta3a7"

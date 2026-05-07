@@ -10,6 +10,3 @@ func on_submit(a):
 	if last_played:
 		Deck.deck.push_back(last_played)
 	last_played = null
-
-func upgrade():
-	pass

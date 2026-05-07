@@ -61,7 +61,7 @@ func equipment_bought(e) -> bool:
 		return false
 	var runner = false
 	for x in my_equipment:
-		if x.name == e.name:
+		if x.name == e.name and x.upgrade_count < x.max_upgrades:
 			x.apply_upgrade()
 			runner = true
 	if (!runner):
@@ -93,6 +93,7 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
+	var result
 	var rarity = randi_range(0, 100)
 	if (rarity < 5):
 		return exotic_equip_list[randi_range(0, exotic_equip_list.size() - 1)]
@@ -111,10 +112,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			index += 1
 			if !equipment_bought(this_equip):
 				return
-			if this_equip.bought and (this_equip.name == "Incognito"):
-				await this_equip.on_bought(s) 
 			elif this_equip.bought:
-				await this_equip.on_bought("hi mom")
+				await this_equip.on_bought(s)
 			Score.add_money(this_equip.cost * -1)
 			queue_free()
 

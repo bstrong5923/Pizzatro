@@ -14,6 +14,3 @@ func on_card_played(ingredient):
 func on_submit(a):
 	done = false
 	last_played = null
-
-func upgrade():
-	pass
