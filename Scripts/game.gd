@@ -14,6 +14,9 @@ func _ready() -> void:
 	n = 1
 
 func new_round():
+	var end_round_sign = get_node_or_null("EndRoundSign")
+	if end_round_sign:
+		end_round_sign.hide_sign()
 	level += 1
 	starting_energy = 20
 	# check equipments
