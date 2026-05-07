@@ -35,7 +35,6 @@ func fill_equip_lists():
 			if type == "common": 
 				common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 			if type == "rare":
-				print(data[e])
 				rare_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 			if type == "exotic":
 				exotic_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))

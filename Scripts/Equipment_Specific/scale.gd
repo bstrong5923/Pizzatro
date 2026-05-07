@@ -16,3 +16,4 @@ func on_submit(score):
 	
 func upgrade():
 	minus += 10
+	description = description.replacen(" minus 10", "")

@@ -35,8 +35,6 @@ func new_round():
 	$Labels/Score.clear_score()
 	$pie/minis.clear_minis()
 	Deck.clear_shop_hand()
-	print($drawer)
-	print($drawer.get_script())
 	$drawer.sort_equipments()
 	playing = true
 	await get_tree().create_timer(0.45).timeout # wait for shop to be offscreen

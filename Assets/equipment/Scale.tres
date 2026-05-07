@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Scale" load_steps=3 format=3 uid="uid://6g6vupgf8jkj"]
+
+[ext_resource type="Script" uid="uid://e4brmfs3ifyy" path="res://Scripts/Equipment_Specific/scale.gd" id="1_kebvx"]
+[ext_resource type="Texture2D" uid="uid://ct8e20ooiktum" path="res://Assets/Sprites/Equipment/scale.png" id="2_asxla"]
+
+[resource]
+script = ExtResource("1_kebvx")
+name = "Scale"
+texture = ExtResource("2_asxla")
+rarity = "Exotic"
+cost = 20
+description = "Each flavor gets multiplied by your lowest flavor minus 10, lowest flavor becomes 0."
+max_upgrades = 1
+submit = true
+metadata/_custom_type_script = "uid://e4brmfs3ifyy"
