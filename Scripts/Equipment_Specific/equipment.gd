@@ -93,9 +93,6 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
-	print("common: " + str(common_equip_list))
-	print("rare: " + str(rare_equip_list))
-	print("exotic: " + str(exotic_equip_list))
 	var rarity = randi_range(0, 100)
 	if (rarity < 5):
 		return exotic_equip_list[randi_range(0, exotic_equip_list.size() - 1)]

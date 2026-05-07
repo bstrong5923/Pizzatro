@@ -5,7 +5,7 @@ const REMOVE_BUTTON_TEXTURE := preload("res://Assets/Sprites/game scene items/re
 
 func _ready():
 	var pricetag = get_node("price_circle")
-	pricetag.set_price(25, true)
+	pricetag.set_price(10, true)
 	pricetag.equipment_set_size(1)
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):

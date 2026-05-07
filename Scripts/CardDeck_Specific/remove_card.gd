@@ -20,8 +20,8 @@ func _ready():
 
 # Opens the menu
 func open():
-	if Score.money > 25:
-		Score.add_money(-25)
+	if Score.money > 10:
+		Score.add_money(-10)
 		populate_list()
 		get_tree().paused = false
 		$CenterContainer.visible = true
