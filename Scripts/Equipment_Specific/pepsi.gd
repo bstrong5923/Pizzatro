@@ -28,7 +28,7 @@ func change_to(n, flavors, t, desc, minis):
 			Deck.deck[c] = milk_resource
 	
 func on_submit(score): # boring milkless function
-	score.flavor_values[0] += 7
+	score.flavor_values[0] += 20
 
 func upgrade():
 	upgrader += 4

@@ -11,7 +11,7 @@ rarity = "Common"
 cost = 11
 description = "This special spatula is super sweet???? 
 
-1.5X Sweet"
+2X Sweet"
 type = Array[String](["Sweet"])
 card_played = true
 metadata/_custom_type_script = "uid://cksirkshfea6h"

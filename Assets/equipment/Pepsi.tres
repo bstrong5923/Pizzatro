@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Pepsi" load_steps=3 format=3 uid="uid://bekw8no2fk8n7"]
+[gd_resource type="Resource" script_class="Pepsi" load_steps=3 format=3 uid="uid://pnwj84sqb61j"]
 
 [ext_resource type="Script" uid="uid://d0pej38ge33hb" path="res://Scripts/Equipment_Specific/pepsi.gd" id="1_1ywbh"]
 [ext_resource type="Texture2D" uid="uid://bsi4ov7pqdc43" path="res://Assets/Sprites/Equipment/pepsi.png" id="2_kj72x"]
@@ -11,7 +11,7 @@ rarity = "Common"
 cost = 7
 description = "It needs something... 
 
-+7 Sweet"
++20 Sweet"
 bought = true
 submit = true
 sold = true

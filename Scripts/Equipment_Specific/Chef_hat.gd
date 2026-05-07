@@ -1,8 +1,8 @@
 extends Equipment
 class_name Chef_Hat
 
-var multiplier = 1.2
-
+var multiplier = 1.5
+var inc = 0.5
 
 func on_submit(score):
 	var top_val = 0
@@ -18,5 +18,5 @@ func on_submit(score):
 		score.flavor_values[i] *= multiplier
 	
 func upgrade():
-	multiplier += .1 
-	description = description.replacen(str(multiplier - .1), str(multiplier))
+	multiplier += inc
+	description = description.replacen(str(multiplier - inc), str(multiplier))

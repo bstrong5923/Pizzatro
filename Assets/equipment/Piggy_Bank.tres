@@ -9,6 +9,6 @@ name = "Piggy Bank"
 texture = ExtResource("2_2b4y4")
 rarity = "Rare"
 cost = 16
-description = "Multiplies all flavors by the price of the card played"
+description = "Multiplies all flavors by the price of the card played minus  one"
 card_played = true
 metadata/_custom_type_script = "uid://cwnob2tq75ypc"
