@@ -58,11 +58,20 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				
 				var locations  = [Vector2(-320, -350), Vector2(-146, -350), Vector2(-320, -170), Vector2(-146, -170)]
 				# equipments in shop
+				var equips = []
 				for i in range(0,4):
 					var equip_instance = equipment.instantiate()
 					equip_instance.scale = Vector2(4,4)
 					equip_instance.position = locations[i]
-					var e = await Equip.generate_random_equipment()
+					var e
+					var again = true
+					while again:
+						again = false
+						e = await Equip.generate_random_equipment()
+						for eq in equips: # no dupes in shop
+							if e == eq:
+								again = true
+					equips.push_back(e)
 					if e != null: # if you are out of equipment to buy
 						equip_instance.set_equipment(e)
 						equip_instance.shop_mode_on()
