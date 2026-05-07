@@ -11,6 +11,8 @@ func on_card_played(ingredient):
 			CardFunction.flavors_to_add[f] *= multiplier
 			Deck.deck.remove_at(Deck.deck.find(ingredient))
 		done = true
+		return true
+	return false
 
 func on_submit(a):
 	done = false

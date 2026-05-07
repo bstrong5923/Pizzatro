@@ -9,6 +9,7 @@ func on_card_played(ingredient):
 		mult = 1
 	for f in CardFunction.flavors_to_add.size():
 		CardFunction.flavors_to_add[f] *= mult 
+	return true
 
 func upgrade():
 	minus += 1

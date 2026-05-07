@@ -7,6 +7,8 @@ var inc = .25
 func on_card_played(ingredient):
 	if ingredient.name == "Salt":
 		Score.flavor_values[2] *= multiplier
+		return true
+	return false
 
 func upgrade():
 	multiplier += inc

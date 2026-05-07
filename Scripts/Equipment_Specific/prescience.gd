@@ -8,6 +8,8 @@ func on_card_played(ingredient):
 		Deck.draw_card()
 		if upgraded:
 			Deck.draw_card()
+		return true
+	return false
 
 func upgrade():
 	upgraded = true

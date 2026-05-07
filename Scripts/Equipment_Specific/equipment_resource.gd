@@ -20,7 +20,7 @@ class_name Equipment
 @export var sold : bool
 
 func on_card_played(input):
-	pass
+	return false
 
 func on_bought(input):
 	pass

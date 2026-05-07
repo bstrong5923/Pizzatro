@@ -28,7 +28,9 @@ func check_equipment():
 	var my_equipment = Equip.get_my_equipment() 
 	for e in my_equipment:
 		if e.card_played:
-			await e.on_card_played(ingredient)
+			var triggered = await e.on_card_played(ingredient)
+			if triggered:
+				get_tree().call_group("equipment_mini", "react_to_equipment", e, "spin")
 	
 func run_card_function():
 	get_node_or_null("/root/Game/Labels/Energy").change_energy(-ingredient.price)

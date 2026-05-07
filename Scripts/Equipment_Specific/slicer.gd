@@ -12,6 +12,8 @@ func on_card_played(ingredient):
 	if ingredient.name == "Basil":
 		for i in range(0, multiplier):
 			Deck.draw_card()
+		return true
+	return false
 	
 func on_sold():
 	basil_resource.price *= 2.0

@@ -12,6 +12,7 @@ func sort_equipments():
 	for i in range(Equip.my_equipment.size()):
 		var equipment_data = Equip.my_equipment[i]
 		var equip_instance = equipment_mini.instantiate()
+		equip_instance.set_equipment_data(equipment_data)
 		var column_index = mini(int(i / 3), COLUMN_X.size() - 1)
 		equip_instance.set_text(equipment_data.texture)
 		equip_instance.set_description(equipment_data.description, equipment_data)

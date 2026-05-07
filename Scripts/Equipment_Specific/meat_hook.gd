@@ -9,6 +9,8 @@ func on_card_played(ingredient):
 		for f in CardFunction.flavors_to_add.size():
 			CardFunction.flavors_to_add[f] *= multiplier
 		done = true
+		return true
+	return false
 	
 func on_submit(a):
 	done = false
