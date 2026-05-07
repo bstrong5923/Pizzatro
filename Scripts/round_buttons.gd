@@ -85,8 +85,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					while again:
 						again = false
 						e = await Equip.generate_random_equipment()
-						for eq in equips: # no dupes in shop
-							if e == eq:
+						for eq in equips: # no dupes in shop or equips that are already max level/cant be upgraded
+							if e == eq or e.upgrade_count < e.max_upgrades:
 								again = true
 					equips.push_back(e)
 					if e != null: # if you are out of equipment to buy

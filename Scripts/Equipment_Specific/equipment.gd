@@ -61,7 +61,7 @@ func equipment_bought(e) -> bool:
 		return false
 	var runner = false
 	for x in my_equipment:
-		if x.name == e.name and x.upgrade_count < x.max_upgrades:
+		if x.name == e.name:
 			x.apply_upgrade()
 			runner = true
 	if (!runner):
@@ -93,7 +93,6 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
-	var result
 	var rarity = randi_range(0, 100)
 	if (rarity < 5):
 		return exotic_equip_list[randi_range(0, exotic_equip_list.size() - 1)]
