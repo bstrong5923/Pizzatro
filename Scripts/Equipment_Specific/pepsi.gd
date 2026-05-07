@@ -26,12 +26,6 @@ func change_to(n, flavors, t, desc, minis):
 	for c in Deck.deck.size():
 		if Deck.deck[c].name == "Milk":
 			Deck.deck[c] = milk_resource
-	#for c in Deck.shop_hand.size():
-		#if Deck.shop_hand[c].name == "Milk":
-			#Deck.shop_hand[c] = milk_resource
-			
-	print(Deck.deck)
-	print(Deck.shop_hand)
 	
 func on_submit(score): # boring milkless function
 	score.flavor_values[0] += 7

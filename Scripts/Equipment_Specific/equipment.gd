@@ -35,6 +35,7 @@ func fill_equip_lists():
 			if type == "common": 
 				common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 			if type == "rare":
+				print(data[e])
 				rare_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
 			if type == "exotic":
 				exotic_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
@@ -92,10 +93,13 @@ func set_description_and_tooltip():
 	change_pricetag_scale(0.2)
 
 func generate_random_equipment():
+	print("common: " + str(common_equip_list))
+	print("rare: " + str(rare_equip_list))
+	print("exotic: " + str(exotic_equip_list))
 	var rarity = randi_range(0, 100)
-	if (rarity > 95):
+	if (rarity < 5):
 		return exotic_equip_list[randi_range(0, exotic_equip_list.size() - 1)]
-	elif (rarity > 77):
+	elif (rarity < 24):
 		return rare_equip_list[randi_range(0, rare_equip_list.size() - 1)]
 	else:
 		return common_equip_list[randi_range(0, common_equip_list.size() - 1)]

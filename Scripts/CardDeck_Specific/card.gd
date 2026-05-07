@@ -100,7 +100,6 @@ func description():
 			howmanyloops += 1
 
 func set_ingredient(i, t):
-	print(i)
 	ingredient = i
 	price = ingredient.price
 			
