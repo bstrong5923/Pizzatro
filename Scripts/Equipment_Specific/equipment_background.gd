@@ -41,6 +41,7 @@ func generate_equipment_minis():
 
 	for x in range(my_equipment.size()):
 		var e = Equipm.instantiate()
+		e.set_equipment_data(my_equipment[x])
 		e.set_text(my_equipment[x].texture)
 		e.set_description(my_equipment[x].description, my_equipment[x])
 		var xpos

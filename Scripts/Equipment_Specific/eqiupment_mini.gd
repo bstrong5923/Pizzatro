@@ -3,9 +3,17 @@ extends Area2D
 @onready var tooltip = $info_sprite 
 @onready var tooltiptext = $info_sprite/info
 var highlighted = false
+var equipment_data : Equipment
+var base_scale := Vector2.ONE
+var reaction_tween : Tween
 
 func _ready() -> void:
+	add_to_group("equipment_mini")
+	base_scale = get_equipment_sprite().scale
 	set_pos_twin()
+
+func get_equipment_sprite() -> Sprite2D:
+	return get_node("equipment_mini") as Sprite2D
 
 #this just sets stuff for description dont even fuck with me twin✌️
 func set_pos_twin():
@@ -14,10 +22,53 @@ func set_pos_twin():
 
 
 func set_text(textu):
-	$equipment_mini.texture = textu
+	get_equipment_sprite().texture = textu
 
 func change_scale(n):
-	$equipment_mini.scale = Vector2(n, n)
+	base_scale = Vector2(n, n)
+	get_equipment_sprite().scale = base_scale
+
+func set_equipment_data(equipment: Equipment):
+	equipment_data = equipment
+
+func react_to_equipment(equipment: Equipment, effect_name := "spin") -> void:
+	if not matches_equipment(equipment):
+		return
+	play_trigger_effect(effect_name)
+
+func matches_equipment(equipment: Equipment) -> bool:
+	if equipment_data == null or equipment == null:
+		return false
+	if equipment_data == equipment:
+		return true
+	return equipment_data.name == equipment.name and equipment_data.index == equipment.index
+
+func play_trigger_effect(effect_name := "spin") -> void:
+	match effect_name:
+		"spin":
+			play_spin_effect()
+		_:
+			play_spin_effect()
+
+func play_spin_effect() -> void:
+	var equipment_sprite = get_equipment_sprite()
+	if reaction_tween:
+		reaction_tween.kill()
+
+	equipment_sprite.rotation_degrees = 0.0
+	equipment_sprite.scale = base_scale
+
+	reaction_tween = create_tween()
+	reaction_tween.tween_property(equipment_sprite, "rotation_degrees", 360.0, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	reaction_tween.parallel().tween_property(equipment_sprite, "scale", base_scale * 1.2, 0.14).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	reaction_tween.tween_property(equipment_sprite, "scale", base_scale, 0.18).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	reaction_tween.finished.connect(_on_reaction_finished)
+
+func _on_reaction_finished() -> void:
+	var equipment_sprite = get_equipment_sprite()
+	equipment_sprite.rotation_degrees = 0.0
+	equipment_sprite.scale = base_scale
+	reaction_tween = null
 	
 
 

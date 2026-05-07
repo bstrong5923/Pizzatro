@@ -35,7 +35,6 @@ func new_round():
 	$drawer.sort_equipments()
 	playing = true
 	await get_tree().create_timer(0.45).timeout # wait for shop to be offscreen
-	
 
 func playing_off():
 	playing = false

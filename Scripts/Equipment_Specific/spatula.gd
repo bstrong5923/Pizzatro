@@ -6,6 +6,8 @@ var inc = .5
 
 func on_card_played(ingredient):
 	CardFunction.flavors_to_add[0] *= multiplier
+	if CardFunction.flavors_to_add[0]> 0:
+		return true
 
 func for_description(ingredient):
 	CardFunction.flavors_to_add_desc[0] *= multiplier

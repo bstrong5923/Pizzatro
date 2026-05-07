@@ -7,6 +7,8 @@ func on_card_played(ingredient):
 	if ingredient.types.has("meat"):
 		for f in CardFunction.flavors_to_add.size():
 			CardFunction.flavors_to_add[f] *= multiplier
+		return true
+	return false
 
 func for_description(ingredient):
 	if ingredient.types.has("meat"):

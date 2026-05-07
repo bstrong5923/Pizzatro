@@ -5,6 +5,7 @@ var last_played = null
 
 func on_card_played(ingredient):
 	last_played = ingredient
+	return true
 
 func on_submit():
 	if last_played:
