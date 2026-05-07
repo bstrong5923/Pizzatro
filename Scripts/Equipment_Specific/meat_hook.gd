@@ -11,8 +11,8 @@ func on_card_played(ingredient):
 		done = true
 		return true
 	return false
-
-func on_submit():
+	
+func on_submit(a):
 	done = false
 
 func upgrade():

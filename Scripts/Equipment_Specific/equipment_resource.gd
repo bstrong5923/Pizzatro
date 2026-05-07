@@ -7,6 +7,7 @@ class_name Equipment
 @export var cost : int
 @export_multiline var description : String
 @export var upgrade_count : int = 0
+@export var max_upgrades : int = 1000
 
 @export var type : Array[String]
 @export var index : int

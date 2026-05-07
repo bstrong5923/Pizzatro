@@ -111,10 +111,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			index += 1
 			if !equipment_bought(this_equip):
 				return
-			if this_equip.bought and (this_equip.name == "Incognito"):
-				await this_equip.on_bought(s) 
 			elif this_equip.bought:
-				await this_equip.on_bought("hi mom")
+				await this_equip.on_bought(s)
 			Score.add_money(this_equip.cost * -1)
 			queue_free()
 

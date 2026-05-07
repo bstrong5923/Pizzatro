@@ -14,6 +14,9 @@ func _ready() -> void:
 	n = 1
 
 func new_round():
+	var end_round_sign = get_node_or_null("EndRoundSign")
+	if end_round_sign:
+		end_round_sign.hide_sign()
 	level += 1
 	starting_energy = 20
 	# check equipments
@@ -32,6 +35,8 @@ func new_round():
 	$Labels/Score.clear_score()
 	$pie/minis.clear_minis()
 	Deck.clear_shop_hand()
+	print($drawer)
+	print($drawer.get_script())
 	$drawer.sort_equipments()
 	playing = true
 	await get_tree().create_timer(0.45).timeout # wait for shop to be offscreen

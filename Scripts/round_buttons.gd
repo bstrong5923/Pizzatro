@@ -5,6 +5,7 @@ const ROUND_BUTTON_TEXTURE := preload("res://Assets/Sprites/game scene items/rou
 const ROUND_BUTTON_PRESSED_TEXTURE := preload("res://Assets/Sprites/game scene items/round_buttons_pressed.png")
 const BUTTON_PRESS_TIME := 0.15
 
+
 var mode = 0
 var labels = ["Submit", "Shop", "Done"]
 var clickable = true
@@ -12,7 +13,7 @@ var cooldown = false
 @onready
 var equipment = load("res://Scenes/equipment.tscn")
 var flour_count: float = 1.0
-var money_threshholds = [0.0, 1.0, 1.1, 1.25, 1.5, 2.0, 2.7, 3.7, 5.0, 10.0, 25.0, 100.0, 1000.0, 1000000.0, 1000000000000.0, 10000000000000000000000.0]
+var money_threshholds = [0.0, 1.0, 1.5, 2.0, 3.0, 5.0, 10.0, 100.0, 1000.0]
 
 func apply_flour_bonus(amount: float = 0.1) -> void:
 	flour_count += amount
@@ -39,8 +40,23 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				for x in range(money_threshholds.size()):
 					if score_ratio > money_threshholds[x]:
 						thresh_index = x
-				var base_money = 9 + thresh_index 
-				Score.money += base_money * flour_count
+				var threshold_value = money_threshholds[thresh_index]
+				var base_money = 7
+				base_money += 3 * thresh_index 
+				var money_earned = base_money * flour_count
+				Score.money += money_earned
+				get_end_round_sign().show_round_results(
+					total_score,
+					Deck.minimum,
+					thresh_index,
+					money_earned,
+					threshold_value,
+					[
+						"Ratio: x" + Lib.num_to_string(score_ratio),
+						"Base: $" + Lib.num_to_string(base_money),
+						"Bonus: x" + Lib.num_to_string(flour_count)
+					]
+				)
 				get_node("/root/Game/Labels/money/Count").text = Lib.num_to_string(Score.money)
 				
 				cooldown = true
@@ -51,6 +67,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			
 		elif !get_node("/root/Game/Camera2D").camera_locked:
 			if clicked_mode == 1:
+				get_end_round_sign().hide_sign()
 				get_node("/root/Game/Camera2D").go_to_shop()
 				Equip.generate_random_equipment()
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
@@ -68,8 +85,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					while again:
 						again = false
 						e = await Equip.generate_random_equipment()
-						for eq in equips: # no dupes in shop
-							if e == eq:
+						for eq in equips: # no dupes in shop or equips that are already max level/cant be upgraded
+							if e == eq or e.upgrade_count < e.max_upgrades:
 								again = true
 					equips.push_back(e)
 					if e != null: # if you are out of equipment to buy
@@ -80,6 +97,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				
 				
 			else: # DONE mode
+				get_end_round_sign().hide_sign()
 				get_node("/root/Game").new_round()
 				get_node("/root/Game/Camera2D").go_to_game()
 				get_node("/root/Game/Pack").visible = true
@@ -104,3 +122,6 @@ func next_mode():
 func clear_shop_equipment():
 	for child in container.get_children():
 		child.queue_free()
+
+func get_end_round_sign():
+	return get_node("/root/Game/EndRoundSign")

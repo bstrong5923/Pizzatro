@@ -32,5 +32,5 @@ func on_submit(score): # boring milkless function
 
 func upgrade():
 	upgrader += 4
-	var name = "Pilk" + "+".repeat((upgrader % 4) - 4)
+	var name = "Pilk" + "+".repeat((int(upgrader) % 4) - 4)
 	change_to(name, [upgrader,upgrader,upgrader,upgrader,upgrader], pilk_texture, pilk_desc, pilk_minis)

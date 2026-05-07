@@ -12,5 +12,6 @@ cost = 12
 description = "\"He who controls the spice controls the universe.\"
 
 When you play a spice, draw a card."
+max_upgrades = 1
 card_played = true
 metadata/_custom_type_script = "uid://b746hh50vgr77"

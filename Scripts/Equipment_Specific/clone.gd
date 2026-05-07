@@ -9,12 +9,11 @@ func on_card_played(ingredient):
 		if last_played == ingredient:
 			Deck.deck.push_back(last_played)
 			done = true
-			last_played = ingredient
 			return true
 	last_played = ingredient
 	return false
 
-func on_submit():
+func on_submit(a):
 	done = false
 	last_played = null
 
