@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Piggy_Bank" load_steps=3 format=3 uid="uid://bn1hexemobw1f"]
+
+[ext_resource type="Script" uid="uid://cwnob2tq75ypc" path="res://Scripts/Equipment_Specific/piggy_bank.gd" id="1_o4pxj"]
+[ext_resource type="Texture2D" uid="uid://bsifrdbh152w4" path="res://Assets/Sprites/Equipment/piggy_bank.png" id="2_2b4y4"]
+
+[resource]
+script = ExtResource("1_o4pxj")
+name = "Piggy Bank"
+texture = ExtResource("2_2b4y4")
+rarity = "Rare"
+cost = 16
+description = "Multiplies all flavors by the price of the card played"
+card_played = true
+metadata/_custom_type_script = "uid://cwnob2tq75ypc"
