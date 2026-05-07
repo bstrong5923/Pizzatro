@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=28 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://da7j32ysoyrye" path="res://Scripts/pack.gd" id="17_x3xnh"]
 [ext_resource type="PackedScene" uid="uid://l5t0on5hhor8" path="res://Scenes/remove_card.tscn" id="18_8r6kd"]
 [ext_resource type="Texture2D" uid="uid://p5oul2jmnoy0" path="res://Assets/Sprites/game scene items/remove_button.png" id="18_tfod6"]
+[ext_resource type="Texture2D" uid="uid://8mlpsv4rdheg" path="res://Assets/Sprites/skip_button.png" id="19_raj38"]
 [ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
@@ -129,6 +130,10 @@ script = ExtResource("20_vvhu1")
 [node name="circle" type="Sprite2D" parent="Pack/price_circle"]
 texture = ExtResource("21_lbihj")
 
+[node name="skip" type="Sprite2D" parent="Pack"]
+position = Vector2(0, 24)
+texture = ExtResource("19_raj38")
+
 [node name="RemoveCardPrompter" type="Sprite2D" parent="."]
 position = Vector2(190, 42.2)
 texture = ExtResource("18_tfod6")
@@ -158,6 +163,7 @@ visible = false
 
 [node name="drawer" parent="." instance=ExtResource("22_vvhu1")]
 position = Vector2(76, -25)
+script = null
 
 [node name="EndRoundSign" parent="." instance=ExtResource("23_raj38")]
 

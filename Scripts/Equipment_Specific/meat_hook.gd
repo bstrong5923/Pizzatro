@@ -5,13 +5,13 @@ var multiplier = 4.0
 var done = false
 
 func on_card_played(ingredient):
-  if !done and ingredient.types.has("meat"):
-    for f in CardFunction.flavors_to_add.size():
+	if !done and ingredient.types.has("meat"):
+		for f in CardFunction.flavors_to_add.size():
 			CardFunction.flavors_to_add[f] *= multiplier
-    done = true
-
-func on_submit():
-  done = false
+		done = true
+	
+func on_submit(a):
+	done = false
 
 func upgrade():
 	multiplier += 0.5

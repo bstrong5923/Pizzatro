@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Clone" load_steps=3 format=3 uid="uid://bsf2fgy8om2ir"]
+
+[ext_resource type="Script" uid="uid://dvg6xkgga2m5p" path="res://Scripts/Equipment_Specific/clone.gd" id="1_jav07"]
+[ext_resource type="Texture2D" uid="uid://deoa8f0l7voei" path="res://Assets/Sprites/Equipment/clone.png" id="2_xmmdm"]
+
+[resource]
+script = ExtResource("1_jav07")
+name = "Clone"
+texture = ExtResource("2_xmmdm")
+rarity = "Rare"
+cost = 10
+description = "Create a copy of the first duplicate card you play each turn and add it to your deck"
+card_played = true
+submit = true
+metadata/_custom_type_script = "uid://dvg6xkgga2m5p"

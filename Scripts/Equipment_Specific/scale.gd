@@ -10,9 +10,9 @@ func on_submit(score):
 			min_val_index = f
 	
 	for f in score.flavor_values.size():
-    if f != min_val_index:
-		  score.flavor_values[f] *= score.flavor_values[min_value_index] + minus
-    score.flavor_values[min_value_index] = 0
+		if f != min_val_index:
+			score.flavor_values[f] *= score.flavor_values[min_val_index] + minus
+	score.flavor_values[min_val_index] = 0
 	
 func upgrade():
 	minus += 10

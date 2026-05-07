@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Duplicinator" load_steps=3 format=3 uid="uid://b31fxqb02gojk"]
+
+[ext_resource type="Script" uid="uid://c016ypb2ta3a7" path="res://Scripts/Equipment_Specific/duplicinator.gd" id="1_udrxq"]
+[ext_resource type="Texture2D" uid="uid://dniudb6x4htkh" path="res://Assets/Sprites/Equipment/duplicinator.png" id="2_bse5e"]
+
+[resource]
+script = ExtResource("1_udrxq")
+name = "Duplicinator"
+texture = ExtResource("2_bse5e")
+rarity = "Common"
+cost = 16
+description = "Create a copy of the last card you play each turn and add it to your deck"
+card_played = true
+submit = true
+metadata/_custom_type_script = "uid://c016ypb2ta3a7"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ranch" load_steps=3 format=3 uid="uid://cg4bbn3o01wwe"]
+
+[ext_resource type="Script" uid="uid://bsmnose1inyff" path="res://Scripts/Equipment_Specific/ranch.gd" id="1_dabh2"]
+[ext_resource type="Texture2D" uid="uid://bi3p2qymcg2wl" path="res://Assets/Sprites/Equipment/Ranch.png" id="2_eqfh7"]
+
+[resource]
+script = ExtResource("1_dabh2")
+name = "Ranch"
+texture = ExtResource("2_eqfh7")
+rarity = "Common"
+cost = 8
+description = "2X Sour"
+submit = true
+metadata/_custom_type_script = "uid://bsmnose1inyff"

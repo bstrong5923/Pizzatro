@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Sacrifice" load_steps=3 format=3 uid="uid://chkfm7w5yvi13"]
+
+[ext_resource type="Script" uid="uid://wcodkh04wyuj" path="res://Scripts/Equipment_Specific/sacrifice.gd" id="1_3k1rv"]
+[ext_resource type="Texture2D" uid="uid://ne86udvypviq" path="res://Assets/Sprites/Equipment/sacrifice.png" id="2_a8m2c"]
+
+[resource]
+script = ExtResource("1_3k1rv")
+name = "Sacrifice"
+texture = ExtResource("2_a8m2c")
+rarity = "Exotic"
+cost = 13
+description = "First card played each turn gets 5X then deleted"
+card_played = true
+submit = true
+metadata/_custom_type_script = "uid://wcodkh04wyuj"

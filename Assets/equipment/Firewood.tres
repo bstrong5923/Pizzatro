@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Firewood" load_steps=3 format=3 uid="uid://bnnnnsr2015cv"]
+
+[ext_resource type="Script" uid="uid://dsl56n12na1s3" path="res://Scripts/Equipment_Specific/firewood.gd" id="1_oq7pf"]
+[ext_resource type="Texture2D" uid="uid://cinoc2geddy51" path="res://Assets/Sprites/Equipment/wood.png" id="2_vgaar"]
+
+[resource]
+script = ExtResource("1_oq7pf")
+name = "Firewood"
+texture = ExtResource("2_vgaar")
+rarity = "Common"
+cost = 9
+description = "2X Savory"
+submit = true
+metadata/_custom_type_script = "uid://dsl56n12na1s3"
