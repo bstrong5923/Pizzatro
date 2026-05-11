@@ -8,6 +8,7 @@ var goingtodeck = preload("res://Scripts/shop_card_anim.gd")
 var shop = false
 var removal = false
 var highlighted = false
+var preview_only = false
 
 @onready var cardsprite = $blank
 @onready var ingredientsprite = $ingredient_logo
@@ -20,12 +21,17 @@ var logo
 var icon
 var pricetag
 
+const TOOLTIP_BASE_POSITION := Vector2(-100, -136)
+const DECK_VIEW_TOOLTIP_POSITION := Vector2(-100, 26)
+
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
 	get_viewport().set_physics_object_picking_first_only(true)
 	description()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void: # on click
+	if preview_only:
+		return
 	if get_node("/root/Game/RemoveCardMenu").is_open() and !removal:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and play_timer.can_play_a_card:
@@ -48,6 +54,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 
 func description():
 	tooltip.visible = false
+	tooltip.position = TOOLTIP_BASE_POSITION
 	tooltiptext.text = "[color=000000]" + ingredient.description + "[/color]"
 	
 	var howmanyloops = 0
@@ -119,6 +126,9 @@ func get_ingredient():
 
 func set_removal():
 	removal = true
+
+func set_preview_only():
+	preview_only = true
 	
 func discard_self():
 	if !shop:
@@ -147,6 +157,8 @@ func add_to_deck():
 		Deck.add_card_from_shop(ingredient)
 	
 func _on_area_2d_mouse_entered():
+	if get_node("/root/Game/RemoveCardMenu").is_open() and !shop:
+		return
 
 	if get_node("/root/Game").is_playing() or shop == true:
 		
@@ -163,9 +175,15 @@ func _on_area_2d_mouse_entered():
 
 		tooltip.visible = true
 		await get_tree().process_frame
-		tooltip.position.y -= tooltip.size.y
+		if preview_only and get_node("/root/Game/RemoveCardMenu").is_deck_view_open():
+			tooltip.position = DECK_VIEW_TOOLTIP_POSITION
+		else:
+			tooltip.position = TOOLTIP_BASE_POSITION
+			tooltip.position.y -= tooltip.size.y
 
 func _on_area_2d_mouse_exited():
+	if get_node("/root/Game/RemoveCardMenu").is_open() and !shop:
+		return
 	if highlighted:
 		highlighted = false
 		if removal:
@@ -178,8 +196,7 @@ func _on_area_2d_mouse_exited():
 		
 
 		tooltip.visible = false
-		await get_tree().process_frame
-		tooltip.position.y += tooltip.size.y
+		tooltip.position = TOOLTIP_BASE_POSITION
 
 func change_scale(n):
 	$price_circle.set_size(n, true)

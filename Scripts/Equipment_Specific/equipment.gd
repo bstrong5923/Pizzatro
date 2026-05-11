@@ -116,6 +116,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			queue_free()
 
 func _on_area_2d_mouse_entered() -> void:
+	if get_node("/root/Game/RemoveCardMenu").is_open():
+		return
 	highlighted = true
 	tooltip.visible = true
 	await get_tree().process_frame

@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu3awgnfcjhbe"]
+[gd_scene load_steps=4 format=3 uid="uid://cu3awgnfcjhbe"]
 
 [ext_resource type="Texture2D" uid="uid://bcmqjnshjxln8" path="res://Assets/Sprites/game scene items/card_upsidedown.png" id="1_ukesx"]
-[ext_resource type="Script" uid="uid://xwxf3chd1wwk" path="res://Scripts/CardDeck_Specific/deck.gd" id="2_xvpt4"]
+[ext_resource type="Script" path="res://Scripts/deck_clickable.gd" id="2_2mps2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deck"]
+size = Vector2(25.300007, 35.050003)
 
 [node name="deck" type="Sprite2D"]
 scale = Vector2(6, 6)
 texture = ExtResource("1_ukesx")
-script = ExtResource("2_xvpt4")
+script = ExtResource("2_2mps2")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_deck")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

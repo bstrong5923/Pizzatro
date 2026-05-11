@@ -57,6 +57,8 @@ func play_spin_effect() -> void:
 
 	equipment_sprite.rotation_degrees = 0.0
 	equipment_sprite.scale = base_scale
+	for _i in range(25):
+		spawn_flake(Color.RED)
 
 	reaction_tween = create_tween()
 	reaction_tween.tween_property(equipment_sprite, "rotation_degrees", 360.0, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

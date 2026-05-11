@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=29 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -23,10 +23,9 @@
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
 [ext_resource type="PackedScene" uid="uid://deej3kpugef8t" path="res://Scenes/equipment_drawer.tscn" id="22_vvhu1"]
+[ext_resource type="Texture2D" uid="uid://c70jvgmhsjjk4" path="res://Assets/Sprites/game scene items/CardRemoveBackground.png" id="23_i0vto"]
 [ext_resource type="PackedScene" uid="uid://dlra63y1m54ju" path="res://Scenes/end_round_sign.tscn" id="23_raj38"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lihs"]
-size = Vector2(25.300007, 35.050003)
+[ext_resource type="Texture2D" uid="uid://cv3xtxcxc33u8" path="res://Assets/Sprites/game scene items/deckviewbackground.png" id="24_3jf1l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alh3a"]
 size = Vector2(25.800026, 36)
@@ -62,14 +61,6 @@ script = ExtResource("5_b2bpf")
 [node name="deck" parent="." instance=ExtResource("5_7lihs")]
 position = Vector2(95.200005, 41)
 scale = Vector2(1, 1)
-
-[node name="Area2D" type="Area2D" parent="deck"]
-position = Vector2(0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="deck/Area2D"]
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_7lihs")
-metadata/_edit_lock_ = true
 
 [node name="Labels" parent="." instance=ExtResource("7_fgofq")]
 position = Vector2(-41, -35.8)
@@ -161,13 +152,14 @@ texture = ExtResource("21_lbihj")
 
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]
 visible = false
+remove_mode_background = ExtResource("23_i0vto")
+deck_view_background = ExtResource("24_3jf1l")
 
 [node name="EndRoundSign" parent="." instance=ExtResource("23_raj38")]
 
 [node name="drawer" parent="." instance=ExtResource("22_vvhu1")]
 position = Vector2(75, -25)
 
-[connection signal="input_event" from="deck/Area2D" to="deck" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="RemoveCardPrompter/Area2D" to="RemoveCardPrompter" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="RemoveCardPrompter/TextureButton" to="RemoveCardPrompter" method="_on_texture_button_pressed"]

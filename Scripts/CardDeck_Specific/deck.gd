@@ -51,6 +51,10 @@ func fill_deck_remaining(): # called at beginning of each round
 	deck_remaining = []
 	for x in range(0, deck.size()):
 		deck_remaining.push_back(deck[x])
+	deck_remaining.shuffle()
+
+func get_cards_not_in_hand() -> Array[Card]:
+	return deck_remaining.duplicate()
 		
 func draw_hand():
 	clear_hand()
@@ -66,14 +70,13 @@ func clear_hand():
 func draw_card():
 	if deck_remaining.size() > 0:
 		var instance = card.instantiate()
-		var random_index = randi_range(0, deck_remaining.size() - 1)
-		instance.set_ingredient(deck_remaining[random_index], false)
+		instance.set_ingredient(deck_remaining[0], false)
 		instance.position = Vector2(0, 39)
 		instance.change_scale(1)
 		add_child(instance)
 		hand.push_back(instance)
 		fix_hand()
-		deck_remaining.remove_at(random_index)
+		deck_remaining.remove_at(0)
 	
 func draw_shop_hand():
 	clear_shop_hand()
@@ -135,13 +138,6 @@ func fix_shop_hand():
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
 	#click on the deck
-	
-	
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if get_node("/root/Game/RemoveCardMenu").is_open():
-		return
-	if get_node("/root/Game").is_playing() and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#Deck.draw_card()
-		pass
+
 func add_card_from_shop(i):
 	deck.push_back(i)
