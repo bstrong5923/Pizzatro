@@ -4,8 +4,10 @@ class_name Firewood
 var multiplier = 2
 var inc = .5
 
-func on_submit(a):
-	Score.flavor_values[4] *= multiplier
+func on_card_played(ingredient):
+	CardFunction.flavors_to_add[4] *= multiplier
+	if CardFunction.flavors_to_add[4]> 0:
+		return true
 
 func upgrade():
 	multiplier += inc

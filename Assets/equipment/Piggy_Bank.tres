@@ -7,7 +7,7 @@
 script = ExtResource("1_o4pxj")
 name = "Piggy Bank"
 texture = ExtResource("2_2b4y4")
-rarity = "Rare"
+rarity = "Exotic"
 cost = 16
 description = "Multiplies all flavors by the price of the card played minus  one"
 max_upgrades = 2

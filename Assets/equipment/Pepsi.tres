@@ -13,6 +13,6 @@ description = "It needs something...
 
 +20 Sweet"
 bought = true
-submit = true
+round_start = true
 sold = true
 metadata/_custom_type_script = "uid://d0pej38ge33hb"

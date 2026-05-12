@@ -10,5 +10,5 @@ texture = ExtResource("2_vgaar")
 rarity = "Common"
 cost = 9
 description = "2X Savory"
-submit = true
+card_played = true
 metadata/_custom_type_script = "uid://dsl56n12na1s3"

@@ -27,7 +27,7 @@ func change_to(n, flavors, t, desc, minis):
 		if Deck.deck[c].name == "Milk":
 			Deck.deck[c] = milk_resource
 	
-func on_submit(score): # boring milkless function
+func on_round_start(score): # boring milkless function
 	score.flavor_values[0] += 20
 
 func upgrade():

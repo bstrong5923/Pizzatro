@@ -10,10 +10,6 @@ func on_card_played(ingredient):
 		return true
 	return false
 
-func for_description(ingredient):
-	if ingredient.types.has("fruit") or ingredient.types.has("vegetable"):
-		for f in CardFunction.flavors_to_add_desc.size():
-			CardFunction.flavors_to_add_desc[f] *= multiplier
 
 func upgrade():
 	multiplier += .3

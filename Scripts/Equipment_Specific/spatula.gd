@@ -9,9 +9,6 @@ func on_card_played(ingredient):
 	if CardFunction.flavors_to_add[0]> 0:
 		return true
 
-func for_description(ingredient):
-	CardFunction.flavors_to_add_desc[0] *= multiplier
-
 func upgrade():
 	multiplier += inc
 	description = description.replacen(str(multiplier - inc), str(multiplier))
