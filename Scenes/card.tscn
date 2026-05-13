@@ -62,6 +62,7 @@ region_rect = Rect2(0, 0, 5, 5)
 script = ExtResource("8_mm04k")
 
 [node name="info_sprite" type="PanelContainer" parent="."]
+z_index = 50
 offset_left = -100.0
 offset_top = -136.0
 offset_right = 102.0

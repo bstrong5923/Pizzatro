@@ -22,7 +22,42 @@ var icon
 var pricetag
 
 const TOOLTIP_BASE_POSITION := Vector2(-100, -136)
-const DECK_VIEW_TOOLTIP_POSITION := Vector2(-100, 26)
+const DECK_VIEW_TOOLTIP_POSITION := Vector2(-100, 32)
+
+func is_deck_view_preview() -> bool:
+	return preview_only and get_node("/root/Game/RemoveCardMenu").is_deck_view_open()
+
+func reset_tooltip_transform() -> void:
+	tooltip.position = TOOLTIP_BASE_POSITION
+
+func get_deck_view_scroll_container() -> Control:
+	return get_node("/root/Game/RemoveCardMenu/CenterContainer/Panel/MarginContainer/ScrollContainer") as Control
+
+func clamp_deck_view_tooltip() -> void:
+	var scroll_container = get_deck_view_scroll_container()
+	if scroll_container == null:
+		return
+
+	var visible_rect = Rect2(scroll_container.global_position, scroll_container.size)
+	var tooltip_global = tooltip.global_position
+	var tooltip_size = tooltip.size
+	var adjusted_position = tooltip.position
+
+	if tooltip_global.x < visible_rect.position.x:
+		adjusted_position.x += visible_rect.position.x - tooltip_global.x
+
+	var right_overflow = (tooltip_global.x + tooltip_size.x) - (visible_rect.position.x + visible_rect.size.x)
+	if right_overflow > 0:
+		adjusted_position.x -= right_overflow
+
+	if tooltip_global.y < visible_rect.position.y:
+		adjusted_position.y += visible_rect.position.y - tooltip_global.y
+
+	var bottom_overflow = (tooltip_global.y + tooltip_size.y) - (visible_rect.position.y + visible_rect.size.y)
+	if bottom_overflow > 0:
+		adjusted_position.y -= bottom_overflow
+
+	tooltip.position = adjusted_position
 
 func _ready() -> void:
 	get_viewport().set_physics_object_picking_sort(true)
@@ -54,7 +89,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 
 func description():
 	tooltip.visible = false
-	tooltip.position = TOOLTIP_BASE_POSITION
+	reset_tooltip_transform()
 	tooltiptext.text = "[color=000000]" + ingredient.description + "[/color]"
 	
 	var howmanyloops = 0
@@ -175,10 +210,11 @@ func _on_area_2d_mouse_entered():
 
 		tooltip.visible = true
 		await get_tree().process_frame
-		if preview_only and get_node("/root/Game/RemoveCardMenu").is_deck_view_open():
+		if is_deck_view_preview():
 			tooltip.position = DECK_VIEW_TOOLTIP_POSITION
+			clamp_deck_view_tooltip()
 		else:
-			tooltip.position = TOOLTIP_BASE_POSITION
+			reset_tooltip_transform()
 			tooltip.position.y -= tooltip.size.y
 
 func _on_area_2d_mouse_exited():
@@ -196,7 +232,7 @@ func _on_area_2d_mouse_exited():
 		
 
 		tooltip.visible = false
-		tooltip.position = TOOLTIP_BASE_POSITION
+		reset_tooltip_transform()
 
 func change_scale(n):
 	$price_circle.set_size(n, true)
