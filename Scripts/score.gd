@@ -52,7 +52,9 @@ func calc():
 	equip_list = Equip.get_my_equipment()
 	for eq in equip_list:
 		if eq.submit:
-			await eq.on_submit(self)
+			var triggered = await eq.on_submit(self)
+			if triggered:
+				get_tree().call_group("equipment_mini", "react_to_equipment", eq, "spin")
 	# combine flavors
 	var totalscore = 0
 	for val in flavor_values:
@@ -61,6 +63,10 @@ func calc():
 	if totalstep == 0:
 		totalstep = 1
 	return totalscore
+
+func wait_for_calculation() -> void:
+	while calculating or !done_calculating:
+		await get_tree().process_frame
 
 func add_money(i):
 	money += i
@@ -104,12 +110,12 @@ func _process(delta: float) -> void:
 	#add to flavor values 
 	if label_nodes:
 		for n in 5:
-			if flavor_vals_to_add[n] > 0.0:
-				flavor_values[n] += steps[n]
-				flavor_vals_to_add[n] -= steps[n]
-				
-				if flavor_vals_to_add[n] < 0.0: # if we take away too much and flavor_vals_to_add goes negative, we fix it here
+			if abs(flavor_vals_to_add[n]) > 0.0:
+				if abs(steps[n]) >= abs(flavor_vals_to_add[n]):
+					flavor_values[n] += steps[n]
+					flavor_vals_to_add[n] -= steps[n]
+				else:
 					flavor_values[n] += flavor_vals_to_add[n]
-					flavor_vals_to_add[n] = 0.0
+					flavor_vals_to_add[n] = 0
 
 			label_nodes[n].text = Lib.num_to_string(flavor_values[n])

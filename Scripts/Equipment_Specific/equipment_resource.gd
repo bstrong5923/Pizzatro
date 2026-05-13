@@ -29,7 +29,7 @@ func on_round_start(input):
 	pass
 
 func on_submit(input):
-	pass
+	return false
 
 func on_sold():
 	pass 

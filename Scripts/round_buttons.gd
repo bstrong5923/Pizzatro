@@ -13,6 +13,7 @@ var cooldown = false
 @onready
 var equipment = load("res://Scenes/equipment.tscn")
 var money_threshholds = [0.0, 1.0, 1.5, 2.0, 3.0, 5.0, 10.0, 100.0, 1000.0]
+var true_base = 5 #this can change, amount of money someone is guaranteed a round
 
 func reset_run():
 	mode = 0
@@ -34,7 +35,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if clicked_mode == 0 and get_node("/root/Game").is_playing():
 			get_node("/root/Game").playing_off()
 			#money shit
-			var total_score = get_node("/root/Game/Labels/Score").calc()
+			var score_node = get_node("/root/Game/Labels/Score")
+			var total_score = await score_node.calc()
+			await score_node.wait_for_calculation()
 			if (total_score >= Deck.minimum):
 				var score_ratio = total_score / Deck.minimum
 				var thresh_index = 0
@@ -42,8 +45,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					if score_ratio > money_threshholds[x]:
 						thresh_index = x
 				var threshold_value = money_threshholds[thresh_index]
-				var base_money = 7
-				base_money += 3 * thresh_index 
+				var base_money = (3 * thresh_index) + true_base
 				var remaining_ingredients = Deck.hand.size()
 				var flour_count = get_flour_multiplier(remaining_ingredients)
 				var money_earned = base_money * flour_count

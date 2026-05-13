@@ -5,7 +5,7 @@ func dont_clone():
 	original = false
 
 var mynode = preload("res://Scenes/minis.tscn")
-
+var isDetroit = false
 var mini_instances = []
 
 func scatter(ingredient):
@@ -23,19 +23,26 @@ func scatter(ingredient):
 		instance.region_rect.size.x = instance.texture.get_size().y
 		instance.region_rect.size.y = instance.texture.get_size().y
 		instance.region_rect.position.x = randi_range(0,4) * instance.texture.get_size().y
+		var x
+		var y
+		if isDetroit == true:
+			x = randi_range(-24,24)
+			y = randi_range(-24,24)
+		else:
+			# random position in the pizza
+			var angle = init_angle + (360 / num_of_minis) * m + randi_range(-5,5) # each one has an evenly spaced angle (0, 90, 180, 270 if there were four minis)
+			var radius = pow(randi_range(1, pow(23.5 - instance.texture.get_size().y / 2,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
+			x = int(radius * cos(deg_to_rad(angle))) # get the x and y
+			y = int(radius * sin(deg_to_rad(angle)))
 		
-		# random position in the pizza
-		var angle = init_angle + (360 / num_of_minis) * m + randi_range(-5,5) # each one has an evenly spaced angle (0, 90, 180, 270 if there were four minis)
-		var radius = pow(randi_range(1, pow(23.5 - instance.texture.get_size().y / 2,2)), 0.5) # random radius from the middle of the pizza to the edge, further out is more common
-		var x = int(radius * cos(deg_to_rad(angle))) # get the x and y
-		var y = int(radius * sin(deg_to_rad(angle)))
 		instance.position = Vector2(x, y)
 		 
-		# random rotation, then scale it and tell it it isn't the original
+			# random rotation, then scale it and tell it it isn't the original
 		instance.rotation_degrees = randi_range(0,3) * 90
 		instance.dont_clone()
 		add_child(instance)
 		mini_instances.append(instance)
+	
 
 func clear_minis():
 	var i = mini_instances.size()

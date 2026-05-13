@@ -70,6 +70,7 @@ offset_bottom = -136.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mm04k")
 
 [node name="info" type="RichTextLabel" parent="info_sprite"]
+z_index = 20
 layout_mode = 2
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("10_yvxpl")

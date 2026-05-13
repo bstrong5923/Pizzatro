@@ -11,4 +11,5 @@ rarity = "Legendary!"
 cost = 7
 description = "Whats up doe? I love the Pistons. Makes your pizza detroit style."
 max_upgrades = 0
+bought = true
 metadata/_custom_type_script = "uid://cmltb7t4etb1w"
