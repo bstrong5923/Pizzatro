@@ -28,8 +28,27 @@ func set_minimum(v):
 	minimum = v
 	get_node("/root/Game/Labels/minimum/Count").text = str(minimum)
 
+func reset_run():
+	for child in get_children():
+		child.queue_free()
+	deck.clear()
+	deck_remaining.clear()
+	hand.clear()
+	discard_pile.clear()
+	shop_hand.clear()
+	minimum = 0
+	card_highlighted = 0
+	unlocked_card_list.clear()
+	boosted_card_list.clear()
+
 func fill_initial_deck(): # ONLY CALLED ONCE at beginning of a run (to fill the default deck)
-	deck = []
+	deck.clear()
+	deck_remaining.clear()
+	hand.clear()
+	discard_pile.clear()
+	shop_hand.clear()
+	unlocked_card_list.clear()
+	boosted_card_list.clear()
 	for ingredient in data.size():
 		unlocked_card_list.push_back(get_ingredient(data[ingredient]))
 	for ingredient in range(0,6):

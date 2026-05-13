@@ -246,6 +246,7 @@ func apply_layout() -> void:
 	margin_container.offset_bottom = layout["bottom"]
 	list_container.columns = layout["columns"]
 	list_container.custom_minimum_size = Vector2(0, layout["list_height"])
+	list_container.clip_contents = current_mode != "deck_view"
 
 	if current_mode == "deck_view":
 		var cards_to_display = get_cards_to_display().size()

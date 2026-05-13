@@ -17,6 +17,18 @@ var equip_list
 #MONEY
 var money = 0
 
+func reset_run():
+	money = 10
+	flavor_values = [0.0, 0.0, 0.0, 0.0, 0.0]
+	flavor_vals_to_add = [0.0, 0.0, 0.0, 0.0, 0.0]
+	calculating = false
+	done_calculating = true
+	i = 0.0
+	total = 0.0
+	steps = [0.0, 0.0, 0.0, 0.0, 0.0]
+	totalstep = 0
+	equip_list = []
+
 func _ready() -> void:
 	fill_label_nodes()
 
@@ -69,7 +81,9 @@ func clear_score():
 	for label_node in label_nodes:
 		label_node.text = "0"
 	total = 0.0
-	get_node_or_null("Total/Count").text = "0"
+	var total_label = get_node_or_null("Total/Count")
+	if total_label:
+		total_label.text = "0"
 
 func _process(delta: float) -> void:
 	var total_label_node = get_node_or_null("Total/Count")

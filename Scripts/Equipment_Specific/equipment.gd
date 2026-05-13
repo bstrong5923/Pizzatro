@@ -22,8 +22,23 @@ var tooltiptext
 
 var level
 
+func reset_run():
+	my_equipment = []
+	common_equip_list.clear()
+	rare_equip_list.clear()
+	exotic_equip_list.clear()
+	index = 0
+	shop_mode = false
+	this_equip = null
+
+func load_equipment_resource(path: String) -> Equipment:
+	return ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE) as Equipment
+
 func fill_equip_lists():
 	# loops through all equip lists and fills them
+	common_equip_list.clear()
+	rare_equip_list.clear()
+	exotic_equip_list.clear()
 	var types = ["common", "rare", "exotic"]
 	var raw_text
 	var data
@@ -32,18 +47,19 @@ func fill_equip_lists():
 		raw_text = file.get_as_text()
 		data = JSON.parse_string(raw_text)
 		for e in range(0,data.size()):
+			var equipment_path = "res://Assets/equipment/" + data[e] + ".tres"
 			if type == "common": 
-				common_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
+				common_equip_list.push_back(load_equipment_resource(equipment_path))
 			if type == "rare":
-				rare_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
+				rare_equip_list.push_back(load_equipment_resource(equipment_path))
 			if type == "exotic":
-				exotic_equip_list.push_back(load("res://Assets/equipment/" + data[e] + ".tres"))
+				exotic_equip_list.push_back(load_equipment_resource(equipment_path))
 
 func shop_mode_on():
 	shop_mode = true
 
 func wipe_equipment():
-	my_equipment.clear()
+	my_equipment = []
 
 func can_buy_more_equipment(test) -> bool:
 	for equ in my_equipment:

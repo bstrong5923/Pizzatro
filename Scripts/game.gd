@@ -7,9 +7,12 @@ var starting_energy
 var n = 1
 func _ready() -> void:
 	level = 0
+	Deck.reset_run()
 	Deck.fill_initial_deck()
+	Equip.reset_run()
 	Equip.fill_equip_lists()
-	Score.reset_money()
+	Score.reset_run()
+	RoundButtons.reset_run()
 	new_round()
 	n = 1
 
@@ -54,8 +57,10 @@ func get_level():
 	
 func game_over():
 	playing_off()
+	Deck.reset_run()
+	Equip.reset_run()
+	Score.reset_run()
+	RoundButtons.reset_run()
 	for child in get_children():
 		child.queue_free()
-	print(get_tree())
-	print(get_children())
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
