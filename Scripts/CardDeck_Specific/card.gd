@@ -85,7 +85,7 @@ func description():
 			howmanyloops += 1
 	else:
 		for flavor in desc_vals:
-			if flavor > 0:
+			if abs(flavor) > 0:
 				flavor = Lib.num_to_string(flavor)
 				tooltiptext.text += "\n "
 				if howmanyloops == 0:

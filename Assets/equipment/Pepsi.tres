@@ -12,6 +12,7 @@ cost = 7
 description = "It needs something... 
 
 +20 Sweet"
+max_upgrades = 0
 bought = true
 round_start = true
 sold = true
