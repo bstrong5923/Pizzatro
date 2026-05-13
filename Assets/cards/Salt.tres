@@ -16,5 +16,5 @@ description = "just some salt."
 types = Array[String](["spice"])
 min_minis = 16
 max_minis = 20
-boosts = Array[String](["Pepperoni", "Cheese", "Pepper", "Red_Pepper_Flakes", "Gabagool"])
+boosts = Array[String](["Pepperoni", "Cheese", "Pepper", "Red_Pepper_Flakes"])
 metadata/_custom_type_script = "uid://ci4asu2oe813i"
