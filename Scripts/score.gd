@@ -90,12 +90,12 @@ func _process(delta: float) -> void:
 	#add to flavor values 
 	if label_nodes:
 		for n in 5:
-			if flavor_vals_to_add[n] > 0.0:
-				flavor_values[n] += steps[n]
-				flavor_vals_to_add[n] -= steps[n]
-				
-				if flavor_vals_to_add[n] < 0.0: # if we take away too much and flavor_vals_to_add goes negative, we fix it here
+			if abs(flavor_vals_to_add[n]) > 0.0:
+				if abs(steps[n]) >= abs(flavor_vals_to_add[n]):
+					flavor_values[n] += steps[n]
+					flavor_vals_to_add[n] -= steps[n]
+				else:
 					flavor_values[n] += flavor_vals_to_add[n]
-					flavor_vals_to_add[n] = 0.0
+					flavor_vals_to_add[n] = 0
 
 			label_nodes[n].text = Lib.num_to_string(flavor_values[n])
