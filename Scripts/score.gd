@@ -40,7 +40,9 @@ func calc():
 	equip_list = Equip.get_my_equipment()
 	for eq in equip_list:
 		if eq.submit:
-			await eq.on_submit(self)
+			var triggered = await eq.on_submit(self)
+			if triggered:
+				get_tree().call_group("equipment_mini", "react_to_equipment", eq, "spin")
 	# combine flavors
 	var totalscore = 0
 	for val in flavor_values:
@@ -49,6 +51,10 @@ func calc():
 	if totalstep == 0:
 		totalstep = 1
 	return totalscore
+
+func wait_for_calculation() -> void:
+	while calculating or !done_calculating:
+		await get_tree().process_frame
 
 func add_money(i):
 	money += i

@@ -33,7 +33,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if clicked_mode == 0 and get_node("/root/Game").is_playing():
 			get_node("/root/Game").playing_off()
 			#money shit
-			var total_score = get_node("/root/Game/Labels/Score").calc()
+			var score_node = get_node("/root/Game/Labels/Score")
+			var total_score = await score_node.calc()
+			await score_node.wait_for_calculation()
 			if (total_score >= Deck.minimum):
 				var score_ratio = total_score / Deck.minimum
 				var thresh_index = 0
