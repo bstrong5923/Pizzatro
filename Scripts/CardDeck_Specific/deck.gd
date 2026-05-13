@@ -80,10 +80,9 @@ func draw_card():
 	
 func draw_shop_hand():
 	clear_shop_hand()
-	for x in range(0,5):
+	for x in range(0,6):
 		draw_shop_card()
 	fix_shop_hand()
-	get_node("/root/Game/Pack").visible = false
 
 func clear_shop_hand():
 	var s = shop_hand.size() - 1
@@ -92,12 +91,18 @@ func clear_shop_hand():
 		s -= 1
 	
 func draw_shop_card():
+	var again = true
 	var instance = card.instantiate()
 	var avaialable_cards = unlocked_card_list + boosted_card_list
-	var random_index = randi_range(0, avaialable_cards.size() - 1)
-	instance.set_ingredient(avaialable_cards[random_index], true)
-	instance.position = Vector2(0, 39)
-	instance.change_scale(.8)
+	while again:
+		again = false
+		var random_index = randi_range(0, avaialable_cards.size() - 1)
+		instance.set_ingredient(avaialable_cards[random_index], true)
+		instance.position = Vector2(0, 39)
+		instance.change_scale(.8)
+		for c in shop_hand:
+			if c.ingredient.name == instance.ingredient.name:
+				again = true
 	add_child(instance)
 	shop_hand.push_back(instance)
 
@@ -132,7 +137,7 @@ func fix_shop_hand():
 	var h = shop_hand.size()
 
 	for i in range(0, h):
-		shop_hand[i].position.x =  690+ ( 110 * i)
+		shop_hand[i].position.x =  680 + ( 550.0 / h ) * i
 		shop_hand[i].position.y =  -50
 		
 func remove_card(index):

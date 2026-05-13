@@ -51,6 +51,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 			for i in ingredient.boosts:
 				boosts.push_back(i)
 			Deck.boost_ingredients(boosts) # boosts itself and its unlocks until next boost
+			# close the pack
+			Deck.clear_shop_hand()
+			visible = false
+			get_node("/root/Game/Pack").visible = true
 
 func description():
 	tooltip.visible = false

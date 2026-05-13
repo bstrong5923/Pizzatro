@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=31 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://p5oul2jmnoy0" path="res://Assets/Sprites/game scene items/remove_button.png" id="18_tfod6"]
 [ext_resource type="Texture2D" uid="uid://8mlpsv4rdheg" path="res://Assets/Sprites/skip_button.png" id="19_raj38"]
 [ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
+[ext_resource type="Script" uid="uid://bhhomjnqn60eg" path="res://Scripts/skip.gd" id="20_3jf1l"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
 [ext_resource type="PackedScene" uid="uid://deej3kpugef8t" path="res://Scenes/equipment_drawer.tscn" id="22_vvhu1"]
@@ -29,6 +30,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alh3a"]
 size = Vector2(25.800026, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_356ba"]
+size = Vector2(34.799988, 9.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvhu1"]
 size = Vector2(27.59999, 34)
@@ -121,10 +125,19 @@ script = ExtResource("20_vvhu1")
 [node name="circle" type="Sprite2D" parent="Pack/price_circle"]
 texture = ExtResource("21_lbihj")
 
-[node name="skip" type="Sprite2D" parent="Pack"]
+[node name="skip" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, 24)
+position = Vector2(184.2, 20.000002)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("19_raj38")
+script = ExtResource("20_3jf1l")
+
+[node name="Area2D" type="Area2D" parent="skip"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="skip/Area2D"]
+position = Vector2(0.3999939, -0.10000229)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_356ba")
 
 [node name="RemoveCardPrompter" type="Sprite2D" parent="."]
 position = Vector2(190, 42.2)
@@ -161,5 +174,6 @@ deck_view_background = ExtResource("24_3jf1l")
 position = Vector2(75, -25)
 
 [connection signal="input_event" from="Pack/Area2D" to="Pack" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="skip/Area2D" to="skip" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="RemoveCardPrompter/Area2D" to="RemoveCardPrompter" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="RemoveCardPrompter/TextureButton" to="RemoveCardPrompter" method="_on_texture_button_pressed"]

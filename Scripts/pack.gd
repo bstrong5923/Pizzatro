@@ -16,6 +16,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if (Deck.shop_hand.size() >= 0 and Score.money >= price):
 			Deck.draw_shop_hand()
 			Score.add_money( -1 * price)
+			visible = false
+			get_node("/root/Game/skip").visible = true
 			
 
 
