@@ -13,4 +13,4 @@ func on_card_played(ingredient):
 
 func upgrade():
 	multiplier += .3
-	description = description.replacen(str(multiplier - .3), multiplier)
+	description = description.replacen(str(multiplier - .3), str(multiplier))
