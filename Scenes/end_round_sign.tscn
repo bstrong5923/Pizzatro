@@ -23,9 +23,9 @@ theme_override_font_sizes/font_size = 5
 text = "Score: 0 / 0"
 
 [node name="Threshold" type="Label" parent="."]
-offset_left = -28.88889
+offset_left = -30.0
 offset_top = -1.6666664
-offset_right = 41.11111
+offset_right = 40.0
 offset_bottom = 6.3333335
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.0745098, 0.388235, 0.627451, 1)
@@ -34,10 +34,10 @@ theme_override_font_sizes/font_size = 4
 text = "Threshold: x0 (Tier 0)"
 
 [node name="MoneyEarned" type="Label" parent="."]
-offset_left = -28.888891
-offset_top = 3.3333337
-offset_right = 23.111109
-offset_bottom = 10.208334
+offset_left = -30.0
+offset_top = 22.777779
+offset_right = 22.0
+offset_bottom = 29.652779
 scale = Vector2(0.35, 0.35)
 theme_override_colors/font_color = Color(0.0784314, 0.478431, 0.172549, 1)
 theme_override_fonts/font = ExtResource("3_bf4i0")
@@ -45,14 +45,13 @@ theme_override_font_sizes/font_size = 6
 text = "Earned: $0"
 
 [node name="ExtraLines" type="Label" parent="."]
-offset_left = -28.88889
-offset_top = 10.555554
-offset_right = 30.11111
-offset_bottom = 30.305553
+offset_left = -30.0
+offset_top = 4.444444
+offset_right = 29.0
+offset_bottom = 24.194445
 scale = Vector2(0.6, 0.6)
 theme_override_colors/font_color = Color(0.415686, 0.176471, 0.517647, 1)
 theme_override_fonts/font = ExtResource("3_bf4i0")
 theme_override_font_sizes/font_size = 4
-text = "Ratio: x0
-Base: $0
+text = "Base: $0
 Bonus: x1"
