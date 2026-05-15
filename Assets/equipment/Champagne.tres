@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Champagne" load_steps=3 format=3 uid="uid://i5d4vcw2652n"]
+
+[ext_resource type="Script" uid="uid://brga2ub7pvd7t" path="res://Scripts/Equipment_Specific/champagne.gd" id="1_fjron"]
+[ext_resource type="Texture2D" uid="uid://bknbwk236gghk" path="res://Assets/Sprites/Equipment/champagne.png" id="2_ttoeb"]
+
+[resource]
+script = ExtResource("1_fjron")
+name = "Champagne"
+texture = ExtResource("2_ttoeb")
+rarity = "Rare"
+cost = 13
+description = "This calls for a celebration!
+
+If you end the round with 0 cards in your hand,  3.0X total score."
+metadata/_custom_type_script = "uid://brga2ub7pvd7t"
