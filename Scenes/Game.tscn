@@ -127,6 +127,7 @@ script = ExtResource("20_vvhu1")
 texture = ExtResource("21_lbihj")
 
 [node name="skip" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(184, 18)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("19_raj38")

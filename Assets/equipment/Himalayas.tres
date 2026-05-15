@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Himalayans" load_steps=2 format=3 uid="uid://ova54u4j3dpv"]
+
+[ext_resource type="Script" uid="uid://cqae3fjwfpmy2" path="res://Scripts/Equipment_Specific/himalayans.gd" id="1_am5if"]
+
+[resource]
+script = ExtResource("1_am5if")
+name = "Himalayas"
+rarity = "Common"
+cost = 8
+description = "SEA SALT!!!! I NEED YOU SEA SALT!!!!!
+Salty X2"
+card_played = true
+metadata/_custom_type_script = "uid://cqae3fjwfpmy2"

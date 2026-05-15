@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brgfbfmtty4w3"
-path="res://.godot/imported/Honey.png-174dc79cc71297736206ec4622d280b3.ctex"
+path="res://.godot/imported/Honey.png-9c7810ed4b95c89b7457f701153f852d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/card_comps/big_ingredients/Honey.png"
-dest_files=["res://.godot/imported/Honey.png-174dc79cc71297736206ec4622d280b3.ctex"]
+source_file="res://Assets/Sprites/Equipment/Honey.png"
+dest_files=["res://.godot/imported/Honey.png-9c7810ed4b95c89b7457f701153f852d.ctex"]
 
 [params]
 
