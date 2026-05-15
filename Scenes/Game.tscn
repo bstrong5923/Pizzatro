@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b1wv8w4eqxgld"]
+[gd_scene load_steps=32 format=3 uid="uid://b1wv8w4eqxgld"]
 
 [ext_resource type="Script" uid="uid://00wkttosnbi6" path="res://Scripts/game.gd" id="1_7lihs"]
 [ext_resource type="PackedScene" uid="uid://47vmngv3hwa4" path="res://Scenes/pie.tscn" id="1_gl6un"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://blxcjcsukcnkx" path="res://Scripts/remove_card_prompter.gd" id="19_rajel"]
 [ext_resource type="Script" uid="uid://bhhomjnqn60eg" path="res://Scripts/skip.gd" id="20_3jf1l"]
 [ext_resource type="Script" uid="uid://knje4y7a1nan" path="res://Scripts/price_circle.gd" id="20_vvhu1"]
+[ext_resource type="FontFile" uid="uid://cxqmdq81jpjpx" path="res://Assets/fonts/main.ttf" id="21_356ba"]
 [ext_resource type="Texture2D" uid="uid://dbcy75wineott" path="res://Assets/Sprites/card_comps/price_circle.png" id="21_lbihj"]
 [ext_resource type="PackedScene" uid="uid://deej3kpugef8t" path="res://Scenes/equipment_drawer.tscn" id="22_vvhu1"]
 [ext_resource type="Texture2D" uid="uid://c70jvgmhsjjk4" path="res://Assets/Sprites/game scene items/CardRemoveBackground.png" id="23_i0vto"]
@@ -126,8 +127,7 @@ script = ExtResource("20_vvhu1")
 texture = ExtResource("21_lbihj")
 
 [node name="skip" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(184.2, 20.000002)
+position = Vector2(184, 18)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("19_raj38")
 script = ExtResource("20_3jf1l")
@@ -138,6 +138,17 @@ script = ExtResource("20_3jf1l")
 position = Vector2(0.3999939, -0.10000229)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_356ba")
+
+[node name="Label" type="Label" parent="skip"]
+offset_left = -16.999998
+offset_top = -5.400001
+offset_right = 17.800005
+offset_bottom = 2.7999997
+theme_override_fonts/font = ExtResource("21_356ba")
+theme_override_font_sizes/font_size = 4
+text = "Skip"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="RemoveCardPrompter" type="Sprite2D" parent="."]
 position = Vector2(190, 42.2)
@@ -161,6 +172,7 @@ position = Vector2(10, -15)
 script = ExtResource("20_vvhu1")
 
 [node name="circle" type="Sprite2D" parent="RemoveCardPrompter/price_circle"]
+position = Vector2(1.8, 1.8)
 texture = ExtResource("21_lbihj")
 
 [node name="RemoveCardMenu" parent="." instance=ExtResource("18_8r6kd")]

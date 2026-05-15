@@ -157,7 +157,7 @@ func fix_shop_hand():
 
 	for i in range(0, h):
 		shop_hand[i].position.x =  680 + ( 550.0 / h ) * i
-		shop_hand[i].position.y =  -50
+		shop_hand[i].position.y =  -42
 		
 func remove_card(index):
 	discard_pile.push_back(hand.pop_at(index))
