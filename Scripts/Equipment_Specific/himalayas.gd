@@ -1,5 +1,5 @@
 extends Equipment
-class_name Himalayans
+class_name Himalayas
 
 var multiplier = 2
 var inc = .5
