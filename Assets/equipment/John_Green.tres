@@ -11,7 +11,7 @@ rarity = "Common"
 cost = 30
 description = "John REALLY loves green.
 
-All cards with green on them 2x"
+All cards with green on them 10x"
 type = Array[String](["Green"])
 card_played = true
 metadata/_custom_type_script = "uid://xyfoe7p7ua53"

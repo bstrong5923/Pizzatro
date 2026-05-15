@@ -9,7 +9,7 @@ var extra_lines = []
 var reveal_delay = 0.18
 var reveal_id = 0
 
-@onready var info_labels = [$Score, $Threshold, $MoneyEarned, $ExtraLines]
+@onready var info_labels = [$Score, $Threshold, $ExtraLines, $MoneyEarned]
 
 func _ready() -> void:
 	hide_info_labels()

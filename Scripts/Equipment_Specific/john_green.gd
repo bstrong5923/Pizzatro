@@ -1,7 +1,7 @@
 extends Equipment
 class_name John_Green
 
-var multiplier = 2
+var multiplier = 10
 
 func on_card_played(ingredient):
 	if ingredient.types.has("green"):
@@ -16,5 +16,5 @@ func for_description(ingredient):
 			CardFunction.flavors_to_add_desc[f] *= multiplier
 
 func upgrade():
-	multiplier += .7
-	description = description.replacen(str(multiplier - .7), str(multiplier))
+	multiplier += 5
+	description = description.replacen(str(multiplier - 5), str(multiplier))

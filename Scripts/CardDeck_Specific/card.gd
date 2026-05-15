@@ -89,6 +89,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, _shape_idx: int)
 			# close the pack
 			Deck.clear_shop_hand()
 			visible = false
+			get_node("/root/Game/skip").visible = false
 			get_node("/root/Game/Pack").visible = true
 
 func description():

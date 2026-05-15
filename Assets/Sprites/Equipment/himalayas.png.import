@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqgw2an4id3ji"
-path="res://.godot/imported/himalayans.png-85c566d2a69f9105661888eccf4dfe9a.ctex"
+path="res://.godot/imported/himalayas.png-62db07edb08fb51431f4419a811ffbee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Equipment/himalayans.png"
-dest_files=["res://.godot/imported/himalayans.png-85c566d2a69f9105661888eccf4dfe9a.ctex"]
+source_file="res://Assets/Sprites/Equipment/himalayas.png"
+dest_files=["res://.godot/imported/himalayas.png-62db07edb08fb51431f4419a811ffbee.ctex"]
 
 [params]
 

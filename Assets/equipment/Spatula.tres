@@ -8,7 +8,7 @@ script = ExtResource("1_nufpf")
 name = "Spatula"
 texture = ExtResource("2_nufpf")
 rarity = "Common"
-cost = 11
+cost = 8
 description = "This special spatula is super sweet???? 
 
 2X Sweet"

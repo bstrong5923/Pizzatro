@@ -10,6 +10,7 @@ var mode = 0
 var labels = ["Submit", "Shop", "Done"]
 var clickable = true
 var cooldown = false
+var resolving_round = false
 @onready
 var equipment = load("res://Scenes/equipment.tscn")
 var money_threshholds = [0.0, 1.0, 1.5, 2.0, 3.0, 5.0, 10.0, 100.0, 1000.0]
@@ -23,7 +24,7 @@ func reset_run():
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if get_node("/root/Game/RemoveCardMenu").is_open():
 		return
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and clickable and !cooldown:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and clickable and !cooldown and !resolving_round:
 		clickable = false
 		
 		
@@ -33,11 +34,13 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			next_mode()
 		
 		if clicked_mode == 0 and get_node("/root/Game").is_playing():
+			resolving_round = true
 			get_node("/root/Game").playing_off()
 			#money shit
 			var score_node = get_node("/root/Game/Labels/Score")
 			var total_score = await score_node.calc()
 			await score_node.wait_for_calculation()
+			await get_tree().create_timer(1.0).timeout
 			if (total_score >= Deck.minimum):
 				var score_ratio = total_score / Deck.minimum
 				var thresh_index = 0
@@ -50,14 +53,13 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				var flour_count = get_flour_multiplier(remaining_ingredients)
 				var money_earned = base_money * flour_count
 				Score.money += money_earned
-				get_end_round_sign().show_round_results(
+				await get_end_round_sign().show_round_results(
 					total_score,
 					Deck.minimum,
 					thresh_index,
 					money_earned,
 					threshold_value,
 					[
-						"Ratio: x" + Lib.num_to_string(score_ratio),
 						"Base: $" + Lib.num_to_string(base_money),
 						"Bonus: x" + Lib.num_to_string(flour_count),
 						"Left in hand: " + str(remaining_ingredients)
@@ -68,6 +70,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				cooldown = true
 				await get_tree().create_timer(0.25).timeout
 				cooldown = false
+				resolving_round = false
+				clickable = true
 			else:
 				get_node("/root/Game").game_over()
 			
@@ -128,7 +132,7 @@ func next_mode():
 		mode = 0
 	$button.region_rect.position.y = mode * 10
 	$Label.text = labels[mode]
-	clickable = true
+	clickable = !resolving_round
 
 func clear_shop_equipment():
 	for child in container.get_children():
