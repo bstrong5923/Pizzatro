@@ -11,6 +11,6 @@ rarity = "Rare"
 cost = 22
 description = "Spicy food hurts my tongue.
 2X all flavors except Spicy
--2X Spicy"
+-6X Spicy"
 card_played = true
 metadata/_custom_type_script = "uid://x2untl1ruome"
