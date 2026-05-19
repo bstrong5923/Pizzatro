@@ -9,6 +9,6 @@ name = "Firewood"
 texture = ExtResource("2_vgaar")
 rarity = "Common"
 cost = 8
-description = "2X Savory"
+description = "2.0X Savory"
 card_played = true
 metadata/_custom_type_script = "uid://dsl56n12na1s3"

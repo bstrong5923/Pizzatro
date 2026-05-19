@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="White_Guy" load_steps=3 format=3 uid="uid://dr2je1i7jan72"]
+[gd_resource type="Resource" script_class="White_Guy" load_steps=3 format=3 uid="uid://bdvriswec2b7m"]
 
-[ext_resource type="Script" uid="uid://x2untl1ruome" path="res://Scripts/Equipment_Specific/white_guy.gd" id="1_beod6"]
+[ext_resource type="Script" path="res://Scripts/Equipment_Specific/white_guy.gd" id="1_beod6"]
 [ext_resource type="Texture2D" uid="uid://duxavispit7ge" path="res://Assets/Sprites/Equipment/white_guy.png" id="2_qwf6i"]
 
 [resource]
@@ -10,7 +10,8 @@ texture = ExtResource("2_qwf6i")
 rarity = "Rare"
 cost = 22
 description = "Spicy food hurts my tongue.
+
 2X all flavors except Spicy
 -6X Spicy"
+
 card_played = true
-metadata/_custom_type_script = "uid://x2untl1ruome"

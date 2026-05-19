@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Twin_Snakes" load_steps=3 format=3 uid="uid://dd8trbewufado"]
+[gd_resource type="Resource" script_class="Twin_Snakes" load_steps=3 format=3 uid="uid://bia77omvm74ps"]
 
-[ext_resource type="Script" uid="uid://lbpt4hamxdhp" path="res://Scripts/Equipment_Specific/twin_snakes.gd" id="1_trjou"]
+[ext_resource type="Script" path="res://Scripts/Equipment_Specific/twin_snakes.gd" id="1_trjou"]
 [ext_resource type="Texture2D" uid="uid://cu3wv3us4iplr" path="res://Assets/Sprites/Equipment/twin_snakes.png" id="2_666hk"]
 
 [resource]
@@ -11,7 +11,6 @@ rarity = "Exotic"
 cost = 17
 description = "I'm sssour... 
 I'm sssweet...
-Multiplies Sour by digits of Sweet"
+Multiplies Sour by # of Sweet digits"
 max_upgrades = 0
 submit = true
-metadata/_custom_type_script = "uid://lbpt4hamxdhp"

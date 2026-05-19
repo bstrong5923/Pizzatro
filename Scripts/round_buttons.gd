@@ -15,11 +15,15 @@ var resolving_round = false
 var equipment = load("res://Scenes/equipment.tscn")
 var money_threshholds = [0.0, 1.0, 1.5, 2.0, 3.0, 5.0, 10.0, 100.0, 1000.0]
 var true_base = 5 #this can change, amount of money someone is guaranteed a round
+var selling_equipment = false
+var shop_equips = []
 
 func reset_run():
 	mode = 0
 	clickable = true
 	cooldown = false
+	selling_equipment = false
+	shop_equips.clear()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if get_node("/root/Game/RemoveCardMenu").is_open():
@@ -79,9 +83,11 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if clicked_mode == 1:
 				get_end_round_sign().hide_sign()
 				get_node("/root/Game/Camera2D").go_to_shop()
-				Equip.generate_random_equipment()
 				await get_tree().create_timer(0.25).timeout # wait until I am offscreen and then teleport to shop
 				position = Vector2(235.6,30)
+				selling_equipment = false
+				roll_shop_equipment()
+				show_shop_equipment()
 				
 				var locations  = [Vector2(-320, -350), Vector2(-146, -350), Vector2(-320, -170), Vector2(-146, -170)]
 				# equipments in shop
@@ -106,7 +112,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 						equip_instance.shop_mode_on()
 						container.add_child(equip_instance)
 				
-				
+
 				
 			else: # DONE mode
 				get_end_round_sign().hide_sign()
@@ -115,6 +121,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				get_node("/root/Game/Pack").visible = true
 				await get_tree().create_timer(0.35).timeout # wait until I am offscreen and then teleport to game
 				position = Vector2(-94.6,25)
+				selling_equipment = false
+				shop_equips.clear()
 				clear_shop_equipment()
 
 func animate_button_press() -> void:
@@ -134,6 +142,70 @@ func next_mode():
 func clear_shop_equipment():
 	for child in container.get_children():
 		child.queue_free()
+
+func roll_shop_equipment():
+	shop_equips.clear()
+	for i in range(0,4):
+		var e
+		var again = true
+		while again:
+			again = false
+			e = Equip.generate_random_equipment()
+			if Equip.my_equipment.has(e) and e.upgrade_count >= e.max_upgrades: # no equips that are already maxed
+				again = true
+			for eq in shop_equips: # no dupes in shop or equips that are already max level/cant be upgraded
+				if e == eq:
+					again = true
+			print(e.name + " - " + str(again))
+			print(e.upgrade_count)
+			print(e.max_upgrades)
+		shop_equips.push_back(e)
+
+func show_shop_equipment():
+	clear_shop_equipment()
+	var locations  = [Vector2(-320, -350), Vector2(-146, -350), Vector2(-320, -170), Vector2(-146, -170)]
+	for i in range(shop_equips.size()):
+		var equip_instance = equipment.instantiate()
+		equip_instance.scale = Vector2(4,4)
+		equip_instance.position = locations[i]
+		var e = shop_equips[i]
+		if e != null: # if you are out of equipment to buy
+			equip_instance.set_equipment(e)
+			equip_instance.shop_mode_on()
+			container.add_child(equip_instance)
+
+func remove_shop_equipment(equipment_to_remove: Equipment):
+	shop_equips.erase(equipment_to_remove)
+
+func show_sell_equipment():
+	clear_shop_equipment()
+	var locations := [
+		Vector2(-125, -320), Vector2(-15, -320), Vector2(95, -320),
+		Vector2(-125, -200), Vector2(-15, -200), Vector2(95, -200),
+		Vector2(-125, -80), Vector2(-15, -80), Vector2(95, -80)
+	]
+	var owned_equipment = Equip.get_my_equipment()
+	for i in range(min(owned_equipment.size(), locations.size())):
+		var equip_instance = equipment.instantiate()
+		equip_instance.scale = Vector2(2.5, 2.5)
+		equip_instance.tooltip_scale(.35,-180, -320)
+		equip_instance.position = locations[i]
+		equip_instance.sell_mode_on()
+		equip_instance.set_equipment(owned_equipment[i])
+		container.add_child(equip_instance)
+
+func toggle_sell_equipment():
+	if mode != 2 or get_node("/root/Game/Camera2D").camera_locked:
+		return
+	selling_equipment = !selling_equipment
+	if selling_equipment:
+		show_sell_equipment()
+	else:
+		show_shop_equipment()
+
+func refresh_sell_equipment():
+	if selling_equipment:
+		show_sell_equipment()
 
 func get_end_round_sign():
 	return get_node("/root/Game/EndRoundSign")

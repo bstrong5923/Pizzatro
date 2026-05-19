@@ -1,7 +1,7 @@
 extends Equipment
 class_name Meat_Hook
 
-var multiplier = 4.0
+var multiplier = 4
 var done = false
 
 func on_card_played(ingredient):
@@ -16,4 +16,5 @@ func on_submit(a):
 	done = false
 
 func upgrade():
-	multiplier += 0.5
+	multiplier += 1
+	description = description.replacen(str(multiplier - 1), str(multiplier))

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Meat_Hook" load_steps=3 format=3 uid="uid://bw8pvfghhkfwa"]
+[gd_resource type="Resource" script_class="Meat_Hook" load_steps=3 format=3 uid="uid://jd81ie07g6f7"]
 
 [ext_resource type="Script" uid="uid://110ctpbi6t1a" path="res://Scripts/Equipment_Specific/meat_hook.gd" id="1_lc300"]
 [ext_resource type="Texture2D" uid="uid://ceb4i2wt4kunj" path="res://Assets/Sprites/Equipment/meathook.png" id="2_5f8ym"]

@@ -1,7 +1,7 @@
 extends Equipment
 class_name White_Guy
 
-var multiplier = 2
+var multiplier = 2.0
 var inc = .5
 
 func on_card_played(ingredient):

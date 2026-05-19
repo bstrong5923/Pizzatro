@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Hot_Honey" load_steps=3 format=3 uid="uid://v6bein2x28i1"]
+[gd_resource type="Resource" script_class="Hot_Honey" load_steps=3 format=3 uid="uid://i2714ot2kxko"]
 
-[ext_resource type="Script" uid="uid://d08b071dyntal" path="res://Scripts/Equipment_Specific/hot_honey.gd" id="1_4hjho"]
+[ext_resource type="Script" path="res://Scripts/Equipment_Specific/hot_honey.gd" id="1_4hjho"]
 [ext_resource type="Texture2D" uid="uid://brgfbfmtty4w3" path="res://Assets/Sprites/Equipment/Honey.png" id="2_dygoa"]
 
 [resource]
@@ -10,6 +10,5 @@ texture = ExtResource("2_dygoa")
 rarity = "Common"
 cost = 8
 description = "Adds a kick!
-Spicy X2"
+Spicy 2.0x"
 card_played = true
-metadata/_custom_type_script = "uid://d08b071dyntal"

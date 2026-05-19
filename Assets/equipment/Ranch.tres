@@ -9,6 +9,6 @@ name = "Ranch"
 texture = ExtResource("2_eqfh7")
 rarity = "Common"
 cost = 8
-description = "2X Sour"
+description = "2.0X Sour"
 card_played = true
 metadata/_custom_type_script = "uid://bsmnose1inyff"
