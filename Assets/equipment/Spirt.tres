@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Spirt" load_steps=3 format=3 uid="uid://b7spo0my81v11"]
+
+[ext_resource type="Script" uid="uid://dg5bqmqgip4qx" path="res://Scripts/Equipment_Specific/spirt.gd" id="1_ly37k"]
+[ext_resource type="Texture2D" uid="uid://bjya3h1k3ke0q" path="res://Assets/Sprites/Equipment/spirt.png" id="2_v25sl"]
+
+[resource]
+script = ExtResource("1_ly37k")
+name = "Spirt"
+texture = ExtResource("2_v25sl")
+rarity = "Rare"
+cost = 12
+description = "NOT related to popular soft drink \"Sprite\"
++20 Sweet
+2X Lemons and Limes for each of the other you play"
+max_upgrades = 0
+card_played = true
+round_start = true
+submit = true
+metadata/_custom_type_script = "uid://dg5bqmqgip4qx"
