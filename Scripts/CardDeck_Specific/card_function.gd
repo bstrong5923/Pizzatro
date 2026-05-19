@@ -34,10 +34,6 @@ func check_equipment():
 	
 func run_card_function():
 	get_node_or_null("/root/Game/Labels/Energy").change_energy(-ingredient.price)
-	if ingredient.name == "Watermelon" or ingredient.name == "Durian":
-		var camera = get_node_or_null("/root/Game/Camera2D")
-		if camera:
-			camera.shake_heavy()
 	for f in range(ingredient.flavors.size()):
 		flavors_to_add[f] = float(ingredient.flavors[f])
 	await check_equipment()
