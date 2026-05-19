@@ -10,6 +10,8 @@ texture = ExtResource("2_qwf6i")
 rarity = "Rare"
 cost = 22
 description = "Spicy food hurts my tongue.
-2.0X all flavors except Spicy
--2.0X Spicy"
+
+2X all flavors except Spicy
+-6X Spicy"
+
 card_played = true

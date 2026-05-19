@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Himalayans" load_steps=3 format=3 uid="uid://c44n2s7pi7jg5"]
 
-[ext_resource type="Script" path="res://Scripts/Equipment_Specific/himalayans.gd" id="1_am5if"]
+[gd_resource type="Resource" script_class="Himalayans" load_steps=3 format=3 uid="uid://c44n2s7pi7jg5"]
+[ext_resource type="Script" uid="uid://cqae3fjwfpmy2" path="res://Scripts/Equipment_Specific/himalayas.gd" id="1_am5if"]
 [ext_resource type="Texture2D" uid="uid://cqgw2an4id3ji" path="res://Assets/Sprites/Equipment/himalayas.png" id="2_oh4aa"]
 
 [resource]

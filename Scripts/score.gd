@@ -97,7 +97,12 @@ func _process(delta: float) -> void:
 			if flavor_values[i] <= 0.0:
 				total += flavor_values[i]
 				flavor_values[i] = 0.0
-				#i += 1
+		elif i < 5 and flavor_values[i] <0.0:
+			flavor_values[i] += totalstep
+			total -= totalstep
+			if flavor_values[i] >= 0.0:
+				total -= flavor_values[i]
+				flavor_values[i] = 0.0
 		elif i < 5:
 			i += 1
 		else:
