@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyyhv5yjvmyhb"
-path="res://.godot/imported/durian_mini.png-6ebcadd055aca094b763686b34a2dbbf.ctex"
+uid="uid://c00qtkfgji2f4"
+path="res://.godot/imported/durian_minis.png-9f6f7fd0900618232dae6ae7d455e0ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/ingredient_minis/durian_mini.png"
-dest_files=["res://.godot/imported/durian_mini.png-6ebcadd055aca094b763686b34a2dbbf.ctex"]
+source_file="res://Assets/Sprites/ingredient_minis/durian_minis.png"
+dest_files=["res://.godot/imported/durian_minis.png-9f6f7fd0900618232dae6ae7d455e0ef.ctex"]
 
 [params]
 

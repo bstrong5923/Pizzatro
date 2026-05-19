@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="One_Chip" load_steps=3 format=3 uid="uid://bspth4kdmes0o"]
+
+[ext_resource type="Script" path="res://Scripts/Equipment_Specific/one_chip.gd" id="1_2vi3s"]
+[ext_resource type="Texture2D" uid="uid://cq8p0kfw0e1sk" path="res://Assets/Sprites/Equipment/onechipchallenge.png" id="2_4v4rj"]
+
+[resource]
+script = ExtResource("1_2vi3s")
+name = "One Chip"
+texture = ExtResource("2_4v4rj")
+rarity = "Exotic"
+cost = 10
+description = "The one chip challenge. When you play a card it empties the rest of your hand, but multiplies that card's Spicy value by 500x."
+max_upgrades = 0
+card_played = true
+metadata/_custom_type_script = "uid://cyt8qtmec7cwb"
