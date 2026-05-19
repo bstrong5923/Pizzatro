@@ -217,6 +217,7 @@ func score_discard_position(candidate : Vector2) -> float:
 # Remove a card from the deck
 func remove_card(card_data : Card):
 	Deck.deck.erase(card_data)
+	Deck.deck_remaining.erase(card_data)
 	# Create Animation Here
 	#var target_x = 98 * 5
 	#var target_y = 39 * 5
