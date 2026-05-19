@@ -4,10 +4,10 @@ class_name Champagne
 var multiplier = 3.0
 var inc = .8
 
-func on_submit(input):
+func on_submit(score):
 	if (Deck.deck_remaining.size() == 0):
-		for x in 5:
-			CardFunction.flavors_to_add[x] *= multiplier
+		for f in range(score.flavor_values.size()):
+			score.flavor_values[f] = score.flavor_values * multiplier
 
 func upgrade():
 	multiplier += inc

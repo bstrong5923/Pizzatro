@@ -13,6 +13,7 @@ var this_equip
 static var index = 0
 var highlighted = false
 var shop_mode = false
+var sell_mode = false
 
 
 #description shyte
@@ -29,6 +30,7 @@ func reset_run():
 	exotic_equip_list.clear()
 	index = 0
 	shop_mode = false
+	sell_mode = false
 	this_equip = null
 
 func load_equipment_resource(path: String) -> Equipment:
@@ -57,6 +59,13 @@ func fill_equip_lists():
 
 func shop_mode_on():
 	shop_mode = true
+	sell_mode = false
+
+func sell_mode_on():
+	sell_mode = true
+	shop_mode = false
+	if this_equip != null:
+		set_description_and_tooltip()
 
 func wipe_equipment():
 	my_equipment = []
@@ -83,6 +92,15 @@ func equipment_bought(e) -> bool:
 		my_equipment.append(e)
 	return true
 
+func get_sell_value(equipment_to_sell: Equipment) -> int:
+	return max(1, int(ceil(equipment_to_sell.cost * 0.5)))
+
+func equipment_sold(equipment_to_sell: Equipment) -> bool:
+	if !my_equipment.has(equipment_to_sell):
+		return false
+	my_equipment.erase(equipment_to_sell)
+	return true
+
 func get_my_equipment():
 	return my_equipment
 
@@ -97,6 +115,8 @@ func set_description_and_tooltip():
 	#sets text to description
 	var text = "[b]" + this_equip.get_display_name() + "[/b]" + "\n"
 	text += this_equip.description
+	if sell_mode:
+		text += "\n[color=1ac200]Sell: $" + str(get_sell_value(this_equip)) + "[/color]"
 	#highlight keywords
 	text = text.replacen("Sweet", "[color=d900d9]Sweet[/color]")
 	text = text.replacen("Spicy", "[color=c85c00]Spicy[/color]")
@@ -105,7 +125,10 @@ func set_description_and_tooltip():
 	text = text.replacen("Savory", "[color=0006a6]Savory[/color]")
 	text = text.replacen("Energy", "[color=ffd900]Energy[/color]")
 	tooltiptext.text = text 
-	change_pricetag_scale(0.2)
+	if sell_mode:
+		change_pricetag_scale(0.2, get_sell_value(this_equip))
+	else:
+		change_pricetag_scale(0.2)
 
 func generate_random_equipment():
 	var rarity = randi_range(0, 100)
@@ -120,6 +143,20 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if get_node("/root/Game/RemoveCardMenu").is_open():
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if sell_mode:
+			if this_equip.sold:
+				await this_equip.on_sold()
+			if !equipment_sold(this_equip):
+				return
+			Score.add_money(get_sell_value(this_equip))
+			var drawer = get_node_or_null("/root/Game/drawer")
+			if drawer:
+				drawer.sort_equipments()
+			var round_buttons = get_node_or_null("/root/Game/Round_buttons")
+			if round_buttons and round_buttons.has_method("refresh_sell_equipment"):
+				round_buttons.refresh_sell_equipment()
+			queue_free()
+			return
 		if shop_mode and Score.money >= this_equip.cost and can_buy_more_equipment(this_equip):
 			var s = get_tree().current_scene.get_child(13, true)
 			this_equip.index = index
@@ -129,6 +166,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			elif this_equip.bought:
 				await this_equip.on_bought(s)
 			Score.add_money(this_equip.cost * -1)
+			var round_buttons = get_node_or_null("/root/Game/Round_buttons")
+			if round_buttons and round_buttons.has_method("remove_shop_equipment"):
+				round_buttons.remove_shop_equipment(this_equip)
 			queue_free()
 
 func _on_area_2d_mouse_entered() -> void:
@@ -150,8 +190,15 @@ func set_text(textu):
 func change_scale(n):
 	$equipment_mini.scale = Vector2(n, n)
 	
-func change_pricetag_scale(n):
+func change_pricetag_scale(n, shown_price = null):
 	var pricetag = $price_circle
-	pricetag.set_price(this_equip.cost,false)
+	if shown_price == null:
+		shown_price = this_equip.cost
+	pricetag.set_price(shown_price,false)
 	$price_circle.scale = Vector2(n,n)
 	$price_circle.position = Vector2(159,31) # i dont fucking know man
+
+func tooltip_scale(amount, loc1, loc2):
+	$info_sprite.scale = Vector2(amount, amount)
+	$info_sprite.x = loc1
+	$info_sprite.y = loc2

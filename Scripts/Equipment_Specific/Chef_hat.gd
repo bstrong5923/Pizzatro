@@ -1,5 +1,5 @@
 extends Equipment
-class_name chef_Hat
+class_name Chef_Hat
 
 var multiplier = 1.5
 var inc = 0.5
