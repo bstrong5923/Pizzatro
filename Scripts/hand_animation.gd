@@ -21,6 +21,11 @@ func _process(delta: float) -> void:
 			# scatter the mini ingredients
 			var minis = get_node("/root/Game/pie/minis")
 			minis.scatter(ingredient)
+			
+			if ingredient.name == "Watermelon" or ingredient.name == "Durian":
+				var camera = get_node_or_null("/root/Game/Camera2D")
+				if camera:
+					camera.shake_heavy()
 			step = 3
 	elif step == 3:
 		position.y -= scale.x

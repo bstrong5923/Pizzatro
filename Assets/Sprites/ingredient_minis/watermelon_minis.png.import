@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4pwibtlyglo"
-path="res://.godot/imported/watermelon.png-d737530d2df919b75750aec03ab45247.ctex"
+uid="uid://whjoovdjymfn"
+path="res://.godot/imported/watermelon_minis.png-b4901a3f3b62a92028ebfcca51a19670.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/card_comps/big_ingredients/watermelon.png"
-dest_files=["res://.godot/imported/watermelon.png-d737530d2df919b75750aec03ab45247.ctex"]
+source_file="res://Assets/Sprites/ingredient_minis/watermelon_minis.png"
+dest_files=["res://.godot/imported/watermelon_minis.png-b4901a3f3b62a92028ebfcca51a19670.ctex"]
 
 [params]
 
